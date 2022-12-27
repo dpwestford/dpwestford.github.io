@@ -1,0 +1,547 @@
+Option Compare Database
+Option Explicit
+
+
+
+Public Sub Change_Color()
+
+Dim lng_Color As Long
+
+Dim int_red, int_green, int_blue As Integer
+
+If IsNull(Me!txt_Red.Value) Then
+    int_red = 0
+End If
+
+If IsNull(Me!txt_Green.Value) Then
+    int_green = 0
+End If
+
+If IsNull(Me!txt_Blue.Value) Then
+    int_blue = 0
+End If
+
+If Me!txt_Red.Value < 0 Then
+    int_red = 0
+    Me!txt_Red.Value = 0
+End If
+
+If Me!txt_Green.Value < 0 Then
+    int_green = 0
+    Me!txt_Green.Value = 0
+End If
+
+If Me!txt_Blue.Value < 0 Then
+    int_blue = 0
+    Me!txt_Blue.Value = 0
+End If
+
+If Me!txt_Red.Value > 255 Then
+    int_red = 255
+    Me!txt_Red.Value = 255
+End If
+
+If Me!txt_Green.Value > 255 Then
+    int_green = 255
+    Me!txt_Green.Value = 255
+End If
+
+If Me!txt_Blue.Value > 255 Then
+    int_blue = 255
+    Me!txt_Blue.Value = 255
+End If
+
+int_red = Me!txt_Red.Value
+int_green = Me!txt_Green.Value
+int_blue = Me!txt_Blue
+
+lng_Color = RGB(int_red, int_green, int_blue)
+
+Me!box_Color.BackColor = lng_Color
+
+
+End Sub
+
+
+
+Private Sub btn_Create_Page_Click()
+
+On Error Resume Next
+
+If Me.Dirty Then
+
+  Me.Dirty = False
+
+End If
+
+If Me!frm_Images.Dirty Then
+    Me!frm_Images.Dirty = False
+End If
+
+PrintHTML
+
+End Sub
+
+'--------------------------------------------------------------------------------------------
+'--------------------------------------------------------------------------------------------
+ '
+ '  CREATE HTML PAGE
+ '
+'--------------------------------------------------------------------------------------------
+
+ Private Sub PrintHTML()
+ 
+ On Error GoTo ErrorHandler
+ 
+ DoCmd.Hourglass (True)
+ 
+ 'OPEN HTML FILE FOR OUTPUT
+ Close #3
+ Open "F:\\WORKING\\working_file001.html" For Output As #3
+
+' DATABASE VARIABLES
+Dim dbsCreateArtHTML As DAO.Database
+Dim rstImages As DAO.Recordset
+Dim rstSettings As DAO.Recordset
+Dim strSQL As String
+ 
+ ' STATIC SETTINGS
+
+ Dim str_HTML_file_name As String      'txt_HTML_File_Name db file_name GetFileName
+ Dim str_percent_or_px As String       'cmb_Units db column_units GetPercentOrPx
+ Dim b_show_Imperial As Boolean        'chk_Imperial db Show_Imperial GetIfImperial
+ Dim b_show_Metric As Boolean          'chk_Metric db Show_Metric GetIfMetric
+ 
+ Dim str_page_description As String    'x db Page GetPageDescription x Not in UI
+ Dim str_tab As String                 'txt_Tab db Tab GetTab
+ Dim str_heading As String             'txt_Heading db Heading "Sandra Broom Westford"  GetHeading
+ Dim str_other_setting As String       'txt_Other db Other_Setting GetOtherSetting
+ Dim int_red As Integer                'txt_Red db Red GetRed
+ Dim int_green As Integer              'txt_Green db Green GetGreen
+ Dim int_blue As Integer               'txt_Blue db Blue GetBlue
+ Dim str_color As String
+
+ Dim str_folder As String              'txt_Folder db Folder GetFolder
+ Dim int_left_column_size As Integer   'txt_Left db Left_Width GetLeftColumnSize
+ Dim int_right_column_size As Integer  'txt_Right db Right_Width GetRightColumnSize
+ Dim str_left_column_size As String    'See int variable
+ Dim str_right_column_size As String   'See int variable
+ 
+ ' IMAGE IMAGES
+ Dim b_included As Boolean             'chk_Included db Included GetIfIncluded
+ Dim str_name_of_piece                 'txt_Title db Title GetNameOfPiece
+ Dim str_description                   'txt_Description db Description GetDescription
+ Dim str_media As String               'txt_Media db Media GetMedia
+ Dim dbl_price As Double
+ Dim str_price As String               'txt_Price db Price GetPrice
+ Dim str_height_cm As String           'txt_Height_cm db Height_cm GetHeightCM
+ Dim sng_height_cm As Single
+ Dim str_width_cm  As String           'txt_Width_cm db Width_cm GetWidthCM
+ Dim sng_width_cm As Single
+ Dim str_depth_cm As String            'txt_Depth_cm db Depth_cm GetDepthCM
+ Dim sng_depth_cm As Single
+ Dim str_weight_kg As String           'txt_Weight_kg db Weight_kg GetWeightKG
+ Dim sng_weight_kg As Single
+ Dim str_height_in As String           'txt_Height_in db Height_in GetHeightIN
+ Dim sng_height_in As Single
+ Dim str_width_in As String            'txt_Width_in db Width_in GetWidthIN
+ Dim sng_width_in As Single
+ Dim str_depth_in As String            'txt_Depth_in db Depth_in GetDepthIN
+ Dim sng_depth_in As Single
+ Dim str_weight_lbs As String          'txt_Weight_lbs db Weight_lbs GetWeightLBS
+ Dim sng_weight_lbs As Single
+ Dim str_weight_ounces As String       'txt_Weight_ounces db Weight_ounces GetWeightOunces
+ Dim sng_weight_ounces As Single
+ Dim str_year_created As String        'txt_Year_Created db Year_Created GetYearCreated
+ Dim str_file_name As String           'txt_HTML_File_Name db file_name GetFileName
+ Dim int_height_in_pixels As Integer   'txt_height_pixels db height_pixels GetHeightInPixels
+ Dim int_width_in_pixels As Integer    'txt_width_pixels db width_pixels GetWidthInPixels
+ Dim sng_priority As Single            'txt_Priority db Priority GetPriority
+ Dim str_dimensions As String
+ Dim lng_image_id As Long
+ Dim str_image_id As String
+
+   Set dbsCreateArtHTML = CurrentDb
+   
+   strSQL = "SELECT tbl_Settings.* FROM tbl_Settings;"
+   
+   Set rstSettings = dbsCreateArtHTML.OpenRecordset(strSQL, dbOpenDynaset)
+ 
+   ' If the recordset is empty, exit.
+   If rstSettings.EOF Then Exit Sub
+ 
+   rstSettings.MoveFirst
+        If IsNull(rstSettings![HTML_File_Name].Value) Then
+            str_HTML_file_name = ""
+        Else
+            str_HTML_file_name = rstSettings![HTML_File_Name].Value        'txt_HTML_File_Name db HTML_File_Name GetFileName
+        End If
+        If IsNull(rstSettings![column_units].Value) Then
+            str_percent_or_px = "%"
+        Else
+            str_percent_or_px = rstSettings![column_units].Value      'cmb_Units db column_units GetPercentOrPx
+        End If
+        If IsNull(rstSettings![Show_Imperial].Value) Then
+            b_show_Imperial = False
+        Else
+            b_show_Imperial = rstSettings![Show_Imperial].Value       'chk_Imperial db Show_Imperial GetIfImperial
+        End If
+        If IsNull(rstSettings![Show_Metric].Value) Then
+            b_show_Metric = False
+        Else
+            b_show_Metric = rstSettings![Show_Metric].Value           'chk_Metric db Show_Metric GetIfMetric
+        End If
+        If IsNull(rstSettings![Page].Value) Then
+            str_page_description = ""
+        Else
+            str_page_description = rstSettings![Page].Value        'x db Page GetPageDescription x Not in UI
+        End If
+        If IsNull(rstSettings![Tab].Value) Then
+            str_tab = "Art"
+        Else
+            str_tab = rstSettings![Tab].Value                      'txt_Tab db Tab GetTab
+        End If
+        If IsNull(rstSettings![Heading].Value) Then
+            str_heading = ""
+        Else
+            str_heading = rstSettings![Heading].Value              'txt_Heading db Heading "Sandra Broom Westford"  GetHeading
+        End If
+        If IsNull(rstSettings![Other_Setting].Value) Then
+            str_other_setting = ""
+        Else
+            str_other_setting = rstSettings![Other_Setting].Value  'txt_Other db Other_Setting GetOtherSetting
+        End If
+        If IsNull(rstSettings![Red].Value) Then
+            int_red = 100
+        Else
+            int_red = rstSettings![Red].Value                      'txt_Red db Red GetRed
+        End If
+        If IsNull(rstSettings![Green].Value) Then
+            int_green = 100
+        Else
+            int_green = rstSettings![Green].Value                  'txt_Green db Green GetGreen
+        End If
+        If IsNull(rstSettings![Blue].Value) Then
+            int_blue = 100
+        Else
+            int_blue = rstSettings![Blue].Value                    'txt_Blue db Blue GetBlue
+        End If
+        
+        str_color = "rgb(" + CStr(int_red) + "," + CStr(int_green) + "," + CStr(int_blue) + ")"
+        If IsNull(rstSettings![Folder].Value) Then
+            str_folder = ""
+        Else
+            str_folder = rstSettings![Folder].Value                 'txt_Folder db Folder GetFolder
+        End If
+        If IsNull(rstSettings![Left_Width].Value) Then
+            int_left_column_size = 72
+        Else
+            int_left_column_size = rstSettings![Left_Width].Value    'txt_Left db Left_Width GetLeftColumnSize
+        End If
+        If IsNull(rstSettings![Right_Width].Value) Then
+            int_right_column_size = 27
+        Else
+            int_right_column_size = rstSettings![Right_Width].Value  'txt_Right db Right_Width GetRightColumnSize
+        End If
+        str_left_column_size = CStr(int_left_column_size)
+        str_right_column_size = CStr(int_right_column_size)
+        
+        
+        'Open "F:\\WORKING\\working_file001.html" For Output As #3
+        Close #3
+        Open str_folder + str_HTML_file_name For Output As #3
+        
+        Print #3, "<!DOCTYPE html>"
+        Print #3, "<html lang=""en"">"
+        Print #3, "<head>"
+        Print #3, "<meta name=""viewport"" content=""width=device-width, initial-scale=1"">"
+
+        
+
+        str_dimensions = "3 x 4 x 1"
+        Print #3, "<title>" + str_tab + "</title>"
+        Print #3, "<style>"
+        Print #3, "* {"
+        Print #3, "  box-sizing: border-box;"
+        Print #3, "}"
+        Print #3, ""
+        Print #3, "/* Create two unequal columns that floats next to each other */"
+        Print #3, ".column {"
+        Print #3, "  float: left;"
+        Print #3, "  padding: 10px;"
+        Print #3, "}"
+        Print #3, ""
+        Print #3, ".left {"
+        Print #3, "  width: " + str_left_column_size + str_percent_or_px + ";"
+        Print #3, "}"
+        Print #3, ""
+        Print #3, ".right {"
+        Print #3, "  width: " + str_right_column_size + str_percent_or_px + ";"
+        Print #3, "}"
+        Print #3, ""
+        Print #3, "/* Clear floats after the columns */"
+        Print #3, ".row:after {"
+        Print #3, "  content: """";"
+        Print #3, "  display: table;"
+        Print #3, "  clear: both;"
+        Print #3, "}"
+        Print #3, ""
+        Print #3, "</style>"
+        Print #3, "</head>"
+        Print #3, "<body style=""background-color:" + str_color + ";"">"
+
+
+   strSQL = "SELECT tbl_Images.* FROM tbl_Images WHERE tbl_Images.Included = True ORDER BY tbl_Images.Priority;"
+   
+   Set rstImages = dbsCreateArtHTML.OpenRecordset(strSQL, dbOpenDynaset)
+ 
+   ' If the recordset is empty, exit.
+   If rstImages.EOF Then Exit Sub
+ 
+   rstImages.MoveFirst
+   Do Until rstImages.EOF
+       
+        ' IMAGE IMAGES
+        If IsNull(rstImages![Included].Value) Then
+            b_included = False
+        Else
+            b_included = rstImages![Included].Value           'chk_Included db Included GetIfIncluded
+        End If
+        If IsNull(rstImages![Title].Value) Then
+            str_name_of_piece = ""
+        Else
+            str_name_of_piece = rstImages![Title].Value                  'txt_Title db Title GetNameOfPiece
+        End If
+        If IsNull(rstImages![Description].Value) Then
+            str_description = ""
+        Else
+            str_description = rstImages![Description].Value                    'txt_Description db Description GetDescription
+        End If
+        If IsNull(rstImages![Media].Value) Then
+            str_media = ""
+        Else
+            str_media = rstImages![Media].Value               'txt_Media db Media GetMedia
+        End If
+        If IsNull(rstImages![Price].Value) Then
+            dbl_price = 0
+            str_price = ""
+        Else
+            dbl_price = rstImages![Price].Value
+            If 0 = dbl_price Then
+                str_price = ""
+            Else
+                str_price = Format(dbl_price, "$###,###")               'txt_Price db Price GetPrice
+            End If
+        End If
+
+        If IsNull(rstImages![Height_cm].Value) Then
+            str_height_cm = ""
+            sng_height_cm = 0
+        Else
+            sng_height_cm = rstImages![Height_cm].Value           'txt_Height_cm db Height_cm GetHeightCM
+            str_height_cm = Format(sng_height_cm, "######")
+        End If
+        If IsNull(rstImages![Width_cm].Value) Then
+            str_width_cm = ""
+            sng_width_cm = 0
+        Else
+            sng_width_cm = rstImages![Width_cm].Value            'txt_Width_cm db Width_cm GetWidthCM
+            str_width_cm = Format(sng_width_cm, "######")
+        End If
+        If IsNull(rstImages![Depth_cm].Value) Then
+            str_depth_cm = ""
+            sng_depth_cm = 0
+        Else
+            sng_depth_cm = rstImages![Depth_cm].Value           'txt_Depth_cm db Depth_cm GetDepthCM
+            str_depth_cm = Format(sng_depth_cm, "#####.0")
+        End If
+        If IsNull(rstImages![Weight_kg].Value) Then
+            sng_weight_kg = 0
+            str_weight_kg = ""
+        Else
+            sng_weight_kg = rstImages![Weight_kg].Value
+            str_weight_kg = Format(sng_weight_kg, "####.0")          'txt_Weight_kg db Weight_kg GetWeightKG
+        End If
+        If IsNull(rstImages![Height_in].Value) Then
+            str_height_in = ""
+            sng_height_in = 0
+        Else
+            sng_height_in = rstImages![Height_in].Value           'txt_Height_in db Height_in GetHeightIN
+            str_height_in = Format(sng_height_in, "#####")
+        End If
+        If IsNull(rstImages![Width_in].Value) Then
+            str_width_in = ""
+            sng_width_in = 0
+        Else
+            sng_width_in = rstImages![Width_in].Value           'txt_Width_in db Width_in GetWidthIN
+            str_width_in = Format(sng_width_in, "#####")
+        End If
+        If IsNull(rstImages![Depth_in].Value) Then
+            str_depth_in = ""
+            sng_depth_in = 0
+        Else
+            sng_depth_in = rstImages![Depth_in].Value           'txt_Depth_in db Depth_in GetDepthIN
+            str_depth_in = Format(sng_depth_in, "####.0")
+        End If
+        If IsNull(rstImages![Weight_lbs].Value) Then
+            sng_weight_lbs = 0
+            str_weight_lbs = ""
+        Else
+            sng_weight_lbs = rstImages![Weight_lbs].Value          'txt_Weight_lbs db Weight_lbs GetWeightLBS
+            str_weight_lbs = Format(sng_weight_lbs, "####")
+        End If
+        If IsNull(rstImages![Weight_ounces].Value) Then
+            str_weight_ounces = ""
+        Else
+            sng_weight_ounces = rstImages![Weight_ounces].Value
+            str_weight_ounces = Format(sng_weight_ounces, "####")    'txt_Weight_ounces db Weight_ounces GetWeightOunces
+        End If
+        If IsNull(rstImages![Year_Created].Value) Then
+            str_year_created = ""
+        Else
+            str_year_created = rstImages![Year_Created].Value         'txt_Year_Created db Year_Created GetYearCreated
+        End If
+        If IsNull(rstImages![file_name].Value) Then
+            str_file_name = ""
+        Else
+            str_file_name = rstImages![file_name].Value           'txt_HTML_File_Name db file_name GetFileName
+        End If
+        If IsNull(rstImages![height_pixels].Value) Then
+            int_height_in_pixels = 0
+        Else
+            int_height_in_pixels = rstImages![height_pixels].Value    'txt_height_pixels db height_pixels GetHeightInPixels
+        End If
+        If IsNull(rstImages![width_pixels].Value) Then
+            int_width_in_pixels = 0
+        Else
+            int_width_in_pixels = rstImages![width_pixels].Value     'txt_width_pixels db width_pixels GetWidthInPixels
+        End If
+        If IsNull(rstImages![Priority].Value) Then
+            sng_priority = 0
+        Else
+            sng_priority = rstImages![Priority].Value             'txt_Priority db Priority GetPriority
+        End If
+        If IsNull(rstImages![Image_ID].Value) Then
+            lng_image_id = 0
+        Else
+            lng_image_id = rstImages![Image_ID].Value
+        End If
+        str_image_id = "A" + Format(lng_image_id, "000000")
+             
+        'str_dimensions = "x"
+        
+        
+        If b_included And lng_image_id > 0 Then
+
+        Print #3, ""
+        Print #3, "  <div class=""column left"" style=""background-color:" + str_color + ";"">"
+        Print #3, " <img id=""" + str_image_id + """ src=""" + str_file_name + """ alt=""" + str_name_of_piece + """ width=100%>"
+        Print #3, "  </div>"
+        Print #3, "  <div class=""column right"" style=""background-color:" + str_color + ";"" width=100%>"
+        Print #3, "     <details>"
+        Print #3, "     <summary> <strong>" + str_name_of_piece + "</strong>"
+        Print #3, "     <br>"
+        Print #3, "     <br>"
+        Print #3, "     </summary>"
+        
+        If Len(str_description) > 0 Then
+            Print #3, "Description: " + str_description + "<br><br>"
+        End If
+        
+        If Len(str_media) > 0 Then
+             Print #3, "Media:       " + str_media + "<br><br>"
+        End If
+            
+        If Len(str_price) > 0 And "0" <> str_price Then
+             Print #3, "Price:       " + str_price + "<br><br>"
+        End If
+        
+        If b_show_Imperial And sng_height_in > 0 And sng_width_in > 0 Then
+            str_dimensions = str_height_in + " x " + str_width_in
+            If sng_depth_in > 0 Then
+                str_dimensions = str_dimensions + " x " + str_depth_in
+            End If
+            Print #3, "Dimensions:  " + str_dimensions + " in" + "<br><br>"
+        End If
+        
+        If b_show_Metric And sng_height_cm > 0 And sng_width_cm > 0 Then
+            str_dimensions = str_height_cm + " x " + str_width_cm
+            If sng_depth_cm > 0 Then
+                str_dimensions = str_dimensions + " x " + str_depth_cm
+            End If
+            Print #3, "Dimensions:  " + str_dimensions + " cm " + "<br><br>"
+        End If
+        
+        If b_show_Imperial Then
+        
+            If sng_weight_ounces > 0 And sng_weight_lbs > 0 Then
+                Print #3, "Weight:      " + str_weight_lbs + " lbs " + str_weight_ounces + " ounces<br><br>"
+            ElseIf sng_weight_lbs > 0 Then
+                Print #3, "Weight:      " + str_weight_lbs + " lbs<br><br>"
+            ElseIf sng_weight_ounces > 0 And Len(str_weight_ounces) > 0 Then
+                Print #3, "Weight:      " + str_weight_ounces + " ounces<br><br>"
+            End If
+        End If
+        
+
+        
+        If b_show_Metric And sng_weight_kg > 0 Then
+                Print #3, "Weight(kg):      " + str_weight_kg + "<br><br>"
+        End If
+        
+        If Len(str_year_created) > 0 Then
+            Print #3, "Year:            " + str_year_created + "<br><br>"
+        End If
+        
+        Print #3, "     </details>"
+        Print #3, "  </div>"
+        Print #3, ""
+        End If
+
+       rstImages.MoveNext
+   Loop
+
+
+Print #3, "</body>"
+Print #3, "</html>"
+
+EndOFSub:
+
+    DoCmd.Hourglass (False)
+
+    Close #3
+    rstSettings.Close
+    Set rstSettings = Nothing
+    rstImages.Close
+    Set rstImages = Nothing
+    dbsCreateArtHTML.Close
+    Set dbsCreateArtHTML = Nothing
+
+Exit Sub
+ 
+ErrorHandler:
+   MsgBox "Error #: " & Err.Number & vbCrLf & vbCrLf & Err.Description
+   
+   GoTo EndOFSub
+
+End Sub
+
+Private Sub Form_Load()
+    Change_Color
+End Sub
+
+Private Sub txt_Red_LostFocus()
+    Change_Color
+    DoCmd.Save acForm, "frm_HTML"
+End Sub
+
+Private Sub txt_Green_LostFocus()
+    Change_Color
+    DoCmd.Save acForm, "frm_HTML"
+End Sub
+
+Private Sub txt_Blue_LostFocus()
+    Change_Color
+    DoCmd.Save acForm, "frm_HTML"
+End Sub
+
