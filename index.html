@@ -1,174 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sandra</title>
-<style>
-* {
-  box-sizing: border-box;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Window Dimensions</title>
+	<style type="text/css">
 
-/* Create two unequal columns that floats next to each other */
-.column {
-  float: left;
-  padding: 10px;
-}
+    div#Blowup{
+        display: none;
+    }
+    div#Originals{
+        display: none;
+    }
+    div#Books {
+        display: none;
+    }
+    div#Resume{
+        display: none;
+    }
+     .image1 {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
 
-.left {
-  width: 72%;
-}
+      .center {
+        margin-left: auto;
+        margin-right: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:100
+      }
 
-.right {
-  width: 26%;
-}
+      table{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 70%;
+      }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+      .exhibits{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 70%;
+      }
 
-</style>
+      .center2 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:100;
+      }
+      .center3 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:100;
+      }
+    </style>
+
+    <script>
+        var windwoHeight;
+        var windowWidth;
+        // Get_Window_Size();
+        const myPict = document.getElementById("tantricstudy1");
+        window.addEventListener("resize", Get_Window_Size);
+        function Get_Window_Size(event){
+
+            windowWidth = window.innerWidth;
+            //alert(windowWidth);
+            windowHeight = window.innerHeight;
+            //alert(windowHeight);              
+            var HorizontalMargin = 35;
+            var BottomMargin = 35;
+            var HorizontalSpace = 0;
+            var VerticalSpace = 0;
+            var factor = 1;
+            var img = document.getElementById('tantricstudy1');
+            var height = img.clientHeight;
+            //alert(height);
+            var width = img.clientWidth;
+            //alert(width);
+
+            const rect = img.getBoundingClientRect();
+            if (windowWidth > 400 && windowHeight > 400) {
+                const x = rect.x; // Distance from the left edge of the viewport
+                const y = rect.y; // Distance from the top edge of the viewport
+                //alert("x = " + x);
+                //alert("y = " + y);
+
+                HorizontalSpace = 2*x - 2*HorizontalMargin;
+                //alert(HorizontalSpace);
+                VerticalSpace = windowHeight - y + height - BottomMargin;
+                //alert(VerticalSpace);
+
+                var space_available_horizontal = windowWidth - 2 * HorizontalMargin;
+                //alert(space_available_horizontal);
+                var space_available_vertical = windowHeight - y  - BottomMargin;
+                //alert(space_available_vertical);
+                var multiple_horizontal = ( space_available_horizontal / width );
+                //alert(multiple_horizontal);
+                var multiple_vertical = ( space_available_vertical / height );
+                //alert();
+                if(multiple_horizontal < multiple_vertical){
+                    factor = multiple_horizontal;
+                }
+                else{
+                    factor =  multiple_vertical; 
+                }
+                //alert("2");
+            //alert(factor);
+            //alert(height);
+            //alert(width);
+
+            img.style.height = factor*height+ "px"; // "830px";
+            // alert(factor*height + "px");
+            img.style.width = factor*width + "px";  // "830px";
+            // alert(img.style.width = factor*wideth + "px")
+            }
+        };
+
+        function hideDiv(divID) {
+            //alert("hide divID = " + divID);
+            document.getElementById(divID).style.display = "none";
+            //alert("hide divID = " + divID);
+        }
+        function showDiv(divID){
+            //alert("show divID = " + divID);            
+            document.getElementById(divID).style.display = "block";
+            //alert("show divID = " + divID);
+        }
+        function Show(divID){
+            if("Home" == divID){
+                //alert("Home");
+                hideDiv("Blowup");
+                hideDiv("Originals");
+                hideDiv("Books");
+                hideDiv("Resume");
+                showDiv("Home");
+                //alert("Home");
+            }
+            else if("Originals" == divID){
+                //alert("Originals");
+                hideDiv("Blowup");
+                hideDiv("Home");
+                hideDiv("Books");
+                hideDiv("Resume");
+                showDiv("Originals");
+                //alert("Originals");
+            }
+            else if("Books" == divID){
+                //alert("Books");
+                hideDiv("Blowup");
+                hideDiv("Originals");
+                hideDiv("Home");
+                hideDiv("Resume");
+                showDiv("Books");
+                //alert("Books");
+            }
+            else if("Resume" == divID){
+                //alert("Resume");
+                hideDiv("Blowup");
+                hideDiv("Originals");
+                hideDiv("Books");
+                hideDiv("Home");
+                showDiv("Resume");
+                //alert("Resume");
+            }
+            else if("Blowup" == divID.slice(0,6)){
+                console.log(divID);
+                hideDiv("Originals");
+                hideDiv("Books");
+                hideDiv("Home");
+                hideDiv("Resume");
+                // console.log("All hidden");
+                var str = divID.split(',')
+                // console.log("It is split");
+                var blowup_Div_text_id = "Blowup";
+                // console.log(blowup_Div_text_id);
+                var blowupDiv = document.getElementById(blowup_Div_text_id);
+                var src_file="tantricstudy1.jpg";
+                var ratio = 1.0;
+                console.log(src_file);
+                if (str.length > 1){
+                    src_file = str[1].trim();
+                }
+                else{
+                    console.log("error: str array less than two.");
+                }
+                
+                console.log(src_file);
+                var HorMargin = 35.0;
+                console.log(HorMargin);
+                var BotMargin = 55.0;
+                console.log(BotMargin);
+                var fctr = 1.0;
+                console.log(fctr);
+                var winWidth = window.innerWidth - 2*HorMargin;
+                console.log(winWidth);
+                const menu = document.getElementById('menu_bar');
+                const src_element = document.getElementById('bp');
+                var rect = menu.getBoundingClientRect();
+                console.log("window.innerHeight = " + window.innerHeight);
+                console.log("rect.top = " + rect.top);
+                console.log("BotMargin = " + BotMargin);
+                console.log("Found rect for division");
+                var winHeight = window.innerHeight - rect.top - BotMargin;
+                console.log(winHeight);
+                console.log("window.innerWidth = " + window.innerWidth);
+
+                console.log("BotMargin*2 = " + 2* BotMargin);
+                console.log("Found rect for division");
+                var winWidth =  window.innerWidth - HorMargin * 2;
+                console.log(winWidth);
+
+                var fctr = parseFloat(winHeight)/parseFloat(winWidth);
+                console.log("fctr = " + fctr);
+  
+
+                console.log("Found src_element bp");
+                console.log("src_file = '" + src_file + "'")
+                src_element.src = src_file;
+                var mysrc = src_element.src;
+                console.log(mysrc);
+                console.log("Set src");
+                var wdth= src_element.naturalWidth;
+                console.log("Natural width = " + wdth.toString());
+                var hght= src_element.naturalHeight;
+                console.log("Natural height = " + hght.toString());
+                ratio = hght/wdth;
+                console.log("ratio = " + ratio.toString());
+                // blowupDiv.style.height = winHeight.toString() + "px";
+                console.log(winHeight);
+                console.log("Set winHeight");
+                // blowupDiv.style.width = winWidth.toString() + "px";
+                console.log(winWidth);
+                console.log("Set winWidth");
+                var units_horizontal = wdth/winWidth;
+                console.log("units_horizontal = " + units_horizontal);
+                var units_vertical = hght/winHeight;
+                console.log("units_vertical  " + units_vertical);
+                if ( units_horizontal < units_vertical){
+                    // The size is constrained by height 
+                    // multiply the units_vertical times the natural height
+                    px_height = winHeight;
+                    px_width = px_height/ratio;
+                    console.log("if px_height = " + px_height.toString());
+                    px_string_height = px_height.toString() + " px";
+                }
+                else{
+                    // The size is constrained by width
+                    // multiply the units_horizontal times the natural width
+                    px_width = winWidth;
+                    px_height = px_width*ratio;
+                    console.log("else px_width = " + px_width.toString());
+                    px_string_height = px_height.toString() + " px";
+                }
+                console.log("About to set height");
+           
+                // blowupDiv.style.height = px_width + " px";
+                console.log("src_element.style.height = px_string_height;  " + px_string_height.toString());
+                // blowupDiv.style.width = px_height + " px";
+              
+   
+                src_element.style.width = px_width.toString() + "px";
+                src_element.style.height = px_height.toString() + "px";
+                console.log("About to blowup");
+                // src_element.style.left= "auto";
+                // src_element.style.right= "auto";
+                showDiv("Blowup");
+                console.log("Just blew up");
+
+            }
+            else{
+
+            }
+        }
+    </script>  
+
 </head>
-<body style="background-color:rgb(255,255,255);">
+<body onload="Get_Window_Size()">
 
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000020" src="Westford_01.jpg" alt="What 1" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 1</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-Price:       $80,000<br><br>
-Dimensions:  25 x 10 x 1.6 in<br><br>
-Dimensions:  49 x 50 x 4.5 cm <br><br>
-Weight:      34 lbs 7 ounces<br><br>
-Weight(kg):      7.2<br><br>
-     </details>
-  </div>
+    <div>
+        <p style="text-align: center; font-family: Arial, Helvetica, sans-serif; ">Sandra Broom Westford</p>
+        <p></p>
 
+    </div>
 
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000021" src="Westford_02.jpg" alt="What 2" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 2</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-Price:       $600<br><br>
-     </details>
-  </div>
+    <div>
+        <table id="menu_bar" class="center">
+            <th width="130 px" onclick="Show('Home')">Home</th>
+            <th width="130 px" onclick="Show('Originals')">Originals</th>
+            <th width="130 px" onclick="Show('Books')">In Situ</th>
+            <th width="130 px" onclick="Show('Resume')">Exhibition History</th>
+        </table>
+    </div>
+    <p></p>
+    <div id="Home">
+        <img id="tantricstudy1" src="tantricstudy1.jpg" class="center2">
+    </div>
 
-
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000022" src="Westford_03.jpg" alt="What 3" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 3</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-     </details>
-  </div>
+    <div id="Originals">
+        <img id="inresascend2" onclick="Show('Blowup,inresascend2_mas_or.jpg')" src="inresascend2_mas_or.jpg" alt="Image inresascend2" width="160 px" height="320 px">
+        <img id="inresascend3" onclick="Show('Blowup,inresascend3_mas_or.jpg')" src="inresascend3_mas_or.jpg" alt="Image inresascend3" width="160 px" height="320 px">
+        <img id="inresupwell1" onclick="Show('Blowup,inresupwell1_mas_or.jpg')" src="inresupwell1_mas_or.jpg" alt="Image inresupwell1" width="160 px" height="320 px">
+        <img id="inresupwell2" onclick="Show('Blowup,inresupwell2_mas_or.jpg')" src="inresupwell2_mas_or.jpg" alt="Image inresupwell2" width="160 px" height="320 px">
+        <img id="inresupwell4" onclick="Show('Blowup,inresupwell4_mas_or.jpg')" src="inresupwell4_mas_or.jpg" alt="Image inresupwell4" width="160 px" height="320px">
+        <img id="inreswhisp2" onclick="Show('Blowup,inreswhisp2_mas_or.jpg')" src="inreswhisp2_mas_or.jpg" alt="Image inreswhisp2" width="160 px" height="320 px">
+        <img id="tantricstudy2" onclick="Show('Blowup,tantricstudy2_mas_or.jpg')" src="tantricstudy2_mas_or.jpg" alt="Image tantricstudy2" width="160 px" height="320 px">
+        <img id="tantricstudy3" onclick="Show('Blowup,tantricstudy3_mas_or.jpg')" src="tantricstudy3_mas_or.jpg" alt="Image tantricstudy3" width="160 px" height="320 px">
+        <img id="tantricstudy4" onclick="Show('Blowup,tantricstudy4_mas_or.jpg')" src="tantricstudy4_mas_or.jpg" alt="Image tantricstudy4" width="160 px" height="320 px">
+        <img id="studyberecon1" onclick="Show('Blowup,studyberecon1_mas_or.jpg')" src="studyberecon1_mas_or.jpg" alt="Image studyberecon1" width="160 px" height="160 px">
+        <img id="studyberecon2" onclick="Show('Blowup,studyberecon2_mas_or.jpg')" src="studyberecon2_mas_or.jpg" alt="Image studyberecon2" width="160 px" height="160 px">
+        <img id="studyberecon3" onclick="Show('Blowup,studyberecon3_mas_or.jpg')" src="studyberecon3_mas_or.jpg" alt="Image studyberecon3" width="160 px" height="160 px">
 
 
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000023" src="Westford_04.jpg" alt="What 4" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 4</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-Year:            2022<br><br>
-     </details>
-  </div>
+    </div>
+    <div id="Books"><!-- AKA in situ-->
+        <img id="P1010357" src="P1010357.jpg" alt="Image inresascend2" width="300 px" height="200 px">
+        <img id="P1010358" src="P1010358.jpg" alt="Image inresascend3" width="300 px" height="200 px">
+        <img id="P1010359" src="P1010359.jpg" alt="Image inresupwell1" width="300 px" height="200 px">
+        <img id="P1010360" src="P1010360.jpg" alt="Image inresupwell2" width="300 px" height="200 px">
+        <img id="P1010361" src="P1010361.jpg" alt="Image inresupwell4" width="300 px" height="200 px">
+        <img id="P1010362" src="P1010362.jpg" alt="Image inreswhisp2" width="300 px" height="200 px">
+        <img id="P1010363" src="P1010363.jpg" alt="Image tantricstudy2" width="300 px" height="200 px">
+        <img id="P1010364" src="P1010364.jpg" alt="Image tantricstudy3" width="300 px" height="200 px">
+        <img id="P1010357" src="P1010357.jpg" alt="Image tantricstudy4" width="300 px" height="200 px">
+        <img id="P1010365" src="P1010365.jpg" alt="Image studyberecon1" width="300 px" height="200 px">
+        <img id="Westford_09-5side" src="Westford_09-5side.jpg" alt="Image studyberecon1" width="200 px" height="200 px">
 
+    </div>
+    <div id="Resume">
+        <p class="exhibits"><b>Exhibition History</b></p>   
 
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000024" src="Westford_05.jpg" alt="What 5" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 5</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-Year:            2022<br><br>
-     </details>
-  </div>
+        <table border="0" class="exhibits" style="line-height: 150%; margin-bottom: 0in">
+        <tr>
+            <td>2023</td>
+            <td>&ensp;</td>
+            <td>Foundry Gallery, Regional Juried Show, Walla Walla WA</td>
+        </tr>
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>2016</td>
+            <td>&ensp;</td>
+            <td>Oak Hollow Gallery, ‘Home: an exploration’, Yakima WA</td>
+        </tr>
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>2015</td>
+            <td>&ensp;</td>
+            <td>Anchor Gallery, Invitational Show, ‘Field Work’, Anacortes WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Sarah Spergean Gallery, ‘Crossroads’, Ellensburg WA</td>
+        </tr>  
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Chase Gallery, juried show, Spokane WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Larson Gallery, ‘Central Wa Juried Show’, Award Winner, Yakima WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Boxx Gallery, ‘Inaugural Group Show’, Tieton WA</td>
+        </tr>   
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>2014</td>
+            <td>&ensp;</td>
+            <td>Larson Gallery, ‘Central Wa Juried Show’, Award Winner, Yakima WA</td>
+        </tr>   
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>2013</td>
+            <td>&ensp;</td>
+            <td>Gallery One, ‘Celebration of Tieton Artists’, Ellensburg WA</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>10 X 10 X 10 by Tieton juried show, Tieton WA</td>
+        </tr>   
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>2012</td>
+            <td>&ensp;</td>
+            <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
+        </tr>   
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>SAM Gallery, continued representation, Seattle WA</td>
+        </tr>  
+        <tr font-size="10px">
+            <td ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2011</td>
+            <td>&ensp;</td>
+            <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>SAM Gallery, continued representation, Seattle WA</td>
+        </tr>   
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>2010</td>
+            <td>&ensp;</td>
+            <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>SAM Gallery, continued representation, Seattle WA</td>
+        </tr>   
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>2009</td>
+            <td>&ensp;</td>
+            <td>Bainbridge Arts and Crafts, ‘Shells’, Bainbridge WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Simon Gallery, ‘Christmas Show’, Yakima WA</td>
+        </tr>  
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td> Larson Gallery, ‘Central Washington Juried Show’, Award Winner, Yakima WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Larson Gallery Studio tour in association with Leo Adams, Yakima WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>SAM Gallery, continued representation, Seattle WA</td>
+        </tr>   
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>2008</td>
+            <td>&ensp;</td>
+            <td>Bainbridge Arts and Crafts, ‘The Box’, Bainbridge WA</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>Kobo Gallery, ‘New Works’, Seattle WA</td>
+        </tr>   
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>SAM Gallery, continued representation, Seattle WA</td>
+        </tr>  
+        <tr font-size="10px">
+            <td ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2007</td>
+            <td>&ensp;</td>
+            <td>Bainbridge Arts and Crafts, ‘New Works’, Bainbridge WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Scott Milo Gallery, ‘New Works’, Anacortes WA</td>
+        </tr>  
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>SAM Gallery, continued representation, Seattle WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Kobo Gallery, ‘Small Poems’, Seattle WA</td>
+        </tr>     
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>    
+            <td>2006</td>
+            <td>&ensp;</td>
+            <td>Bainbridge Arts and Crafts, ‘New Works’, Bainbridge WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Scott Milo Gallery, ‘New Works’, Anacortes WA</td>
+        </tr>  
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Kobo Gallery, ‘New Works’, Seattle WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>Northwind Arts Center, ‘New Works’, Port Townsend WA</td>
+        </tr>   
+        <tr>
+            <td>&ensp;</td>
+            <td>&ensp;</td>
+            <td>SAM Gallery, continued representation, Seattle WA</td>
+        </tr>   
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>   
+        <tr>
+            <td>2005</td>
+            <td>&ensp;</td>
+            <td>SAM Gallery ‘Introductions’, Seattle WA</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>Kobo Gallery, ‘Zen Realism’, Seattle WA</td>
+        </tr>   
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>Scott Milo Gallery, ‘New Works’, Anacortes WA </td>
+        </tr>  
+        <tr font-size="10px">
+            <td ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2004</td>
+            <td>&ensp;</td>
+            <td>Northwind Arts Center, ‘Dwellings’, Port Townsend WA</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>Anacortes Arts Festival, juried show, Corporate Award, Anacortes WA</td>
+        </tr>   
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>Scott Milo Gallery, ‘Small Poems’, Anacortes WA</td>
+        </tr>  
+        <tr font-size="10px">
+            <td ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2003</td>
+            <td>&ensp;</td>
+            <td>Northwind Arts Center, ‘Four Award Winning Pastel Artists’, Anacortes WA</td>
+        </tr>   
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>Anacortes Arts Festival, juried show, Purchase Award, Anacortes WA</td>
+        </tr>  
+        <tr font-size="10px">
+            <td ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2002</td>
+            <td>&ensp;</td>
+            <td>Art Port Townsend, juried exhibition, Best of Show, Port Townsend WA</td>
+        </tr>   
+        <tr>
+            <td></td>
+            <td>&ensp;</td>
+            <td>Anacortes Arts Festival, juried show, Purchase Award, Anacortes WA</td>
+        </tr>  
+        <tr font-size="10px">
+            <td ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2000</td>
+            <td>&ensp;</td>
+            <td>Poncho Auction preview, juried show, Seattle WA</td>
+        </tr>
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>1999</td>
+            <td>&ensp;</td>
+            <td>Poncho Auction preview, juried show, Seattle WA</td>
+        </tr>
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>1998</td>
+            <td>&ensp;</td>
+            <td>Children’s Day at the Japanese Garden, commissioned piece, Seattle WA</td>
+        </tr>
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>1993</td>
+            <td>&ensp;</td>
+            <td>Gilmarten Gallery, ‘New Works’, Seattle WA</td>
+        </tr>
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>1992</td>
+            <td>&ensp;</td>
+            <td>Arts for the Parks, juried show, Jackson Hole Wyoming</td>
+        </tr>
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        <tr>
+            <td>1986</td>
+            <td>&ensp;</td>
+            <td>Anacortes Arts Festival, juried show, Purchase Award</td>
+        </tr>
+        <tr font-size="10px">
+            <td ></td>
+            <td"></td>
+        </tr>
+        </table>
+        <p class="exhibits"><b>Education: </b>I have studied art for many years at a number of schools including:</p>
+        <ul class="exhibits">
+            <li>Pratt Institute</li>
+            <li>The Gage Academy</li>
+            <li>The Factory of Visual Arts</li>
+            <li>The School of Visual Concepts</li>
+        </ul>
+        <p class="exhibits">I hold degrees in Biology and Psychology.</p>
 
-
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000025" src="Westford_06.jpg" alt="What 6" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 6</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-Year:            2022<br><br>
-     </details>
-  </div>
-
-
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000026" src="Westford_07.jpg" alt="What 7" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 7</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-Year:            2022<br><br>
-     </details>
-  </div>
-
-
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000027" src="Westford_08.jpg" alt="What 8" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 8</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-Year:            2022<br><br>
-     </details>
-  </div>
-
-
-  <div class="column left" style="background-color:rgb(255,255,255);">
- <img id="A000028" src="Westford_09-5side.jpg" alt="What 9 Side" width=100%>
-  </div>
-  <div class="column right" style="background-color:rgb(255,255,255);" width=100%>
-     <details>
-     <summary> <strong>What 9 Side</strong>
-     <br>
-     <br>
-     </summary>
-Media:       Mixed Media<br><br>
-Year:            2022<br><br>
-     </details>
-  </div>
+    </div>
+    <div id="Blowup">
+        <img id="bp" src="tantricstudy1.jpg" alt="Image tantricstudy1" class="center3">
+    </div>
 
 </body>
 </html>
