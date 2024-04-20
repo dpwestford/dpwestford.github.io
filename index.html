@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Sandra Broom Westford</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandra Broom Westford</title>
 	<style type="text/css">
-
     div#Blowup{
         display: none;
     }
@@ -39,7 +39,11 @@
         font-family:Arial, Helvetica, sans-serif;
         font-size: 70%;
       }
-
+      .text_centered{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 70%;
+        text-align:center;
+      }
       .exhibits{
         margin-left: auto;
         margin-right: auto;
@@ -61,21 +65,117 @@
         font-family: Arial, Helvetica, sans-serif;
         font-weight:100;
       }
+
+      /* Arrows not currently used
+      .arrow_format{
+            font-size:small;
+            text-transform: uppercase;
+            font-weight:100;
+            color:slategrey;
+            cursor: pointer;
+            z-index: 5;
+            padding: 3px; 
+            margin: 0;
+            background-color:transparent;
+            border: none;
+            color: #000000;
+            box-shadow: none;
+        }
+        .arrow_left{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 20px;
+            height: 20px;              
+        }
+        .arrow_right{
+            position: absolute;
+            top: 100px;
+            left: 400px;
+            width: 20px;
+            height: 20px;              
+        }
+    */
     </style>
 
     <script>
         var windwoHeight;
         var windowWidth;
-        // Get_Window_Size();
+        var current_div = "Home";
+        const file_names=[
+        "inresascend2_mas_or.jpg",
+        "inresascend3_mas_or.jpg",
+        "inresupwell1_mas_or.jpg",
+        "inresupwell2_mas_or.jpg",
+        "inresupwell4_mas_or.jpg",
+        "inreswhisp2_mas_or.jpg",
+        "tantricstudy2_mas_or.jpg",
+        "tantricstudy3_mas_or.jpg",
+        "tantricstudy4_mas_or.jpg",
+        "studyberecon1_mas_or.jpg",
+        "studyberecon2_mas_or.jpg",
+        "studyberecon3_mas_or.jpg",
+        "Westford_09-5side.jpg",
+        "P101.jpg"
+        ];
+        const file_descriptions=[
+        "description of inresascend2_mas_or.jpg goes here",
+        "description of inresascend3_mas_or.jpg goes here",
+        "description of inresupwell1_mas_or.jpg goes here",
+        "description of inresupwell2_mas_or.jpg goes here",
+        "description of inresupwell4_mas_or.jpg goes here",
+        "description of inreswhisp2_mas_or.jpg goes here",
+        "description of tantricstudy2_mas_or.jpg goes here",
+        "description of tantricstudy3_mas_or.jpg goes here",
+        "description of tantricstudy4_mas_or.jpg goes here",
+        "description of studyberecon1_mas_or.jpg goes here",
+        "description of studyberecon2_mas_or.jpg goes here",
+        "description of studyberecon3_mas_or.jpg goes here",
+        "description of Westford_09-5side.jpg goes here",
+        "description of P101.jpg"
+        ];
+
+
+        function return_file_description_for(file_name){
+            var file_desc = "";
+            var i = 0;
+            var item_number = 0;
+            var item_number_found = -1;
+            var continue_loop = true;
+            // console.log("About to do the while loop");
+            while (item_number < file_names.length && continue_loop)  { 
+                if (file_name.trim() == file_names[item_number].trim()){
+                    item_number_found = item_number;
+                    continue_loop = false;
+                    console.log("Found number = " + item_number_found );
+                }
+                // console.log(item_number);
+                ++item_number;
+            }
+         
+            // console.log(item_number_found);
+            file_description = file_descriptions[item_number_found];
+            // console.log("file_desc = " + item_number_found + "  " + file_description);
+
+            return file_description;
+        }
+
+
+        Get_Window_Size();
         const myPict = document.getElementById("tantricstudy1");
         window.addEventListener("resize", Get_Window_Size);
         function Get_Window_Size(event){
+            // console.log("about to test return _file_description");
+            // var return_value = return_file_description_for("inreswhisp2_mas_or.jpg");
+            // console.log("return_value = " + return_value);
+           //  alert("all done");
+           //  if adjust_arrows(px_width, px_height, rectangle_top)
 
             windowWidth = window.innerWidth;
             //alert(windowWidth);
             windowHeight = window.innerHeight;
             //alert(windowHeight);              
-            var HorizontalMargin = 35;
+            var HorizontalMargin = 55;
             var BottomMargin = 35;
             var HorizontalSpace = 0;
             var VerticalSpace = 0;
@@ -196,7 +296,7 @@
                 console.log(src_file);
                 var HorMargin = 35.0;
                 console.log(HorMargin);
-                var BotMargin = 55.0;
+                var BotMargin = 75.0;
                 console.log(BotMargin);
                 var fctr = 1.0;
                 console.log(fctr);
@@ -266,20 +366,50 @@
                 console.log("src_element.style.height = px_string_height;  " + px_string_height.toString());
                 // blowupDiv.style.width = px_height + " px";
               
-   
                 src_element.style.width = px_width.toString() + "px";
                 src_element.style.height = px_height.toString() + "px";
-                console.log("About to blowup");
-                // src_element.style.left= "auto";
-                // src_element.style.right= "auto";
+
+                console.log("src_file = " + src_file);
+
+                var description_of_piece = return_file_description_for(src_file);
+                console.log("src_file = " + description_of_piece);
+
+                const cap = document.getElementById("cptn");
+                cap.innerText  = description_of_piece;
+
                 showDiv("Blowup");
                 console.log("Just blew up");
+
 
             }
             else{
 
             }
         }
+
+        /* Arrows not currently used
+        function adjust_arrows(px_width, px_height, rectangle_top){
+            console.log(" Entered function: adjust_arrows(px_width, px_height, rect.top);");
+            console.log("About to calculate arrow position");
+            var arrow_distance_from_piece = 5;
+            var width_of_arrow = 20;
+            var height_of_arrow = 12;
+            var calculated_center = window.innerWidth/2;
+            var calculated_left_arrow = calculated_center - px_width/2 - arrow_distance_from_piece - width_of_arrow;
+            var calculated_right_arrow = calculated_center + px_width/2 + arrow_distance_from_piece;
+            var calculated_height = rectangle_top + px_height/2 - height_of_arrow/2;
+
+            var btn_left = document.getElementById("left_button");
+            var btn_right = document.getElementById("right_button");
+            
+            btn_left.style.left = calculated_left_arrow.toString() + "px";
+            btn_right.style.left = calculated_right_arrow.toString() + "px";
+            btn_left.style.top = calculated_height.toString() + "px";
+            btn_right.style.top = calculated_height.toString() + "px";   
+        }
+        */
+
+
     </script>  
 
 </head>
@@ -336,7 +466,7 @@
 
     </div>
     <div id="Resume">
-        <table border="0" class="exhibits" style="line-height: 150%; margin-bottom: 0in " >
+        <table class="exhibits" style="line-height: 150%; margin-bottom: 0in " >
         <tr>
             <td></td>
             <td></td>
@@ -721,7 +851,18 @@
     </div>
     <div id="Blowup">
         <img id="bp" src="tantricstudy1.jpg" alt="Image tantricstudy1" class="center3">
+        <p id="cptn" class="text_centered">-  -  -</p>
+
+        <!--  Arrows not currently used
+        <button id="right_button" class="arrow_format arrow_right" onclick="right_arrow"> 
+            &rarr;
+        </button>
+        <button id="left_button" class="arrow_format arrow_left" onclick="left_arrow"> 
+            &larr;
+        </button>
+        -->
     </div>
+
 
 </body>
 </html>
