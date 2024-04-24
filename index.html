@@ -66,6 +66,14 @@
         font-weight:100;
       }
 
+      @font-face {
+        font-family: 'Ink Free';
+        src: url('Inkfree.ttf') format('truetype');
+        /* Additional font properties (optional) */
+        font-weight: normal;
+        font-style: normal;
+      }
+
       /* Arrows not currently used
       .arrow_format{
             font-size:small;
@@ -416,17 +424,17 @@
 <body onload="Get_Window_Size()">
 
     <div>
-        <p style="text-align: center; font-family: Arial, Helvetica, sans-serif; ">Sandra Broom Westford</p>
+        <p style="text-align: center;font-family: 'Ink Free', sans-serif;">Sandra Broom Westford</p>
         <p></p>
 
     </div>
 
     <div>
-        <table id="menu_bar" class="center">
+        <table id="menu_bar" class="center" style="font-family: 'Ink Free', sans-serif;">
             <th width="130 px" onclick="Show('Home')">Home</th>
-            <th width="130 px" onclick="Show('Originals')">Originals</th>
-            <th width="130 px" onclick="Show('Books')">In Situ</th>
-            <th width="130 px" onclick="Show('Resume')">Exhibition History</th>
+            <th width="130 px" onclick="Show('Originals')">Works</th>
+            <th width="130 px" onclick="Show('Resume')">Exhibitions</th>
+            <th width="130 px" onclick="Show('Books')">Artist Statement</th>
         </table>
     </div>
     <p></p>
