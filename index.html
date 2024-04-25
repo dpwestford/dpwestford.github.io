@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandra Broom Westford</title>
 	<style type="text/css">
+    .title_line{
+        color:darkslategray;
+        text-align: center;
+        font-family: 'Ink Free', sans-serif;
+        font-weight:bold; font-size: 30px;
+    }
+
     div#Blowup{
         display: none;
     }
-    div#Originals{
+    div#Works{
         display: none;
     }
-    div#Books {
+    div#Artist_Statement {
         display: none;
     }
-    div#Resume{
+    div#Exhibitions{
         display: none;
     }
      .image1 {
@@ -29,11 +36,22 @@
       }
 
       .center {
-        margin-left: auto;
-        margin-right: auto;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight:100
-      }
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight:100
+        }
+        .dimension{  
+            line-height:20px; 
+        }
+        .bg {
+            background-color:darkslategray;
+            color:white;
+        }
+        .menu{
+            display: none;
+        }
+
 
       table{
         font-family:Arial, Helvetica, sans-serif;
@@ -74,36 +92,6 @@
         font-style: normal;
       }
 
-      /* Arrows not currently used
-      .arrow_format{
-            font-size:small;
-            text-transform: uppercase;
-            font-weight:100;
-            color:slategrey;
-            cursor: pointer;
-            z-index: 5;
-            padding: 3px; 
-            margin: 0;
-            background-color:transparent;
-            border: none;
-            color: #000000;
-            box-shadow: none;
-        }
-        .arrow_left{
-            position: absolute;
-            top: 100px;
-            left: 100px;
-            width: 20px;
-            height: 20px;              
-        }
-        .arrow_right{
-            position: absolute;
-            top: 100px;
-            left: 400px;
-            width: 20px;
-            height: 20px;              
-        }
-    */
     </style>
 
     <script>
@@ -143,6 +131,29 @@
         "description of P101.jpg"
         ];
 
+        Get_Window_Size();
+        const myPict = document.getElementById("second_animation_04");
+        window.addEventListener("resize", Get_Window_Size);
+
+        function hide_most_divisions(){
+            var div = document.getElementById('works_dropdown_div');
+            div.style.display = "none";
+            div = document.getElementById('CAT1');
+            div.style.display = "none";
+            div = document.getElementById('CAT2');
+            div.style.display = "none";
+            div = document.getElementById('CAT3');
+            div.style.display = "none";
+            div = document.getElementById('CAT4');
+            div.style.display = "none";
+            div = document.getElementById('CAT5');
+            div.style.display = "none";
+        }
+
+        function show_division(div_text_id){
+            var div_temp = document.getElementById(div_text_id);
+            div_temp.style.display = "block";
+        }
 
         function return_file_description_for(file_name){
             var file_desc = "";
@@ -169,16 +180,13 @@
         }
 
 
-        Get_Window_Size();
-        const myPict = document.getElementById("second_animation_04");
-        window.addEventListener("resize", Get_Window_Size);
         function Get_Window_Size(event){
             // console.log("about to test return _file_description");
             // var return_value = return_file_description_for("inreswhisp2_mas_or.jpg");
             // console.log("return_value = " + return_value);
-           //  alert("all done");
-           //  if adjust_arrows(px_width, px_height, rectangle_top)
-
+            //  alert("all done");
+            //  if adjust_arrows(px_width, px_height, rectangle_top)
+            hide_most_divisions();
             windowWidth = window.innerWidth;
             //alert(windowWidth);
             windowHeight = window.innerHeight;
@@ -243,48 +251,50 @@
             //alert("show divID = " + divID);
         }
         function Show(divID){
+
             if("Home" == divID){
-                //alert("Home");
+                hide_most_divisions();
                 hideDiv("Blowup");
-                hideDiv("Originals");
-                hideDiv("Books");
-                hideDiv("Resume");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Exhibitions");
                 showDiv("Home");
                 //alert("Home");
             }
-            else if("Originals" == divID){
-                //alert("Originals");
+            else if("Works" == divID){
+                hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Home");
-                hideDiv("Books");
-                hideDiv("Resume");
-                showDiv("Originals");
-                //alert("Originals");
+                hideDiv("Artist_Statement");
+                hideDiv("Exhibitions");
+                hideDiv("Works");
+                // showDiv("Works");
             }
-            else if("Books" == divID){
-                //alert("Books");
+            else if("Artist_Statement" == divID){
+                hide_most_divisions();
                 hideDiv("Blowup");
-                hideDiv("Originals");
+                hideDiv("Works");
                 hideDiv("Home");
-                hideDiv("Resume");
-                showDiv("Books");
-                //alert("Books");
+                hideDiv("Exhibitions");
+                showDiv("Artist_Statement");
+                //alert("Artist_Statement");
             }
-            else if("Resume" == divID){
-                //alert("Resume");
+            else if("Exhibitions" == divID){
+                hide_most_divisions();
                 hideDiv("Blowup");
-                hideDiv("Originals");
-                hideDiv("Books");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
                 hideDiv("Home");
-                showDiv("Resume");
-                //alert("Resume");
+                showDiv("Exhibitions");
+                //alert("Exhibitions");
             }
             else if("Blowup" == divID.slice(0,6)){
+                hide_most_divisions();
                 console.log(divID);
-                hideDiv("Originals");
-                hideDiv("Books");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
                 hideDiv("Home");
-                hideDiv("Resume");
+                hideDiv("Exhibitions");
                 // console.log("All hidden");
                 var str = divID.split(',')
                 // console.log("It is split");
@@ -389,60 +399,99 @@
                 console.log("Just blew up");
 
 
+            }      
+            if("Works" == divID){
+                const div = document.getElementById('works_dropdown_div');
+                if (div.style.display === 'none') {
+                    console.log('The <div> is not visible.');
+                    div.style.display = "block";
+                } else {
+                    console.log('The <div> is visible.');
+                    div.style.display = "none";
+                }
+            }
+            if("CAT1" == divID){
+                console.log("Found DIV1");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            if("CAT2" == divID){
+                console.log("Found DIV2");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            if("CAT3" == divID){
+                console.log("Found DIV3");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            if("CAT4" == divID){
+                console.log("Found DIV4");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            if("CAT5" == divID){
+                console.log("Found DIV5");
+                hide_most_divisions();
+                show_division("CAT5");
+                show_division(divID);
             }
             else{
 
             }
         }
 
-        /* Arrows not currently used
-        function adjust_arrows(px_width, px_height, rectangle_top){
-            console.log(" Entered function: adjust_arrows(px_width, px_height, rect.top);");
-            console.log("About to calculate arrow position");
-            var arrow_distance_from_piece = 5;
-            var width_of_arrow = 20;
-            var height_of_arrow = 12;
-            var calculated_center = window.innerWidth/2;
-            var calculated_left_arrow = calculated_center - px_width/2 - arrow_distance_from_piece - width_of_arrow;
-            var calculated_right_arrow = calculated_center + px_width/2 + arrow_distance_from_piece;
-            var calculated_height = rectangle_top + px_height/2 - height_of_arrow/2;
-
-            var btn_left = document.getElementById("left_button");
-            var btn_right = document.getElementById("right_button");
-            
-            btn_left.style.left = calculated_left_arrow.toString() + "px";
-            btn_right.style.left = calculated_right_arrow.toString() + "px";
-            btn_left.style.top = calculated_height.toString() + "px";
-            btn_right.style.top = calculated_height.toString() + "px";   
-        }
-        */
-
-
     </script>  
 
 </head>
 <body onload="Get_Window_Size()">
-
+    <!-- style="text-align: center;font-family: 'Ink Free', sans-serif;font-weight:bold;font-size: 30px;" -->
     <div>
-        <p style="text-align: center;font-family: 'Ink Free', sans-serif;">Sandra Broom Westford</p>
+        <p class="title_line">Sandra Broom Westford</p>
         <p></p>
 
     </div>
 
     <div>
         <table id="menu_bar" class="center" style="font-family: 'Ink Free', sans-serif;">
-            <th width="130 px" onclick="Show('Home')">Home</th>
-            <th width="130 px" onclick="Show('Originals')">Works</th>
-            <th width="130 px" onclick="Show('Resume')">Exhibitions</th>
-            <th width="130 px" onclick="Show('Books')">Artist Statement</th>
+            <th width="130 px" class="bg" onclick="Show('Home')">Home</th>
+            <th width="130 px" class="bg" onclick="Show('Works')">Works</th>
+            <th width="130 px" class="bg" onclick="Show('Exhibitions')">Exhibitions</th>
+            <th width="130 px" class="bg" onclick="Show('Artist_Statement')">Artist Statement</th>
         </table>
     </div>
+
     <p></p>
+    <div id="works_dropdown_div" class="menu">
+        <table class="center" style="font-family: 'Ink Free', sans-serif;">
+            <tr style="height:4px"></tr>
+            <tr>
+                <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT1')">cat_1</td>
+            </tr>
+            <tr style="height:4px"></tr>
+            <tr>
+                <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT2')">cat_2</td>
+            </tr>
+            <tr style="height:4px"></tr>
+            <tr>
+                <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT3')">cat_3 long description</td>
+            </tr>
+            <tr style="height:4px"></tr>
+            <tr>
+                <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT4')">cat_4</td>
+            </tr>
+            <tr style="height:4px"></tr>
+            <tr>
+                <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT5')">cat_5</td>
+            </tr>
+        </table>
+    </div>
+
     <div id="Home">
         <img id="second_animation_04" src="open01_mas_or.gif" class="center2">
     </div>
 
-    <div id="Originals">
+    <div id="Works">
         <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
         <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
         <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
@@ -491,7 +540,7 @@
         
 
     </div>
-    <div id="Books"><!-- AKA in situ-->
+    <div id="Artist_Statement"><!-- AKA in situ-->
        <!-- <img id="P1010357" src="P1010357.jpg" alt="Image P1010357" width="300 px" height="200 px">
         <img id="P1010358" src="P1010358.jpg" alt="Image P1010358" width="300 px" height="200 px">
         <img id="P1010359" src="P1010359.jpg" alt="Image P1010359" width="300 px" height="200 px">
@@ -506,7 +555,7 @@
         <img id="P101" src="P101.jpg" alt="P101" width="267 px" height="200 px">
 
     </div>
-    <div id="Resume">
+    <div id="Exhibitions">
         <table class="exhibits" style="line-height: 150%; margin-bottom: 0in " >
         <tr>
             <td></td>
@@ -902,6 +951,328 @@
             &larr;
         </button>
         -->
+    </div>
+    <div id="CAT1">
+        <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_1_sub_1</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_1_sub_2</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_1_sub_3 long description</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_1_sub_4</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_1_sub_5</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="CAT2">
+        <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
+            <tr>
+                <tr style="height:20px"></tr>
+                <tr style="height:200px">
+                <td>cat_2_sub_1</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_2_sub_2</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_2_sub_3 long description</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_2_sub_4</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+                <tr style="height:20px"></tr>
+                <tr style="height:200px">
+                    <td>cat_2_sub_5</td>
+                    <td width = 5%></td>
+                    <td width="auto">
+                        <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                        <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                        <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                        <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                        <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                    </td>
+                </tr>
+            </tr>
+        </table>
+    </div>
+    <div id="CAT3">
+        <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_3_sub_1</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_3_sub_2</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_3_sub_3 long description</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_3_sub_4</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_3_sub_5</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="CAT4">
+        <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_4_sub_1</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_4_sub_2</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_4_sub_3 long description</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_4_sub_4</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_4_sub_5</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="CAT5">
+        <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_5_sub_1</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_5_sub_2</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_5_sub_3 long description</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_5_sub_4</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+            <tr style="height:20px"></tr>
+            <tr style="height:200px">
+                <td>cat_5_sub_5</td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3_mas_or.jpg')" src="exreshidden3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
+                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
+                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
+                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
+                </td>
+            </tr>
+        </table>
     </div>
 
 
