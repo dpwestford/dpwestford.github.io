@@ -122,19 +122,11 @@
         font-family: Arial, Helvetica, sans-serif;
         font-weight:100;
       }
-/*
-      @font-face {
-       font-family: 'Ink Free';
-        src: url('Inkfree.ttf') format('truetype');
-        Additional font properties (optional) 
-        font-weight: normal;
-        font-style: normal;
-      }
-*/
+
     </style>      
     <script>	
-        var windwoHeight;
-        var windowWidth;
+        window.addEventListener("resize", resized);
+
         var current_div = "Home";
         const file_names=[
         "inresascend2_mas_or.jpg",
@@ -168,11 +160,54 @@
         "description of Westford_09-5side.jpg goes here",
         "description of P101.jpg"
         ];
-/*
-        Get_Window_Size();
-        const myPict = document.getElementById("second_animation_04");
-        window.addEventListener("resize", Get_Window_Size);
-*/
+
+        function resized(){
+            console.log("resized");
+            const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            
+            console.log("width: "+ width + " height: " + height);
+
+            // Go to the position_menu_bar
+            position_menu_bar();
+            // we want to position the home page image within the window space for id="second_animation_04"
+
+            const home_image = document.getElementById("second_animation_04");
+            var imageRatio = home_image.clientHeight/home_image.clientWidth;
+            var clientRatio = height/width;
+            var scale_factor = 1.0;
+            if (imageRatio > clientRatio){
+                scale_factor = height/home_image.clientHeight;
+            }
+            else{
+                scale_factor = width/home_image.clientWidth;
+            }
+            home_image.style['height'] = Math.round(home_image.clientHeight*scale_factor) + 'px';
+            home_image.style['width'] = Math.round(home_image.clientWidth*scale_factor) + 'px';
+
+            // home_image.style['margin'] = 0;
+            // document.body.style['margin'] = 0;
+            if (width >1202){
+               // document.body.style['margin'] = 0;
+                var mrgn =  "300px" ;
+            }
+            else{
+                var mrgn =  "0px" ;
+            }
+            var size = mrgn;
+            var series = document.getElementById("CAT1");
+            series.style.marginLeft = size;
+            series = document.getElementById("CAT2");
+            series.style.marginLeft = size;
+            series = document.getElementById("CAT3");
+            series.style.marginLeft = size;
+            series = document.getElementById("CAT4");
+            series.style.marginLeft = size;
+            series = document.getElementById("CAT5");
+            series.style.marginLeft = size;
+        }
+
+
         function hide_most_divisions(){
 
             var div = document.getElementById('CAT1');
@@ -212,11 +247,11 @@
                     continue_loop = false;
                     console.log("Found number = " + item_number_found );
                 }
-                // console.log(item_number);
+
                 ++item_number;
             }
          
-            // console.log(item_number_found);
+
             file_description = file_descriptions[item_number_found];
             // console.log("file_desc = " + item_number_found + "  " + file_description);
 
@@ -228,7 +263,7 @@
             let winwidth = window.innerWidth;
             console.log("winwidth = " + winwidth);
             let left_menu_cell_width = 2.0;
-            let name_menu_cell_width = 246;
+            let name_menu_cell_width = 260;
             let home_width = 40.0;
             let works_width = 40.0;
             let exhibition_width = 60.0;
@@ -247,70 +282,6 @@
             right_margin.width = right_margin_width + "px";
 
         }
-
-
-        function Get_Window_Size(event){
-            // console.log("about to test return _file_description");
-            // var return_value = return_file_description_for("inreswhisp2_mas_or.jpg");
-            // console.log("return_value = " + return_value);
-            //  alert("all done");
-            //  if adjust_arrows(px_width, px_height, rectangle_top)
-
-
-            hide_most_divisions();
-            windowWidth = window.innerWidth;
-            //alert(windowWidth);
-            windowHeight = window.innerHeight;
-            //alert(windowHeight);              
-            var HorizontalMargin = 55;
-            var BottomMargin = 35;
-            var HorizontalSpace = 0;
-            var VerticalSpace = 0;
-            var factor = 1;
-            // var img = document.getElementById('second_animation_04');
-            //  var height = img.clientHeight;
-            //alert(height);
-            // var width = img.clientWidth;
-            //alert(width);
-
-            /*const rect = img.getBoundingClientRect();
-            if (windowWidth > 400 && windowHeight > 400) {
-                const x = rect.x; // Distance from the left edge of the viewport
-                const y = rect.y; // Distance from the top edge of the viewport
-                //alert("x = " + x);
-                //alert("y = " + y);
-
-                HorizontalSpace = 2*x - 2*HorizontalMargin;
-                //alert(HorizontalSpace);
-                VerticalSpace = windowHeight - y + height - BottomMargin;
-                //alert(VerticalSpace);
-
-                var space_available_horizontal = windowWidth - 2 * HorizontalMargin;
-                //alert(space_available_horizontal);
-                var space_available_vertical = windowHeight - y  - BottomMargin;
-                //alert(space_available_vertical);
-                var multiple_horizontal = ( space_available_horizontal / width );
-                //alert(multiple_horizontal);
-                var multiple_vertical = ( space_available_vertical / height );
-                //alert();
-                if(multiple_horizontal < multiple_vertical){
-                    factor = multiple_horizontal;
-                }
-                else{
-                    factor =  multiple_vertical; 
-                }
-                //alert("2");
-            //alert(factor);
-            //alert(height);
-            //alert(width);
-
-            img.style.height = factor*height+ "px"; // "830px";
-            // alert(factor*height + "px");
-            img.style.width = factor*width + "px";  // "830px";
-            // alert(img.style.width = factor*wideth + "px")
-            }
-            */
-        };
 
         function hideDiv(divID) {
             //alert("hide divID = " + divID);
@@ -385,7 +356,7 @@
                 console.log(src_file);
                 var HorMargin = 35.0;
                 console.log(HorMargin);
-                var BotMargin = 75.0;
+                var BotMargin = 175.0;
                 console.log(BotMargin);
                 var fctr = 1.0;
                 console.log(fctr);
@@ -471,18 +442,7 @@
 
 
             }      
-/*
-            if("Works" == divID){
-                const div = document.getElementById('works_dropdown_div');
-                if (div.style.display === 'none') {
-                    console.log('The <div> is not visible.');
-                    div.style.display = "block";
-                } else {
-                    console.log('The <div> is visible.');
-                    div.style.display = "none";
-                }
-            }
-*/
+
             if("CAT1" == divID){
                 console.log("Found DIV1");
                 hide_most_divisions();
@@ -582,8 +542,6 @@
 
         }
 
-
-
         function MoveDropDown(){
             console.log("MoveDropDown");
             var cellElement = document.getElementById('itWorks'); 
@@ -611,38 +569,7 @@
     </script>  
 </head>
 <body onload="OnLoadCode()">
-<!--
-<body onload="Get_Window_Size()">
-<div>
-    <p class="title_line">Sandra Broom Westford</p>
-    <p></p>
 
-</div>
-
-<div>
-    <table id="menu_bar" class="center" style="font-family: 'Ink Free', sans-serif;">
-        <th width="130 px" class="bg" onclick="Show('Home')">Home</th>
-        <th width="130 px" class="bg" onclick="Show('Works')">Works</th>
-        <th width="130 px" class="bg" onclick="Show('Exhibitions')">Exhibitions</th>
-        <th width="130 px" class="bg" onclick="Show('Artist_Statement')">Artist Statement</th>
-    </table>
-</div>OnLoadCode
-
-<div>
-    <table id="menu_bar" class="solid_table" style="font-family: 'Ink Free', sans-serif;">
-        <tr  class="bg_dark" height="48px">
-            <td width="2px" ></td>
-            <td  width="256px" style="font-size:20px;" class="bg_dark">Sandra Broom Westford</td>
-            <td width="40 px" class="bg_dark" onclick="Show('Home')">Home</td>
-            <td width="40 px" class="bg_dark" onclick="Show('Works')">Works</td>
-            <td width="60 px" class="bg_dark" onclick="Show('Exhibitions')">Exhibitions</td>
-            <td width="90 px" class="bg_dark" onclick="Show('Artist_Statement')">Artist Statement</td>
-            <td width="2px" class="bg_dark" style="font-size:24px;" width="auto" ></td>
-        </tr>
-        <tr height="20px"></tr>
-    </table>
-</div>
--->
 <div>
     <table id="menu_bar" class="solid_table" class="dropdown" style="font-family: 'Ink Free', sans-serif;">
         <tr  class="bg_dark" height="48px">
@@ -658,62 +585,32 @@
     </table>
 </div>
 
-<!--
-
-<div id="works_dropdown_div" class="menu">
-    <table class="center" style="font-family: 'Ink Free', sans-serif;">
-        <tr style="height:4px"></tr>
-        <tr>
-            <td width="230 px" class="bg" style="color:white;" onclick="Show('CAT1')">cat_1</td>
-        </tr>
-        <tr style="height:4px"></tr>
-        <tr>
-            <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT2')">cat_2</td>
-        </tr>
-        <tr style="height:4px"></tr>
-        <tr>
-            <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT3')">cat_3 long description</td>
-        </tr>
-        <tr style="height:4px"></tr>
-        <tr>
-            <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT4')">cat_4</td>
-        </tr>
-        <tr style="height:4px"></tr>
-        <tr>
-            <td width="130 px" class="bg" style="color:white;" onclick="Show('CAT5')">cat_5</td>
-        </tr>
-    </table>
-</div>
-
-<div id="works_dropdown_div" class="dropdown-content">
--->
-
 <div id="works_dropdown_div" class="dropdown-content">
 
     <table id="dropdown_table" style="font-family: 'Ink Free', sans-serif;">
-        <tr style="height:4px"></tr>
+
         <tr>
-            <td width="230 px" class="bg" style="color:black;" onclick="Show('CAT1')">cat_1</td>
+            <td width="230 px" height = "20px" class="bg" style="color:black;" onclick="Show('CAT1')">cat_1</td>
         </tr>
-        <tr style="height:4px"></tr>
+
         <tr>
 
-            <td width="230 px" class="bg" style="color:black;" onclick="Show('CAT2')">cat_2</td>
+            <td width="230 px" height = "20px" class="bg" style="color:black;" onclick="Show('CAT2')">cat_2</td>
         </tr>
-        <tr style="height:4px"></tr>
+
         <tr>
 
-            <td width="230 px" class="bg" style="color:black;" onclick="Show('CAT3')">cat_3 long description</td>
+            <td width="230 px" height = "20px" class="bg" style="color:black;" onclick="Show('CAT3')">cat_3 long description</td>
         </tr>
-        <tr style="height:4px"></tr>
+
         <tr>
 
-            <td width="230 px" class="bg" style="color:black;" onclick="Show('CAT4')">cat_4</td>
+            <td width="230 px" height = "20px" class="bg" style="color:black;" onclick="Show('CAT4')">cat_4</td>
         </tr>
-        <tr style="height:4px"></tr>
+
         <tr>
 
-            <td width="230 px" class="bg" style="color:black;" onclick="Show('CAT5')">cat_5</td>
+            <td width="230 px" height = "20px" class="bg" style="color:black;" onclick="Show('CAT5')">cat_5</td>
         </tr>
         </td>
     </td>
@@ -726,7 +623,7 @@
 </div>
 
 <div id="Works">
-    <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="exreshidden3.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
+    <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
     <img id="exresopenwin1r" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
     <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
     <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
