@@ -6,6 +6,7 @@
     <title>Sandra Broom Westford</title>
 	<style type="text/css">
 
+
         .dropdown-content{
             display: none;
             position: absolute;
@@ -32,13 +33,14 @@
             position: absolute;
             top:30px;
             right: 26px;
-            color:darkslategray;
+            color:black;
             font-family:  'Ink Free', sans-serif;
             font-size:x-large;
             font-weight:bold
         }
+
         .title_line{
-        color:darkslategray;
+        color:black;
         text-align: center;
         font-family: 'Ink Free', sans-serif;
         font-weight:bold; font-size: 30px;
@@ -50,15 +52,26 @@
     div#Blowup{
         display: none;
     }
+
     div#Works{
         display: none;
     }
+
     div#Artist_Statement {
         display: none;
+        margin-left: auto;
+        margin-right: auto;
     }
+
     div#Exhibitions{
         display: none;
+        font-family: 'Ink Free', sans-serif;
+	    border-collapse: collapse;
+	    width: -10px;
+	    display:none;
+        margin-left:30%;
     }
+
      .image1 {
         position: relative;
         top: 0;
@@ -99,14 +112,29 @@
         font-family:Arial, Helvetica, sans-serif;
         font-size: 70%;
         text-align:center;
-        color:darkslategray;
+        color:black;
       }
       .exhibits{
         margin-left: auto;
-        margin-right: auto;
+        margin-right: auto;  
         font-family:Arial, Helvetica, sans-serif;
         font-size: 70%;
+        margin-left:30%;
       }
+
+      #toppings {
+	  font-family: Arial, Helvetica, sans-serif;
+	  border-collapse: collapse;
+	  width: -10px;
+	  display:inline-block;
+	}
+
+	.testtableimage{
+		display:inline-block;
+		vertical-align:top;
+		max-width: 30%;
+		max-height: 30%
+	}
 
       .center2 {
         display: block;
@@ -187,13 +215,18 @@
 
             // home_image.style['margin'] = 0;
             // document.body.style['margin'] = 0;
-            if (width >1202){
+
+            if (width > 1902){
+                var mrgn =  "600px" ;
+            }
+            else if (width >1202){
                // document.body.style['margin'] = 0;
                 var mrgn =  "300px" ;
             }
             else{
                 var mrgn =  "0px" ;
             }
+
             var size = mrgn;
             var series = document.getElementById("CAT1");
             series.style.marginLeft = size;
@@ -207,12 +240,12 @@
             series.style.marginLeft = size;
         }
 
-
         function hide_most_divisions(){
 
             var div = document.getElementById('CAT1');
+         
             if (div !== null){      
-                console.log("div is valid");    
+                console.log("div is valid");      
                 div.style.display = "none";
                 var div = document.getElementById('CAT2');
                 div.style.display = "none";
@@ -226,12 +259,12 @@
              else{
                 console.log("div is null");
              }
-
         }
 
         function show_division(div_text_id){
             var div_temp = document.getElementById(div_text_id);
             div_temp.style.display = "block";
+            console.log("div_text_id = " + div_text_id);
         }
 
         function return_file_description_for(file_name){
@@ -261,7 +294,7 @@
         function position_menu_bar(){
 
             let winwidth = window.innerWidth;
-            console.log("winwidth = " + winwidth);
+            // console.log("winwidth = " + winwidth);
             let left_menu_cell_width = 2.0;
             let name_menu_cell_width = 260;
             let home_width = 40.0;
@@ -284,9 +317,8 @@
         }
 
         function hideDiv(divID) {
-            //alert("hide divID = " + divID);
+            console.log("hide divID = " + divID);
             document.getElementById(divID).style.display = "none";
-            //alert("hide divID = " + divID);
         }
         function showDiv(divID){
             //alert("show divID = " + divID);            
@@ -312,6 +344,8 @@
                 hideDiv("Artist_Statement");
                 hideDiv("Exhibitions");
                 hideDiv("Works");
+                //TODO: Check the following:
+                // showDiv("Works");
 
             }
             else if("Artist_Statement" == divID){
@@ -464,6 +498,7 @@
                 hide_most_divisions();
                 show_division(divID);
             }
+
             if("CAT3" == divID){
                 console.log("Found DIV3");
                 hideDiv("Blowup");
@@ -471,8 +506,12 @@
                 hideDiv("Artist_Statement");
                 hideDiv("Home");
                 hideDiv("Exhibitions");
+              
                 hide_most_divisions();
+                console.log("Just hid most divisions");
                 show_division(divID);
+                console.log("Showed division " + divID);
+
             }
             if("CAT4" == divID){
                 console.log("Found DIV4");
@@ -504,17 +543,17 @@
             position_menu_bar();
             console.log("again 00");
             hide_most_divisions();
-            const oMy_dropdown = document.getElementById("works_dropdown_div");     
+            const oMy_dropdown = document.getElementById("works_dropdown_div");
             oMy_dropdown.style.display="none";
             console.log("again 01");
             //  Get_Window_Size();
             console.log("again 02");
             document.addEventListener("click", function(e) {
             const clickedElement = e.target;
-            const myCell = document.getElementById("itWorks"); 
+            const myCell = document.getElementById("itWorks");
 
             if (clickedElement !== myCell && !myCell.contains(clickedElement)) {
-                const oMy_dropdown = document.getElementById("works_dropdown_div");  
+                const oMy_dropdown = document.getElementById("works_dropdown_div");
                 console.log("Element was not clicked.");
                 if (oMy_dropdown.style.display !== "none"){
                     oMy_dropdown.style.display = "none";
@@ -523,7 +562,7 @@
             }
             else{
                 console.log("Element was clicked!");
-                const oMy_dropdown = document.getElementById("works_dropdown_div");     
+                const oMy_dropdown = document.getElementById("works_dropdown_div");
                 if (oMy_dropdown.style.display==='none'){
                     oMy_dropdown.style.display = "block";
                     console.log("Now move dropdown");
@@ -544,7 +583,7 @@
 
         function MoveDropDown(){
             console.log("MoveDropDown");
-            var cellElement = document.getElementById('itWorks'); 
+            var cellElement = document.getElementById('itWorks');
             var rect = cellElement.getBoundingClientRect();
             console.log('Top:', rect.top, 'Right:', rect.right, 'Bottom:', rect.bottom, 'Left:', rect.left);
 
@@ -558,7 +597,7 @@
                 console.log("Drops is bad");
             }
 
-            var size = Math.round(rect.left) + "px";
+            var size = Math.round(rect.left-100) + "px";
             drops.style.marginLeft = size;
 
             size = Math.round(rect.top + 40) + "px";
@@ -566,7 +605,7 @@
 
         }
 
-    </script>  
+    </script>
 </head>
 <body onload="OnLoadCode()">
 
@@ -576,7 +615,7 @@
             <td width="2px" ></td>
             <td  width="256px" style="font-size:20px;" class="bg_dark">Sandra Broom Westford</td>
             <td width="80 px" class="bg_dark" onclick="Show('Home')">Home</td>
-            <td id="itWorks" width="80 px" class="bg_dark">Works</td> 
+            <td id="itWorks" width="80 px" class="bg_dark"">Works</td> 
             <td width="100 px" class="bg_dark" onclick="Show('Exhibitions')">Exhibitions</td>
             <td width="140 px" class="bg_dark" onclick="Show('Artist_Statement')">Artist Statement</td>
             <td width="2px" class="bg_dark" style="font-size:24px;" width="auto" ></td>
@@ -671,8 +710,9 @@
     
 
 </div>
-<div id="Artist_Statement" style="color:darkslategray; ">
-    <table class="exhibits" style="line-height: 150%; margin-bottom: 0in " >  
+<div id="Artist_Statement" style="color:black;">
+
+        <table style="line-height: 150%; margin-bottom: 0in; margin-left:auto; margin-right:auto;" >  
         <tr><td><b>Artist Statement</b></td></tr>
         <tr><td></td></tr>
         <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
@@ -716,9 +756,11 @@
         <tr><td>per blandit tempor ac.</td></tr>
         
     </table>
+
 </div>
-<div id="Exhibitions" style="color:darkslategray">
-    <table class="exhibits" style="line-height: 150%; margin-bottom: 0in " >
+<div id="Exhibitions" style="color:black">
+
+    <table id="toppings" style="line-height: 150%; margin-bottom: 0in " >  
     <tr>
         <td></td>
         <td></td>
@@ -1100,6 +1142,7 @@
         <td>I hold degrees in Biology and Psychology.</td>
     </tr>
 </table>
+<img class="testtableimage"  src="P1010356.jpg"/>
 </div>
 <div id="Blowup">
 
@@ -1110,7 +1153,7 @@
 </div>
 
 <div id="CAT1">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;color:darkslategray">
+    <table class="dimension" style="font-family: 'Ink Free', sans-serif;color:black">
         <tr style="height:20px"></tr>
         <tr style="height:200px">
             <td>cat_1_sub_1</td>
