@@ -1,24 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandra Broom Westford</title>
 	<style type="text/css">
-        .zero_margin{
-            margin-top: 0;
-            margin-bottom: 0;
-            margin-right: 0;
-            margin-left: 50;
-        }
 
-        .white_background{
-            background-color:white;
-            color:black;
-        }
-        .float_right{
-            float:right;
-        }
+
         .dropdown-content{
             display: none;
             position: absolute;
@@ -32,6 +20,7 @@
             font-size:x-large;
         }
 
+      
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
@@ -110,7 +99,7 @@
             color:black;
         }
         .bg_dark{
-            background-color:rgb(0, 0, 0);
+            background-color:black;
             color:white;
         }
         .menu{
@@ -166,8 +155,7 @@
 
     </style>      
     <script>	
-    //todo:
-   //      window.addEventListener("resize", resized);
+        window.addEventListener("resize", resized);
 
         var current_div = "Home";
         const file_names=[
@@ -306,8 +294,8 @@
 
             return file_description;
         }
-//todo incorporate
-        function position_menu_bar_cxccc(){
+
+        function position_menu_bar(){
 
             let winwidth = window.innerWidth;
             // console.log("winwidth = " + winwidth);
@@ -556,8 +544,7 @@
         }
         function OnLoadCode(){
             console.log("Here I am!");
-           // todo: correct this
-           // position_menu_bar();
+            position_menu_bar();
             console.log("again 00");
             hide_most_divisions();
             const oMy_dropdown = document.getElementById("works_dropdown_div");
@@ -626,23 +613,16 @@
 </head>
 <body onload="OnLoadCode()">
 
-    <div class="zero_margin">
-  <!--  <table id="menu_bar" class="solid_table" class="dropdown" style="font-family: 'Ink Free', sans-serif;"> -->
-    <table id="menu_bar" class="solid_table" style="font-family: 'Ink Free', sans-serif;">
-        <tr height="90">
-            <td width="140px" class="white_background"></td>
-            <td width="100px" class="bg_dark"  ></td>
-            <td width="280px" class="bg_dark"  >
-                    <img id="chop" style="float:right;" src="chop.04.png"alt="" width="60 px" height="60 px">           
-            </td>
-            <td width="40px" class="bg_dark"></td>
-            <td width="500px" style="font-size:36px" class="bg_dark">Sandra Broom Westford</td>
-            <td width="160px" style="font-size:22px;" class="bg_dark" onclick="Show('Home')">Home</td>
-            <td id="itWorks" width="160px" style="font-size:22px;" class="bg_dark"">Works</td> 
-            <td width="160px" style="font-size:22px;" class="bg_dark" onclick="Show('Exhibitions')">Exhibitions</td>
-            <td width="260px" style="font-size:22px;" class="bg_dark" onclick="Show('Artist_Statement')">Artist Statement</td>
-            <td width="450px"class="bg_dark" ></td>
-            <td width="2px" class="white" style="font-size:24px;" width="auto" ></td>
+<div>
+    <table id="menu_bar" class="solid_table" class="dropdown" style="font-family: 'Ink Free', sans-serif;">
+        <tr  class="bg_dark" height="48px">
+            <td width="2px" ></td>
+            <td width="560px" style="font-size:36px;" class="bg_dark">Sandra Broom Westford</td>
+            <td width="160 px" style="font-size:20px;" class="bg_dark" onclick="Show('Home')">Home</td>
+            <td id="itWorks"width="160 px" style="font-size:20px;" width="80 px" class="bg_dark"">Works</td> 
+            <td width="160 px" style="font-size:20px;" class="bg_dark" onclick="Show('Exhibitions')">Exhibitions</td>
+            <td width="260  px" style="font-size:20px;" class="bg_dark" onclick="Show('Artist_Statement')">Artist Statement</td>
+            <td width="2px" class="bg_dark" style="font-size:24px;" width="auto" ></td>
         </tr>
         <tr height="20px"></tr>
     </table>
