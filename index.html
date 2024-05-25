@@ -25,7 +25,7 @@
             margin-top: 0;
             margin-bottom: 0;
             margin-right: 10;
-            margin-left: 10;   
+            margin-left:10;   
         }
 
         /*class forces image to fit the width in this case */
@@ -246,42 +246,11 @@
             // const width = window.innerWidth; 
             const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
             mrgn = mrgn*width + "px";
-            //const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            // const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
- 
-            // console.log("width: "+ width + " height: " + height);
- 
-            // Go to the position_menu_bar
+
             position_menu_bar();
-            // we want to position the home page image within the window space for id="second_animation_04"
  
             const home_image = document.getElementById("second_animation_04");
-            // var imageRatio = home_image.clientHeight/home_image.clientWidth;
-            // var clientRatio = height/width;
-            // var scale_factor = 1.0;
-            // if (imageRatio > clientRatio){
-             //    scale_factor = height/home_image.clientHeight;
-           //  }
-           // else{
-           //    scale_factor = width/home_image.clientWidth;
-            //}
-            // home_image.style['height'] = Math.round(home_image.clientHeight*scale_factor) + 'px';
-            // home_image.style['width'] = Math.round(home_image.clientWidth*scale_factor) + 'px';
- 
-            // home_image.style['margin'] = 0;
-            // document.body.style['margin'] = 0;
- 
-            // if (width > 1902){
-             //   var mrgn =  "600px" ;
-            // }
-            // else if (width >1202){
-               // document.body.style['margin'] = 0;
-            //     var mrgn =  "300px" ;
-            // }
-            // else{
-            //     var mrgn =  "0px" ;
-            // }
- 
+   
             var size = mrgn;
             console.log("size = " + size);
             var series = document.getElementById("CAT1");
@@ -402,7 +371,7 @@
             let winwidth = width_of_window;
 
             var font_size_of_name = get_font_size_of_name(winwidth);
-            var font_size_of_menus =get_font_size_of_menus(winwidth);
+            var font_size_of_menus = get_font_size_of_menus(winwidth);
 
             /*  0 - hLmargin  0.122 */
             let l_margin = Math.round(winwidth*.122);
@@ -483,8 +452,8 @@
             var hHome = o_header_table.rows[0].cells[5];
             hHome.width = home_width + "px";
             hHome.style.fontSize = font_size_of_menus;
-            console.log("hHome.width= " + home_width + "px");          
-            console.log("hHome.style.fontSize = " + font_size_of_menus + "px");
+            console.log("hHome.width= " + home_width);          
+            console.log("hHome.style.fontSize = " + font_size_of_menus);
             var hHomeGap=  o_header_table.rows[0].cells[6];
             hHomeGap.width = home_gap;
             var hWorks = o_header_table.rows[0].cells[7];
@@ -511,51 +480,61 @@
             const width_of_window = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
         }
+        function white_text()
+        {
+            document.getElementById("itHome").style.color = '#FFFFFF';
+            document.getElementById("itWorks").style.color = '#FFFFFF';
+            document.getElementById("itExhibitions").style.color = '#FFFFFF';
+            document.getElementById("itAbout").style.color = '#FFFFFF';
+        }
+
+        function red_the_text(divID){
+
+            var cellName = "it"+divID;
+            console.log("cellname = " + cellName)
+            var oCellName= document.getElementById(cellName).style.color = '#F11110';;
+        }
 
         function hideDiv(divID) {
             console.log("hide divID = " + divID);
             document.getElementById(divID).style.display = "none";
         }
+
         function showDiv(divID){
-            //alert("show divID = " + divID);
             document.getElementById(divID).style.display = "block";
-            //alert("show divID = " + divID);
         }
+
         function Show(divID){
             console.log("divID = '"+ divID + "'");
             if("Home" == divID){
+                white_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
                 hideDiv("Exhibitions");
                 showDiv("Home");
-            }
-            else if("Works" == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Home");
-                hideDiv("Artist_Statement");
-                hideDiv("Exhibitions");
-                // hideDiv("Works");
-                //TODO: Check the following:
-                showDiv("Works");
+                red_the_text("Home");
             }
             else if("Artist_Statement" == divID){
+                white_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Home");
                 hideDiv("Exhibitions");
                 showDiv("Artist_Statement");
+                red_the_text("About");
             }
             else if("Exhibitions" == divID){
+                white_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
                 hideDiv("Home");
                 showDiv("Exhibitions");
+                red_the_text("Exhibitions");
             }
             else if("Blowup" == divID.slice(0,6)){
                 hide_most_divisions();
@@ -754,6 +733,8 @@
         );
         }
         function MoveDropDown(){
+
+
             console.log("MoveDropDown");
             var cellElement = document.getElementById('itWorks');
             var rect = cellElement.getBoundingClientRect();
@@ -770,6 +751,10 @@
             drops.style.marginLeft = size;
             size = Math.round(rect.top + 40) + "px";
             drops.style.marginTop = size;
+
+            alert("itWorks");
+            white_text();
+            red_the_text("Works");
         }
     </script>
 </head>
@@ -780,7 +765,7 @@
             <!--  0 - hLmargin  0.100  These are just intial values immediately replaced on resize event -->
             <td class="white_background" style="width:317px;"></td>
             <!--  1 - hchop  0.050 ;-->
-            <td class="bg_dark" style="width:96px"><img id="chop" style="float:right; width:30px; height:30px" src="chop.04.png" alt="" width="96 px" height="80 px"></td>
+            <td class="bg_dark" style="width:96px"><img id="chop" style="float:right; width:30px; height:30px" src="Chop.png" alt="" width="96 px" height="80 px"></td>
             <!--  2 - hchopGap 0.020 -->   
             <td class="bg_dark" style="width:31px;"></td>
             <!--  3 - hName 0.300 --> 
@@ -788,19 +773,19 @@
             <!--  4 - hNameGap 0.170 -->   
             <td class="bg_dark" style="width:31px;"></td>    
             <!--  5 - hHome 0.170 -->  
-            <td  class="bg_dark" width="192px" style="font-size:20px;"  onclick="Show('Home')">Home</td>
+            <td id="itHome" class="bg_dark" width="192px" style="font-size:20px;"  onclick="Show('Home')">Home</td>
             <!--  6 - hHomeGap 0.02 -->   
            <td class="bg_dark" style="width:31px;"></td>    
             <!--  7 - hWorks 0.1 -->  
-            <td id="itWorks"width="192 px" style="font-size:20px;" width="80 px" class="bg_dark"">Works</td>
+            <td id="itWorks" width="192 px" style="font-size:20px;" width="80 px" class="bg_dark"">Works</td>
             <!--  8 - hWorksGap 0.02 -->     
             <td class="bg_dark" style="width:31px;"></td>  
             <!--  9 - hExhibitions 0.02 -->   
-            <td width="192px" style="font-size:20px;" class="bg_dark" onclick="Show('Exhibitions')">Exhibitions</td>
+            <td id="itExhibitions" width="192px" style="font-size:20px;" class="bg_dark" onclick="Show('Exhibitions')">Exhibitions</td>
             <!-- 10 - hExhibitionsGap 0.02 -->   
             <td class="bg_dark" style="width:31px;"></td>  
             <!-- 11 - hAbout 0.03 -->   
-            <td width="58px" class="bg_dark" style="font-size:20px;" onclick="Show('Artist_Statement')">About</td>
+            <td id="itAbout" width="58px" class="bg_dark" style="font-size:20px;" onclick="Show('Artist_Statement')">About</td>
             <!-- 12 - hAboutGap 0.16 -->   
             <td class="bg_dark" style="width:77px;"></td> 
             <!-- 13 -  hRmargin  0.100 -->
@@ -809,7 +794,7 @@
     </table>
 </div>
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" >
-    <table id="dropdown_table" style="font-family: 'Ink Free', serif;">
+    <table id="dropdown_table" style="font-family: 'Ink Free', serif; border:0; background-color: #555555; border-collapse: collapse;">
         <tr>
             <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('CAT1')">cat_1</td>
         </tr>
