@@ -752,15 +752,15 @@
             size = Math.round(rect.top + 40) + "px";
             drops.style.marginTop = size;
 
-            alert("itWorks");
+            // alert("itWorks");
             white_text();
             red_the_text("Works");
         }
     </script>
 </head>
 <body onload="OnLoadCode()">
-<div class="zero_margins">
-    <table id="menu_bar" class="solid_table" class="dropdown" class="contain" style="font-family: 'Ink Free', serif;">
+<div class="zero_margins" style="display: none">
+    <table id="solid_menu_bar_unused" class="solid_table" class="dropdown" class="contain" style="font-family: 'Ink Free', serif;">
         <tr height="48px">
             <!--  0 - hLmargin  0.100  These are just intial values immediately replaced on resize event -->
             <td class="white_background" style="width:317px;"></td>
@@ -788,6 +788,40 @@
             <td id="itAbout" width="58px" class="bg_dark" style="font-size:20px;" onclick="Show('Artist_Statement')">About</td>
             <!-- 12 - hAboutGap 0.16 -->   
             <td class="bg_dark" style="width:77px;"></td> 
+            <!-- 13 -  hRmargin  0.100 -->
+            <td class="white_background" style="width:317px;"></td>
+        </tr>
+    </table>
+</div>
+<div class="zero_margins">
+    <table id="solid_menu_bar" class="solid_table" class="dropdown" class="contain" style="font-family: 'Ink Free', serif;">
+        <tr height="48px">
+            <!--  0 - hLmargin  0.100  These are just intial values immediately replaced on resize event -->
+            <td class="white_background" style="width:317px;"></td>
+            <!--  1 - hchop  0.050 ;-->
+            <td class="white_background" style="width:96px"><img id="chop" style="float:right; width:30px; height:30px" src="Chop.png" alt="" width="96 px" height="80 px"></td>
+            <!--  2 - hchopGap 0.020 -->   
+            <td class="white_background" style="width:31px;"></td>
+            <!--  3 - hName 0.300 --> 
+            <td class="white_background" style="width:326px; font-size:16px" style="float:left;" >&nbsp;Sandra Broom Westford</td>
+            <!--  4 - hNameGap 0.170 -->   
+            <td class="white_background" style="width:31px;"></td>    
+            <!--  5 - hHome 0.170 -->  
+            <td id="itHome" class="white_background" width="192px" style="font-size:20px;"  onclick="Show('Home')">Home</td>
+            <!--  6 - hHomeGap 0.02 -->   
+           <td class="white_background" style="width:31px;"></td>    
+            <!--  7 - hWorks 0.1 -->  
+            <td id="white_background" width="192 px" style="font-size:20px;" width="80 px">Works</td>
+            <!--  8 - hWorksGap 0.02 -->     
+            <td class="white_background" style="width:31px;"></td>  
+            <!--  9 - hExhibitions 0.02 -->   
+            <td class="white_background" id="itExhibitions" width="192px" style="font-size:20px;"onclick="Show('Exhibitions')">Exhibitions</td>
+            <!-- 10 - hExhibitionsGap 0.02 -->   
+            <td class="white_background" style="width:31px;"></td>  
+            <!-- 11 - hAbout 0.03 -->   
+            <td id="itAbout" width="58px" class="white_background" style="font-size:20px;" onclick="Show('Artist_Statement')">About</td>
+            <!-- 12 - white_background 0.16 -->   
+            <td class="white_background" style="width:77px;"></td> 
             <!-- 13 -  hRmargin  0.100 -->
             <td class="white_background" style="width:317px;"></td>
         </tr>
