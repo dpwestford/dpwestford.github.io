@@ -248,7 +248,7 @@
         "Feves Gallery 2024",
         ];
         function resized(){
-            var mrgn = ".3"
+            var mrgn = ".1"
             console.log("resized");
             // const width = window.innerWidth; 
             const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
@@ -304,9 +304,6 @@
  
             const o_header_table = document.getElementById("menu_bar");
 
-           //  let hName = document.getElementById("");
-            // alert("hName.style.fontSize (2) = " + font_size_of_name + "px");   
-            // TODO: change the font size in the header depending on the width of screen
         }
 
 
@@ -358,19 +355,23 @@
         function get_font_size_of_name(width_of_window){
             var ret = "";
             if (1920 <= width_of_window){
-                ret = "30px";
-            }else if(1680 <= width_of_window){                
                 ret = "26px";
+            }else if(1680 <= width_of_window){                
+                ret = "20px";
             }else if(1600 <= width_of_window){
-                ret = "24px";
+                ret = "20px";
             }else if(1440 <= width_of_window){
                 ret = "20px";
             }else if(1366 <= width_of_window){
-                ret = "18px";
+                ret = "16px";
             }else if(1280 <= width_of_window){
                 ret = "16px";
+            }else if(800 <= width_of_window){
+                ret = "16px";                
+            }else if(560 <= width_of_window){
+                ret = "10px";           
             }else {// (1024 <= width_of_window){
-                ret = "12px";
+                ret = "6px";
             }
             return ret;
         }
@@ -378,19 +379,23 @@
         function get_font_size_of_menus(width_of_window){
             var ret = "";
             if (1920 <= width_of_window){
-                ret = "30px";
+                ret = "22px";
             }else if(1680 <= width_of_window){                
-                ret = "26px";
+                ret = "14px";
             }else if(1600 <= width_of_window){
-                ret = "24px";
+                ret = "14px";
             }else if(1440 <= width_of_window){
-                ret = "20px";
+                ret = "14px";
             }else if(1366 <= width_of_window){
-                ret = "18px";
-            }else if(1280 <= width_of_window){
-                ret = "16px";
-            }else {// (1024 <= width_of_window){
                 ret = "12px";
+            }else if(1280 <= width_of_window){
+                ret = "12px";
+            }else if(800 <= width_of_window){
+                ret = "10px";                
+            }else if(560 <= width_of_window){
+                ret = "8px";           
+            }else {// (1024 <= width_of_window){
+                ret = "8px";
             }
             return ret;
         }
@@ -406,20 +411,20 @@
             var font_size_of_name = get_font_size_of_name(winwidth);
             var font_size_of_menus =get_font_size_of_menus(winwidth);
 
-            /*  0 - hLmargin  0.165 */
-            let l_margin = Math.round(winwidth*.165);
+            /*  0 - hLmargin  0.122 */
+            let l_margin = Math.round(winwidth*.122);
             console.log("l_margin = " + l_margin);
 
-            /*  1 - hChop  0.050  */         
-            let chop_width =  Math.round(winwidth*.05);
+            /*  1 - hChop  0.047  */         
+            let chop_width =  Math.round(winwidth*.047);
             console.log("chop_width = " + chop_width);
 
-            /*  2 - hChopGap .0165 */
-            let chop_gap =  Math.round(winwidth*.0165);
+            /*  2 - hChopGap .005 */
+            let chop_gap =  Math.round(winwidth*.005);
             console.log("chop_width = " + chop_gap);
 
-            /*  3 - hName .170 */
-            let name_width = Math.round(winwidth*.170);
+            /*  3 - hName .300 */
+            let name_width = Math.round(winwidth*.300);
             console.log("name_width = " + name_width);
             console.log("font_size_of_name = " + font_size_of_name);
 
@@ -428,7 +433,7 @@
             console.log("name_gap = " + name_gap);
 
             /*  5 - hHome  0.100  */         
-            let home_width =  Math.round(winwidth*.100);
+            let home_width =  Math.round(winwidth*.075);
             console.log("home_width = " + home_width);
 
             /*  6 - hHomeGap .016 */
@@ -436,31 +441,31 @@
             console.log("home_gap = " + home_gap);   
             
             /*  7 - hWorks  .100 */
-            let works_width = Math.round(winwidth*.100);
+            let works_width = Math.round(winwidth*.075);
             console.log("works_width = " + works_width);
 
             /* 8 - hWorksGap  .016 */
             let works_gap =  Math.round(winwidth*.016);
             console.log("works_gap = " + works_gap);              
 
-            /*  9 - hExhibitions  .100  */
-            let exhibitions_width = Math.round(winwidth*.100);
+            /*  9 - hExhibitions  .075  */
+            let exhibitions_width = Math.round(winwidth*.075);
             console.log("exhibitions_width = " + exhibitions_width);
 
             /* 10 - hExhibitionsGap .016 */
             let exhibitions_gap = Math.round(winwidth*.016);
             console.log("exhibitions_gap = " + exhibitions_gap);
 
-            /* 11 - hAbout  0.3  */
-            let about_width = Math.round(winwidth*.3);
+            /* 11 - hAbout  0.100  */
+            let about_width = Math.round(winwidth*.075);
             console.log("about_width = " + about_width);
 
             /* 12 - hAboutGap .040 */
             let about_gap = Math.round(winwidth*.040);
             console.log("about_gap = " + about_gap);
 
-            /*  13 - hRmargin  0.165 */
-            let r_margin = Math.round(winwidth*.165);
+            /*  13 - hRmargin  0.122 */
+            let r_margin = Math.round(winwidth*.122);
             console.log("r_margin = " + r_margin);
 
             let sum_of_inner_cells = l_margin + chop_width + chop_gap + name_width + home_width + home_gap + works_width + works_gap + exhibitions_width + exhibitions_gap + about_width +  about_gap + r_margin;
@@ -486,9 +491,9 @@
             hHome.width = home_width + "px";
             hHome.style.fontSize = font_size_of_menus;
             console.log("hHome.width= " + home_width + "px");          
-            console.log("hHome.style.fontSize = " + font_size_for_others + "px");
+            console.log("hHome.style.fontSize = " + font_size_of_menus + "px");
             var hHomeGap=  o_header_table.rows[0].cells[6];
-            hHomeGap.width = home_gap_width;
+            hHomeGap.width = home_gap;
             var hWorks = o_header_table.rows[0].cells[7];
             hWorks.width = works_width;
             hWorks.style.fontSize = font_size_of_menus;
@@ -497,7 +502,7 @@
             var hExhibitions = o_header_table.rows[0].cells[9];
             hExhibitions.width = exhibitions_width;
             hExhibitions.style.fontSize = font_size_of_menus;
-            var hExhibition_gap = o_header_table.rows[0].cells[10];
+            var hExhibitions_gap = o_header_table.rows[0].cells[10];
             hExhibitions_gap.width = exhibitions_gap;
             var hAbout =  o_header_table.rows[0].cells[11];
             hAbout.width = about_width;
@@ -539,9 +544,9 @@
                 hideDiv("Home");
                 hideDiv("Artist_Statement");
                 hideDiv("Exhibitions");
-                hideDiv("Works");
+                // hideDiv("Works");
                 //TODO: Check the following:
-                // showDiv("Works");
+                showDiv("Works");
             }
             else if("Artist_Statement" == divID){
                 hide_most_divisions();
@@ -779,17 +784,17 @@
 <div class="zero_margins">
     <table id="menu_bar" class="solid_table" class="dropdown" class="contain" style="font-family: 'Ink Free', serif;">
         <tr height="48px">
-            <!--  0 - hLmargin  0.165  These are just intial values immediately replaced on resize event -->
+            <!--  0 - hLmargin  0.100  These are just intial values immediately replaced on resize event -->
             <td class="white_background" style="width:317px;"></td>
-            <!--  1 - hchop  0.05 ;-->
+            <!--  1 - hchop  0.050 ;-->
             <td class="bg_dark" style="width:96px"><img id="chop" style="float:right; width:30px; height:30px" src="chop.04.png" alt="" width="96 px" height="80 px"></td>
-            <!--  2 - hchopGap 0.02 -->   
+            <!--  2 - hchopGap 0.020 -->   
             <td class="bg_dark" style="width:31px;"></td>
-            <!--  3 - hName 0.17 --> 
+            <!--  3 - hName 0.300 --> 
             <td class="bg_dark" style="width:326px; font-size:16px" style="float:left;" >&nbsp;Sandra Broom Westford</td>
-            <!--  4 - hNameGap 0.17 -->   
+            <!--  4 - hNameGap 0.170 -->   
             <td class="bg_dark" style="width:31px;"></td>    
-            <!--  5 - hHome 0.17 -->  
+            <!--  5 - hHome 0.170 -->  
             <td  class="bg_dark" width="192px" style="font-size:20px;"  onclick="Show('Home')">Home</td>
             <!--  6 - hHomeGap 0.02 -->   
            <td class="bg_dark" style="width:31px;"></td>    
@@ -805,7 +810,7 @@
             <td width="58px" class="bg_dark" style="font-size:20px;" onclick="Show('Artist_Statement')">About</td>
             <!-- 12 - hAboutGap 0.16 -->   
             <td class="bg_dark" style="width:77px;"></td> 
-            <!-- 13 -  hRmargin  0.165 -->
+            <!-- 13 -  hRmargin  0.100 -->
             <td class="white_background" style="width:317px;"></td>
         </tr>
     </table>
@@ -929,6 +934,7 @@
 </div>
 <div id="Exhibitions" style="color:black">
     <table id="toppings" style="line-height: 150%; margin-bottom: 0in " >
+        <tr></tr>
     <tr>
         <td></td>
         <td></td>
@@ -1313,8 +1319,10 @@
 <img class="testtableimage"  src="P1010356.jpg"/>
 </div>
 <div id="Blowup">
+    <p height="36px"></p>
     <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
     <!-- <div class="top-right">[ X ]</div>  -->
+
     <p id="cptn" class="text_centered">-  -  -</p>
 </div>
 <div id="CAT1">

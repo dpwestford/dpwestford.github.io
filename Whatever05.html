@@ -6,6 +6,15 @@
     <title>Sandra Broom Westford</title>
     <style type="text/css">
         /*Class for div or other zero margins */
+
+        .white_header_bar{
+            background-color:white;
+
+        }
+        .header_text{
+            text-align: center;
+            font-style: "font-family: 'Ink Free', 'serif';"
+        }
         .zero_margin{
             margin-top: 0;
             margin-bottom: 0;
@@ -25,7 +34,7 @@
             margin-top: 0;
             margin-bottom: 0;
             margin-right: 10;
-            margin-left: 10;   
+            margin-left:10;   
         }
 
         /*class forces image to fit the width in this case */
@@ -69,7 +78,7 @@
         .title_line{
             color:black;
             text-align: center;
-            Font-family: 'Ink Free', sans-serif;
+            Font-family: 'Ink Free', san-serif;
             /*font-weight:bold; font-size: 30px; */
         }
 
@@ -129,11 +138,11 @@
                 display: none;
             }
               table{
-                font-family:Arial, Helvetica, sans-serif;
+                font-family:'ink, sans-serif;
                 /* font-size: 70%; */
               }
               .text_centered{
-                font-family:Arial, Helvetica, sans-serif;
+                font-family:'Ink Free', serif;
                 /* font-size: 70%; */
                 text-align:center;
                 color:black;
@@ -518,6 +527,20 @@
             const width_of_window = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
         }
+        function white_text()
+        {
+            document.getElementById("itHome").style.color = '#FFFFFF';
+            document.getElementById("itWorks").style.color = '#FFFFFF';
+            document.getElementById("itExhibitions").style.color = '#FFFFFF';
+            document.getElementById("itAbout").style.color = '#FFFFFF';
+        }
+
+        function red_the_text(divID){
+
+            var cellName = "it"+divID;
+            console.log("cellname = " + cellName)
+            var oCellName= document.getElementById(cellName).style.color = '#F11110';;
+        }
 
         function hideDiv(divID) {
             console.log("hide divID = " + divID);
@@ -549,20 +572,24 @@
                 showDiv("Works");
             }
             else if("Artist_Statement" == divID){
+                white_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Home");
                 hideDiv("Exhibitions");
                 showDiv("Artist_Statement");
+                red_the_text("About");
             }
             else if("Exhibitions" == divID){
+                white_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
                 hideDiv("Home");
                 showDiv("Exhibitions");
+                red_the_text("Exhibitions");
             }
             else if("Blowup" == divID.slice(0,6)){
                 hide_most_divisions();
@@ -777,10 +804,16 @@
             drops.style.marginLeft = size;
             size = Math.round(rect.top + 40) + "px";
             drops.style.marginTop = size;
+
+            // alert("itWorks");
+            white_text();
+            red_the_text("Works");
         }
     </script>
 </head>
 <body onload="OnLoadCode()">
+    <div class="white_header_bar"><img src="exresopenwin1_mas_or.jpg" style="font-family: 'Ink Free', serif; border:0; background-color: #555555; border-collapse: collapse;">Sandra Broom Westford</div>
+
 <div class="zero_margins">
     <table id="menu_bar" class="solid_table" class="dropdown" class="contain" style="font-family: 'Ink Free', serif;">
         <tr height="48px">
@@ -941,7 +974,7 @@
         <td style="font-size: 100%"><b>Exhibition History</b></td>
     </tr>
     <tr>
-        <td>2023</td>
+        <td style="font-weight:800">2023</td>
         <td>&ensp;</td>
         <td>Foundry Gallery, Regional Juried Show, Walla Walla WA</td>
     </tr>
@@ -950,7 +983,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2016</td>
+        <td style="font-weight:800">2016</td>
         <td>&ensp;</td>
         <td>Oak Hollow Gallery, 'Home: an exploration', Yakima WA</td>
     </tr>
@@ -959,7 +992,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2015</td>
+        <td style="font-weight:800">2015</td>
         <td>&ensp;</td>
         <td>Anchor Gallery, Invitational Show, 'Field Work', Anacortes WA</td>
     </tr>
@@ -988,7 +1021,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2014</td>
+        <td style="font-weight:800">2014</td>
         <td>&ensp;</td>
         <td>Larson Gallery, 'Central Wa Juried Show', Award Winner, Yakima WA</td>
     </tr>
@@ -997,7 +1030,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2013</td>
+        <td style="font-weight:800">2013</td>
         <td>&ensp;</td>
         <td>Gallery One, 'Celebration of Tieton Artists', Ellensburg WA</td>
     </tr>
@@ -1011,7 +1044,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2012</td>
+        <td style="font-weight:800">2012</td>
         <td>&ensp;</td>
         <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
     </tr>
@@ -1030,7 +1063,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>2011</td>
+        <td style="font-weight:800">2011</td>
         <td>&ensp;</td>
         <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
     </tr>
@@ -1044,7 +1077,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2010</td>
+        <td style="font-weight:800">2010</td>
         <td>&ensp;</td>
         <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
     </tr>
@@ -1058,7 +1091,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2009</td>
+        <td style="font-weight:800">2009</td>
         <td>&ensp;</td>
         <td>Bainbridge Arts and Crafts, 'Shells', Bainbridge WA</td>
     </tr>
@@ -1087,7 +1120,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2008</td>
+        <td style="font-weight:800">2008</td>
         <td>&ensp;</td>
         <td>Bainbridge Arts and Crafts, 'The Box', Bainbridge WA</td>
     </tr>
@@ -1106,7 +1139,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>2007</td>
+        <td style="font-weight:800">2007</td>
         <td>&ensp;</td>
         <td>Bainbridge Arts and Crafts, 'New Works', Bainbridge WA</td>
     </tr>
@@ -1130,7 +1163,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2006</td>
+        <td style="font-weight:800">2006</td>
         <td>&ensp;</td>
         <td>Bainbridge Arts and Crafts, 'New Works', Bainbridge WA</td>
     </tr>
@@ -1159,7 +1192,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>2005</td>
+        <td style="font-weight:800">2005</td>
         <td>&ensp;</td>
         <td>SAM Gallery 'Introductions', Seattle WA</td>
     </tr>
@@ -1178,7 +1211,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>2004</td>
+        <td style="font-weight:800">2004</td>
         <td>&ensp;</td>
         <td>Northwind Arts Center, 'Dwellings', Port Townsend WA</td>
     </tr>
@@ -1197,7 +1230,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>2003</td>
+        <td style="font-weight:800">2003</td>
         <td>&ensp;</td>
         <td>Northwind Arts Center, 'Four Award Winning Pastel Artists', Anacortes WA</td>
     </tr>
@@ -1211,7 +1244,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>2002</td>
+        <td style="font-weight:800">2002</td>
         <td>&ensp;</td>
         <td>Art Port Townsend, juried exhibition, Best of Show, Port Townsend WA</td>
     </tr>
@@ -1225,7 +1258,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>2000</td>
+        <td style="font-weight:800">2000</td>
         <td>&ensp;</td>
         <td>Poncho Auction preview, juried show, Seattle WA</td>
     </tr>
@@ -1234,7 +1267,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>1999</td>
+        <td style="font-weight:800">1999</td>
         <td>&ensp;</td>
         <td>Poncho Auction preview, juried show, Seattle WA</td>
     </tr>
@@ -1243,7 +1276,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>1998</td>
+        <td style="font-weight:800">1998</td>
         <td>&ensp;</td>
         <td>Children's Day at the Japanese Garden, commissioned piece, Seattle WA</td>
     </tr>
@@ -1252,7 +1285,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>1993</td>
+        <td style="font-weight:800">1993</td>
         <td>&ensp;</td>
         <td>Gilmarten Gallery, 'New Works', Seattle WA</td>
     </tr>
@@ -1261,7 +1294,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>1992</td>
+        <td style="font-weight:800">1992</td>
         <td>&ensp;</td>
         <td>Arts for the Parks, juried show, Jackson Hole Wyoming</td>
     </tr>
@@ -1270,7 +1303,7 @@
         <td"></td>
     </tr>
     <tr>
-        <td>1986</td>
+        <td style="font-weight:800">1986</td>
         <td>&ensp;</td>
         <td>Anacortes Arts Festival, juried show, Purchase Award</td>
     </tr>
@@ -1326,7 +1359,7 @@
     <p id="cptn" class="text_centered">-  -  -</p>
 </div>
 <div id="CAT1">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;color:black">
+    <table class="dimension" style="font-family: 'Ink Free', serif;color:black">
         <tr style="height:20px"></tr>
         <tr style="height:200px">
             <td>cat_1_sub_1</td>
@@ -1390,7 +1423,7 @@
     </table>
 </div>
 <div id="CAT2">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
+    <table class="dimension" style="font-family: 'Ink Free', serif;">
         <tr>
             <tr style="height:20px"></tr>
             <tr style="height:200px">
@@ -1456,7 +1489,7 @@
     </table>
 </div>
 <div id="CAT3">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
+    <table class="dimension" style="font-family: 'Ink Free', serif;">
         <tr style="height:20px"></tr>
         <tr style="height:200px">
             <td>cat_3_sub_1</td>

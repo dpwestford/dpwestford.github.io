@@ -1,0 +1,26 @@
+ Volume in drive F is New Volume
+ Volume Serial Number is 3AB7-0AEF
+
+ Directory of F:\SW11
+
+04/25/2024  09:59 AM            71,597 corner_close.html
+05/20/2024  01:21 PM            73,427 destination.html
+04/25/2024  03:14 AM            34,656 DropdownTest01.html
+05/25/2024  08:52 PM            80,359 index.html
+05/19/2024  06:25 PM            72,375 index02.html
+05/19/2024  06:34 PM            73,135 index03_backward.html
+05/22/2024  12:14 PM                 0 mess.html
+05/19/2024  09:42 AM            10,649 TableAndImage.html
+04/25/2024  11:59 AM             1,768 text_over_img.html
+05/20/2024  12:06 PM            69,074 what.html
+05/20/2024  09:58 PM            73,282 Whate.html
+05/21/2024  09:57 AM            73,282 Whatev.html
+05/20/2024  09:52 PM            73,282 Whatever.html
+05/21/2024  11:51 AM            74,185 Whatever03.html
+05/23/2024  06:36 AM            77,375 Whatever04.html
+05/24/2024  08:00 AM            82,922 Whatever05.html
+05/24/2024  10:46 AM            82,641 Whatever06.html
+05/24/2024  11:00 AM            82,540 Whatever07.html
+05/20/2024  10:04 PM            73,282 wwww.html
+              19 File(s)      1,179,831 bytes
+               0 Dir(s)  3,916,253,597,696 bytes free

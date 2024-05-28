@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandra Broom Westford</title>
     <style type="text/css">
+
+        .HomeCenter {
+            width:1290px;
+            height:860px;
+            object-fit: fill;
+            display:block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .Center_Div{
+            border: 1px solid white;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .Center_Table{
+            border: 1px solid white;
+            display: inline-table;
+        }
+
         /*Class for div or other zero margins */
         .zero_margin{
             margin-top: 0;
@@ -31,6 +51,8 @@
         /*class forces image to fit the width in this case */
         .object_fit{
             object-fit: contain;
+            margin-right: auto;
+            margin-left: auto;
         }
 
         .white_background{
@@ -247,7 +269,7 @@
             const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
             mrgn = mrgn*width + "px";
 
-            position_menu_bar();
+           //  position_menu_bar();
  
             const home_image = document.getElementById("second_animation_04");
    
@@ -361,7 +383,14 @@
             }
             return ret;
         }
+
+        function center_image(image_text){
+
+
+
+        }
         
+        /*
         function position_menu_bar(){
             console.log("Entered position_menu_bar()");
   
@@ -373,60 +402,60 @@
             var font_size_of_name = get_font_size_of_name(winwidth);
             var font_size_of_menus = get_font_size_of_menus(winwidth);
 
-            /*  0 - hLmargin  0.122 */
+
             let l_margin = Math.round(winwidth*.122);
             console.log("l_margin = " + l_margin);
 
-            /*  1 - hChop  0.047  */         
+
             let chop_width =  Math.round(winwidth*.047);
             console.log("chop_width = " + chop_width);
 
-            /*  2 - hChopGap .005 */
+
             let chop_gap =  Math.round(winwidth*.005);
             console.log("chop_width = " + chop_gap);
 
-            /*  3 - hName .300 */
+
             let name_width = Math.round(winwidth*.300);
             console.log("name_width = " + name_width);
             console.log("font_size_of_name = " + font_size_of_name);
 
-            /*  4 - hNameGap .016 */
+
             let name_gap =  Math.round(winwidth*.016);
             console.log("name_gap = " + name_gap);
 
-            /*  5 - hHome  0.100  */         
+     
             let home_width =  Math.round(winwidth*.075);
             console.log("home_width = " + home_width);
 
-            /*  6 - hHomeGap .016 */
+
             let home_gap =  Math.round(winwidth*.016);
             console.log("home_gap = " + home_gap);   
             
-            /*  7 - hWorks  .100 */
+
             let works_width = Math.round(winwidth*.075);
             console.log("works_width = " + works_width);
 
-            /* 8 - hWorksGap  .016 */
+
             let works_gap =  Math.round(winwidth*.016);
             console.log("works_gap = " + works_gap);              
 
-            /*  9 - hExhibitions  .075  */
+
             let exhibitions_width = Math.round(winwidth*.075);
             console.log("exhibitions_width = " + exhibitions_width);
 
-            /* 10 - hExhibitionsGap .016 */
+
             let exhibitions_gap = Math.round(winwidth*.016);
             console.log("exhibitions_gap = " + exhibitions_gap);
 
-            /* 11 - hAbout  0.100  */
+
             let about_width = Math.round(winwidth*.075);
             console.log("about_width = " + about_width);
 
-            /* 12 - hAboutGap .040 */
+
             let about_gap = Math.round(winwidth*.040);
             console.log("about_gap = " + about_gap);
 
-            /*  13 - hRmargin  0.122 */
+
             let r_margin = Math.round(winwidth*.122);
             console.log("r_margin = " + r_margin);
 
@@ -475,17 +504,17 @@
             hRmargin.width = r_margin;
             
         }
-
+*/
         function get_font_size(){
             const width_of_window = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
         }
-        function white_text()
+        function black_text()
         {
-            document.getElementById("itHome").style.color = '#FFFFFF';
-            document.getElementById("itWorks").style.color = '#FFFFFF';
-            document.getElementById("itExhibitions").style.color = '#FFFFFF';
-            document.getElementById("itAbout").style.color = '#FFFFFF';
+            document.getElementById("itHome").style.color = '#000000';
+            document.getElementById("itWorks").style.color = '#000000';
+            document.getElementById("itExhibitions").style.color = '#000000';
+            document.getElementById("itAbout").style.color = '#000000';
         }
 
         function red_the_text(divID){
@@ -507,7 +536,7 @@
         function Show(divID){
             console.log("divID = '"+ divID + "'");
             if("Home" == divID){
-                white_text();
+                black_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -517,7 +546,7 @@
                 red_the_text("Home");
             }
             else if("Artist_Statement" == divID){
-                white_text();
+                black_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -527,7 +556,7 @@
                 red_the_text("About");
             }
             else if("Exhibitions" == divID){
-                white_text();
+                black_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -694,7 +723,7 @@
         }
         function OnLoadCode(){
             console.log("Here I am!");
-            position_menu_bar();
+            //  position_menu_bar();
             console.log("again 00");
             hide_most_divisions();
             const oMy_dropdown = document.getElementById("works_dropdown_div");
@@ -705,7 +734,7 @@
             document.addEventListener("click", function(e) {
             const clickedElement = e.target;
             const myCell = document.getElementById("itWorks");
-            resized();
+            // resized();
             if (clickedElement !== myCell && !myCell.contains(clickedElement)) {
                 const oMy_dropdown = document.getElementById("works_dropdown_div");
                 console.log("Element was not clicked.");
@@ -734,7 +763,6 @@
         }
         function MoveDropDown(){
 
-
             console.log("MoveDropDown");
             var cellElement = document.getElementById('itWorks');
             var rect = cellElement.getBoundingClientRect();
@@ -752,82 +780,35 @@
             size = Math.round(rect.top + 40) + "px";
             drops.style.marginTop = size;
 
-            // alert("itWorks");
-            white_text();
+            black_text();
             red_the_text("Works");
         }
     </script>
 </head>
 <body onload="OnLoadCode()">
-<div class="zero_margins" style="display: none">
-    <table id="solid_menu_bar_unused" class="solid_table" class="dropdown" class="contain" style="font-family: 'Ink Free', serif;">
-        <tr height="48px">
-            <!--  0 - hLmargin  0.100  These are just intial values immediately replaced on resize event -->
-            <td class="white_background" style="width:317px;"></td>
-            <!--  1 - hchop  0.050 ;-->
-            <td class="bg_dark" style="width:96px"><img id="chop" style="float:right; width:30px; height:30px" src="Chop.png" alt="" width="96 px" height="80 px"></td>
-            <!--  2 - hchopGap 0.020 -->   
-            <td class="bg_dark" style="width:31px;"></td>
-            <!--  3 - hName 0.300 --> 
-            <td class="bg_dark" style="width:326px; font-size:16px" style="float:left;" >&nbsp;Sandra Broom Westford</td>
-            <!--  4 - hNameGap 0.170 -->   
-            <td class="bg_dark" style="width:31px;"></td>    
-            <!--  5 - hHome 0.170 -->  
-            <td id="itHome" class="bg_dark" width="192px" style="font-size:20px;"  onclick="Show('Home')">Home</td>
-            <!--  6 - hHomeGap 0.02 -->   
-           <td class="bg_dark" style="width:31px;"></td>    
-            <!--  7 - hWorks 0.1 -->  
-            <td id="itWorks" width="192 px" style="font-size:20px;" width="80 px" class="bg_dark"">Works</td>
-            <!--  8 - hWorksGap 0.02 -->     
-            <td class="bg_dark" style="width:31px;"></td>  
-            <!--  9 - hExhibitions 0.02 -->   
-            <td id="itExhibitions" width="192px" style="font-size:20px;" class="bg_dark" onclick="Show('Exhibitions')">Exhibitions</td>
-            <!-- 10 - hExhibitionsGap 0.02 -->   
-            <td class="bg_dark" style="width:31px;"></td>  
-            <!-- 11 - hAbout 0.03 -->   
-            <td id="itAbout" width="58px" class="bg_dark" style="font-size:20px;" onclick="Show('Artist_Statement')">About</td>
-            <!-- 12 - hAboutGap 0.16 -->   
-            <td class="bg_dark" style="width:77px;"></td> 
-            <!-- 13 -  hRmargin  0.100 -->
-            <td class="white_background" style="width:317px;"></td>
+<div class="Center_Div">
+    <table class="Center_Table" style="font-family: 'Ink Free', san-serif;">
+        <tr>
+            <td class="white_background" style="width:96px"><img id="chop" style="float:right; width:50px; height:50px" src="chop.04.png" alt="" width="122px" height="122px"></td>
+            <td class="white_background" style="width:400px; font-size:36px" style="float:left;" >&nbsp;Sandra Broom Westford</td>
         </tr>
     </table>
 </div>
-<div class="zero_margins">
-    <table id="solid_menu_bar" class="solid_table" class="dropdown" class="contain" style="font-family: 'Ink Free', serif;">
-        <tr height="48px">
-            <!--  0 - hLmargin  0.100  These are just intial values immediately replaced on resize event -->
-            <td class="white_background" style="width:317px;"></td>
-            <!--  1 - hchop  0.050 ;-->
-            <td class="white_background" style="width:96px"><img id="chop" style="float:right; width:30px; height:30px" src="Chop.png" alt="" width="96 px" height="80 px"></td>
-            <!--  2 - hchopGap 0.020 -->   
-            <td class="white_background" style="width:31px;"></td>
-            <!--  3 - hName 0.300 --> 
-            <td class="white_background" style="width:326px; font-size:16px" style="float:left;" >&nbsp;Sandra Broom Westford</td>
-            <!--  4 - hNameGap 0.170 -->   
-            <td class="white_background" style="width:31px;"></td>    
-            <!--  5 - hHome 0.170 -->  
-            <td id="itHome" class="white_background" width="192px" style="font-size:20px;"  onclick="Show('Home')">Home</td>
-            <!--  6 - hHomeGap 0.02 -->   
-           <td class="white_background" style="width:31px;"></td>    
-            <!--  7 - hWorks 0.1 -->  
-            <td id="white_background" width="192 px" style="font-size:20px;" width="80 px">Works</td>
-            <!--  8 - hWorksGap 0.02 -->     
-            <td class="white_background" style="width:31px;"></td>  
-            <!--  9 - hExhibitions 0.02 -->   
-            <td class="white_background" id="itExhibitions" width="192px" style="font-size:20px;"onclick="Show('Exhibitions')">Exhibitions</td>
-            <!-- 10 - hExhibitionsGap 0.02 -->   
-            <td class="white_background" style="width:31px;"></td>  
-            <!-- 11 - hAbout 0.03 -->   
-            <td id="itAbout" width="58px" class="white_background" style="font-size:20px;" onclick="Show('Artist_Statement')">About</td>
-            <!-- 12 - white_background 0.16 -->   
-            <td class="white_background" style="width:77px;"></td> 
-            <!-- 13 -  hRmargin  0.100 -->
-            <td class="white_background" style="width:317px;"></td>
+
+<div class="Center_Div">     
+    <table id="menu_bar" class="Center_Table" style="font-family: 'Ink Free', san-serif; font-size:24px;">
+        <tr>
+            <td width="96px"></td>
+            <td id="itHome" width="96px" class="white_background" onclick="Show('Home')">Home</td>
+            <td id="itWorks" width="96px" class="white_background">Works</td>
+            <td id="itExhibitions" width="120px" class="white_background" onclick="Show('Exhibitions')">Exhibitions</td>
+            <td id="itAbout" width="96px" class="white_background" onclick="Show('Artist_Statement')">About</td>
         </tr>
     </table>
 </div>
-<div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" >
+
+
+<div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" > 
     <table id="dropdown_table" style="font-family: 'Ink Free', serif; border:0; background-color: #555555; border-collapse: collapse;">
         <tr>
             <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('CAT1')">cat_1</td>
@@ -848,9 +829,10 @@
     </td>
     </table>
 </div>
-<div id="Home" style="width: 400px; height: 200px">
-    <!-- <img id="second_animation_04" src="open01_mas_or.gif" class="center2" style:"max-width: 100px; height: 200px; transform:scale(4); tramsform-origin: left-top">  -->
-    <img id="second_animation_04" src="open01_mas_or.gif" width="400%" style="transform: scale(1)">
+<div id="Home"  class="HomeCenter" >
+  <!--    <img id="second_animation_04" src="open01_mas_or.gif" class="center2" style:"max-width: 100px; height: 200px; transform:scale(4); tramsform-origin: left-top">  -->
+
+    <img id="second_animation_04" src="open17.jpg" class="HomeCenter"  tyle="transform: scale(1)"> 
 </div>
 <div id="Works">
     <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg"?alt="Image exreshidden3" width="160 px" height="320 px">
