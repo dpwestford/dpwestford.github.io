@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandra Broom Westford</title>
+    <link rel="icon" href=".\favicon.ico" type="image/icon type">
     <style type="text/css">
 
-        .HomeCenter {
-            width:1290px;
-            height:860px;
-            object-fit: fill;
+        .center_horizontal {
             display:block;
             margin-right: auto;
             margin-left: auto;
@@ -188,9 +186,7 @@
               }
     </style>
     <script>
- 
         window.addEventListener("resize", resized);
- 
         var current_div = "Home";
         const file_names=[
         "inresascend1.jpg",
@@ -262,16 +258,38 @@
         "small study #5-2",
         "Feves Gallery 2024",
         ];
-        function resized(){
-            var mrgn = ".1"
-            console.log("resized");
-            // const width = window.innerWidth; 
-            const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            mrgn = mrgn*width + "px";
 
-           //  position_menu_bar();
- 
-            const home_image = document.getElementById("second_animation_04");
+        function center_home(){
+            var wth = window.innerWidth - 30;
+            var ht = window.innerHeight - 100;
+            var image = document.getElementById("home_jpg");
+            var height = image.naturalHeight;
+            var width = image.naturalWidth;
+            var ratio_natural = height/width;
+            var ratio_window = ht/wth;
+            if (ratio_natural > ratio_window){
+                image.height = ht;
+                image.width = ht*width/height;
+            }
+            else{
+                image.width = wth;
+                image.height = wth*height/width;
+            }
+
+        }
+
+        function resized(){
+            // var mrgn = ".1"
+            // console.log("resized");
+            // const width = window.innerWidth; 
+            // const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            // mrgn = mrgn*width + "px";
+            //  position_menu_bar();
+            if ("Home" == current_div){
+                center_home();
+            }
+            /*
+            const home_image = document.getElementById("home_jpg");
    
             var size = mrgn;
             console.log("size = " + size);
@@ -287,7 +305,7 @@
             series.style.marginLeft = size;
  
             const o_header_table = document.getElementById("menu_bar");
-
+            */ 
         }
 
 
@@ -395,7 +413,7 @@
             console.log("Entered position_menu_bar()");
   
             const width_of_window = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            var home_image = document.getElementById("second_animation_04");
+            var home_image = document.getElementById("home_jpg");
             home_image.width = width_of_window;
             let winwidth = width_of_window;
 
@@ -536,6 +554,7 @@
         function Show(divID){
             console.log("divID = '"+ divID + "'");
             if("Home" == divID){
+                current_div = "Home";
                 black_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
@@ -546,6 +565,7 @@
                 red_the_text("Home");
             }
             else if("Artist_Statement" == divID){
+                current_div = "Artist_Statement";
                 black_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
@@ -556,6 +576,7 @@
                 red_the_text("About");
             }
             else if("Exhibitions" == divID){
+                current_div = "Exhibitions";
                 black_text();
                 hide_most_divisions();
                 hideDiv("Blowup");
@@ -566,6 +587,7 @@
                 red_the_text("Exhibitions");
             }
             else if("Blowup" == divID.slice(0,6)){
+                current_div = "Blowup";
                 hide_most_divisions();
                 console.log(divID);
                 hideDiv("Works");
@@ -722,6 +744,8 @@
             }
         }
         function OnLoadCode(){
+            current_div="Home";
+            center_home();
             console.log("Here I am!");
             //  position_menu_bar();
             console.log("again 00");
@@ -829,10 +853,10 @@
     </td>
     </table>
 </div>
-<div id="Home"  class="HomeCenter" >
-  <!--    <img id="second_animation_04" src="open01_mas_or.gif" class="center2" style:"max-width: 100px; height: 200px; transform:scale(4); tramsform-origin: left-top">  -->
+<div id="Home"  >
+  <!--    <img id="home_jpg" src="open01_mas_or.gif" class="center2" style:"max-width: 100px; height: 200px; transform:scale(4); tramsform-origin: left-top">  -->
 
-    <img id="second_animation_04" src="open17.jpg" class="HomeCenter"  tyle="transform: scale(1)"> 
+    <img id="home_jpg" src="open17.jpg"  class="center_horizontal"> 
 </div>
 <div id="Works">
     <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg"?alt="Image exreshidden3" width="160 px" height="320 px">
