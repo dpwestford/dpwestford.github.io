@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandra Broom Westford</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <style type="text/css">
+      .align_center_heading{
+        display: flex;
+        justify-content: center;
+        font-family: 'Ink Free', sans-serif;
+        font-size: 36px;
+      }
+        .center_horizontal {
+            display:block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .Center_Div{
+            border: 1px solid white;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .Center_Table{
+            border: 1px solid white;
+            display: inline-table;
+        }
+        .drop_down_margins{
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-right: 10;
+            margin-left:10;
+        }
+        .white_background{
+            background-color:white;
+            color:black;
+        }
+        .dropdown-content{
+            display: none; 
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            /*font-size:x-large;*/
+        }   
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown a:hover {background-color: #ddd;}
+        .top-right {
+            position: absolute;
+            top:30px;
+            right: 26px;
+            color:black;
+            font-family: 'Ink Free', sans-serif;
+            /* font-size:x-large; */ 
+            font-weight: bold
+        }
+        .title_line{
+            color:black;
+            text-align: center;
+            font-family: 'Ink Free', sans-serif;
+           /* font-weight:bold; font-size: 30px; */ 
+        }
+  /*      .solid_table{
+            border: none;
+            border-collapse: collapse;
+        }   */ 
+    div#Blowup{
+        display: none;
+    }
+        div#Works{
+            display: none;
+        }
+         div#Artist_Statement {
+              display: none;
+              margin-left: auto;
+              margin-right: auto;
+        }
+        div#Exhibitions{
+            display: none;
+            font-family: 'Ink Free', sans-serif;
+            border-collapse: collapse;
+            width: -10px;
+            display:none;
+            margin-left:30%;
+        }
+          .center {
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Ink Free', sans-serif;
+                /* font-weight:100  */  
+            }
+            .dimension{
+                line-height:20px;
+               /* font-size:x-large;  */ 
+            }
+            .bg {
+                background-color:white;
+                color:black;
+            }
+            .bg_dark{
+                background-color:black;
+                color:white;
+            }
+            .menu{
+                display: none;
+            }
+              table{
+                font-family: 'Ink Free', sans-serif;
+                  /*  font-size: 70%;  */ 
+              }
+              .text_centered{
+                font-family: 'Ink Free', sans-serif;
+                font-size: 70%;
+                text-align:center;
+                color:black;
+              }
+              .exhibits{
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Ink Free', sans-serif;
+                font-size: 70%;
+                margin-left:30%;
+              }
+                #toppings {
+                  font-family: 'Ink Free', sans-serif;
+                  border-collapse: collapse;
+                  width: -10px;
+                  display:inline-block;
+                }
+                .testtableimage{
+                   display:inline-block;
+                   vertical-align:top;
+                   max-width: 30%;
+                   max-height: 30%
+                }
+              .center2 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Ink Free', sans-serif;
+                /*  font-weight:100;  */  
+              }
+              .center3 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Ink Free', sans-serif;
+                font-weight:100;
+              }
+    </style>
+    <script>
+ 
+        window.addEventListener("resize", resized);
+ 
+        var current_div = "Home";
+        const file_names=[
+        "inresascend1.jpg",
+        "inresascend2.jpg",
+        "inresascend3.jpg",
+        "inresascend4.jpg",
+        "inresascend5.jpg",
+        "inreswhisper3.jpg",
+        "inreswhisp2.jpg",
+        "inreswhisper1.jpg",
+        "inresemerge1.jpg",
+        "inresemerge2.jpg",
+        "inresupwell3.jpg",
+        "inresupwell2.jpg",
+        "inresupwell4.jpg",
+        "inresupwell5.jpg",
+        "inresupwell1.jpg",
+        "exreshidden3.jpg",
+        "exreshidden1.jpg",
+        "exresopenwin4.jpg",
+        "exresopenwin1.jpg",
+        "exresopenwin2.jpg",
+        "exresopenwin3.jpg",
+        "exreshidden2.jpg",
+        ];
+        const file_descriptions=[
+        "internal resonance (ascend #1), Mixed Media, 20 x 10, 2023",
+        "internal resonance (ascend #2), Mixed Media, 20 x 10, 2023",
+        "internal resonance (ascend #3), Mixed Media, 20 x 10, 2023",
+        "internal resonance (ascend #4), Mixed Media, 20 x 10, 2023",
+        "internal resonance (ascend #5), Mixed Media, 20 x 10, 2023",
+        "internal resonance (whisper #3), Mixed Media, 20 x 10, 2023",
+        "internal resonance (whisper #2), Mixed Media, 20 x 10, 2023",
+        "internal resonance (whisper #1), Mixed Media, 20 x 10, 2023",
+        "internal resonance (emerge #1), Mixed Media, 20 x 10, 2023",
+        "internal resonance (emerge #2), Mixed Media, 20 x 10, 2023",
+        "internal resonance (upwelling #3), Mixed Media, 20 x 10, 2023",
+        "internal resonance (upwelling #2), Mixed Media, 20 x 10, 2023",
+        "internal resonance (upwelling #4), Mixed Media, 20 x 10, 2023",
+        "internal resonance (upwelling #5), Mixed Media, 20 x 10, 2023",
+        "internal resonance (upwelling #1), Mixed Media, 20 x 10, 2023",
+        "external resonance (hidden #3), Mixed Media, 20 x 10, 2024",
+        "external resonance (hidden #1), Mixed Media, 20 x 10, 2024",
+        "external resonance (open window #4), Mixed Media, 20 x 10, 2024",
+        "external resonance (open window #1), Mixed Media, 20 x 10, 2024",
+        "external resonance (open window #2), Mixed Media, 20 x 10, 2024",
+        "external resonance (open window #3), Mixed Media, 20 x 10, 2024",
+        "external resonance (hidden #2), Mixed Media, 20 x 10, 2024",
+        ];
+        function center_home(){
+            var wth = window.innerWidth - 30;
+            var ht = window.innerHeight - 100;
+            var image = document.getElementById("home_jpg");
+            var height = image.naturalHeight;
+            var width = image.naturalWidth;
+            var ratio_natural = height/width;
+            var ratio_window = ht/wth;
+            if (ratio_natural > ratio_window){
+                image.height = ht;
+                image.width = ht*width/height;
+            }
+            else{
+                image.width = wth;
+                image.height = wth*height/width;
+            }
+        }
+        function resized(){
+            if ("Home" == current_div){
+                center_home();
+            }
+        }
+        function black_text()
+        {
+            document.getElementById("itHome").style.color = '#000000';
+            document.getElementById("itWorks").style.color = '#000000';
+            document.getElementById("itExhibitions").style.color = '#000000';
+            document.getElementById("itAbout").style.color = '#000000';
+        }
+        function red_the_text(divID){
+            var cellName = "it"+divID;
+            console.log ("cellname = " + cellName);
+            var oCellName= document.getElementById(cellName).style.color = '#F11110';
+        }
+        function hide_most_divisions(){
+            var div = document.getElementById('S01');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S02');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S03');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S04');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S05');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S06');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S07');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S08');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S09');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S10');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S11');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S12');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S13');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S14');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S15');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S16');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S17');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S18');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S19');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S20');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S21');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S22');
+            if (div !== null){
+                div.style.display = "none";
+             }
+        }
+        function show_division(div_text_id){
+            var div_temp = document.getElementById(div_text_id);
+            div_temp.style.display = "block";
+            console.log("div_text_id = " + div_text_id);
+        }
+        function return_file_description_for(file_name){
+            var file_desc = "";
+            var i = 0;
+            var item_number = 0;
+            var item_number_found = -1;
+            var continue_loop = true;
+            // console.log("About to do the while loop");
+            while (item_number < file_names.length && continue_loop)  {
+                if (file_name.trim() == file_names[item_number].trim()){
+                    item_number_found = item_number;
+                    continue_loop = false;
+                    console.log("Found number = " + item_number_found );
+                }
+                ++item_number;
+            }
+            file_description = file_descriptions[item_number_found];
+            // console.log("file_desc = " + item_number_found + "  " + file_description);
+            return file_description;
+        }
+        function hideDiv(divID) {
+            console.log("hide divID = " + divID);
+            document.getElementById(divID).style.display = "none";
+        }
+        function showDiv(divID){
+            //alert("show divID = " + divID);
+            document.getElementById(divID).style.display = "block";
+            //alert("show divID = " + divID);
+        }
+        function Show(divID){
+            console.log("divID = '"+ divID + "'");
+            if("Home" == divID){
+                current_div = "Home";
+                black_text();
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Exhibitions");
+                showDiv("Home");
+                red_the_text("Home");
+            }
+            else if("Artist_Statement" == divID){
+                current_div = "Artist_Statement";
+                black_text();
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                showDiv("Artist_Statement");
+                red_the_text("About");
+            }
+            else if("Exhibitions" == divID){
+                current_div = "Exhibitions";
+                black_text();
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                showDiv("Exhibitions");
+                red_the_text("Exhibitions");
+            }
+            else if("Blowup" == divID.slice(0,6)){
+                current_div = "Blowup";
+                hide_most_divisions();
+                console.log(divID);
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                // console.log("All hidden");
+                var str = divID.split(',')
+                // console.log("It is split");
+                var blowup_Div_text_id = "Blowup";
+                // console.log(blowup_Div_text_id);
+                var blowupDiv = document.getElementById(blowup_Div_text_id);
+                var src_file="tantricstudy1.jpg";
+                var ratio = 1.0;
+                console.log(src_file);
+                if (str.length > 1){
+                    src_file = str[1].trim();
+                }
+                else{
+                    console.log("error: str array less than two.");
+                }
+                console.log(src_file);
+                var HorMargin = 35.0;
+                console.log(HorMargin);
+                var BotMargin = 175.0;
+                console.log(BotMargin);
+                var fctr = 1.0;
+                console.log(fctr);
+                var winWidth = window.innerWidth - 2*HorMargin;
+                console.log(winWidth);
+                const menu = document.getElementById('menu_bar');
+                const src_element = document.getElementById('bp');
+                var rect = menu.getBoundingClientRect();
+                console.log("window.innerHeight = " + window.innerHeight);
+                console.log("rect.top = " + rect.top);
+                console.log("BotMargin = " + BotMargin);
+                console.log("Found rect for division");
+                var winHeight = window.innerHeight - rect.top - BotMargin;
+                console.log(winHeight);
+                console.log("window.innerWidth = " + window.innerWidth);
+                console.log("BotMargin*2 = " + 2* BotMargin);
+                console.log("Found rect for division");
+                var winWidth =  window.innerWidth - HorMargin * 2;
+                console.log(winWidth);
+                var fctr = parseFloat(winHeight)/parseFloat(winWidth);
+                console.log("fctr = " + fctr);
+                console.log("Found src_element bp");
+                console.log("src_file = '" + src_file + "'")
+                src_element.src = src_file;
+                var mysrc = src_element.src;
+                console.log(mysrc);
+                console.log("Set src");
+                var wdth= src_element.naturalWidth;
+                console.log("Natural width = " + wdth.toString());
+                var hght= src_element.naturalHeight;
+                console.log("Natural height = " + hght.toString());
+                ratio = hght/wdth;
+                console.log("ratio = " + ratio.toString());
+                // blowupDiv.style.height = winHeight.toString() + "px";
+                console.log(winHeight);
+                console.log("Set winHeight");
+                // blowupDiv.style.width = winWidth.toString() + "px";
+                console.log(winWidth);
+                console.log("Set winWidth");
+                var units_horizontal = wdth/winWidth;
+                console.log("units_horizontal = " + units_horizontal);
+                var units_vertical = hght/winHeight;
+                console.log("units_vertical  " + units_vertical);
+                if ( units_horizontal < units_vertical){
+                    // The size is constrained by height
+                    // multiply the units_vertical times the natural height
+                    px_height = winHeight;
+                    px_width = px_height/ratio;
+                    console.log("if px_height = " + px_height.toString());
+                    px_string_height = px_height.toString() + " px";
+                }
+                else{
+                    // The size is constrained by width
+                    // multiply the units_horizontal times the natural width
+                    px_width = winWidth;
+                    px_height = px_width*ratio;
+                    console.log("else px_width = " + px_width.toString());
+                    px_string_height = px_height.toString() + " px";
+                }
+                console.log("About to set height");
+                // blowupDiv.style.height = px_width + " px";
+                console.log("src_element.style.height = px_string_height;  " + px_string_height.toString());
+                // blowupDiv.style.width = px_height + " px";
+                src_element.style.width = px_width.toString() + "px";
+                src_element.style.height = px_height.toString() + "px";
+                console.log("src_file = " + src_file);
+                var description_of_piece = return_file_description_for(src_file);
+                console.log("src_file = " + description_of_piece);
+                const cap = document.getElementById("cptn");
+                cap.innerText  = description_of_piece;
+                showDiv("Blowup");
+                console.log("Just blew up");
+            }
+            if('S01' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S02' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S03' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S04' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S05' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S06' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S07' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S08' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S09' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S10' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S11' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S12' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S13' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S14' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S15' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S16' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S17' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S18' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S19' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S20' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S21' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S22' == divID){
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else{
+            }
+        }
+        function OnLoadCode(){
+            current_div="Home";
+            center_home();
+            hide_most_divisions();
+            const oMy_dropdown = document.getElementById("works_dropdown_div");
+            oMy_dropdown.style.display="none";
+            document.addEventListener("click", function(e) {
+            const clickedElement = e.target;
+            const myCell = document.getElementById("itWorks");
+            if (clickedElement !== myCell && !myCell.contains(clickedElement)) {
+                const oMy_dropdown = document.getElementById("works_dropdown_div");
+                console.log("Element was not clicked.");
+                if (oMy_dropdown.style.display !== "none"){
+                    oMy_dropdown.style.display = "none";
+                }
+            }
+            else{
+                console.log("Element was clicked!");
+                const oMy_dropdown = document.getElementById("works_dropdown_div");
+                if (oMy_dropdown.style.display==='none'){
+                    oMy_dropdown.style.display = "block";
+                    console.log("Now move dropdown");
+                    var position = oMy_dropdown.getBoundingClientRect();
+                    console.log("left: " + position.left, "top: " + position.top);
+                    MoveDropDown();
+                    console.log("Moved dropdown");
+                }
+                else{
+                    oMy_dropdown.style.display = "none";
+                    console.log("Hid dropdown")
+                }
+            }
+        }
+        );
+        }
+        function MoveDropDown(){
+            console.log("MoveDropDown");
+            var cellElement = document.getElementById('itWorks');
+            var rect = cellElement.getBoundingClientRect();
+            console.log('Top:', rect.top, 'Right:', rect.right, 'Bottom:', rect.bottom, 'Left:', rect.left);
+            const drops = document.getElementById("works_dropdown_div");
+            console.log("got drop_down element");
+            if (drops !== null){
+                console.log("Drops is good");
+            }
+            else{
+                console.log("Drops is bad");
+            }
+            var size = Math.round(rect.left-70) + "px";
+            drops.style.marginLeft = size;
+            size = Math.round(rect.top + 40) + "px";
+            drops.style.marginTop = size;
+            black_text();
+            red_the_text("Works");
+        }
+    </script>
+</head>
+<body onload="OnLoadCode()">
+<div class="Center_Div">
+    <table class="Center_Table" style="font-family: 'Ink Free', san-serif;">
+        <tr>
+            <td class="white_background" style="width:96px"><img id="chop" style="float:right; width:50px; height:50px" src="Chop.png" alt=" " width="122px" height="122px"></td>
+            <td class="white_background" style="width:400px; font-size:36px" style="float:left;" >&nbsp;Sandra Broom Westford</td>
+        </tr>
+    </table>
+</div>
+<div class="Center_Div">
+    <table id="menu_bar" class="Center_Table" style="font-family: 'Ink Free', san-serif; font-size:24px;">
+        <tr>
+            <td width="96px"></td>
+            <td id="itHome" width="96px" class="white_background" onclick="Show('Home')">Home</td>
+            <td id="itWorks" width="96px" class="white_background">Works</td>
+            <td id="itExhibitions" width="120px" class="white_background" onclick="Show('Exhibitions')">Exhibitions</td>
+            <td id="itAbout" width="96px" class="white_background" onclick="Show('Artist_Statement')">About</td>
+        </tr>
+    </table>
+</div>
+<div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" >
+    <table id="dropdown_table" style="font-family: 'Ink Free', san-serif; border:0; background-color: #555555; border-collapse: collapse;">
+        <tr>
+            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('S01')">internal resonance</td>
+        </tr>
+        <tr>
+            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('S02')">external resonance</td>
+        </tr>
+    </table>
+</div>
+<div id="Home">
+    <img id="home_jpg" src="open17.jpg"  class="center_horizontal">
+</div>
+<div id="Works">
+    <img id="inresascend1" onclick="Show('Blowup,inresascend1.jpg')" src="inresascend1.jpg" alt="inresascend1" width="80px" height="160px">
+    <img id="inresascend2" onclick="Show('Blowup,inresascend2.jpg')" src="inresascend2.jpg" alt="inresascend2" width="80px" height="160px">
+    <img id="inresascend3" onclick="Show('Blowup,inresascend3.jpg')" src="inresascend3.jpg" alt="inresascend3" width="80px" height="160px">
+    <img id="inresascend4" onclick="Show('Blowup,inresascend4.jpg')" src="inresascend4.jpg" alt="inresascend4" width="80px" height="160px">
+    <img id="inresascend5" onclick="Show('Blowup,inresascend5.jpg')" src="inresascend5.jpg" alt="inresascend5" width="80px" height="160px">
+    <img id="inreswhisper3" onclick="Show('Blowup,inreswhisper3.jpg')" src="inreswhisper3.jpg" alt="inreswhisper3" width="80px" height="160px">
+    <img id="inreswhisp2" onclick="Show('Blowup,inreswhisp2.jpg')" src="inreswhisp2.jpg" alt="inreswhisp2" width="80px" height="160px">
+    <img id="inreswhisper1" onclick="Show('Blowup,inreswhisper1.jpg')" src="inreswhisper1.jpg" alt="inreswhisper1" width="80px" height="160px">
+    <img id="inresemerge1" onclick="Show('Blowup,inresemerge1.jpg')" src="inresemerge1.jpg" alt="inresemerge1" width="80px" height="160px">
+    <img id="inresemerge2" onclick="Show('Blowup,inresemerge2.jpg')" src="inresemerge2.jpg" alt="inresemerge2" width="80px" height="160px">
+    <img id="inresupwell3" onclick="Show('Blowup,inresupwell3.jpg')" src="inresupwell3.jpg" alt="inresupwell3" width="80px" height="160px">
+    <img id="inresupwell2" onclick="Show('Blowup,inresupwell2.jpg')" src="inresupwell2.jpg" alt="inresupwell2" width="80px" height="160px">
+    <img id="inresupwell4" onclick="Show('Blowup,inresupwell4.jpg')" src="inresupwell4.jpg" alt="inresupwell4" width="80px" height="160px">
+    <img id="inresupwell5" onclick="Show('Blowup,inresupwell5.jpg')" src="inresupwell5.jpg" alt="inresupwell5" width="80px" height="160px">
+    <img id="inresupwell1" onclick="Show('Blowup,inresupwell1.jpg')" src="inresupwell1.jpg" alt="inresupwell1" width="80px" height="160px">
+    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3.jpg')" src="exreshidden3.jpg" alt="exreshidden3" width="80px" height="160px">
+    <img id="exreshidden1" onclick="Show('Blowup,exreshidden1.jpg')" src="exreshidden1.jpg" alt="exreshidden1" width="80px" height="160px">
+    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4.jpg')" src="exresopenwin4.jpg" alt="exresopenwin4" width="80px" height="160px">
+    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1.jpg')" src="exresopenwin1.jpg" alt="exresopenwin1" width="80px" height="160px">
+    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2.jpg')" src="exresopenwin2.jpg" alt="exresopenwin2" width="80px" height="160px">
+    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3.jpg')" src="exresopenwin3.jpg" alt="exresopenwin3" width="80px" height="160px">
+    <img id="exreshidden2" onclick="Show('Blowup,exreshidden2.jpg')" src="exreshidden2.jpg" alt="exreshidden2" width="80px" height="160px">
+</div>
+<div id="Artist_Statement" style="color:black;">
+        <table style="line-height: 150%; margin-bottom: 0in; margin-left:auto; margin-right:auto;" >
+        <tr><td><b>Artist Statement</b></td></tr>
+        <tr><td></td></tr>
+        <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
+        <tr><td>adipiscing elit.  Inconsequat sed efficitur</td></tr>
+        <tr><td>vitae donec arcu et.  Ametaliquam</td></tr>
+        <tr><td>commodo eu sagittis facilisi fames in.</td></tr>
+        <tr><td>Donecac tincidunt vel nec libero proin.</td></tr>
+        <tr><td>Magnanibh consequat orci ut lobortis sit</td></tr>
+        <tr><td>posuere orci.  Egetnisi tincidunt arcu dolor</td></tr>
+        <tr><td>tincidunt vel.  Volutpatinterdum malesuada</td></tr>
+        <tr><td>pretium ut.</td></tr>
+        <tr><td></td></tr>
+        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
+        <tr><td>metus.  Lacusmattis porta nibh donec</td></tr>
+        <tr><td>elementum eleifend purus. </td></tr>
+        <tr><td>Fringilladignissim odio faucibus ultricies.</td></tr>
+        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
+        <tr><td>metus.  Idamet sed nisi a orci vel gravida</td></tr>
+        <tr><td>non arcu.  Ametaliquam commodo eu</td></tr>
+        <tr><td>sagittis facilisi fames in.  Tortoramet viverra</td></tr>
+        <tr><td>per blandit tempor ac.</td></tr>
+        <tr><td></td></tr>
+        <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
+        <tr><td>adipiscing elit.  Inconsequat sed efficitur</td></tr>
+        <tr><td>vitae donec arcu et.  Ametaliquam</td></tr>
+        <tr><td>commodo eu sagittis facilisi fames in. </td></tr>
+        <tr><td>Donecac tincidunt vel nec libero proin.  </td></tr>
+        <tr><td>Magnanibh consequat orci ut lobortis sit</td></tr>
+        <tr><td>posuere orci.  Egetnisi tincidunt arcu dolor</td></tr>
+        <tr><td>tincidunt vel.  Volutpatinterdum malesuada</td></tr>
+        <tr><td>pretium ut.</td></tr>
+        <tr><td></td></tr>
+        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
+        <tr><td>metus.  Lacusmattis porta nibh donec</td></tr>
+        <tr><td>elementum eleifend purus. </td></tr>
+        <tr><td>Fringilladignissim odio faucibus ultricies.</td></tr>
+        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
+        <tr><td>metus.  Idamet sed nisi a orci vel gravida</td></tr>
+        <tr><td>non arcu.  Ametaliquam commodo eu</td></tr>
+        <tr><td>sagittis facilisi fames in.  Tortoramet viverra</td></tr>
+        <tr><td>per blandit tempor ac.</td></tr>
+    </table>
+</div>
+<div id="Exhibitions" style="color:black">
+    <table id="toppings" style="line-height: 150%; margin-bottom: 0in " >
+    <tr>
+        <td></td>
+        <td></td>
+        <td style="font-size: 100%"><b>Exhibition History</b></td>
+    </tr>
+    <tr>
+        <td>2023</td>
+        <td>&ensp;</td>
+        <td>Foundry Gallery, Regional Juried Show, Walla Walla WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2016</td>
+        <td>&ensp;</td>
+        <td>Oak Hollow Gallery, 'Home: an exploration', Yakima WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2015</td>
+        <td>&ensp;</td>
+        <td>Anchor Gallery, Invitational Show, 'Field Work', Anacortes WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Sarah Spergean Gallery, 'Crossroads', Ellensburg WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Chase Gallery, juried show, Spokane WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Larson Gallery, 'Central Wa Juried Show', Award Winner, Yakima WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Boxx Gallery, 'Inaugural Group Show', Tieton WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2014</td>
+        <td>&ensp;</td>
+        <td>Larson Gallery, 'Central Wa Juried Show', Award Winner, Yakima WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2013</td>
+        <td>&ensp;</td>
+        <td>Gallery One, 'Celebration of Tieton Artists', Ellensburg WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>10 X 10 X 10 by Tieton juried show, Tieton WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2012</td>
+        <td>&ensp;</td>
+        <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>SAM Gallery, continued representation, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2011</td>
+        <td>&ensp;</td>
+        <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>SAM Gallery, continued representation, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2010</td>
+        <td>&ensp;</td>
+        <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>SAM Gallery, continued representation, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2009</td>
+        <td>&ensp;</td>
+        <td>Bainbridge Arts and Crafts, 'Shells', Bainbridge WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Simon Gallery, 'Christmas Show', Yakima WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td> Larson Gallery, 'Central Washington Juried Show', Award Winner, Yakima WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Larson Gallery Studio tour in association with Leo Adams, Yakima WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>SAM Gallery, continued representation, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2008</td>
+        <td>&ensp;</td>
+        <td>Bainbridge Arts and Crafts, 'The Box', Bainbridge WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>Kobo Gallery, 'New Works', Seattle WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>SAM Gallery, continued representation, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2007</td>
+        <td>&ensp;</td>
+        <td>Bainbridge Arts and Crafts, 'New Works', Bainbridge WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Scott Milo Gallery, 'New Works', Anacortes WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>SAM Gallery, continued representation, Seattle WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Kobo Gallery, 'Small Poems', Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2006</td>
+        <td>&ensp;</td>
+        <td>Bainbridge Arts and Crafts, 'New Works', Bainbridge WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Scott Milo Gallery, 'New Works', Anacortes WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Kobo Gallery, 'New Works', Seattle WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>Northwind Arts Center, 'New Works', Port Townsend WA</td>
+    </tr>
+    <tr>
+        <td>&ensp;</td>
+        <td>&ensp;</td>
+        <td>SAM Gallery, continued representation, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>2005</td>
+        <td>&ensp;</td>
+        <td>SAM Gallery 'Introductions', Seattle WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>Kobo Gallery, 'Zen Realism', Seattle WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>Scott Milo Gallery, 'New Works', Anacortes WA </td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2004</td>
+        <td>&ensp;</td>
+        <td>Northwind Arts Center, 'Dwellings', Port Townsend WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>Anacortes Arts Festival, juried show, Corporate Award, Anacortes WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>Scott Milo Gallery, 'Small Poems', Anacortes WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2003</td>
+        <td>&ensp;</td>
+        <td>Northwind Arts Center, 'Four Award Winning Pastel Artists', Anacortes WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>Anacortes Arts Festival, juried show, Purchase Award, Anacortes WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2002</td>
+        <td>&ensp;</td>
+        <td>Art Port Townsend, juried exhibition, Best of Show, Port Townsend WA</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>&ensp;</td>
+        <td>Anacortes Arts Festival, juried show, Purchase Award, Anacortes WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>2000</td>
+        <td>&ensp;</td>
+        <td>Poncho Auction preview, juried show, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>1999</td>
+        <td>&ensp;</td>
+        <td>Poncho Auction preview, juried show, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>1998</td>
+        <td>&ensp;</td>
+        <td>Children's Day at the Japanese Garden, commissioned piece, Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>1993</td>
+        <td>&ensp;</td>
+        <td>Gilmarten Gallery, 'New Works', Seattle WA</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>1992</td>
+        <td>&ensp;</td>
+        <td>Arts for the Parks, juried show, Jackson Hole Wyoming</td>
+    </tr>
+    <tr font-size="10px">
+        <td ></td>
+        <td"></td>
+    </tr>
+    <tr>
+        <td>1986</td>
+        <td>&ensp;</td>
+        <td>Anacortes Arts Festival, juried show, Purchase Award</td>
+    </tr>
+    <tr font-size="10px">
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td style="font-size: 100%"><b>Education</b></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>I have studied art for many years at a number of schools including:</td>
+    </tr>
+    <ul>
+    <tr>
+        <td></td>
+        <td></td>
+        <td style="margin-left: 1em;"><li>Pratt Institute</li></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td style="margin-left: 1em;"><li>The Gage Academy</li></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td style="margin-left: 1em;"><li>The Factory of Visual Arts</li></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td style="margin-left: 1em;"><li>The School of Visual Concepts</li></td>
+    </tr>
+    </ul>
+    <tr>
+        <td></td>
+        <td></td>
+        <td>I hold degrees in Biology and Psychology.</td>
+    </tr>
+</table>
+<img class="testtableimage"  src="P1010356.jpg"/>
+</div>
+<div id="Blowup">
+    <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
+    <!-- <div class="top-right">[ X ]</div>  -->
+    <p id="cptn" class="text_centered">-  -  -</p>
+</div>
+<div id='S01' class="align_center_heading">
+          <p id="series_header_id" class="align_center_heading">internal resonance</p>
+    <table class="dimension" style="font-family: 'Ink Free', sans-serif;color:black">
+        <tr style="height:20px"></tr>
+        <tr style="height:200px">
+            <td>ascend</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'inresascend1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend1.jpg')" src='inresascend1.jpg' width="160 px" height="320 px">
+                <img id= 'inresascend2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend2.jpg')" src='inresascend2.jpg' width="160 px" height="320 px">
+                <img id= 'inresascend3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend3.jpg')" src='inresascend3.jpg' width="160 px" height="320 px">
+                <img id= 'inresascend4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend4.jpg')" src='inresascend4.jpg' width="160 px" height="320 px">
+                <img id= 'inresascend5' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend5.jpg')" src='inresascend5.jpg' width="160 px" height="320 px">
+           </td>
+      </tr>
+        <tr style="height:20px"></tr>
+        <tr style="height:200px">
+            <td>whisper</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'inreswhisper3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper3.jpg')" src='inreswhisper3.jpg' width="160 px" height="320 px">
+                <img id= 'inreswhisp2' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisp2.jpg')" src='inreswhisp2.jpg' width="160 px" height="320 px">
+                <img id= 'inreswhisper1' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper1.jpg')" src='inreswhisper1.jpg' width="160 px" height="320 px">
+           </td>
+      </tr>
+        <tr style="height:20px"></tr>
+        <tr style="height:200px">
+            <td>emerge</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'inresemerge1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge1.jpg')" src='inresemerge1.jpg' width="160 px" height="320 px">
+                <img id= 'inresemerge2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge2.jpg')" src='inresemerge2.jpg' width="160 px" height="320 px">
+           </td>
+      </tr>
+        <tr style="height:20px"></tr>
+        <tr style="height:200px">
+            <td>upwelling</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'inresupwell3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell3.jpg')" src='inresupwell3.jpg' width="160 px" height="320 px">
+                <img id= 'inresupwell2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell2.jpg')" src='inresupwell2.jpg' width="160 px" height="320 px">
+                <img id= 'inresupwell4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell4.jpg')" src='inresupwell4.jpg' width="160 px" height="320 px">
+                <img id= 'inresupwell5' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell5.jpg')" src='inresupwell5.jpg' width="160 px" height="320 px">
+                <img id= 'inresupwell1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell1.jpg')" src='inresupwell1.jpg' width="160 px" height="320 px">
+           </td>
+      </tr>
+        </table>
+</div>
+<div id='S02' class="align_center_heading">
+          <p id="series_header_id"  class="align_center_heading">external resonance</p>
+    <table class="dimension" style="font-family: 'Ink Free', sans-serif;color:black" > 
+        <tr style="height:20px"></tr>
+        <tr style="height:200px">
+            <td>hidden</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'exreshidden3' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden3.jpg')" src='exreshidden3.jpg' width="160 px" height="320 px">
+                <img id= 'exreshidden1' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden1.jpg')" src='exreshidden1.jpg' width="160 px" height="320 px">
+                <img id= 'exresopenwin4' style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin4.jpg')" src='exresopenwin4.jpg' width="160 px" height="320 px">
+                <img id= 'exresopenwin1' style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin1.jpg')" src='exresopenwin1.jpg' width="160 px" height="320 px">
+                <img id= 'exresopenwin2' style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin2.jpg')" src='exresopenwin2.jpg' width="160 px" height="320 px">
+                <img id= 'exresopenwin3' style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin3.jpg')" src='exresopenwin3.jpg' width="160 px" height="320 px">
+                <img id= 'exreshidden2' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden2.jpg')" src='exreshidden2.jpg' width="160 px" height="320 px">
+           </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
