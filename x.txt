@@ -1,26 +1,59 @@
- Volume in drive F is New Volume
- Volume Serial Number is 3AB7-0AEF
-
- Directory of F:\SW11
-
-04/25/2024  09:59 AM            71,597 corner_close.html
-05/20/2024  01:21 PM            73,427 destination.html
-04/25/2024  03:14 AM            34,656 DropdownTest01.html
-05/25/2024  08:52 PM            80,359 index.html
-05/19/2024  06:25 PM            72,375 index02.html
-05/19/2024  06:34 PM            73,135 index03_backward.html
-05/22/2024  12:14 PM                 0 mess.html
-05/19/2024  09:42 AM            10,649 TableAndImage.html
-04/25/2024  11:59 AM             1,768 text_over_img.html
-05/20/2024  12:06 PM            69,074 what.html
-05/20/2024  09:58 PM            73,282 Whate.html
-05/21/2024  09:57 AM            73,282 Whatev.html
-05/20/2024  09:52 PM            73,282 Whatever.html
-05/21/2024  11:51 AM            74,185 Whatever03.html
-05/23/2024  06:36 AM            77,375 Whatever04.html
-05/24/2024  08:00 AM            82,922 Whatever05.html
-05/24/2024  10:46 AM            82,641 Whatever06.html
-05/24/2024  11:00 AM            82,540 Whatever07.html
-05/20/2024  10:04 PM            73,282 wwww.html
-              19 File(s)      1,179,831 bytes
-               0 Dir(s)  3,916,253,597,696 bytes free
+exreshidden3_mas_or.jpg
+exresopenwin1_mas_or.jpg
+exresopenwin2_mas_or.jpg
+exresopenwin3_mas_or.jpg
+exresopenwin4_mas_or.jpg
+inresascend1_mas_or.jpg
+inresascend2_mas_or.jpg
+inresascend3_mas_or.jpg
+inresascend4_mas_or.jpg
+inresascend5_mas_or.jpg
+inresemerge1_mas_or.jpg
+inresemerge2_mas_or.jpg
+inrestouch1_mas_or.jpg
+inresupwell1_mas_or.jpg
+inresupwell2_mas_or.jpg
+inresupwell3_mas_or.jpg
+inresupwell4_mas_or.jpg
+inresupwell5_mas_or.jpg
+inreswhisp2_mas_or.jpg
+inreswhisper1_mas_or.jpg
+inreswhisper3_mas_or.jpg
+open17.jpg
+P101.jpg
+P1010356.jpg
+P1010357.JPG
+P1010358.JPG
+P1010359.JPG
+P1010360.JPG
+P1010361.JPG
+P1010362.JPG
+P1010363.JPG
+P1010364.JPG
+P1010365.JPG
+P1010366.JPG
+smstudy10-1_mas_or.jpg
+smstudy10-2_mas_or.jpg
+smstudy1_mas_or.jpg
+smstudy2_mas_or.jpg
+smstudy3_mas_or.jpg
+smstudy4-1_mas_or.jpg
+smstudy4-2_mas_or.jpg
+smstudy5-1_mas_or.jpg
+smstudy5-2_mas_or.jpg
+smstudy6_mas_or.jpg
+smstudy7_mas-or.jpg
+smstudy8_mas_or.jpg
+smstudy9_mas_or.jpg
+studybeingreconfigured1.jpg
+studybeingreconfigured2.jpg
+studybeingreconfigured3.jpg
+studyberecon1_mas_or.jpg
+studyberecon2_mas_or.jpg
+studyberecon3_mas_or.jpg
+tantricstudy1.jpg
+tantricstudy1_mas_or.jpg
+tantricstudy2_mas_or.jpg
+tantricstudy3_mas_or.jpg
+tantricstudy4_mas_or.jpg
+Westford_09-5side.jpg
