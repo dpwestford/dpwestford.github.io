@@ -102,7 +102,8 @@
             }
             .dimension{
                 line-height:20px;
-               /* font-size:x-large;  */ 
+                margin-left: auto;
+                margin-right: auto;
             }
             .bg {
                 background-color:white;
@@ -117,11 +118,10 @@
             }
               table{
                 font-family: 'Ink Free', sans-serif;
-                  /*  font-size: 70%;  */ 
               }
               .text_centered{
                 font-family: 'Ink Free', sans-serif;
-                font-size: 70%;
+                font-size: 20px;
                 text-align:center;
                 color:black;
               }
@@ -728,6 +728,7 @@
             }
         }
         function OnLoadCode(){
+            hideDiv("Works");
             current_div="Home";
             center_home();
             hide_most_divisions();
