@@ -158,6 +158,24 @@
                 font-family: 'Ink Free', sans-serif;
                 font-weight:100;
               }
+              /* -- TODO: Add CSS to web page */
+              .containerdiv {
+                position:relative;
+                width:100%;
+                display:inline-block;
+                font-family: 'Ink Free', san-serif;
+            }
+            #image1 { position: absolute; top: 20px; left: 10px; }
+            #close {
+                position:absolute;
+                top: 0px;
+                left: 630px;
+                font-size: 32px;
+                cursor: pointer;
+                font-family: 'Arial', sans-serif;
+                color: gray;
+            }
+            /* TODO: Previous is to be added */
     </style>
     <script>
  
@@ -233,6 +251,9 @@
             if ("Home" == current_div){
                 center_home();
             }
+            else if("Blowup" == current_div){
+                Position_Close_Box("bp");
+            }
         }
         function black_text()
         {
@@ -252,86 +273,6 @@
                 div.style.display = "none";
              }
             var div = document.getElementById('S02');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S03');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S04');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S05');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S06');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S07');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S08');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S09');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S10');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S11');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S12');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S13');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S14');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S15');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S16');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S17');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S18');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S19');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S20');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S21');
-            if (div !== null){
-                div.style.display = "none";
-             }
-            var div = document.getElementById('S22');
             if (div !== null){
                 div.style.display = "none";
              }
@@ -365,9 +306,7 @@
             document.getElementById(divID).style.display = "none";
         }
         function showDiv(divID){
-            //alert("show divID = " + divID);
             document.getElementById(divID).style.display = "block";
-            //alert("show divID = " + divID);
         }
         function Show(divID){
             console.log("divID = '"+ divID + "'");
@@ -503,8 +442,11 @@
                 cap.innerText  = description_of_piece;
                 showDiv("Blowup");
                 console.log("Just blew up");
+                console.log("Now position the close X");
+                Position_Close_Box('bp');
             }
             if('S01' == divID){
+                current_series = divID;
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -515,206 +457,7 @@
                 show_division(divID);
             }
             else if('S02' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S03' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S04' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S05' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S06' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S07' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S08' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S09' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S10' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S11' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S12' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S13' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S14' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S15' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S16' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S17' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S18' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S19' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S20' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S21' == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-                hide_most_divisions();
-                show_division(divID);
-            }
-            else if('S22' == divID){
+                current_series = divID;
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -742,6 +485,15 @@
                 console.log("Element was not clicked.");
                 if (oMy_dropdown.style.display !== "none"){
                     oMy_dropdown.style.display = "none";
+                }
+                const oCloseBox = document.getElementById("close");
+                if(clickedElement !== oCloseBox && !oCloseBox.contains(clickedElement)){
+                    console.log("The close box was not clicked");
+                }
+                else{
+                    console.log("The close box was clicked!");
+                    Show(current_series);
+                    console.log("current_series:" + current_series);
                 }
             }
             else{
@@ -783,6 +535,23 @@
             black_text();
             red_the_text("Works");
         }
+        // TODO: FOLLOWING IS NEW:
+        function Position_Close_Box(image_name_id){
+            console.log("get image object");
+            var oImage = document.getElementById(image_name_id);
+            console.log("get rectangle");
+            var rectngl = oImage.getBoundingClientRect();
+            console.log("get rectangle");
+            var rght = rectngl.right+ 5;
+            console.log("rght = ",rght.toString()," px");
+            var oClose = document.getElementById("close");
+            oClose.style.left= rght.toString() + "px";
+            oClose.style.top= "140px";
+        }
+        function Return_to_Series(fileName) {
+            console.log("Close box is clicked reported in Return_to_Series()...");
+        }
+        // TODO: ABOVE IS NEW
     </script>
 </head>
 <body onload="OnLoadCode()">
@@ -1275,6 +1044,7 @@
 <div id="Blowup">
     <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
     <!-- <div class="top-right">[ X ]</div>  -->
+    <span id="close" onClick="Return_to_Series()"> X </span>
     <p id="cptn" class="text_centered">-  -  -</p>
 </div>
 <div id='S01' class="align_center_heading">
