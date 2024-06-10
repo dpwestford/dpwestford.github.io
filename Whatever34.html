@@ -6,11 +6,14 @@
     <title>Sandra Broom Westford</title>
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <style type="text/css">
+#pageElement{display:flex; flex-wrap: nowrap; align-items: center}
       .align_center_heading{
         display: flex;
         justify-content: center;
         font-family: 'Ink Free', sans-serif;
         font-size: 36px;
+        border: none;
+        border-collapse: collapse;
       }
         .center_horizontal {
             display:block;
@@ -22,10 +25,14 @@
             text-align: center;
             margin-left: auto;
             margin-right: auto;
+            border: none;
+            border-collapse: collapse;
         }
         .Center_Table{
             border: 1px solid white;
             display: inline-table;
+            border: none;
+            border-collapse: collapse;
         }
         .drop_down_margins{
             margin-top: 0;
@@ -33,16 +40,20 @@
             margin-right: 10;
             margin-left:10;
         }
-        .white_background{
-            background-color:white;
-            color:black;
+        .color_of_heading_background{
+            border-collapse: collapse;
+            background-color:rgb(0,0,0) ;
+            color:rgb(255,255,255);
+            border: none;
+            border-collapse: collapse;
         }
         .dropdown-content{
             display: none; 
             position: absolute;
             top: 0px;
             left: 0px;
-            background-color: #f1f1f1;
+            background-color:rgb(0,0,0);
+            color:rgb(255,255,255);
             min-width: 160px;
             overflow: auto;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -50,7 +61,7 @@
             /*font-size:x-large;*/
         }   
         .dropdown-content a {
-            color: black;
+            color:;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -60,13 +71,13 @@
             position: absolute;
             top:30px;
             right: 26px;
-            color:black;
+            color:rgb(255,255,255);
             font-family: 'Ink Free', sans-serif;
             /* font-size:x-large; */ 
             font-weight: bold
         }
         .title_line{
-            color:black;
+            color:rgb(255,255,255);
             text-align: center;
             font-family: 'Ink Free', sans-serif;
            /* font-weight:bold; font-size: 30px; */ 
@@ -106,12 +117,12 @@
                 margin-right: auto;
             }
             .bg {
-                background-color:white;
-                color:black;
+                background-color:rgb(0,0,0);
+                color:rgb(255,255,255);
             }
             .bg_dark{
-                background-color:black;
-                color:white;
+                background-color:rgb(0,0,0);
+                color:"rgb(255,255,255)";
             }
             .menu{
                 display: none;
@@ -123,7 +134,7 @@
                 font-family: 'Ink Free', sans-serif;
                 font-size: 20px;
                 text-align:center;
-                color:black;
+                color:"rgb(0,0,0)";
               }
               .exhibits{
                 margin-left: auto;
@@ -255,14 +266,16 @@
                 Position_Close_Box("bp");
             }
         }
-        function black_text()
+        function reset_text_color()
         {
-            document.getElementById("itHome").style.color = '#000000';
-            document.getElementById("itWorks").style.color = '#000000';
-            document.getElementById("itExhibitions").style.color = '#000000';
-            document.getElementById("itAbout").style.color = '#000000';
+            document.getElementById("itHome").style.color ="rgb(255,255,255)";
+            document.getElementById("itWorks").style.color ="rgb(255,255,255)";
+            document.getElementById("itExhibitions").style.color ="rgb(255,255,255)";
+            document.getElementById("itAbout").style.color ="rgb(255,255,255)";
+            console.log("####################");
         }
         function red_the_text(divID){
+            reset_text_color(); 
             var cellName = "it"+divID;
             console.log ("cellname = " + cellName);
             var oCellName= document.getElementById(cellName).style.color = '#F11110';
@@ -312,7 +325,7 @@
             console.log("divID = '"+ divID + "'");
             if("Home" == divID){
                 current_div = "Home";
-                black_text();
+                reset_text_color();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -323,7 +336,7 @@
             }
             else if("Artist_Statement" == divID){
                 current_div = "Artist_Statement";
-                black_text();
+                reset_text_color();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -334,7 +347,7 @@
             }
             else if("Exhibitions" == divID){
                 current_div = "Exhibitions";
-                black_text();
+                reset_text_color();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -532,7 +545,7 @@
             drops.style.marginLeft = size;
             size = Math.round(rect.top + 40) + "px";
             drops.style.marginTop = size;
-            black_text();
+            reset_text_color();
             red_the_text("Works");
         }
         // TODO: FOLLOWING IS NEW:
@@ -555,32 +568,31 @@
     </script>
 </head>
 <body onload="OnLoadCode()">
-<div class="Center_Div">
-    <table class="Center_Table" style="font-family: 'Ink Free', san-serif;">
-        <tr>
-            <td class="white_background" style="width:96px"><img id="chop" style="float:right; width:50px; height:50px" src="Chop.png" alt=" " width="122px" height="122px"></td>
-            <td class="white_background" style="width:400px; font-size:36px" style="float:left;" >&nbsp;Sandra Broom Westford</td>
+    <table  id="menu_bar" class="Center_Table" style="font-family: 'Ink Free', san-serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
+        <tr class="color_of_heading_background" >
+            <td style="width:auto" colspan="1">&nbsp;</td>
+            <td style="width:160px" colspan="1">&nbsp;</td>
+            <td style="width:160px" colspan="2"><img id="chop" style="float:left; width:30px; height:30px" src="Chop.png" width="122px" height="122px">Sandra Broom Westford</td>
+            <td style="width:160px" colspan="1">&nbsp;</td>
+            <td style="width:160px" colspan="1">&nbsp;</td>
+            <td style="width:auto" colspan="1">&nbsp;</td>
+        </tr>
+        <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
+            <td style="width:auto" colspan="1">&nbsp;</td>
+            <td id="itHome" width="160px" class="white_background" onclick="Show('Home')">Home</td>
+            <td id="itWorks" width="160px" class="white_background">Works</td>
+            <td id="itExhibitions" width="160px" class="white_background" onclick="Show('Exhibitions')">Exhibitions</td>
+            <td id="itAbout" width="160px" class="white_background" onclick="Show('Artist_Statement')">About</td>
+            <td style="width:auto" colspan="2">&nbsp;</td>
         </tr>
     </table>
-</div>
-<div class="Center_Div">
-    <table id="menu_bar" class="Center_Table" style="font-family: 'Ink Free', san-serif; font-size:24px;">
-        <tr>
-            <td width="96px"></td>
-            <td id="itHome" width="96px" class="white_background" onclick="Show('Home')">Home</td>
-            <td id="itWorks" width="96px" class="white_background">Works</td>
-            <td id="itExhibitions" width="120px" class="white_background" onclick="Show('Exhibitions')">Exhibitions</td>
-            <td id="itAbout" width="96px" class="white_background" onclick="Show('Artist_Statement')">About</td>
-        </tr>
-    </table>
-</div>
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" >
-    <table id="dropdown_table" style="font-family: 'Ink Free', san-serif; border:0; background-color: #555555; border-collapse: collapse;">
+    <table id="dropdown_table" style="font-family: 'Ink Free', san-serif; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('S01')">internal resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);" onclick="Show('S01')">internal resonance</td>
         </tr>
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('S02')">external resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);" onclick="Show('S02')">external resonance</td>
         </tr>
     </table>
 </div>
@@ -1042,6 +1054,7 @@
 <img class="testtableimage"  src="P1010356.jpg"/>
 </div>
 <div id="Blowup">
+    <br/>
     <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
     <!-- <div class="top-right">[ X ]</div>  -->
     <span id="close" onClick="Return_to_Series()"> X </span>
