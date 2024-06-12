@@ -6,9 +6,6 @@
     <title>Sandra Broom Westford</title>
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <style type="text/css">
-.clipper{
-      clip-path: inset(50% 0% 0% 0%);
-}
 #pageElement{display:flex; flex-wrap: nowrap; align-items: center}
       .align_center_heading{
         display: flex;
@@ -275,12 +272,12 @@
             document.getElementById("itWorks").style.color ="rgb(255,255,255)";
             document.getElementById("itExhibitions").style.color ="rgb(255,255,255)";
             document.getElementById("itAbout").style.color ="rgb(255,255,255)";
-            console.log("####################");
+            // // console.log("####################");
         }
         function red_the_text(divID){
             reset_text_color(); 
             var cellName = "it"+divID;
-            console.log ("cellname = " + cellName);
+            // // console.log ("cellname = " + cellName);
             var oCellName= document.getElementById(cellName).style.color = '#F11110';
         }
         function hide_most_divisions(){
@@ -296,7 +293,7 @@
         function show_division(div_text_id){
             var div_temp = document.getElementById(div_text_id);
             div_temp.style.display = "block";
-            console.log("div_text_id = " + div_text_id);
+            // // console.log("div_text_id = " + div_text_id);
         }
         function return_file_description_for(file_name){
             var file_desc = "";
@@ -304,28 +301,28 @@
             var item_number = 0;
             var item_number_found = -1;
             var continue_loop = true;
-            // console.log("About to do the while loop");
+            // // // console.log("About to do the while loop");
             while (item_number < file_names.length && continue_loop)  {
                 if (file_name.trim() == file_names[item_number].trim()){
                     item_number_found = item_number;
                     continue_loop = false;
-                    console.log("Found number = " + item_number_found );
+                    // // console.log("Found number = " + item_number_found );
                 }
                 ++item_number;
             }
             file_description = file_descriptions[item_number_found];
-            // console.log("file_desc = " + item_number_found + "  " + file_description);
+            // // // console.log("file_desc = " + item_number_found + "  " + file_description);
             return file_description;
         }
         function hideDiv(divID) {
-            console.log("hide divID = " + divID);
+            // console.log("hide divID = " + divID);
             document.getElementById(divID).style.display = "none";
         }
         function showDiv(divID){
             document.getElementById(divID).style.display = "block";
         }
         function Show(divID){
-            console.log("divID = '"+ divID + "'");
+            // console.log("divID = '"+ divID + "'");
             if("Home" == divID){
                 current_div = "Home";
                 reset_text_color();
@@ -362,79 +359,79 @@
             else if("Blowup" == divID.slice(0,6)){
                 current_div = "Blowup";
                 hide_most_divisions();
-                console.log(divID);
+                // console.log(divID);
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
                 hideDiv("Home");
                 hideDiv("Exhibitions");
-                // console.log("All hidden");
+                // // console.log("All hidden");
                 var str = divID.split(',')
-                // console.log("It is split");
+                // // console.log("It is split");
                 var blowup_Div_text_id = "Blowup";
-                // console.log(blowup_Div_text_id);
+                // // console.log(blowup_Div_text_id);
                 var blowupDiv = document.getElementById(blowup_Div_text_id);
                 var src_file="tantricstudy1.jpg";
                 var ratio = 1.0;
-                console.log(src_file);
+                // console.log(src_file);
                 if (str.length > 1){
                     src_file = str[1].trim();
                 }
                 else{
-                    console.log("error: str array less than two.");
+                    // console.log("error: str array less than two.");
                 }
-                console.log(src_file);
+                // console.log(src_file);
                 var HorMargin = 35.0;
-                console.log(HorMargin);
+                // console.log(HorMargin);
                 var BotMargin = 175.0;
-                console.log(BotMargin);
+                // console.log(BotMargin);
                 var fctr = 1.0;
-                console.log(fctr);
+                // console.log(fctr);
                 var winWidth = window.innerWidth - 2*HorMargin;
-                console.log(winWidth);
+                // console.log(winWidth);
                 const menu = document.getElementById('menu_bar');
                 const src_element = document.getElementById('bp');
                 var rect = menu.getBoundingClientRect();
-                console.log("window.innerHeight = " + window.innerHeight);
-                console.log("rect.top = " + rect.top);
-                console.log("BotMargin = " + BotMargin);
-                console.log("Found rect for division");
+                // console.log("window.innerHeight = " + window.innerHeight);
+                // console.log("rect.top = " + rect.top);
+                // console.log("BotMargin = " + BotMargin);
+                // console.log("Found rect for division");
                 var winHeight = window.innerHeight - rect.top - BotMargin;
-                console.log(winHeight);
-                console.log("window.innerWidth = " + window.innerWidth);
-                console.log("BotMargin*2 = " + 2* BotMargin);
-                console.log("Found rect for division");
+                // console.log(winHeight);
+                // console.log("window.innerWidth = " + window.innerWidth);
+                // console.log("BotMargin*2 = " + 2* BotMargin);
+                // console.log("Found rect for division");
                 var winWidth =  window.innerWidth - HorMargin * 2;
-                console.log(winWidth);
+                // console.log(winWidth);
                 var fctr = parseFloat(winHeight)/parseFloat(winWidth);
-                console.log("fctr = " + fctr);
-                console.log("Found src_element bp");
-                console.log("src_file = '" + src_file + "'")
+                // console.log("fctr = " + fctr);
+                // console.log("Found src_element bp");
+                // console.log("src_file = '" + src_file + "'")
                 src_element.src = src_file;
                 var mysrc = src_element.src;
-                console.log(mysrc);
-                console.log("Set src");
+                // console.log(mysrc);
+                // console.log("Set src");
                 var wdth= src_element.naturalWidth;
-                console.log("Natural width = " + wdth.toString());
+                // console.log("Natural width = " + wdth.toString());
                 var hght= src_element.naturalHeight;
-                console.log("Natural height = " + hght.toString());
+                // console.log("Natural height = " + hght.toString());
                 ratio = hght/wdth;
-                console.log("ratio = " + ratio.toString());
+                // console.log("ratio = " + ratio.toString());
                 // blowupDiv.style.height = winHeight.toString() + "px";
-                console.log(winHeight);
-                console.log("Set winHeight");
+                // console.log(winHeight);
+                // console.log("Set winHeight");
                 // blowupDiv.style.width = winWidth.toString() + "px";
-                console.log(winWidth);
-                console.log("Set winWidth");
+                // console.log(winWidth);
+                // console.log("Set winWidth");
                 var units_horizontal = wdth/winWidth;
-                console.log("units_horizontal = " + units_horizontal);
+                // console.log("units_horizontal = " + units_horizontal);
                 var units_vertical = hght/winHeight;
-                console.log("units_vertical  " + units_vertical);
+                // console.log("units_vertical  " + units_vertical);
                 if ( units_horizontal < units_vertical){
                     // The size is constrained by height
                     // multiply the units_vertical times the natural height
                     px_height = winHeight;
                     px_width = px_height/ratio;
-                    console.log("if px_height = " + px_height.toString());
+                    // console.log("if px_height = " + px_height.toString());
                     px_string_height = px_height.toString() + " px";
                 }
                 else{
@@ -442,23 +439,23 @@
                     // multiply the units_horizontal times the natural width
                     px_width = winWidth;
                     px_height = px_width*ratio;
-                    console.log("else px_width = " + px_width.toString());
+                    // console.log("else px_width = " + px_width.toString());
                     px_string_height = px_height.toString() + " px";
                 }
-                console.log("About to set height");
+                // console.log("About to set height");
                 // blowupDiv.style.height = px_width + " px";
-                console.log("src_element.style.height = px_string_height;  " + px_string_height.toString());
+                // console.log("src_element.style.height = px_string_height;  " + px_string_height.toString());
                 // blowupDiv.style.width = px_height + " px";
                 src_element.style.width = px_width.toString() + "px";
                 src_element.style.height = px_height.toString() + "px";
-                console.log("src_file = " + src_file);
+                // console.log("src_file = " + src_file);
                 var description_of_piece = return_file_description_for(src_file);
-                console.log("src_file = " + description_of_piece);
+                // console.log("src_file = " + description_of_piece);
                 const cap = document.getElementById("cptn");
                 cap.innerText  = description_of_piece;
                 showDiv("Blowup");
-                console.log("Just blew up");
-                console.log("Now position the close X");
+                // console.log("Just blew up");
+                // console.log("Now position the close X");
                 Position_Close_Box('bp');
             }
             if('S01' == divID){
@@ -498,51 +495,51 @@
             const myCell = document.getElementById("itWorks");
             if (clickedElement !== myCell && !myCell.contains(clickedElement)) {
                 const oMy_dropdown = document.getElementById("works_dropdown_div");
-                console.log("Element was not clicked.");
+                // console.log("Element was not clicked.");
                 if (oMy_dropdown.style.display !== "none"){
                     oMy_dropdown.style.display = "none";
                 }
                 const oCloseBox = document.getElementById("close");
                 if(clickedElement !== oCloseBox && !oCloseBox.contains(clickedElement)){
-                    console.log("The close box was not clicked");
+                    // console.log("The close box was not clicked");
                 }
                 else{
-                    console.log("The close box was clicked!");
+                    // console.log("The close box was clicked!");
                     Show(current_series);
-                    console.log("current_series:" + current_series);
+                    // console.log("current_series:" + current_series);
                 }
             }
             else{
-                console.log("Element was clicked!");
+                // console.log("Element was clicked!");
                 const oMy_dropdown = document.getElementById("works_dropdown_div");
                 if (oMy_dropdown.style.display==='none'){
                     oMy_dropdown.style.display = "block";
-                    console.log("Now move dropdown");
+                    // console.log("Now move dropdown");
                     var position = oMy_dropdown.getBoundingClientRect();
-                    console.log("left: " + position.left, "top: " + position.top);
+                    // console.log("left: " + position.left, "top: " + position.top);
                     MoveDropDown();
-                    console.log("Moved dropdown");
+                    // console.log("Moved dropdown");
                 }
                 else{
                     oMy_dropdown.style.display = "none";
-                    console.log("Hid dropdown")
+                    // console.log("Hid dropdown")
                 }
             }
         }
         );
         }
         function MoveDropDown(){
-            console.log("MoveDropDown");
+            // console.log("MoveDropDown");
             var cellElement = document.getElementById('itWorks');
             var rect = cellElement.getBoundingClientRect();
-            console.log('Top:', rect.top, 'Right:', rect.right, 'Bottom:', rect.bottom, 'Left:', rect.left);
+            // console.log('Top:', rect.top, 'Right:', rect.right, 'Bottom:', rect.bottom, 'Left:', rect.left);
             const drops = document.getElementById("works_dropdown_div");
-            console.log("got drop_down element");
+            // console.log("got drop_down element");
             if (drops !== null){
-                console.log("Drops is good");
+                // console.log("Drops is good");
             }
             else{
-                console.log("Drops is bad");
+                // console.log("Drops is bad");
             }
             var size = Math.round(rect.left-70) + "px";
             drops.style.marginLeft = size;
@@ -553,19 +550,19 @@
         }
         // TODO: FOLLOWING IS NEW:
         function Position_Close_Box(image_name_id){
-            console.log("get image object");
+            // console.log("get image object");
             var oImage = document.getElementById(image_name_id);
-            console.log("get rectangle");
+            // console.log("get rectangle");
             var rectngl = oImage.getBoundingClientRect();
-            console.log("get rectangle");
+            // console.log("get rectangle");
             var rght = rectngl.right+ 5;
-            console.log("rght = ",rght.toString()," px");
+            // console.log("rght = ",rght.toString()," px");
             var oClose = document.getElementById("close");
             oClose.style.left= rght.toString() + "px";
             oClose.style.top= "140px";
         }
         function Return_to_Series(fileName) {
-            console.log("Close box is clicked reported in Return_to_Series()...");
+            // console.log("Close box is clicked reported in Return_to_Series()...");
         }
         // TODO: ABOVE IS NEW
     </script>
@@ -1071,11 +1068,11 @@
             <td>ascend</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id= 'inresascend2' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend2.jpg')" src='inresascend2.jpg' width="160 px" height="320 px">
-                <img id= 'inresascend3' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend3.jpg')" src='inresascend3.jpg' width="160 px" height="320 px">
-                <img id= 'inresascend4' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend4.jpg')" src='inresascend4.jpg' width="160 px" height="320 px">
-                <img id= 'inresascend5' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend5.jpg')" src='inresascend5.jpg' width="160 px" height="320 px">
-                <img id= 'inresascend1' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend1.jpg')" src='inresascend1.jpg' width="160 px" height="320 px">
+                <img id= 'inresascend2' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresascend2.jpg')" src='inresascend2.jpg' width ="175px" height="350px">
+                <img id= 'inresascend3' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresascend3.jpg')" src='inresascend3.jpg' width ="175px" height="350px">
+                <img id= 'inresascend4' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresascend4.jpg')" src='inresascend4.jpg' width ="175px" height="350px">
+                <img id= 'inresascend5' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresascend5.jpg')" src='inresascend5.jpg' width ="175px" height="350px">
+                <img id= 'inresascend1' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresascend1.jpg')" src='inresascend1.jpg' width ="175px" height="350px">
            </td>
       </tr>
         <tr style="height:20px"></tr>
@@ -1083,9 +1080,9 @@
             <td>whisper</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id= 'inreswhisper3' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper3.jpg')" src='inreswhisper3.jpg' width="160 px" height="320 px">
-                <img id= 'inreswhisp2' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisp2.jpg')" src='inreswhisp2.jpg' width="160 px" height="320 px">
-                <img id= 'inreswhisper1' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper1.jpg')" src='inreswhisper1.jpg' width="160 px" height="320 px">
+                <img id= 'inreswhisper3' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inreswhisper3.jpg')" src='inreswhisper3.jpg' width ="175px" height="350px">
+                <img id= 'inreswhisp2' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inreswhisp2.jpg')" src='inreswhisp2.jpg' width ="175px" height="350px">
+                <img id= 'inreswhisper1' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inreswhisper1.jpg')" src='inreswhisper1.jpg' width ="175px" height="350px">
            </td>
       </tr>
         <tr style="height:20px"></tr>
@@ -1093,8 +1090,8 @@
             <td>emerge</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id= 'inresemerge1' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge1.jpg')" src='inresemerge1.jpg' width="160 px" height="320 px">
-                <img id= 'inresemerge2' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge2.jpg')" src='inresemerge2.jpg' width="160 px" height="320 px">
+                <img id= 'inresemerge1' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresemerge1.jpg')" src='inresemerge1.jpg' width ="175px" height="350px">
+                <img id= 'inresemerge2' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresemerge2.jpg')" src='inresemerge2.jpg' width ="175px" height="350px">
            </td>
       </tr>
         <tr style="height:20px"></tr>
@@ -1102,11 +1099,11 @@
             <td>upwelling</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id= 'inresupwell5' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell5.jpg')" src='inresupwell5.jpg' width="160 px" height="320 px">
-                <img id= 'inresupwell1' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell1.jpg')" src='inresupwell1.jpg' width="160 px" height="320 px">
-                <img id= 'inresupwell2' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell2.jpg')" src='inresupwell2.jpg' width="160 px" height="320 px">
-                <img id= 'inresupwell4' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell4.jpg')" src='inresupwell4.jpg' width="160 px" height="320 px">
-                <img id= 'inresupwell3' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell3.jpg')" src='inresupwell3.jpg' width="160 px" height="320 px">
+                <img id= 'inresupwell5' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresupwell5.jpg')" src='inresupwell5.jpg' width ="175px" height="350px">
+                <img id= 'inresupwell1' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresupwell1.jpg')" src='inresupwell1.jpg' width ="175px" height="350px">
+                <img id= 'inresupwell2' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresupwell2.jpg')" src='inresupwell2.jpg' width ="175px" height="350px">
+                <img id= 'inresupwell4' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresupwell4.jpg')" src='inresupwell4.jpg' width ="175px" height="350px">
+                <img id= 'inresupwell3' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,inresupwell3.jpg')" src='inresupwell3.jpg' width ="175px" height="350px">
            </td>
       </tr>
         </table>
@@ -1119,13 +1116,13 @@
             <td>hidden</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id= 'exreshidden3' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden3.jpg')" src='exreshidden3.jpg' width="160 px" height="320 px">
-                <img id= 'exreshidden2' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden2.jpg')" src='exreshidden2.jpg' width="160 px" height="320 px">
-                <img id= 'exresopenwin1' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin1.jpg')" src='exresopenwin1.jpg' width="160 px" height="320 px">
-                <img id= 'exresopenwin2' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin2.jpg')" src='exresopenwin2.jpg' width="160 px" height="320 px">
-                <img id= 'exresopenwin3' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin3.jpg')" src='exresopenwin3.jpg' width="160 px" height="320 px">
-                <img id= 'exresopenwin4' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin4.jpg')" src='exresopenwin4.jpg' width="160 px" height="320 px">
-                <img id= 'exreshidden1' class="clipper" style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden1.jpg')" src='exreshidden1.jpg' width="160 px" height="320 px">
+                <img id= 'exreshidden3' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,exreshidden3.jpg')" src='exreshidden3.jpg' width ="175px" height="350px">
+                <img id= 'exreshidden2' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,exreshidden2.jpg')" src='exreshidden2.jpg' width ="175px" height="350px">
+                <img id= 'exresopenwin1' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,exresopenwin1.jpg')" src='exresopenwin1.jpg' width ="175px" height="350px">
+                <img id= 'exresopenwin2' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,exresopenwin2.jpg')" src='exresopenwin2.jpg' width ="175px" height="350px">
+                <img id= 'exresopenwin3' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,exresopenwin3.jpg')" src='exresopenwin3.jpg' width ="175px" height="350px">
+                <img id= 'exresopenwin4' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,exresopenwin4.jpg')" src='exresopenwin4.jpg' width ="175px" height="350px">
+                <img id= 'exreshidden1' style="margin-bottom: 10px; clip-path: inset(50% 0% 0% 0%);" onclick="Show('Blowup,exreshidden1.jpg')" src='exreshidden1.jpg' width ="175px" height="350px">
            </td>
         </tr>
     </table>
