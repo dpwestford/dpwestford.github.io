@@ -11,8 +11,16 @@ F:\Sandra_Images\DB\ArtDatabase020.accdb 6/11/2024 F:\Sandra_Images\DB
 xcopy F:\Sandra_Images\DB\ArtDatabase020.accdb F:\Sandra_Images\DB\ArtDatabase021.accdb
 
 DATABASE:   F:\Sandra_Images\DB\ArtDatabase021.accdb	
-HTML: 		F:\SW11\Whatever35.html
+
 
 Recent html from live site: E:\Web_Page_Source\index.html
+
+Pristine Web Site: 
+xcopy F:/SW11/Whatever35.html E:\Compare\Pristine.html
+xcopy 
+
+Using ArtDatabase021                           
+Compare F:\SW11\Whatever35.html with F:\SW11\A_November_Source\A_November_Source.html
+
 
 
