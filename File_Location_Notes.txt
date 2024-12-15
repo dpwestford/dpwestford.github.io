@@ -1,0 +1,18 @@
+
+The last wincompare was
+6/9/24 5:15 Whatever33_GOLD.html ver Whatever34.html
+F:\SW11\Whatever33_GOLD.html F:\SW11\Whatever34_GOLD.html
+winmerge !!! E:\Web_Page_Source\index.html !!! F:\SW11\Whatever35.html
+
+winmerge !!! E:\Web_Page_Source\index.html !!! 
+
+
+F:\Sandra_Images\DB\ArtDatabase020.accdb 6/11/2024 F:\Sandra_Images\DB
+xcopy F:\Sandra_Images\DB\ArtDatabase020.accdb F:\Sandra_Images\DB\ArtDatabase021.accdb
+
+DATABASE:   F:\Sandra_Images\DB\ArtDatabase021.accdb	
+HTML: 		F:\SW11\Whatever35.html
+
+Recent html from live site: E:\Web_Page_Source\index.html
+
+

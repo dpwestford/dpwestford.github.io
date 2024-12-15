@@ -42,8 +42,8 @@
         }
         .color_of_heading_background{
             border-collapse: collapse;
-            background-color:rgb(0,0,0) ;
-            color:rgb(255,255,255);
+            background-color:rgb(255,255,255) ;
+            color:rgb(0,0,0);
             border: none;
             border-collapse: collapse;
         }
@@ -52,8 +52,8 @@
             position: absolute;
             top: 0px;
             left: 0px;
-            background-color:rgb(0,0,0);
-            color:rgb(255,255,255);
+            background-color:rgb(255,255,255);
+            color:rgb(0,0,0);
             min-width: 160px;
             overflow: auto;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -71,13 +71,13 @@
             position: absolute;
             top:30px;
             right: 26px;
-            color:rgb(255,255,255);
+            color:rgb(0,0,0);
             font-family: 'Ink Free', sans-serif;
             /* font-size:x-large; */ 
             font-weight: bold
         }
         .title_line{
-            color:rgb(255,255,255);
+            color:rgb(0,0,0);
             text-align: center;
             font-family: 'Ink Free', sans-serif;
            /* font-weight:bold; font-size: 30px; */ 
@@ -87,9 +87,11 @@
             border-collapse: collapse;
         }   */ 
     div#Blowup{
+      background-color: rgb(220,220,220);
         display: none;
     }
         div#Works{
+      background-color: rgb(220,220,220);
             display: none;
         }
          div#Artist_Statement {
@@ -117,12 +119,12 @@
                 margin-right: auto;
             }
             .bg {
-                background-color:rgb(0,0,0);
-                color:rgb(255,255,255);
+                background-color:rgb(255,255,255);
+                color:rgb(0,0,0);
             }
             .bg_dark{
-                background-color:rgb(0,0,0);
-                color:"rgb(255,255,255)";
+                background-color:rgb(255,255,255);
+                color:"rgb(0,0,0)";
             }
             .menu{
                 display: none;
@@ -268,10 +270,10 @@
         }
         function reset_text_color()
         {
-            document.getElementById("itHome").style.color ="rgb(255,255,255)";
-            document.getElementById("itWorks").style.color ="rgb(255,255,255)";
-            document.getElementById("itExhibitions").style.color ="rgb(255,255,255)";
-            document.getElementById("itAbout").style.color ="rgb(255,255,255)";
+            document.getElementById("itHome").style.color ="rgb(0,0,0)";
+            document.getElementById("itWorks").style.color ="rgb(0,0,0)";
+            document.getElementById("itExhibitions").style.color ="rgb(0,0,0)";
+            document.getElementById("itAbout").style.color ="rgb(0,0,0)";
             // // console.log("####################");
         }
         function red_the_text(divID){
@@ -572,8 +574,8 @@
         <tr class="color_of_heading_background" >
             <td style="width:auto" colspan="1">&nbsp;</td>
             <td style="width:160px" colspan="1">&nbsp;</td>
-            <td style="width:160px" colspan="2"><img id="chop" style="float:left; width:30px; height:34px;" src="Chop.png" width="122px" height="34px">Sandra Broom Westford</td>
-            <td style="width:160px" colspan="1">&nbsp;</td>
+            <td style="width:190px" colspan="2"><img id="chop" style="float:left; width:30px; height:34px;" src="Chop.png" width="122px" height="34px">Sandra Broom Westford</td>
+            <td style="width:190px" colspan="1">&nbsp;</td>
             <td style="width:160px" colspan="1">&nbsp;</td>
             <td style="width:auto" colspan="1">&nbsp;</td>
         </tr>
@@ -587,12 +589,12 @@
         </tr>
     </table>
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" >
-    <table id="dropdown_table" style="font-family: 'Ink Free', san-serif; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
+    <table id="dropdown_table" style="font-family: 'Ink Free', san-serif; border:0; background-color:rgb(255,255,255); border-collapse: collapse;">
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);" onclick="Show('S01')">internal resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(0,0,0);" onclick="Show('S01')">internal resonance</td>
         </tr>
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);" onclick="Show('S02')">external resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(0,0,0);" onclick="Show('S02')">external resonance</td>
         </tr>
     </table>
 </div>
@@ -1063,8 +1065,69 @@
 <div id='S01' class="align_center_heading">
           <p id="series_header_id" class="align_center_heading">internal resonance</p>
     <table class="dimension" style="font-family: 'Ink Free', sans-serif;color:black">
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
             <td>ascend</td>
             <td width = 5%></td>
             <td width="auto">
+                <img id= 'inresascend2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend2.jpg')" src='inresascend2.jpg' width ="60px" height="60px">
+                <img id= 'inresascend3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend3.jpg')" src='inresascend3.jpg' width ="60px" height="60px">
+                <img id= 'inresascend4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend4.jpg')" src='inresascend4.jpg' width ="60px" height="60px">
+                <img id= 'inresascend5' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend5.jpg')" src='inresascend5.jpg' width ="60px" height="60px">
+                <img id= 'inresascend1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend1.jpg')" src='inresascend1.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td>whisper</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'inreswhisper3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper3.jpg')" src='inreswhisper3.jpg' width ="60px" height="60px">
+                <img id= 'inreswhisp2' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisp2.jpg')" src='inreswhisp2.jpg' width ="60px" height="60px">
+                <img id= 'inreswhisper1' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper1.jpg')" src='inreswhisper1.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td>emerge</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'inresemerge1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge1.jpg')" src='inresemerge1.jpg' width ="60px" height="60px">
+                <img id= 'inresemerge2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge2.jpg')" src='inresemerge2.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td>upwelling</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'inresupwell5' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell5.jpg')" src='inresupwell5.jpg' width ="60px" height="60px">
+                <img id= 'inresupwell1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell1.jpg')" src='inresupwell1.jpg' width ="60px" height="60px">
+                <img id= 'inresupwell2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell2.jpg')" src='inresupwell2.jpg' width ="60px" height="60px">
+                <img id= 'inresupwell4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell4.jpg')" src='inresupwell4.jpg' width ="60px" height="60px">
+                <img id= 'inresupwell3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell3.jpg')" src='inresupwell3.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        </table>
+</div>
+<div id='S02' class="align_center_heading">
+          <p id="series_header_id"  class="align_center_heading">external resonance</p>
+    <table class="dimension" style="font-family: 'Ink Free', sans-serif;color:black" > 
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td>hidden</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'exreshidden3' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden3.jpg')" src='exreshidden3.jpg' width ="60px" height="60px">
+                <img id= 'exreshidden2' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden2.jpg')" src='exreshidden2.jpg' width ="60px" height="60px">
+                <img id= 'exresopenwin1' style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin1.jpg')" src='exresopenwin1.jpg' width ="60px" height="60px">
+                <img id= 'exresopenwin2' style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin2.jpg')" src='exresopenwin2.jpg' width ="60px" height="60px">
+                <img id= 'exresopenwin3' style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin3.jpg')" src='exresopenwin3.jpg' width ="60px" height="60px">
+                <img id= 'exresopenwin4' style="margin-bottom: 10px;" onclick="Show('Blowup,exresopenwin4.jpg')" src='exresopenwin4.jpg' width ="60px" height="60px">
+                <img id= 'exreshidden1' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden1.jpg')" src='exreshidden1.jpg' width ="60px" height="60px">
+           </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
