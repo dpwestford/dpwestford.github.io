@@ -42,8 +42,8 @@
         }
         .color_of_heading_background{
             border-collapse: collapse;
-            background-color:rgb(255,255,255) ;
-            color:rgb(0,0,0);
+            background-color:rgb(0,0,0) ;
+            color:rgb(255,255,255);
             border: none;
             border-collapse: collapse;
         }
@@ -52,8 +52,8 @@
             position: absolute;
             top: 0px;
             left: 0px;
-            background-color:rgb(255,255,255);
-            color:rgb(0,0,0);
+            background-color:rgb(0,0,0);
+            color:rgb(255,255,255);
             min-width: 160px;
             overflow: auto;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -71,13 +71,13 @@
             position: absolute;
             top:30px;
             right: 26px;
-            color:rgb(0,0,0);
+            color:rgb(255,255,255);
             font-family: 'Ink Free', sans-serif;
             /* font-size:x-large; */ 
             font-weight: bold
         }
         .title_line{
-            color:rgb(0,0,0);
+            color:rgb(255,255,255);
             text-align: center;
             font-family: 'Ink Free', sans-serif;
            /* font-weight:bold; font-size: 30px; */ 
@@ -119,12 +119,12 @@
                 margin-right: auto;
             }
             .bg {
-                background-color:rgb(255,255,255);
-                color:rgb(0,0,0);
+                background-color:rgb(0,0,0);
+                color:rgb(255,255,255);
             }
             .bg_dark{
-                background-color:rgb(255,255,255);
-                color:"rgb(0,0,0)";
+                background-color:rgb(0,0,0);
+                color:"rgb(255,255,255)";
             }
             .menu{
                 display: none;
@@ -270,10 +270,10 @@
         }
         function reset_text_color()
         {
-            document.getElementById("itHome").style.color ="rgb(0,0,0)";
-            document.getElementById("itWorks").style.color ="rgb(0,0,0)";
-            document.getElementById("itExhibitions").style.color ="rgb(0,0,0)";
-            document.getElementById("itAbout").style.color ="rgb(0,0,0)";
+            document.getElementById("itHome").style.color ="rgb(255,255,255)";
+            document.getElementById("itWorks").style.color ="rgb(255,255,255)";
+            document.getElementById("itExhibitions").style.color ="rgb(255,255,255)";
+            document.getElementById("itAbout").style.color ="rgb(255,255,255)";
             // // console.log("####################");
         }
         function red_the_text(divID){
@@ -570,15 +570,12 @@
     </script>
 </head>
 <body onload="OnLoadCode()">
-    <table  id="menu_bar" class="Center_Table" style="font-family: 'Ink Free', san-serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
-        <tr class="color_of_heading_background" >
-            <td style="width:auto" colspan="1">&nbsp;</td>
-            <td style="width:160px" colspan="1">&nbsp;</td>
-            <td style="width:190px" colspan="2"><img id="chop" style="float:left; width:30px; height:34px;" src="Chop.png" width="122px" height="34px">Sandra Broom Westford</td>
-            <td style="width:190px" colspan="1">&nbsp;</td>
-            <td style="width:160px" colspan="1">&nbsp;</td>
-            <td style="width:auto" colspan="1">&nbsp;</td>
+    <table  id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:36px">
+        <tr class="color_of_heading_background" class="center-text">
+            <td><img id="chop" style="width:30px; height:34px;vertical-align:-10%" src="Chop.png" width="122px" height="34px"> <span style="font-size: .25em;">&nbsp;</span>Sandra Westford</td>
         </tr>
+    </table>
+    <table  id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
         <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
             <td style="width:auto" colspan="1">&nbsp;</td>
             <td id="itHome" width="160px" class="white_background" onclick="Show('Home')">Home</td>
@@ -589,12 +586,12 @@
         </tr>
     </table>
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" >
-    <table id="dropdown_table" style="font-family: 'Ink Free', san-serif; border:0; background-color:rgb(255,255,255); border-collapse: collapse;">
+    <table id="dropdown_table" style="font-family: 'Ink Free', san-serif; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(0,0,0);" onclick="Show('S01')">internal resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);" onclick="Show('S01')">internal resonance</td>
         </tr>
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(0,0,0);" onclick="Show('S02')">external resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);" onclick="Show('S02')">external resonance</td>
         </tr>
     </table>
 </div>
