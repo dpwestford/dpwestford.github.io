@@ -15,6 +15,13 @@
         border: none;
         border-collapse: collapse;
       }
+      .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .lazy-load.loaded {
+            opacity: 1;
+        }
         .center_horizontal {
             display:block;
             margin-right: auto;
@@ -243,6 +250,7 @@
         "external resonance (open window #4), Mixed Media, 20 x 10, 2024",
         "external resonance (hidden #1), Mixed Media, 20 x 10, 2024",
         ];
+
         function center_home(){
             var wth = window.innerWidth - 30;
             var ht = window.innerHeight - 100;
@@ -599,28 +607,28 @@
     <img id="home_jpg" src="open17.jpg"  class="center_horizontal">
 </div>
 <div id="Works" style="display:none">
-    <img id="inresascend2" onclick="Show('Blowup,inresascend2.jpg')" src="inresascend2.jpg" alt="inresascend2" width="80px" height="160px">
-    <img id="inresascend3" onclick="Show('Blowup,inresascend3.jpg')" src="inresascend3.jpg" alt="inresascend3" width="80px" height="160px">
-    <img id="inresascend4" onclick="Show('Blowup,inresascend4.jpg')" src="inresascend4.jpg" alt="inresascend4" width="80px" height="160px">
-    <img id="inresascend5" onclick="Show('Blowup,inresascend5.jpg')" src="inresascend5.jpg" alt="inresascend5" width="80px" height="160px">
-    <img id="inresascend1" onclick="Show('Blowup,inresascend1.jpg')" src="inresascend1.jpg" alt="inresascend1" width="80px" height="160px">
-    <img id="inreswhisper3" onclick="Show('Blowup,inreswhisper3.jpg')" src="inreswhisper3.jpg" alt="inreswhisper3" width="80px" height="160px">
-    <img id="inreswhisp2" onclick="Show('Blowup,inreswhisp2.jpg')" src="inreswhisp2.jpg" alt="inreswhisp2" width="80px" height="160px">
-    <img id="inreswhisper1" onclick="Show('Blowup,inreswhisper1.jpg')" src="inreswhisper1.jpg" alt="inreswhisper1" width="80px" height="160px">
-    <img id="inresemerge1" onclick="Show('Blowup,inresemerge1.jpg')" src="inresemerge1.jpg" alt="inresemerge1" width="80px" height="160px">
-    <img id="inresemerge2" onclick="Show('Blowup,inresemerge2.jpg')" src="inresemerge2.jpg" alt="inresemerge2" width="80px" height="160px">
-    <img id="inresupwell5" onclick="Show('Blowup,inresupwell5.jpg')" src="inresupwell5.jpg" alt="inresupwell5" width="80px" height="160px">
-    <img id="inresupwell1" onclick="Show('Blowup,inresupwell1.jpg')" src="inresupwell1.jpg" alt="inresupwell1" width="80px" height="160px">
-    <img id="inresupwell2" onclick="Show('Blowup,inresupwell2.jpg')" src="inresupwell2.jpg" alt="inresupwell2" width="80px" height="160px">
-    <img id="inresupwell4" onclick="Show('Blowup,inresupwell4.jpg')" src="inresupwell4.jpg" alt="inresupwell4" width="80px" height="160px">
-    <img id="inresupwell3" onclick="Show('Blowup,inresupwell3.jpg')" src="inresupwell3.jpg" alt="inresupwell3" width="80px" height="160px">
-    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3.jpg')" src="exreshidden3.jpg" alt="exreshidden3" width="80px" height="160px">
-    <img id="exreshidden2" onclick="Show('Blowup,exreshidden2.jpg')" src="exreshidden2.jpg" alt="exreshidden2" width="80px" height="160px">
-    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1.jpg')" src="exresopenwin1.jpg" alt="exresopenwin1" width="80px" height="160px">
-    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2.jpg')" src="exresopenwin2.jpg" alt="exresopenwin2" width="80px" height="160px">
-    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3.jpg')" src="exresopenwin3.jpg" alt="exresopenwin3" width="80px" height="160px">
-    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4.jpg')" src="exresopenwin4.jpg" alt="exresopenwin4" width="80px" height="160px">
-    <img id="exreshidden1" onclick="Show('Blowup,exreshidden1.jpg')" src="exreshidden1.jpg" alt="exreshidden1" width="80px" height="160px">
+    <img id="inresascend2" onclick="Show('Blowup,inresascend2.jpg')" data-src="inresascend2.jpg" alt="inresascend2" width="80px" height="160px">
+    <img id="inresascend3" onclick="Show('Blowup,inresascend3.jpg')" data-src="inresascend3.jpg" alt="inresascend3" width="80px" height="160px">
+    <img id="inresascend4" onclick="Show('Blowup,inresascend4.jpg')" data-src="inresascend4.jpg" alt="inresascend4" width="80px" height="160px">
+    <img id="inresascend5" onclick="Show('Blowup,inresascend5.jpg')" data-src="inresascend5.jpg" alt="inresascend5" width="80px" height="160px">
+    <img id="inresascend1" onclick="Show('Blowup,inresascend1.jpg')" data-src="inresascend1.jpg" alt="inresascend1" width="80px" height="160px">
+    <img id="inreswhisper3" onclick="Show('Blowup,inreswhisper3.jpg')" data-src="inreswhisper3.jpg" alt="inreswhisper3" width="80px" height="160px">
+    <img id="inreswhisp2" onclick="Show('Blowup,inreswhisp2.jpg')" data-src="inreswhisp2.jpg" alt="inreswhisp2" width="80px" height="160px">
+    <img id="inreswhisper1" onclick="Show('Blowup,inreswhisper1.jpg')" data-src="inreswhisper1.jpg" alt="inreswhisper1" width="80px" height="160px">
+    <img id="inresemerge1" onclick="Show('Blowup,inresemerge1.jpg')" data-src="inresemerge1.jpg" alt="inresemerge1" width="80px" height="160px">
+    <img id="inresemerge2" onclick="Show('Blowup,inresemerge2.jpg')" data-src="inresemerge2.jpg" alt="inresemerge2" width="80px" height="160px">
+    <img id="inresupwell5" onclick="Show('Blowup,inresupwell5.jpg')" data-src="inresupwell5.jpg" alt="inresupwell5" width="80px" height="160px">
+    <img id="inresupwell1" onclick="Show('Blowup,inresupwell1.jpg')" data-src="inresupwell1.jpg" alt="inresupwell1" width="80px" height="160px">
+    <img id="inresupwell2" onclick="Show('Blowup,inresupwell2.jpg')" data-src="inresupwell2.jpg" alt="inresupwell2" width="80px" height="160px">
+    <img id="inresupwell4" onclick="Show('Blowup,inresupwell4.jpg')" data-src="inresupwell4.jpg" alt="inresupwell4" width="80px" height="160px">
+    <img id="inresupwell3" onclick="Show('Blowup,inresupwell3.jpg')" data-src="inresupwell3.jpg" alt="inresupwell3" width="80px" height="160px">
+    <img id="exreshidden3" onclick="Show('Blowup,exreshidden3.jpg')" data-src="exreshidden3.jpg" alt="exreshidden3" width="80px" height="160px">
+    <img id="exreshidden2" onclick="Show('Blowup,exreshidden2.jpg')" data-src="exreshidden2.jpg" alt="exreshidden2" width="80px" height="160px">
+    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1.jpg')" data-src="exresopenwin1.jpg" alt="exresopenwin1" width="80px" height="160px">
+    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2.jpg')" data-src="exresopenwin2.jpg" alt="exresopenwin2" width="80px" height="160px">
+    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3.jpg')" data-src="exresopenwin3.jpg" alt="exresopenwin3" width="80px" height="160px">
+    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4.jpg')" data-src="exresopenwin4.jpg" alt="exresopenwin4" width="80px" height="160px">
+    <img id="exreshidden1" onclick="Show('Blowup,exreshidden1.jpg')" data-src="exreshidden1.jpg" alt="exreshidden1" width="80px" height="160px">
 </div>
 <div id="Artist_Statement" style="color:black;">
         <table style="line-height: 150%; margin-bottom: 0in; margin-left:auto; margin-right:auto;" >
