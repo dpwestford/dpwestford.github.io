@@ -24,6 +24,58 @@
         opacity: 1;
       }
         */
+       .wer_chop_top{
+            position: absolute;
+            top:7.996323585510254px;
+            left:7.996323585510254px;
+            width: 2491.3603515625px;
+            height:46.11672592163086px;
+            border-color: transparent;
+            border-style: solid;
+            background-color: transparent;
+        }
+            
+        .wer_itHome{
+            position: absolute;
+            top:54.28538513183594px;
+            left:929.6875px;
+            width: 161.99447631835938px;
+            height: 39.499080657958984px;
+            border-color: #ff0000;
+            border-style: solid;
+            background-color: transparent;
+        }
+        .wer_itWorks{
+            position: absolute;
+            top:54.28538513183594px;
+            left:1091.6820068359375px;
+            width: 161.99447631835938px;
+            height: 39.499080657958984px;
+            border-color: #ff0000;
+            border-style: solid;
+            background-color: transparent;
+        }
+        .wer_itExhibitions{
+            position: absolute;
+            top:54.28538513183594px;
+            left:1253.6763916015625px;
+            width: 161.99447631835938px;
+            height: 39.499080657958984px;
+            border-color: #ff0000;
+            border-style: solid;
+            background-color: transparent;
+        }
+        .wer_itAbout{
+            position: absolute;
+            top:54.28538513183594px;
+            left:1415.6708984375px;
+            width: 161.99447631835938px;
+            height: 39.499080657958984px;
+            border-color: #ff0000;
+            border-style: solid;
+            background-color: transparent;
+        }
+          
         .center_horizontal {
             display:block;
             margin-right: auto;
@@ -549,9 +601,52 @@
                     // console.log("Hid dropdown")
                 }
             }
-        }
+
+            console.log("chop_top:");
+            element_head = document.getElementById("chop_top");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            /*
+
+            console.log("hdr_name:");  // Bounding Box not accurate now
+            element_head = document.getElementById("hdr_name");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            */
+
+            console.log("itHome:");
+            var element_head = document.getElementById("itHome");
+            var rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+
+            console.log("itWorks:");
+            element_head = document.getElementById("itWorks");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+
+            console.log("itExhibitions:");
+            element_head = document.getElementById("itExhibitions");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+
+            console.log("itAbout:");
+            element_head = document.getElementById("itAbout");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+       }
         );
         }
+        function ReportBoundingBox(rect){
+            console.log("Bounding Box:");
+            console.log("  left:", rect.left);
+            console.log("  top:", rect.top);
+            console.log("  right:", rect.right);
+            console.log("  bottom:", rect.bottom);
+            console.log("  width:", rect.width);
+            console.log("  height:", rect.height);
+        }
+
+
         function MoveDropDown(){
             // console.log("MoveDropDown");
             var cellElement = document.getElementById('itWorks');
@@ -593,10 +688,11 @@
 <body onload="OnLoadCode()">
    <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
       <tr class="color_of_heading_background" class="center-text">
-        <td><img id="chop" style="width:30px; height:34px; vertical-align:-10%" src="Chop.png" width="122px" height="34px"> <span style="font-size: .25em;">&nbsp;</span>Sandra Westford</td>
+        <td id="chop_top"><img id="chop" style="width:30px; height:34px; vertical-align:-15%" src="Chop.png" width="122px" height="34px">&nbsp;Sandra Westford</td>
+        <!-- <span id="hdr_name" style="font-size: .25em;">&nbsp;</span>Sandra Westford</td> -->
       </tr>
    </table>
-   <table  id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
+   <table id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
       <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
         <td style="width:auto" colspan="1">&nbsp;</td>
         <td id="itHome" width="160px" class="white_background" onclick="Show('Home')">Home</td>
@@ -606,6 +702,21 @@
         <td style="width:auto" colspan="2">&nbsp;</td>
       </tr>
    </table>
+<!--
+   <div id="wer_over_chop_top" class="wer_chop_top">
+    
+    </div>
+    <div id="wer_over_hdr_name" class="wer_hdr_name">
+    </div>
+    <div id="wer_over_itHome" class="wer_itHome">
+    </div>
+    <div id="wer_over_itWorks" class="wer_itWorks">
+    </div>
+    <div id="wer_over_itExhibitions" class="wer_itExhibitions">
+    </div>
+    <div id="wer_over_itAbout" class="wer_itAbout">
+    </div>
+    -->
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" > 
     <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
         <tr>

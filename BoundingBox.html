@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get Bounding Box</title>
+</head>
+<body>
+  <div id="myElement" style="width: 200px; height: 100px; background-color: blue;">
+    This is a sample element
+  </div>
+
+  <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
+    <tr class="color_of_heading_background" class="center-text">
+      <td><img id="chop" style="width:30px; height:34px; vertical-align:-10%" src="Chop.png" width="122px" height="34px"> <span id="hdr_name" style="font-size: .25em;">&nbsp;</span>Sandra Westford</td>
+    </tr>
+ </table>
+ <table  id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
+    <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
+      <td style="width:auto" colspan="1">&nbsp;</td>
+      <td id="itHome" width="160px" class="white_background" onclick="Show('Home')">Home</td>
+      <td id="itWorks" width="160px" class="white_background">Works</td>
+      <td id="itExhibitions" width="160px" class="white_background" onclick="Show('Exhibitions')">Exhibitions</td>
+      <td id="itAbout" width="160px" class="white_background" onclick="Show('Artist_Statement')">About</td>
+      <td style="width:auto" colspan="2">&nbsp;</td>
+    </tr>
+ </table>
+
+  <script>
+    // const element = document.getElementById("myElement");
+    const element = document.getElementById("itHome");
+    const rect = element.getBoundingClientRect(); 
+    
+    console.log("Bounding Box:");
+    console.log("  left:", rect.left);
+    console.log("  top:", rect.top);
+    console.log("  right:", rect.right);
+    console.log("  bottom:", rect.bottom);
+    console.log("  width:", rect.width);
+    console.log("  height:", rect.height);
+  </script>
+</body>
+</html>
