@@ -1,0 +1,85 @@
+        <b>Artist Statement</b>
+        
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit.  Inconsequat sed efficitur
+        vitae donec arcu et.  Ametaliquam
+        commodo eu sagittis facilisi fames in.
+        Donecac tincidunt vel nec libero proin.
+        Magnanibh consequat orci ut lobortis sit
+        posuere orci.  Egetnisi tincidunt arcu dolor
+        tincidunt vel.  Volutpatinterdum malesuada
+        pretium ut.
+        
+        Eumaecenas diam id efficitur placerat
+        metus.  Lacusmattis porta nibh donec
+        elementum eleifend purus. 
+        Fringilladignissim odio faucibus ultricies.
+        Eumaecenas diam id efficitur placerat
+        metus.  Idamet sed nisi a orci vel gravida
+        non arcu.  Ametaliquam commodo eu
+        sagittis facilisi fames in.  Tortoramet viverra
+        per blandit tempor ac.
+        
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit.  Inconsequat sed efficitur
+        vitae donec arcu et.  Ametaliquam
+        commodo eu sagittis facilisi fames in. 
+        Donecac tincidunt vel nec libero proin.  
+        Magnanibh consequat orci ut lobortis sit
+        posuere orci.  Egetnisi tincidunt arcu dolor
+        tincidunt vel.  Volutpatinterdum malesuada
+        pretium ut.
+        
+        Eumaecenas diam id efficitur placerat
+        metus.  Lacusmattis porta nibh donec
+        elementum eleifend purus. 
+        Fringilladignissim odio faucibus ultricies.
+        Eumaecenas diam id efficitur placerat
+        metus.  Idamet sed nisi a orci vel gravida
+        non arcu.  Ametaliquam commodo eu
+        sagittis facilisi fames in.  Tortoramet viverra
+        per blandit tempor ac.
+        
+            <table style="line-height: 150%; margin-bottom: 0in; margin-left:auto; margin-right:auto;" >
+		        <tr><td><b>Artist Statement</b></td></tr>
+		        <tr><td></td></tr>
+		        <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
+		        <tr><td>adipiscing elit.  Inconsequat sed efficitur</td></tr>
+		        <tr><td>vitae donec arcu et.  Ametaliquam</td></tr>
+		        <tr><td>commodo eu sagittis facilisi fames in.</td></tr>
+		        <tr><td>Donecac tincidunt vel nec libero proin.</td></tr>
+		        <tr><td>Magnanibh consequat orci ut lobortis sit</td></tr>
+		        <tr><td>posuere orci.  Egetnisi tincidunt arcu dolor</td></tr>
+		        <tr><td>tincidunt vel.  Volutpatinterdum malesuada</td></tr>
+		        <tr><td>pretium ut.</td></tr>
+		        <tr><td></td></tr>
+		        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
+		        <tr><td>metus.  Lacusmattis porta nibh donec</td></tr>
+		        <tr><td>elementum eleifend purus. </td></tr>
+		        <tr><td>Fringilladignissim odio faucibus ultricies.</td></tr>
+		        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
+		        <tr><td>metus.  Idamet sed nisi a orci vel gravida</td></tr>
+		        <tr><td>non arcu.  Ametaliquam commodo eu</td></tr>
+		        <tr><td>sagittis facilisi fames in.  Tortoramet viverra</td></tr>
+		        <tr><td>per blandit tempor ac.</td></tr>
+		        <tr><td></td></tr>
+		        <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
+		        <tr><td>adipiscing elit.  Inconsequat sed efficitur</td></tr>
+		        <tr><td>vitae donec arcu et.  Ametaliquam</td></tr>
+		        <tr><td>commodo eu sagittis facilisi fames in. </td></tr>
+		        <tr><td>Donecac tincidunt vel nec libero proin.  </td></tr>
+		        <tr><td>Magnanibh consequat orci ut lobortis sit</td></tr>
+		        <tr><td>posuere orci.  Egetnisi tincidunt arcu dolor</td></tr>
+		        <tr><td>tincidunt vel.  Volutpatinterdum malesuada</td></tr>
+		        <tr><td>pretium ut.</td></tr>
+		        <tr><td></td></tr>
+		        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
+		        <tr><td>metus.  Lacusmattis porta nibh donec</td></tr>
+		        <tr><td>elementum eleifend purus. </td></tr>
+		        <tr><td>Fringilladignissim odio faucibus ultricies.</td></tr>
+		        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
+		        <tr><td>metus.  Idamet sed nisi a orci vel gravida</td></tr>
+		        <tr><td>non arcu.  Ametaliquam commodo eu</td></tr>
+		        <tr><td>sagittis facilisi fames in.  Tortoramet viverra</td></tr>
+		        <tr><td>per blandit tempor ac.</td></tr>
+    </table>
