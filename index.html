@@ -15,15 +15,6 @@
             border: none;
             border-collapse: collapse;
         }
-        /*
-      .lazy-load {
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-      .lazy-load.loaded {
-        opacity: 1;
-      }
-        */
         .center_horizontal {
             display:block;
             margin-right: auto;
@@ -476,7 +467,8 @@
                 var description_of_piece = return_file_description_for(src_file);
                 // console.log("src_file = " + description_of_piece);
                 const cap = document.getElementById("cptn");
-                cap.innerText  = description_of_piece;
+                // cap.innerText  = description_of_piece;
+                cap.innerHTML = "<img src='img_" + src_file + "'>";
                 showDiv("Blowup");
                 // console.log("Just blew up");
                 // console.log("Now position the close X");
@@ -601,7 +593,7 @@
             reset_text_color();
             red_the_text("Works");
         }
-        // TODO: FOLLOWING IS NEW:
+
         function Position_Close_Box(image_name_id){
             // console.log("get image object");
             var oImage = document.getElementById(image_name_id);
@@ -681,7 +673,6 @@
 <div id="Blowup">
 <br/><br/>
     <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
-    <!-- <div class="top-right">[ X ]</div>  -->
     <span id="close" onClick="Return_to_Series()"> X </span>
     <p id="cptn" class="text_centered">-  -  -</p>
 </div>

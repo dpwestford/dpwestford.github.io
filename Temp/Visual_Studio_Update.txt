@@ -57,7 +57,7 @@
             border-collapse: collapse;
         }
         .dropdown-content{
-            display: none; 
+            display: none;
             position: absolute;
             top: 0px;
             left: 0px;
@@ -68,7 +68,7 @@
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
             /*font-size:x-large;*/
-        }   
+        }
         .dropdown-content a {
             color: rgb(255,255,255);
             padding: 12px 16px;
@@ -286,7 +286,7 @@
             // // console.log("####################");
         }
         function red_the_text(divID){
-            reset_text_color(); 
+            reset_text_color();
             var cellName = "it"+divID;
             // // console.log ("cellname = " + cellName);
             var oCellName= document.getElementById(cellName).style.color = '#F11110';
@@ -310,6 +310,7 @@
             div_temp.style.display = "block";
             // // console.log("div_text_id = " + div_text_id);
         }
+   
         function return_file_description_for(file_name){
             var file_desc = "";
             var i = 0;
@@ -325,10 +326,12 @@
                 }
                 ++item_number;
             }
-            file_description = file_descriptions[item_number_found];
+            file_description = "img_" + file_names[item_number_found];
             // // // console.log("file_desc = " + item_number_found + "  " + file_description);
             return file_description;
         }
+
+
         function hideDiv(divID) {
             // console.log("hide divID = " + divID);
             document.getElementById(divID).style.display = "none";
@@ -473,10 +476,15 @@
                 src_element.style.width = px_width.toString() + "px";
                 src_element.style.height = px_height.toString() + "px";
                 // console.log("src_file = " + src_file);
+
                 var description_of_piece = return_file_description_for(src_file);
-                // console.log("src_file = " + description_of_piece);
+                alert(description_of_piece);
+                // var img_description_of_piece = return_file_description_for(src_file);
+                // console.log("src_file = " + src_file);
                 const cap = document.getElementById("cptn");
-                cap.innerText  = description_of_piece;
+                description_of_piece = "<img src='" + src_file + "' class='center3'>"
+                cap.innerText = "What";
+                ////cap.innerHTML = description_of_piece;
                 showDiv("Blowup");
                 // console.log("Just blew up");
                 // console.log("Now position the close X");
@@ -549,9 +557,38 @@
                     // console.log("Hid dropdown")
                 }
             }
+            console.log("chop_top:");
+            element_head = document.getElementById("chop_top");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itHome:");
+            var element_head = document.getElementById("itHome");
+            var rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itWorks:");
+            element_head = document.getElementById("itWorks");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itExhibitions:");
+            element_head = document.getElementById("itExhibitions");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itAbout:");
+            element_head = document.getElementById("itAbout");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
         }
         );
         }
+        function ReportBoundingBox(rect){
+             console.log("Bounding Box:");
+             console.log("  left:", rect.left);
+             console.log("  top:", rect.top);
+             console.log("  right:", rect.right);
+             console.log("  bottom:", rect.bottom);
+             console.log("  width:", rect.width);
+             console.log("  height:", rect.height);
+         }
         function MoveDropDown(){
             // console.log("MoveDropDown");
             var cellElement = document.getElementById('itWorks');
@@ -590,29 +627,29 @@
         }
     </script>
 </head>
-<body onload="OnLoadCode()">
-   <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
-      <tr class="color_of_heading_background" class="center-text">
-        <td><img id="chop" style="width:30px; height:34px; vertical-align:-10%" src="Chop.png" width="122px" height="34px"> <span style="font-size: .25em;">&nbsp;</span>Sandra Westford</td>
-      </tr>
-   </table>
-   <table  id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
-      <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
-        <td style="width:auto" colspan="1">&nbsp;</td>
-        <td id="itHome" width="160px" class="white_background" onclick="Show('Home')">Home</td>
-        <td id="itWorks" width="160px" class="white_background">Works</td>
-        <td id="itExhibitions" width="160px" class="white_background" onclick="Show('Exhibitions')">Exhibitions</td>
-        <td id="itAbout" width="160px" class="white_background" onclick="Show('Artist_Statement')">About</td>
-        <td style="width:auto" colspan="2">&nbsp;</td>
-      </tr>
-   </table>
+   <body onload="OnLoadCode()">
+      <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom; font-size:28px">
+         <tr class="color_of_heading_background" class="center-text" height="50px">
+             <td id="chop_top"><img id="chop" style="height:36px;width:300px;vertical-align: -36%;" src="Sandra_Text_Image.jpg" width="130px" height="34px"></td>
+         </tr>
+      </table>
+      <table id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
+         <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
+             <td style="width:auto" colspan="1">&nbsp;</td>
+             <td id="itHome" width="160px" class="white_background" onclick="Show('Home')"><img src="Home.jpg" width="160" height=auto></td>
+             <td id="itWorks" width="160px" class="white_background"><img src="Works.jpg" width="160" height=auto></td>
+             <td id="itExhibitions" width="160px" class="white_background" onclick="Show('Exhibitions')"><img src="Exhibitions.jpg" width="180" height=auto></td>
+             <td id="itAbout" width="160px" class="white_background" onclick="Show('Artist_Statement')"><img src="About.jpg" width="140" height=auto></td>
+             <td style="width:auto" colspan="2">&nbsp;</td>
+         </tr>
+      </table>
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" > 
     <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);" onclick="Show('S01')">internal resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S01')">internal resonance</td>  <!--internal resonance dropdown -->
         </tr>
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);" onclick="Show('S02')">external resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S02')">external resonance</td>  <!--external resonance dropdown-->
         </tr>
     </table>
 </div>
@@ -644,434 +681,10 @@
     <img id="exreshidden1" onclick="Show('Blowup,exreshidden1.jpg')" src="exreshidden1.jpg" alt="exreshidden1" width="80px" height="160px">
 </div>
 <div id="Artist_Statement" style="color:black;">
-        <table style="line-height: 150%; margin-bottom: 0in; margin-left:auto; margin-right:auto;" >
-        <tr><td><b>Artist Statement</b></td></tr>
-        <tr><td></td></tr>
-        <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
-        <tr><td>adipiscing elit.  Inconsequat sed efficitur</td></tr>
-        <tr><td>vitae donec arcu et.  Ametaliquam</td></tr>
-        <tr><td>commodo eu sagittis facilisi fames in.</td></tr>
-        <tr><td>Donecac tincidunt vel nec libero proin.</td></tr>
-        <tr><td>Magnanibh consequat orci ut lobortis sit</td></tr>
-        <tr><td>posuere orci.  Egetnisi tincidunt arcu dolor</td></tr>
-        <tr><td>tincidunt vel.  Volutpatinterdum malesuada</td></tr>
-        <tr><td>pretium ut.</td></tr>
-        <tr><td></td></tr>
-        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
-        <tr><td>metus.  Lacusmattis porta nibh donec</td></tr>
-        <tr><td>elementum eleifend purus. </td></tr>
-        <tr><td>Fringilladignissim odio faucibus ultricies.</td></tr>
-        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
-        <tr><td>metus.  Idamet sed nisi a orci vel gravida</td></tr>
-        <tr><td>non arcu.  Ametaliquam commodo eu</td></tr>
-        <tr><td>sagittis facilisi fames in.  Tortoramet viverra</td></tr>
-        <tr><td>per blandit tempor ac.</td></tr>
-        <tr><td></td></tr>
-        <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
-        <tr><td>adipiscing elit.  Inconsequat sed efficitur</td></tr>
-        <tr><td>vitae donec arcu et.  Ametaliquam</td></tr>
-        <tr><td>commodo eu sagittis facilisi fames in. </td></tr>
-        <tr><td>Donecac tincidunt vel nec libero proin.  </td></tr>
-        <tr><td>Magnanibh consequat orci ut lobortis sit</td></tr>
-        <tr><td>posuere orci.  Egetnisi tincidunt arcu dolor</td></tr>
-        <tr><td>tincidunt vel.  Volutpatinterdum malesuada</td></tr>
-        <tr><td>pretium ut.</td></tr>
-        <tr><td></td></tr>
-        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
-        <tr><td>metus.  Lacusmattis porta nibh donec</td></tr>
-        <tr><td>elementum eleifend purus. </td></tr>
-        <tr><td>Fringilladignissim odio faucibus ultricies.</td></tr>
-        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
-        <tr><td>metus.  Idamet sed nisi a orci vel gravida</td></tr>
-        <tr><td>non arcu.  Ametaliquam commodo eu</td></tr>
-        <tr><td>sagittis facilisi fames in.  Tortoramet viverra</td></tr>
-        <tr><td>per blandit tempor ac.</td></tr>
-    </table>
+   <img id="artist_statement" src="Artist_Statement.jpg" class="center_horizontal">
 </div>
 <div id="Exhibitions" style="color:black">
-    <table id="toppings" style="line-height: 150%; margin-bottom: 0in " >
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="font-size: 100%"><b>Exhibition History</b></td>
-    </tr>
-    <tr>
-        <td>2023</td>
-        <td>&ensp;</td>
-        <td>Foundry Gallery, Regional Juried Show, Walla Walla WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2016</td>
-        <td>&ensp;</td>
-        <td>Oak Hollow Gallery, 'Home: an exploration', Yakima WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2015</td>
-        <td>&ensp;</td>
-        <td>Anchor Gallery, Invitational Show, 'Field Work', Anacortes WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Sarah Spergean Gallery, 'Crossroads', Ellensburg WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Chase Gallery, juried show, Spokane WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery, 'Central Wa Juried Show', Award Winner, Yakima WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Boxx Gallery, 'Inaugural Group Show', Tieton WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2014</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery, 'Central Wa Juried Show', Award Winner, Yakima WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2013</td>
-        <td>&ensp;</td>
-        <td>Gallery One, 'Celebration of Tieton Artists', Ellensburg WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>10 X 10 X 10 by Tieton juried show, Tieton WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2012</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2011</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2010</td>
-        <td>&ensp;</td>
-        <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2009</td>
-        <td>&ensp;</td>
-        <td>Bainbridge Arts and Crafts, 'Shells', Bainbridge WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Simon Gallery, 'Christmas Show', Yakima WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td> Larson Gallery, 'Central Washington Juried Show', Award Winner, Yakima WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery Studio tour in association with Leo Adams, Yakima WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2008</td>
-        <td>&ensp;</td>
-        <td>Bainbridge Arts and Crafts, 'The Box', Bainbridge WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Kobo Gallery, 'New Works', Seattle WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2007</td>
-        <td>&ensp;</td>
-        <td>Bainbridge Arts and Crafts, 'New Works', Bainbridge WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Scott Milo Gallery, 'New Works', Anacortes WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Kobo Gallery, 'Small Poems', Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2006</td>
-        <td>&ensp;</td>
-        <td>Bainbridge Arts and Crafts, 'New Works', Bainbridge WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Scott Milo Gallery, 'New Works', Anacortes WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Kobo Gallery, 'New Works', Seattle WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Northwind Arts Center, 'New Works', Port Townsend WA</td>
-    </tr>
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2005</td>
-        <td>&ensp;</td>
-        <td>SAM Gallery 'Introductions', Seattle WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Kobo Gallery, 'Zen Realism', Seattle WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Scott Milo Gallery, 'New Works', Anacortes WA </td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2004</td>
-        <td>&ensp;</td>
-        <td>Northwind Arts Center, 'Dwellings', Port Townsend WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Anacortes Arts Festival, juried show, Corporate Award, Anacortes WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Scott Milo Gallery, 'Small Poems', Anacortes WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2003</td>
-        <td>&ensp;</td>
-        <td>Northwind Arts Center, 'Four Award Winning Pastel Artists', Anacortes WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Anacortes Arts Festival, juried show, Purchase Award, Anacortes WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2002</td>
-        <td>&ensp;</td>
-        <td>Art Port Townsend, juried exhibition, Best of Show, Port Townsend WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Anacortes Arts Festival, juried show, Purchase Award, Anacortes WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2000</td>
-        <td>&ensp;</td>
-        <td>Poncho Auction preview, juried show, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1999</td>
-        <td>&ensp;</td>
-        <td>Poncho Auction preview, juried show, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1998</td>
-        <td>&ensp;</td>
-        <td>Children's Day at the Japanese Garden, commissioned piece, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1993</td>
-        <td>&ensp;</td>
-        <td>Gilmarten Gallery, 'New Works', Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1992</td>
-        <td>&ensp;</td>
-        <td>Arts for the Parks, juried show, Jackson Hole Wyoming</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1986</td>
-        <td>&ensp;</td>
-        <td>Anacortes Arts Festival, juried show, Purchase Award</td>
-    </tr>
-    <tr font-size="10px">
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="font-size: 100%"><b>Education</b></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td>I have studied art for many years at a number of schools including:</td>
-    </tr>
-    <ul>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="margin-left: 1em;"><li>Pratt Institute</li></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="margin-left: 1em;"><li>The Gage Academy</li></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="margin-left: 1em;"><li>The Factory of Visual Arts</li></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="margin-left: 1em;"><li>The School of Visual Concepts</li></td>
-    </tr>
-    </ul>
-    <tr>
-        <td></td>
-        <td></td>
-        <td>I hold degrees in Biology and Psychology.</td>
-    </tr>
-</table>
-<img class="testtableimage"  src="P1010356.jpg"/>
+    <img id="Exhibition_History" src="Exhibition_History03.jpg" class="center_horizontal">
 </div>
 <div id="Blowup">
 <br/><br/>
@@ -1079,13 +692,14 @@
     <!-- <div class="top-right">[ X ]</div>  -->
     <span id="close" onClick="Return_to_Series()"> X </span>
     <p id="cptn" class="text_centered">-  -  -</p>
+    <!-- <img src="img_inresascend3.jpg" class="center3"> 
 </div>
-<div id='S01' class="align_center_heading" style="display:none;">
-          <p id="series_header_id" class="align_center_heading">internal resonance</p>
+<div id='S01' class="align_center_heading" style="display:none;">   <!-- internal resonance -->
+          <p id="series_header_id" class="align_center_heading"><img src="internal_resonance.jpg"></p>
     <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>ascend</td>
+            <td><img src="ascend.jpg"></td> <!-- ascend   -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresascend2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend2.jpg')" src='inresascend2.jpg' width ="60px" height="60px">
@@ -1097,7 +711,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>whisper</td>
+            <td><img src="whisper.jpg"></td>  <!-- whisper -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inreswhisper3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper3.jpg')" src='inreswhisper3.jpg' width ="60px" height="60px">
@@ -1107,7 +721,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>emerge</td>
+            <td><img src="emerge.jpg"></td>  <!-- emerge -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresemerge1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge1.jpg')" src='inresemerge1.jpg' width ="60px" height="60px">
@@ -1116,7 +730,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>upwelling</td>
+            <td><img src="upwelling.jpg"></td>   <!-- upwelling -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresupwell5' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell5.jpg')" src='inresupwell5.jpg' width ="60px" height="60px">
@@ -1129,11 +743,11 @@
         </table>
 </div>
 <div id='S02' class="align_center_heading" style="display:none;">
-          <p id="series_header_id"  class="align_center_heading">external resonance</p>
+          <p id="series_header_id"  class="align_center_heading">external resonance</p>     <!-- external resonance -->
     <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" > 
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>hidden</td>
+            <td><img src="hidden.jpg"></td>  <!-- hidden -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'exreshidden3' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden3.jpg')" src='exreshidden3.jpg' width ="60px" height="60px">

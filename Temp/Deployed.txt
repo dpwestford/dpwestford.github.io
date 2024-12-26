@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,59 +24,6 @@
         opacity: 1;
       }
         */
-        /*
-       .wer_chop_top{
-            position: absolute;
-            top:7.996323585510254px;
-            left:7.996323585510254px;
-            width: 2491.3603515625px;
-            height:46.11672592163086px;
-            border-color: transparent;
-            border-style: solid;
-            background-color: transparent;
-        }
-
-        .wer_itHome{
-            position: absolute;
-            top:54.28538513183594px;
-            left:929.6875px;
-            width: 161.99447631835938px;
-            height: 39.499080657958984px;
-            border-color: #ff0000;
-            border-style: solid;
-            background-color: transparent;
-        }
-        .wer_itWorks{
-            position: absolute;
-            top:54.28538513183594px;
-            left:1091.6820068359375px;
-            width: 161.99447631835938px;
-            height: 39.499080657958984px;
-            border-color: #ff0000;
-            border-style: solid;
-            background-color: transparent;
-        }
-        .wer_itExhibitions{
-            position: absolute;
-            top:54.28538513183594px;
-            left:1253.6763916015625px;
-            width: 161.99447631835938px;
-            height: 39.499080657958984px;
-            border-color: #ff0000;
-            border-style: solid;
-            background-color: transparent;
-        }
-        .wer_itAbout{
-            position: absolute;
-            top:54.28538513183594px;
-            left:1415.6708984375px;
-            width: 161.99447631835938px;
-            height: 39.499080657958984px;
-            border-color: #ff0000;
-            border-style: solid;
-            background-color: transparent;
-        }
-          */
         .center_horizontal {
             display:block;
             margin-right: auto;
@@ -136,19 +82,19 @@
             right: 26px;
             color:rgb(255,255,255);
             font-family: 'Papyrus', 'Brush Script MT', cursive;
-            /* font-size:x-large; */
+            /* font-size:x-large; */ 
             font-weight: bold
         }
         .title_line{
             color:rgb(255,255,255);
             text-align: center;
             font-family: 'Papyrus', 'Brush Script MT', cursive;
-           /* font-weight:bold; font-size: 30px; */
+           /* font-weight:bold; font-size: 30px; */ 
         }
   /*      .solid_table{
             border: none;
             border-collapse: collapse;
-        }   */
+        }   */ 
     div#Blowup{
       background-color: rgb(255,255,255);
         display: none;
@@ -174,7 +120,7 @@
                 margin-left: auto;
                 margin-right: auto;
                 font-family: 'Papyrus', 'Brush Script MT', cursive;
-                /* font-weight:100  */
+                /* font-weight:100  */  
             }
             .dimension{
                 line-height:20px;
@@ -225,7 +171,7 @@
                 margin-left: auto;
                 margin-right: auto;
                 font-family: 'Papyrus', 'Brush Script MT', cursive;
-                /*  font-weight:100;  */
+                /*  font-weight:100;  */  
               }
               .center3 {
                 display: block;
@@ -254,9 +200,9 @@
             /* TODO: Previous is to be added */
     </style>
     <script>
-
+ 
         window.addEventListener("resize", resized);
-
+ 
         var current_div = "Home";
         const file_names=[
         "inresascend2.jpg",
@@ -603,52 +549,38 @@
                     // console.log("Hid dropdown")
                 }
             }
-
             console.log("chop_top:");
             element_head = document.getElementById("chop_top");
             rect = element_head.getBoundingClientRect();
             ReportBoundingBox(rect);
-            /*
-
-            console.log("hdr_name:");  // Bounding Box not accurate now
-            element_head = document.getElementById("hdr_name");
-            rect = element_head.getBoundingClientRect();
-            ReportBoundingBox(rect);
-            */
-
             console.log("itHome:");
             var element_head = document.getElementById("itHome");
             var rect = element_head.getBoundingClientRect();
             ReportBoundingBox(rect);
-
             console.log("itWorks:");
             element_head = document.getElementById("itWorks");
             rect = element_head.getBoundingClientRect();
             ReportBoundingBox(rect);
-
             console.log("itExhibitions:");
             element_head = document.getElementById("itExhibitions");
             rect = element_head.getBoundingClientRect();
             ReportBoundingBox(rect);
-
             console.log("itAbout:");
             element_head = document.getElementById("itAbout");
             rect = element_head.getBoundingClientRect();
             ReportBoundingBox(rect);
-       }
+        }
         );
         }
         function ReportBoundingBox(rect){
-            console.log("Bounding Box:");
-            console.log("  left:", rect.left);
-            console.log("  top:", rect.top);
-            console.log("  right:", rect.right);
-            console.log("  bottom:", rect.bottom);
-            console.log("  width:", rect.width);
-            console.log("  height:", rect.height);
-        }
-
-
+             console.log("Bounding Box:");
+             console.log("  left:", rect.left);
+             console.log("  top:", rect.top);
+             console.log("  right:", rect.right);
+             console.log("  bottom:", rect.bottom);
+             console.log("  width:", rect.width);
+             console.log("  height:", rect.height);
+         }
         function MoveDropDown(){
             // console.log("MoveDropDown");
             var cellElement = document.getElementById('itWorks');
@@ -687,52 +619,29 @@
         }
     </script>
 </head>
-<body onload="OnLoadCode()">
-<!--  <table vertical-align: bottom; font-size:28px">
-        <tr class="color_of_heading_background" class="center-text">
-            <td height="30px"></td>
-        </tr>
-    </table>
--->
-   <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom; font-size:28px">
-      <tr class="color_of_heading_background" class="center-text" height="50px">
-        <td id="chop_top"><img id="chop" style="height:36px;width:300px;vertical-align: -36%;" src="Sandra_Text_Image.jpg" width="130px" height="34px"></td>
-        <!-- <td id="chop_top"><img id="chop" style="width:30px; height:34px; vertical-align:-15%" src="Chop.png" width="122px" height="34px">&nbsp;Sandra Westford</td> -->
-        <!-- <span id="hdr_name" style="font-size: .25em;">&nbsp;</span>Sandra Westford</td> -->
-      </tr>
-   </table>
-   <table id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
-      <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
-        <td style="width:auto" colspan="1">&nbsp;</td>
-        <td id="itHome" width="160px" class="white_background" onclick="Show('Home')"><img src="Home.jpg" width="160" height=auto></td>
-        <td id="itWorks" width="160px" class="white_background"><img src="Works.jpg" width="160" height=auto></td>
-        <td id="itExhibitions" width="160px" class="white_background" onclick="Show('Exhibitions')"><img src="Exhibitions.jpg" width="180" height=auto></td>
-        <td id="itAbout" width="160px" class="white_background" onclick="Show('Artist_Statement')"><img src="About.jpg" width="140" height=auto></td>
-        <td style="width:auto" colspan="2">&nbsp;</td>
-      </tr>
-   </table>
-<!--
-   <div id="wer_over_chop_top" class="wer_chop_top">
-
-    </div>
-    <div id="wer_over_hdr_name" class="wer_hdr_name">
-    </div>
-    <div id="wer_over_itHome" class="wer_itHome">
-    </div>
-    <div id="wer_over_itWorks" class="wer_itWorks">
-    </div>
-    <div id="wer_over_itExhibitions" class="wer_itExhibitions">
-    </div>
-    <div id="wer_over_itAbout" class="wer_itAbout">
-    </div>
-    -->
-<div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" >
+   <body onload="OnLoadCode()">
+      <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom; font-size:28px">
+         <tr class="color_of_heading_background" class="center-text" height="50px">
+             <td id="chop_top"><img id="chop" style="height:36px;width:300px;vertical-align: -36%;" src="Sandra_Text_Image.jpg" width="130px" height="34px"></td>
+         </tr>
+      </table>
+      <table id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
+         <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
+             <td style="width:auto" colspan="1">&nbsp;</td>
+             <td id="itHome" width="160px" class="white_background" onclick="Show('Home')"><img src="Home.jpg" width="160" height=auto></td>
+             <td id="itWorks" width="160px" class="white_background"><img src="Works.jpg" width="160" height=auto></td>
+             <td id="itExhibitions" width="160px" class="white_background" onclick="Show('Exhibitions')"><img src="Exhibitions.jpg" width="180" height=auto></td>
+             <td id="itAbout" width="160px" class="white_background" onclick="Show('Artist_Statement')"><img src="About.jpg" width="140" height=auto></td>
+             <td style="width:auto" colspan="2">&nbsp;</td>
+         </tr>
+      </table>
+<div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" > 
     <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S01')">internal resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S01')"><img src="internal_resonance_drop_down.jpg"></td>  <!--internal resonance dropdown -->
         </tr>
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S02')">external resonance</td>
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S02')"><img src="external_resonance_dropdown.jpg"></td>  <!--external resonance dropdown-->
         </tr>
     </table>
 </div>
@@ -764,11 +673,11 @@
     <img id="exreshidden1" onclick="Show('Blowup,exreshidden1.jpg')" src="exreshidden1.jpg" alt="exreshidden1" width="80px" height="160px">
 </div>
 <div id="Artist_Statement" style="color:black;">
-    <img id="artist_statement" src="Artist_Statement.jpg" class="center_horizontal">
+   <img id="artist_statement" src="Artist_Statement.jpg" class="center_horizontal">
 </div>
 <div id="Exhibitions" style="color:black">
     <img id="Exhibition_History" src="Exhibition_History03.jpg" class="center_horizontal">
- </div>
+</div>
 <div id="Blowup">
 <br/><br/>
     <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
@@ -776,12 +685,12 @@
     <span id="close" onClick="Return_to_Series()"> X </span>
     <p id="cptn" class="text_centered">-  -  -</p>
 </div>
-<div id='S01' class="align_center_heading" style="display:none;">
-          <p id="series_header_id" class="align_center_heading">internal resonance</p>
+<div id='S01' class="align_center_heading" style="display:none;"> 
+          <p id="series_header_id" class="align_center_heading"><img src="internal_resonance.jpg"></p>   <!-- internal resonance -->
     <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>ascend</td>
+            <td><img src="ascend.jpg"></td> <!-- ascend   -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresascend2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend2.jpg')" src='inresascend2.jpg' width ="60px" height="60px">
@@ -793,7 +702,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>whisper</td>
+            <td><img src="whisper.jpg"></td>  <!-- whisper -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inreswhisper3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper3.jpg')" src='inreswhisper3.jpg' width ="60px" height="60px">
@@ -803,7 +712,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>emerge</td>
+            <td><img src="emerge.jpg"></td>  <!-- emerge -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresemerge1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge1.jpg')" src='inresemerge1.jpg' width ="60px" height="60px">
@@ -812,7 +721,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>upwelling</td>
+            <td><img src="upwelling.jpg"></td>   <!-- upwelling -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresupwell5' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell5.jpg')" src='inresupwell5.jpg' width ="60px" height="60px">
@@ -825,11 +734,11 @@
         </table>
 </div>
 <div id='S02' class="align_center_heading" style="display:none;">
-          <p id="series_header_id"  class="align_center_heading">external resonance</p>
-    <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" >
+          <p id="series_header_id"  class="align_center_heading"><img src="external_resonance.jpg"></p>     <!-- external resonance -->
+    <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" > 
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td>hidden</td>
+            <td><img src="hidden.jpg"></td>  <!-- hidden -->
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'exreshidden3' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden3.jpg')" src='exreshidden3.jpg' width ="60px" height="60px">
