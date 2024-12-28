@@ -1,0 +1,1475 @@
+Option Compare Database
+Option Explicit
+
+Public sW As clsFileWriter
+Public g_current_series As Integer
+Public g_series_id(99) As String
+Public g_series_name(99) As String
+Public g_series_name_id(99) As String
+Public g_number_of_series As Integer
+Public fs As New FileSystemObject
+Public g_saved_html_location As String
+
+
+Public Sub generate_html()
+Set sW = New clsFileWriter
+
+g_saved_html_location = lookup_setting("Folder_HTML_File")
+
+sW.create_text_file g_saved_html_location
+
+list_series
+top_html
+early_styles
+style_dropdown_content
+style_dropdown_content_a
+style_dropdown_a_hover
+style_top_right
+title_line
+solid_table
+Blowup
+works
+Artist_Statement
+Exhibitions
+center
+dimension
+bg_dark_menu
+table_text_centered_exhibits
+toppings_testtableimage
+center_2_3
+script_listener_file_descriptions
+center_home
+resized
+reset_text_color
+red_the_text
+hide_most_divisions
+show_division
+return_file_description
+hideDiv_showDiv
+Show
+OnLoadCode
+MoveDropDown
+MenuBar
+Works_Dropdown
+Home
+Works_Listing
+Artist_Statement_Full
+Exhibitions_Full
+Blowup_Div
+If "Use_Icon" <> lookup_setting("Use_Icon_for_Piece") Then
+    ' Do_We_Use_Icon = False
+    Series
+Else
+    'Do_We_Use_Icon = True
+    Series_Icon
+End If
+Page_Saved
+
+sW.close_file
+
+End Sub
+
+Public Sub list_series()
+Dim DBS As Database
+Dim rs As Recordset
+Dim strSQL As String
+Set DBS = CurrentDb
+Dim i As Integer
+Dim current_ID As Long
+'Dim g_current_series As Integer
+Dim previous_series_integer As Integer
+'Dim x_series_name(99) As String
+'Dim x_series_id(99) As String
+' module level: Public g_series_name(50) As String
+' module level: Public g_series_id(50) As String
+' module level: g_number_of_series
+i = 0
+previous_series_integer = 0
+strSQL = "SELECT tbl_Series.ID, tbl_Series.Series_Name, tbl_SubSeries.SubSeries_ID, tbl_SubSeries.SubSeries_Name, tbl_Piece.Piece_ID, tbl_Piece.Piece_Name, tbl_Piece.Image_File_Name, tbl_Piece.Multiple_ID, tbl_Piece.Multiple_Sequence, tbl_Piece.Year_Created, tbl_Piece.Month_Created, tbl_Piece.Art_Media, tbl_Piece.Height_of_Piece, tbl_Piece.Width_of_Piece, tbl_Piece.Depth_of_Piece FROM (tbl_SubSeries INNER JOIN tbl_Series ON tbl_SubSeries.Series = tbl_Series.ID) INNER JOIN tbl_Piece ON tbl_SubSeries.SubSeries_ID = tbl_Piece.SubSeries ORDER BY tbl_Series.Sequence, tbl_SubSeries.Sequence, tbl_SubSeries.SubSeries_ID, tbl_Piece.Year_Created, tbl_Piece.Month_Created;"
+Set rs = DBS.OpenRecordset(strSQL)
+If Not (rs.EOF And rs.BOF) Then
+    rs.MoveFirst
+    previous_series_integer = -1
+    Do While Not rs.EOF
+    ' LAST TODO: We must eliminate duplicate series names by eliminating duplicate numbers
+        current_ID = rs![ID].Value
+        If previous_series_integer <> current_ID Then
+            previous_series_integer = current_ID
+            i = i + 1
+            g_series_name(i) = rs![series_name].Value
+            g_series_id(i) = "S" & Format(i, "00")
+            'Debug.print "i: " & CStr(i) & "  g_series_name(i): " & g_series_name(i) & " g_series_id(i): " & g_series_id(i)
+        End If
+        rs.MoveNext
+    Loop
+End If
+g_number_of_series = i
+'i = 0
+'strSQL = "SELECT tbl_Series.ID, tbl_Series.Series_Name, tbl_SubSeries.SubSeries_ID, tbl_SubSeries.SubSeries_Name, tbl_Piece.Piece_ID, tbl_Piece.Piece_Name, tbl_Piece.Image_File_Name, tbl_Piece.Multiple_ID, tbl_Piece.Multiple_Sequence, tbl_Piece.Year_Created, tbl_Piece.Month_Created, tbl_Piece.Art_Media, tbl_Piece.Height_of_Piece, tbl_Piece.Width_of_Piece, tbl_Piece.Depth_of_Piece FROM (tbl_SubSeries INNER JOIN tbl_Series ON tbl_SubSeries.Series = tbl_Series.ID) INNER JOIN tbl_Piece ON tbl_SubSeries.SubSeries_ID = tbl_Piece.SubSeries ORDER BY tbl_Series.Sequence, tbl_SubSeries.Sequence, tbl_SubSeries.SubSeries_ID, tbl_Piece.Year_Created, tbl_Piece.Month_Created;"
+'Set rs = DBS.OpenRecordset(strSQL)
+'If Not (rs.EOF And rs.BOF) Then
+'    rs.MoveFirst
+'    Do While Not rs.EOF
+'        i = i + 1
+'        x_series_name(i) = rs![series_name].Value
+'        x_series_id(i) = "S" & Format(i, "00")
+'        'Debug.print "i: " & CStr(i) & "   x_series_name(i): " & x_series_name(i) & "   x_series_id(i): " & x_series_id(i)
+'        rs.MoveNext
+'    Loop
+'End If
+
+End Sub
+
+Public Sub top_html()
+sW.wr "<!DOCTYPE html>"
+sW.wr "<html lang=""en"">"
+sW.wr "<head>"
+sW.wr "    <meta charset=""UTF-8"">"
+sW.wr "    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">"
+sW.wr "    <title>Sandra Westford</title>"
+sW.wr "    <link rel=""icon"" href=""favicon.png"" type=""image/x-icon"">"
+sW.wr "    <style type=""text/css"">"
+End Sub
+
+
+Public Sub early_styles()
+Dim color_of_background As String
+Dim color_of_text As String
+
+'Set color of background
+ color_of_background = lookup_setting("Heading_Background_Color")
+ color_of_text = lookup_setting("Heading_Text_Color")
+ 
+'sW.wr ".clipper{"
+'sW.wr "      clip-path: inset(50% 0% 0% 0%);"
+'sW.wr "}"
+
+sW.wr "#pageElement{display:flex; flex-wrap: nowrap; align-items: center}"
+sW.wr "        .align_center_heading{"
+sW.wr "            display: flex;"
+sW.wr "            justify-content: center;"
+sW.wr "            font-family: 'Papyrus', serif;"
+sW.wr "            font-size: 36px;"
+sW.wr "            border: none;"
+sW.wr "            border-collapse: collapse;"
+sW.wr "        }"
+sW.wr "        .center_horizontal {"
+sW.wr "            display:block;"
+sW.wr "            margin-right: auto;"
+sW.wr "            margin-left: auto;"
+sW.wr "        }"
+sW.wr "        .Center_Div{"
+sW.wr "            border: 1px solid white;"
+sW.wr "            text-align: center;"
+sW.wr "            margin-left: auto;"
+sW.wr "            margin-right: auto;"
+sW.wr "            border: none;"
+sW.wr "            border-collapse: collapse;"
+sW.wr "        }"
+sW.wr "        .Center_Table{"
+sW.wr "            border: 1px solid white;"
+sW.wr "            display: inline-table;"
+sW.wr "            border: none;"
+sW.wr "            border-collapse: collapse;"
+sW.wr "        }"
+
+sW.wr "        .drop_down_margins{"
+sW.wr "            margin-top: 0;"
+sW.wr "            margin-bottom: 0;"
+sW.wr "            margin-right: 10;"
+sW.wr "            margin-left:10;"
+sW.wr "        }"
+sW.wr "        .color_of_heading_background{"
+sW.wr "            border-collapse: collapse;"
+sW.wr "            background-color:" + color_of_background + " ;"
+sW.wr "            color:" + color_of_text + ";"
+sW.wr "            border: none;"
+sW.wr "            border-collapse: collapse;"
+sW.wr "        }"
+
+End Sub
+
+
+
+Public Sub style_dropdown_content()
+Dim color_of_background As String
+Dim color_of_text As String
+color_of_background = lookup_setting("Heading_Background_Color")
+color_of_text = lookup_setting("Heading_Text_Color")
+sW.wr "        .dropdown-content{"
+sW.wr "            display: none;"
+sW.wr "            position: absolute;"
+sW.wr "            top: 0px;"
+sW.wr "            left: 0px;"
+sW.wr "            background-color:" + color_of_background + ";"
+sW.wr "            color:" + color_of_text + ";"
+sW.wr "            min-width: 160px;"
+sW.wr "            overflow: auto;"
+sW.wr "            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);"
+sW.wr "            z-index: 1;"
+sW.wr "            /*font-size:x-large;*/"
+sW.wr "        }"
+End Sub
+
+Public Sub style_dropdown_content_a()
+Dim color_of_background As String
+Dim color_of_text As String
+color_of_text = lookup_setting("Heading_Text_Color")
+sW.wr "        .dropdown-content a {"
+sW.wr "            color: rgb(255,255,255);"
+sW.wr "            padding: 12px 16px;"
+sW.wr "            text-decoration: none;"
+sW.wr "            display: block;"
+sW.wr "        }"
+End Sub
+
+Public Sub style_dropdown_a_hover()
+sW.wr "        .dropdown a:hover {background-color: #ddd;}"
+End Sub
+
+
+Public Sub style_top_right()
+Dim color_of_background As String
+Dim color_of_text As String
+color_of_background = lookup_setting("Heading_Background_Color")
+color_of_text = lookup_setting("Heading_Text_Color")
+sW.wr "        .top-right {"
+sW.wr "            position: absolute;"
+sW.wr "            top:30px;"
+sW.wr "            right: 26px;"
+sW.wr "            color:" + color_of_text + ";"
+sW.wr "            font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "            /* font-size:x-large; */ "
+sW.wr "            font-weight: bold"
+sW.wr "        }"
+End Sub
+
+Public Sub title_line()
+Dim color_of_background As String
+Dim color_of_text As String
+color_of_background = lookup_setting("Heading_Background_Color")
+color_of_text = lookup_setting("Heading_Text_Color")
+sW.wr "        .title_line{"
+sW.wr "            color:" + color_of_text + ";"
+sW.wr "            text-align: center;"
+sW.wr "            font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "           /* font-weight:bold; font-size: 30px; */ "
+sW.wr "        }"
+End Sub
+
+Public Sub solid_table()
+sW.wr "  /*      .solid_table{"
+sW.wr "            border: none;"
+sW.wr "            border-collapse: collapse;"
+sW.wr "        }   */ "
+End Sub
+
+
+Public Sub Blowup()
+Dim wrks_background_color As String
+wrks_background_color = lookup_setting("Works_Background_Color")
+sW.wr "    div#Blowup{"
+sW.wr "      background-color: " + wrks_background_color + ";"
+sW.wr "        display: none;"
+sW.wr "    }"
+End Sub
+
+Public Sub works()
+Dim wrks_background_color As String
+wrks_background_color = lookup_setting("Works_Background_Color")
+sW.wr "        div#Works{"
+sW.wr "      background-color: " + wrks_background_color + ";"
+sW.wr "            display: none;"
+sW.wr "        }"
+End Sub
+
+Public Sub Artist_Statement()
+sW.wr "         div#Artist_Statement {"
+sW.wr "              display: none;"
+sW.wr "              margin-left: auto;"
+sW.wr "              margin-right: auto;"
+sW.wr "        }"
+End Sub
+
+Public Sub Exhibitions()
+sW.wr "        div#Exhibitions{"
+sW.wr "            display: none;"
+sW.wr "            font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "            border-collapse: collapse;"
+sW.wr "            width: -10px;"
+sW.wr "            display:none;"
+sW.wr "            margin-left:30%;"
+sW.wr "        }"
+End Sub
+
+Public Sub center()
+sW.wr "          .center {"
+sW.wr "                margin-left: auto;"
+sW.wr "                margin-right: auto;"
+sW.wr "                font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "                /* font-weight:100  */  "
+sW.wr "            }"
+End Sub
+
+Public Sub dimension()
+sW.wr "            .dimension{"
+sW.wr "                line-height:20px;"
+sW.wr "                margin-left: auto;"
+sW.wr "                margin-right: auto;"
+sW.wr "            }"
+End Sub
+
+Public Sub bg_dark_menu()
+Dim color_of_background As String
+Dim color_of_text As String
+color_of_background = lookup_setting("Heading_Background_Color")
+color_of_text = lookup_setting("Heading_Text_Color")
+sW.wr "            .bg {"
+sW.wr "                background-color:" + color_of_background + ";"
+sW.wr "                color:" + color_of_text + ";"
+sW.wr "            }"
+sW.wr "            .bg_dark{"
+sW.wr "                background-color:" + color_of_background + ";"
+sW.wr "                color:""" + color_of_text + """;"
+sW.wr "            }"
+sW.wr "            .menu{"
+sW.wr "                display: none;"
+sW.wr "            }"
+End Sub
+
+Public Sub table_text_centered_exhibits()
+Dim color_of_background As String
+Dim color_of_text As String
+color_of_background = lookup_setting("Heading_Background_Color")
+color_of_text = lookup_setting("Heading_Text_Color")
+color_of_text = "rgb(0,0,0)"
+sW.wr "              table{"
+sW.wr "                font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "              }"
+sW.wr "              .text_centered{"
+sW.wr "                font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "                font-size: 20px;"
+sW.wr "                text-align:center;"
+sW.wr "                color:""" + color_of_text + """;"
+sW.wr "              }"
+sW.wr "              .exhibits{"
+sW.wr "                margin-left: auto;"
+sW.wr "                margin-right: auto;"
+sW.wr "                font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "                font-size: 70%;"
+sW.wr "                margin-left:30%;"
+sW.wr "              }"
+End Sub
+
+Public Sub toppings_testtableimage()
+sW.wr "                #toppings {"
+sW.wr "                  font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "                  border-collapse: collapse;"
+sW.wr "                  width: -10px;"
+sW.wr "                  display:inline-block;"
+sW.wr "                }"
+sW.wr "                .testtableimage{"
+sW.wr "                   display:inline-block;"
+sW.wr "                   vertical-align:top;"
+sW.wr "                   max-width: 30%;"
+sW.wr "                   max-height: 30%"
+sW.wr "                }"
+End Sub
+
+Public Sub center_2_3()
+sW.wr "              .center2 {"
+sW.wr "                display: block;"
+sW.wr "                margin-left: auto;"
+sW.wr "                margin-right: auto;"
+sW.wr "                font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "                /*  font-weight:100;  */  "
+sW.wr "              }"
+sW.wr "              .center3 {"
+sW.wr "                display: block;"
+sW.wr "                margin-left: auto;"
+sW.wr "                margin-right: auto;"
+sW.wr "                font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "                font-weight:100;"
+sW.wr "              }"
+sW.wr "              /* -- TODO: Add CSS to web page */"
+sW.wr "              .containerdiv {"
+sW.wr "                position:relative;"
+sW.wr "                width:100%;"
+sW.wr "                display:inline-block;"
+sW.wr "                font-family: 'Papyrus', 'Brush Script MT', cursive;"
+sW.wr "            }"
+sW.wr "            #image1 { position: absolute; top: 20px; left: 10px; }"
+sW.wr "            #close {"
+sW.wr "                position:absolute;"
+sW.wr "                top: 0px;"
+sW.wr "                left: 630px;"
+sW.wr "                font-size: 32px;"
+sW.wr "                cursor: pointer;"
+sW.wr "                font-family: 'Arial', sans-serif;"
+sW.wr "                color: gray;"
+sW.wr "            }"
+sW.wr "            /* TODO: Previous is to be added */"
+sW.wr "    </style>"
+End Sub
+
+Public Sub script_listener_file_descriptions_Test()
+sW.wr "    <script>"
+sW.wr " "
+sW.wr "        window.addEventListener(""resize"", resized);"
+sW.wr " "
+sW.wr "        var current_div = ""Home"";"
+sW.wr "        var current_series = ""x"";"
+sW.wr "        const file_names=["
+sW.wr "        ""inresascend2_mas_or.jpg"","
+sW.wr "        ""inresascend3_mas_or.jpg"","
+sW.wr "        ""inresupwell1_mas_or.jpg"","
+sW.wr "        ""inresupwell2_mas_or.jpg"","
+sW.wr "        ""inresupwell4_mas_or.jpg"","
+sW.wr "        ""inreswhisp2_mas_or.jpg"","
+sW.wr "        ""tantricstudy2_mas_or.jpg"","
+sW.wr "        ""tantricstudy3_mas_or.jpg"","
+sW.wr "        ""tantricstudy4_mas_or.jpg"","
+sW.wr "        ""studyberecon1_mas_or.jpg"","
+sW.wr "        ""studyberecon2_mas_or.jpg"","
+sW.wr "        ""studyberecon3_mas_or.jpg"","
+sW.wr "        ""Westford_09-5side.jpg"","
+sW.wr "        ""P101.jpg"""
+sW.wr "        ];"
+sW.wr "        const file_descriptions=["
+sW.wr "        ""description of inresascend2_mas_or.jpg goes here"","
+sW.wr "        ""description of inresascend3_mas_or.jpg goes here"","
+sW.wr "        ""description of inresupwell1_mas_or.jpg goes here"","
+sW.wr "        ""description of inresupwell2_mas_or.jpg goes here"","
+sW.wr "        ""description of inresupwell4_mas_or.jpg goes here"","
+sW.wr "        ""description of inreswhisp2_mas_or.jpg goes here"","
+sW.wr "        ""description of tantricstudy2_mas_or.jpg goes here"","
+sW.wr "        ""description of tantricstudy3_mas_or.jpg goes here"","
+sW.wr "        ""description of tantricstudy4_mas_or.jpg goes here"","
+sW.wr "        ""description of studyberecon1_mas_or.jpg goes here"","
+sW.wr "        ""description of studyberecon2_mas_or.jpg goes here"","
+sW.wr "        ""description of studyberecon3_mas_or.jpg goes here"","
+sW.wr "        ""description of Westford_09-5side.jpg goes here"","
+sW.wr "        ""description of P101.jpg"""
+sW.wr "        ];"
+End Sub
+
+Public Sub script_listener_file_descriptions()
+
+Dim rs As DAO.Recordset
+Dim fieldValue As String
+Dim Image_File_Name As String
+Dim contin As Boolean
+Dim piece_description As String
+Dim Piece_Name As String
+Dim piece_medium As String
+Dim piece_size As String
+Dim piece_year_created As String
+Dim strSQL As String
+
+contin = False
+        
+sW.wr "    <script>"
+sW.wr " "
+sW.wr "        window.addEventListener(""resize"", resized);"
+sW.wr " "
+sW.wr "        var current_div = ""Home"";"
+sW.wr "        const file_names=["
+
+strSQL = "SELECT tbl_Series.ID, tbl_Series.Series_Name, tbl_SubSeries.SubSeries_ID, tbl_SubSeries.SubSeries_Name, tbl_Piece.Piece_ID, tbl_Piece.Piece_Name, tbl_Piece.Image_File_Name, tbl_Piece.Multiple_ID, tbl_Piece.Multiple_Sequence, tbl_Piece.Year_Created, tbl_Piece.Month_Created, tbl_Piece.Art_Media, tbl_Piece.Height_of_Piece, tbl_Piece.Width_of_Piece, tbl_Piece.Depth_of_Piece FROM (tbl_SubSeries INNER JOIN tbl_Series ON tbl_SubSeries.Series = tbl_Series.ID) INNER JOIN tbl_Piece ON tbl_SubSeries.SubSeries_ID = tbl_Piece.SubSeries ORDER BY tbl_Series.Sequence, tbl_SubSeries.Sequence, tbl_SubSeries.SubSeries_ID, tbl_Piece.Year_Created, tbl_Piece.Month_Created;"
+Set rs = CurrentDb.OpenRecordset(strSQL)
+
+' Check if the recordset contains any rows
+If Not (rs.EOF And rs.BOF) Then
+    contin = True
+    rs.MoveFirst
+    Do Until rs.EOF
+        fieldValue = rs!Image_File_Name
+        sW.wr "        " & Chr$(34) & fieldValue & Chr$(34) & ","
+        rs.MoveNext
+    Loop
+Else
+    contin = False
+    MsgBox "There are no records in the recordset."
+End If
+sW.wr "        ];"
+
+'Dim piece_description As String
+'Dim piece_name As String
+'Dim piece_medium As String
+'Dim piece_size As String
+'Dim piece_year_created As String
+
+If contin Then
+    rs.MoveFirst
+    
+    sW.wr "        const file_descriptions=["
+    
+    If Not (rs.EOF And rs.BOF) Then
+        rs.MoveFirst
+        Do Until rs.EOF
+            piece_description = ""
+            Piece_Name = rs![Piece_Name].Value
+            If 1 = rs![Art_Media].Value Then
+                piece_medium = ", Mixed Media"
+            End If
+            If 0 < rs![Height_of_Piece].Value And 0 < rs![Width_of_Piece].Value Then
+                piece_size = ", " + CStr(rs![Height_of_Piece].Value) + " x " + CStr(rs![Width_of_Piece].Value)
+            End If
+            If 0 < rs![Year_Created].Value Then
+                piece_year_created = ", " + CStr(rs![Year_Created].Value)
+            End If
+            piece_description = Piece_Name + piece_medium + piece_size + piece_year_created
+            'fieldValue = rs!Piece_Name
+            sW.wr "        " & Chr$(34) & piece_description & Chr$(34) & ","
+            rs.MoveNext
+        Loop
+    Else
+        MsgBox "There are no records in the recordset."
+    End If
+End If
+sW.wr "        ];"
+
+rs.Close
+Set rs = Nothing
+
+End Sub
+
+Public Sub center_home()
+sW.wr "        function center_home(){"
+sW.wr "            var wth = window.innerWidth - 30;"
+sW.wr "            var ht = window.innerHeight - 100;"
+sW.wr "            var image = document.getElementById(""home_jpg"");"
+sW.wr "            var height = image.naturalHeight;"
+sW.wr "            var width = image.naturalWidth;"
+sW.wr "            var ratio_natural = height/width;"
+sW.wr "            var ratio_window = ht/wth;"
+sW.wr "            if (ratio_natural > ratio_window){"
+sW.wr "                image.height = ht;"
+sW.wr "                image.width = ht*width/height;"
+sW.wr "            }"
+sW.wr "            else{"
+sW.wr "                image.width = wth;"
+sW.wr "                image.height = wth*height/width;"
+sW.wr "            }"
+sW.wr "        }"
+End Sub
+
+Public Sub resized()
+sW.wr "        function resized(){"
+sW.wr "            if (""Home"" == current_div){"
+sW.wr "                center_home();"
+sW.wr "            }"
+sW.wr "            else if(""Blowup"" == current_div){"
+sW.wr "                Position_Close_Box(""bp"");"
+sW.wr "            }"
+sW.wr "        }"
+End Sub
+
+Public Sub reset_text_color()
+Dim color_of_background As String
+Dim color_of_text As String
+color_of_background = lookup_setting("Heading_Background_Color")
+color_of_text = lookup_setting("Heading_Text_Color")
+'Debug.print "color of text is " + color_of_text
+sW.wr "        function reset_text_color()"
+sW.wr "        {"
+sW.wr "            document.getElementById(""itHome"").style.color =""" + color_of_text + """;"
+sW.wr "            document.getElementById(""itWorks"").style.color =""" + color_of_text + """;"
+sW.wr "            document.getElementById(""itExhibitions"").style.color =""" + color_of_text + """;"
+sW.wr "            document.getElementById(""itAbout"").style.color =""" + color_of_text + """;"
+sW.wr "            // // console.log(""####################"");"
+sW.wr "        }"
+End Sub
+
+Public Sub red_the_text()
+sW.wr "        function red_the_text(divID){"
+sW.wr "            reset_text_color();"
+sW.wr "            var cellName = ""it""+divID;"
+sW.wr "            // // console.log (""cellname = "" + cellName);"
+sW.wr "            var oCellName= document.getElementById(cellName).style.color = '#F11110';"
+sW.wr "        }"
+End Sub
+
+' TODO: Most recent to be tested:
+
+Public Sub hide_most_divisions()
+Dim k As Integer
+
+sW.wr "        function hide_most_divisions(){"
+Do While k < g_number_of_series
+    g_series_id(1 + k) = "S" & Format(1 + k, "00")
+    sW.wr "            var div = document.getElementById('" + g_series_id(1 + k) + "');"
+    sW.wr "            if (div !== null){"
+    sW.wr "                div.style.display = ""none"";"
+    sW.wr "             }"
+    k = k + 1
+Loop
+sW.wr "        var div = document.getElementById('Works');"
+sW.wr "        if (div !== null){"
+sW.wr "                div.style.display = ""none"";"
+sW.wr "        }"
+sW.wr "      }"
+End Sub
+
+Public Sub show_division()
+sW.wr "        function show_division(div_text_id){"
+sW.wr "            var div_temp = document.getElementById(div_text_id);"
+sW.wr "            div_temp.style.display = ""block"";"
+sW.wr "            // // console.log(""div_text_id = "" + div_text_id);"
+sW.wr "        }"
+End Sub
+
+Public Sub return_file_description()
+sW.wr "        function return_file_description_for(file_name){"
+sW.wr "            var file_desc = """";"
+sW.wr "            var i = 0;"
+sW.wr "            var item_number = 0;"
+sW.wr "            var item_number_found = -1;"
+sW.wr "            var continue_loop = true;"
+sW.wr "            // // // console.log(""About to do the while loop"");"
+sW.wr "            while (item_number < file_names.length && continue_loop)  {"
+sW.wr "                if (file_name.trim() == file_names[item_number].trim()){"
+sW.wr "                    item_number_found = item_number;"
+sW.wr "                    continue_loop = false;"
+sW.wr "                    // // console.log(""Found number = "" + item_number_found );"
+sW.wr "                }"
+sW.wr "                ++item_number;"
+sW.wr "            }"
+sW.wr "            file_description = file_descriptions[item_number_found];"
+sW.wr "            // // // console.log(""file_desc = "" + item_number_found + ""  "" + file_description);"
+sW.wr "            return file_description;"
+sW.wr "        }"
+End Sub
+
+'Public Sub position_menu_bar()
+'sW.wr "        function position_menu_bar(){"
+'sW.wr "            let winwidth = window.innerWidth;"
+'sW.wr "            // // // console.log(""winwidth = "" + winwidth);"
+'sW.wr "            let left_menu_cell_width = 2.0;"
+'sW.wr "            let name_menu_cell_width = 260;"
+'s'W.wr "            let home_width = 40.0;"
+'sW.wr "            let works_width = 40.0;"
+'sW.wr "            let exhibition_width = 60.0;"
+'sW.wr "            let artist_statement = 90.0;"
+'sW.wr "            let right_menu_cell_width = 2.0;"
+'sW.wr "            let sum_of_inner_cells = left_menu_cell_width + name_menu_cell_width + home_width + works_width + exhibition_width + artist_statement + right_menu_cell_width;"
+'sW.wr "            // alert(""sum of widths is "" + sum_of_inner_cells);"
+'sW.wr "            let added_margin = (winwidth - sum_of_inner_cells) / 2.0"
+'sW.wr "            const o_header_table = document.getElementById(""menu_bar"");"
+'sW.wr "            var left_margin = o_header_table.rows[0].cells[0];"
+'sW.wr "            var right_margin = o_header_table.rows[0].cells[6];"
+'sW.wr "            left_margin_width = left_menu_cell_width + added_margin;"
+'sW.wr "            left_margin.width = left_margin_width + ""px"";"
+'sW.wr "            right_margin_width = right_menu_cell_width + added_margin;"
+'sW.wr "            right_margin.width = right_margin_width + ""px"";"
+'sW.wr "        }"
+'End Sub
+
+Public Sub hideDiv_showDiv()
+sW.wr "        function hideDiv(divID) {"
+sW.wr "            // console.log(""hide divID = "" + divID);"
+sW.wr "            document.getElementById(divID).style.display = ""none"";"
+sW.wr "        }"
+sW.wr "        function showDiv(divID){"
+sW.wr "            document.getElementById(divID).style.display = ""block"";"
+sW.wr "        }"
+End Sub
+
+Public Sub Show()
+Dim i As Integer
+Dim iFirst As Boolean
+i = 1
+iFirst = True
+
+sW.wr "        function Show(divID){"
+sW.wr "            // console.log(""divID = '""+ divID + ""'"");"
+sW.wr "            if(""Home"" == divID){"
+sW.wr "                current_div = ""Home"";"
+sW.wr "                reset_text_color();"
+sW.wr "                hide_most_divisions();"
+sW.wr "                hideDiv(""Blowup"");"
+sW.wr "                hideDiv(""Works"");"
+sW.wr "                hideDiv(""Artist_Statement"");"
+sW.wr "                hideDiv(""Exhibitions"");"
+sW.wr "                hideDiv(""Works"");"
+sW.wr "                hideDiv(""S01"");"
+sW.wr "                hideDiv(""S02"");"
+sW.wr "                showDiv(""Home"");"
+sW.wr "                red_the_text(""Home"");"
+sW.wr "            }"
+sW.wr "            else if(""Artist_Statement"" == divID){"
+sW.wr "                current_div = ""Artist_Statement"";"
+sW.wr "                reset_text_color();"
+sW.wr "                hide_most_divisions();"
+sW.wr "                hideDiv(""Blowup"");"
+sW.wr "                hideDiv(""Works"");"
+sW.wr "                hideDiv(""Home"");"
+sW.wr "                hideDiv(""Exhibitions"");"
+sW.wr "                hideDiv(""S01"");"
+sW.wr "                hideDiv(""S02"");"
+sW.wr "                showDiv(""Artist_Statement"");"
+sW.wr "                red_the_text(""About"");"
+sW.wr "            }"
+sW.wr "            else if(""Exhibitions"" == divID){"
+sW.wr "                current_div = ""Exhibitions"";"
+sW.wr "                reset_text_color();"
+sW.wr "                hide_most_divisions();"
+sW.wr "                hideDiv(""Blowup"");"
+sW.wr "                hideDiv(""Works"");"
+sW.wr "                hideDiv(""Artist_Statement"");"
+sW.wr "                hideDiv(""Home"");"
+sW.wr "                hideDiv(""S01"");"
+sW.wr "                hideDiv(""S02"");"
+sW.wr "                showDiv(""Exhibitions"");"
+sW.wr "                red_the_text(""Exhibitions"");"
+sW.wr "            }"
+sW.wr "            else if(""Blowup"" == divID.slice(0,6)){"
+sW.wr "                current_div = ""Blowup"";"
+sW.wr "                hide_most_divisions();"
+sW.wr "                // console.log(divID);"
+sW.wr "                hideDiv(""Works"");"
+sW.wr "                hideDiv(""Artist_Statement"");"
+sW.wr "                hideDiv(""Home"");"
+sW.wr "                hideDiv(""Exhibitions"");"
+sW.wr "                hideDiv(""S01"");"
+sW.wr "                hideDiv(""S02"");"
+sW.wr "                // // console.log(""All hidden"");"
+sW.wr "                var str = divID.split(',')"
+sW.wr "                // // console.log(""It is split"");"
+sW.wr "                var blowup_Div_text_id = ""Blowup"";"
+sW.wr "                // // console.log(blowup_Div_text_id);"
+sW.wr "                var blowupDiv = document.getElementById(blowup_Div_text_id);"
+sW.wr "                var src_file=""tantricstudy1.jpg"";"
+sW.wr "                var ratio = 1.0;"
+sW.wr "                // console.log(src_file);"
+sW.wr "                if (str.length > 1){"
+sW.wr "                    src_file = str[1].trim();"
+sW.wr "                }"
+sW.wr "                else{"
+sW.wr "                    // console.log(""error: str array less than two."");"
+sW.wr "                }"
+sW.wr "                // console.log(src_file);"
+sW.wr "                var HorMargin = 35.0;"
+sW.wr "                // console.log(HorMargin);"
+sW.wr "                var BotMargin = 175.0;"
+sW.wr "                // console.log(BotMargin);"
+sW.wr "                var fctr = 1.0;"
+sW.wr "                // console.log(fctr);"
+sW.wr "                var winWidth = window.innerWidth - 2*HorMargin;"
+sW.wr "                // console.log(winWidth);"
+sW.wr "                const menu = document.getElementById('menu_bar');"
+sW.wr "                const src_element = document.getElementById('bp');"
+sW.wr "                var rect = menu.getBoundingClientRect();"
+sW.wr "                // console.log(""window.innerHeight = "" + window.innerHeight);"
+sW.wr "                // console.log(""rect.top = "" + rect.top);"
+sW.wr "                // console.log(""BotMargin = "" + BotMargin);"
+sW.wr "                // console.log(""Found rect for division"");"
+sW.wr "                var winHeight = window.innerHeight - rect.top - BotMargin;"
+sW.wr "                // console.log(winHeight);"
+sW.wr "                // console.log(""window.innerWidth = "" + window.innerWidth);"
+sW.wr "                // console.log(""BotMargin*2 = "" + 2* BotMargin);"
+sW.wr "                // console.log(""Found rect for division"");"
+sW.wr "                var winWidth =  window.innerWidth - HorMargin * 2;"
+sW.wr "                // console.log(winWidth);"
+sW.wr "                var fctr = parseFloat(winHeight)/parseFloat(winWidth);"
+sW.wr "                // console.log(""fctr = "" + fctr);"
+sW.wr "                // console.log(""Found src_element bp"");"
+sW.wr "                // console.log(""src_file = '"" + src_file + ""'"")"
+sW.wr "                src_element.src = src_file;"
+sW.wr "                var mysrc = src_element.src;"
+sW.wr "                // console.log(mysrc);"
+sW.wr "                // console.log(""Set src"");"
+sW.wr "                var wdth= src_element.naturalWidth;"
+sW.wr "                // console.log(""Natural width = "" + wdth.toString());"
+sW.wr "                var hght= src_element.naturalHeight;"
+sW.wr "                // console.log(""Natural height = "" + hght.toString());"
+sW.wr "                ratio = hght/wdth;"
+sW.wr "                // console.log(""ratio = "" + ratio.toString());"
+sW.wr "                // blowupDiv.style.height = winHeight.toString() + ""px"";"
+sW.wr "                // console.log(winHeight);"
+sW.wr "                // console.log(""Set winHeight"");"
+sW.wr "                // blowupDiv.style.width = winWidth.toString() + ""px"";"
+sW.wr "                // console.log(winWidth);"
+sW.wr "                // console.log(""Set winWidth"");"
+sW.wr "                var units_horizontal = wdth/winWidth;"
+sW.wr "                // console.log(""units_horizontal = "" + units_horizontal);"
+sW.wr "                var units_vertical = hght/winHeight;"
+sW.wr "                // console.log(""units_vertical  "" + units_vertical);"
+sW.wr "                if ( units_horizontal < units_vertical){"
+sW.wr "                    // The size is constrained by height"
+sW.wr "                    // multiply the units_vertical times the natural height"
+sW.wr "                    px_height = winHeight;"
+sW.wr "                    px_width = px_height/ratio;"
+sW.wr "                    // console.log(""if px_height = "" + px_height.toString());"
+sW.wr "                    px_string_height = px_height.toString() + "" px"";"
+sW.wr "                }"
+sW.wr "                else{"
+sW.wr "                    // The size is constrained by width"
+sW.wr "                    // multiply the units_horizontal times the natural width"
+sW.wr "                    px_width = winWidth;"
+sW.wr "                    px_height = px_width*ratio;"
+sW.wr "                    // console.log(""else px_width = "" + px_width.toString());"
+sW.wr "                    px_string_height = px_height.toString() + "" px"";"
+sW.wr "                }"
+sW.wr "                // console.log(""About to set height"");"
+sW.wr "                // blowupDiv.style.height = px_width + "" px"";"
+sW.wr "                // console.log(""src_element.style.height = px_string_height;  "" + px_string_height.toString());"
+sW.wr "                // blowupDiv.style.width = px_height + "" px"";"
+sW.wr "                src_element.style.width = px_width.toString() + ""px"";"
+sW.wr "                src_element.style.height = px_height.toString() + ""px"";"
+sW.wr "                // console.log(""src_file = "" + src_file);"
+sW.wr "                var description_of_piece = return_file_description_for(src_file);"
+sW.wr "                // console.log(""src_file = "" + description_of_piece);"
+sW.wr "                const cap = document.getElementById(""cptn"");"
+' sW.wr "                cap.innerHTML = ""<img src='img_" + src_file + "" '>";
+sW.wr "                cap.innerText  = description_of_piece;"
+sW.wr "                showDiv(""Blowup"");"
+sW.wr "                // console.log(""Just blew up"");"
+sW.wr "                // console.log(""Now position the close X"");"
+sW.wr "                Position_Close_Box('bp');"
+sW.wr "            }"
+
+'Here we generate the catch for each relevant series  TODO:
+' module level: Public series_name(50) As String
+' module level: Public series_id(50) As String
+
+For i = 1 To g_number_of_series
+    If iFirst Then
+        sW.wr "            if('" + g_series_id(i) + "' == divID){"
+        iFirst = False
+    Else
+        sW.wr "            else if('" + g_series_id(i) + "' == divID){"
+    End If
+    sW.wr "                current_series = divID;"
+    sW.wr "                hide_most_divisions();"
+    sW.wr "                hideDiv(""Blowup"");"
+    sW.wr "                hideDiv(""Works"");"
+    sW.wr "                hideDiv(""Artist_Statement"");"
+    sW.wr "                hideDiv(""Home"");"
+    sW.wr "                hideDiv(""Exhibitions"");"
+    sW.wr "                hide_most_divisions();"
+    sW.wr "                show_division(divID);"
+    sW.wr "            }"
+Next i
+
+sW.wr "            else{"
+sW.wr "            }"
+sW.wr "        }"
+End Sub
+
+Public Sub OnLoadCode()
+sW.wr "        function OnLoadCode(){"
+sW.wr "            hideDiv(""Works"");"
+sW.wr "            current_div=""Home"";"
+sW.wr "            center_home();"
+sW.wr "            hide_most_divisions();"
+sW.wr "            const oMy_dropdown = document.getElementById(""works_dropdown_div"");"
+sW.wr "            oMy_dropdown.style.display=""none"";"
+sW.wr "            document.addEventListener(""click"", function(e) {"
+sW.wr "            const clickedElement = e.target;"
+sW.wr "            const myCell = document.getElementById(""itWorks"");"
+sW.wr "            if (clickedElement !== myCell && !myCell.contains(clickedElement)) {"
+sW.wr "                const oMy_dropdown = document.getElementById(""works_dropdown_div"");"
+sW.wr "                // console.log(""Element was not clicked."");"
+sW.wr "                if (oMy_dropdown.style.display !== ""none""){"
+sW.wr "                    oMy_dropdown.style.display = ""none"";"
+sW.wr "                }"
+
+sW.wr "                const oCloseBox = document.getElementById(""close"");"
+sW.wr "                if(clickedElement !== oCloseBox && !oCloseBox.contains(clickedElement)){"
+sW.wr "                    // console.log(""The close box was not clicked"");"
+sW.wr "                }"
+sW.wr "                else{"
+sW.wr "                    // console.log(""The close box was clicked!"");"
+sW.wr "                    Show(current_series);"
+sW.wr "                    // console.log(""current_series:"" + current_series);"
+sW.wr "                }"
+sW.wr "            }"
+sW.wr "            else{"
+sW.wr "                // console.log(""Element was clicked!"");"
+sW.wr "                const oMy_dropdown = document.getElementById(""works_dropdown_div"");"
+sW.wr "                if (oMy_dropdown.style.display==='none'){"
+sW.wr "                    oMy_dropdown.style.display = ""block"";"
+sW.wr "                    // console.log(""Now move dropdown"");"
+sW.wr "                    var position = oMy_dropdown.getBoundingClientRect();"
+sW.wr "                    // console.log(""left: "" + position.left, ""top: "" + position.top);"
+sW.wr "                    MoveDropDown();"
+sW.wr "                    // console.log(""Moved dropdown"");"
+sW.wr "                }"
+sW.wr "                else{"
+sW.wr "                    oMy_dropdown.style.display = ""none"";"
+sW.wr "                    // console.log(""Hid dropdown"")"
+sW.wr "                }"
+sW.wr "            }"
+sW.wr "            console.log(""chop_top:"");"
+sW.wr "            element_head = document.getElementById(""chop_top"");"
+sW.wr "            rect = element_head.getBoundingClientRect();"
+sW.wr "            ReportBoundingBox(rect);"
+
+sW.wr "            console.log(""itHome:"");"
+sW.wr "            var element_head = document.getElementById(""itHome"");"
+sW.wr "            var rect = element_head.getBoundingClientRect();"
+sW.wr "            ReportBoundingBox(rect);"
+
+sW.wr "            console.log(""itWorks:"");"
+sW.wr "            element_head = document.getElementById(""itWorks"");"
+sW.wr "            rect = element_head.getBoundingClientRect();"
+sW.wr "            ReportBoundingBox(rect);"
+
+sW.wr "            console.log(""itExhibitions:"");"
+sW.wr "            element_head = document.getElementById(""itExhibitions"");"
+sW.wr "            rect = element_head.getBoundingClientRect();"
+sW.wr "            ReportBoundingBox(rect);"
+
+sW.wr "            console.log(""itAbout:"");"
+sW.wr "            element_head = document.getElementById(""itAbout"");"
+sW.wr "            rect = element_head.getBoundingClientRect();"
+sW.wr "            ReportBoundingBox(rect);"
+            
+sW.wr "        }"
+sW.wr "        );"
+sW.wr "        }"
+
+sW.wr "        function ReportBoundingBox(rect){"
+sW.wr "             console.log(""Bounding Box:"");"
+sW.wr "             console.log(""  left:"", rect.left);"
+sW.wr "             console.log(""  top:"", rect.top);"
+sW.wr "             console.log(""  right:"", rect.right);"
+sW.wr "             console.log(""  bottom:"", rect.bottom);"
+sW.wr "             console.log(""  width:"", rect.width);"
+sW.wr "             console.log(""  height:"", rect.height);"
+sW.wr "         }"
+
+
+End Sub
+
+
+Public Sub MoveDropDown()
+sW.wr "        function MoveDropDown(){"
+sW.wr "            // console.log(""MoveDropDown"");"
+sW.wr "            var cellElement = document.getElementById('itWorks');"
+sW.wr "            var rect = cellElement.getBoundingClientRect();"
+sW.wr "            // console.log('Top:', rect.top, 'Right:', rect.right, 'Bottom:', rect.bottom, 'Left:', rect.left);"
+sW.wr "            const drops = document.getElementById(""works_dropdown_div"");"
+sW.wr "            // console.log(""got drop_down element"");"
+sW.wr "            if (drops !== null){"
+sW.wr "                // console.log(""Drops is good"");"
+sW.wr "            }"
+sW.wr "            else{"
+sW.wr "                // console.log(""Drops is bad"");"
+sW.wr "            }"
+sW.wr "            var size = Math.round(rect.left-70) + ""px"";"
+sW.wr "            drops.style.marginLeft = size;"
+sW.wr "            size = Math.round(rect.top + 40) + ""px"";"
+sW.wr "            drops.style.marginTop = size;"
+sW.wr "            reset_text_color();"
+sW.wr "            red_the_text(""Works"");"
+sW.wr "        }"
+sW.wr "        function Position_Close_Box(image_name_id){"
+sW.wr "            // console.log(""get image object"");"
+sW.wr "            var oImage = document.getElementById(image_name_id);"
+sW.wr "            // console.log(""get rectangle"");"
+sW.wr "            var rectngl = oImage.getBoundingClientRect();"
+sW.wr "            // console.log(""get rectangle"");"
+sW.wr "            var rght = rectngl.right+ 5;"
+sW.wr "            // console.log(""rght = "",rght.toString(),"" px"");"
+sW.wr "            var oClose = document.getElementById(""close"");"
+sW.wr "            oClose.style.left= rght.toString() + ""px"";"
+sW.wr "            oClose.style.top= ""140px"";"
+sW.wr "        }"
+sW.wr "        function Return_to_Series(fileName) {"
+sW.wr "            // console.log(""Close box is clicked reported in Return_to_Series()..."");"
+sW.wr "        }"
+'sW.wr "        // TODO: ABOVE IS NEW"
+sW.wr "    </script>"
+sW.wr "</head>"
+End Sub
+
+'Public Sub MenuBar_Obsolete_Delete()
+'Dim size_of_chop As String
+'sW.wr "<body onload=""OnLoadCode()"">"
+
+'size_of_chop = lookup_setting("Size_of_Chop")
+'sW.wr "   <table id=""menu_bar"" class=""Center_Table"" style=""font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px"">"
+'sW.wr "      <tr class=""color_of_heading_background"" class=""center-text"">"
+'sW.wr "        <td><img id=""chop"" style=""width:30px; height:" + size_of_chop + "px; vertical-align:-10%"" src=""Chop.png"" width=""122px"" height=""34px""> <span style=""font-size: .25em;"">&nbsp;</span>Sandra Westford</td>"
+'sW.wr "      </tr>"
+'sW.wr "   </table>"
+'sW.wr "   <table  id=""menu_bar_2"" class=""Center_Table"" style=""font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px"">"
+'sW.wr "      <tr class=""color_of_heading_background"" style=""font-size:24px; width:100%;"">"
+'sW.wr "        <td style=""width:auto"" colspan=""1"">&nbsp;</td>"
+'sW.wr "        <td id=""itHome"" width=""160px"" class=""white_background"" onclick=""Show('Home')"">Home</td>"
+'sW.wr "        <td id=""itWorks"" width=""160px"" class=""white_background"">Works</td>"
+'sW.wr "        <td id=""itExhibitions"" width=""160px"" class=""white_background"" onclick=""Show('Exhibitions')"">Exhibitions</td>"
+'sW.wr "        <td id=""itAbout"" width=""160px"" class=""white_background"" onclick=""Show('Artist_Statement')"">About</td>"
+'sW.wr "        <td style=""width:auto"" colspan=""2"">&nbsp;</td>"
+'sW.wr "      </tr>"
+'sW.wr "   </table>"
+'End Sub
+
+'Public Sub MenuBar()
+'sW.wr "<body onload=""OnLoadCode()"">"
+'sW.wr "   <table id=""menu_bar"" class=""Center_Table"" style=""font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px"">"
+'sW.wr "      <tr class=""color_of_heading_background"" class=""center-text"">"
+'sW.wr "        <td><img id=""chop"" style=""width:30px; height:34px; vertical-align:-10%"" src=""Chop.png"" width=""122px"" height=""34px""> <span style=""font-size: .25em;"">&nbsp;</span>Sandra Westford</td>"
+'sW.wr "      </tr>"
+'sW.wr "   </table>"
+'sW.wr "   <table  id=""menu_bar_2"" class=""Center_Table"" style=""font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px"">"
+'sW.wr "      <tr class=""color_of_heading_background"" style=""font-size:24px; width:100%;"">"
+'sW.wr "        <td style=""width:auto"" colspan=""1"">&nbsp;</td>"
+'sW.wr "        <td id=""itHome"" width=""160px"" class=""white_background"" onclick=""Show('Home')"">Home</td>"
+'sW.wr "        <td id=""itWorks"" width=""160px"" class=""white_background"">Works</td>"
+'sW.wr "        <td id=""itExhibitions"" width=""160px"" class=""white_background"" onclick=""Show('Exhibitions')"">Exhibitions</td>"
+'sW.wr "        <td id=""itAbout"" width=""160px"" class=""white_background"" onclick=""Show('Artist_Statement')"">About</td>"
+'sW.wr "        <td style=""width:auto"" colspan=""2"">&nbsp;</td>"
+'sW.wr "      </tr>"
+'sW.wr "   </table>"
+
+'End Sub
+
+Public Sub MenuBar()
+sW.wr "   <body onload=""OnLoadCode()"">"
+sW.wr "      <table id=""menu_bar"" class=""Center_Table"" style=""font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom; font-size:28px"">"
+sW.wr "         <tr class=""color_of_heading_background"" class=""center-text"" height=""50px"">"
+sW.wr "             <td id=""chop_top""><img id=""chop"" style=""height:36px;width:300px;vertical-align: -36%;"" src=""Sandra_Text_Image.jpg"" width=""130px"" height=""34px""></td>"
+sW.wr "         </tr>"
+sW.wr "      </table>"
+sW.wr "      <table id=""menu_bar_2"" class=""Center_Table"" style=""font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px"">"
+sW.wr "         <tr class=""color_of_heading_background"" style=""font-size:24px; width:100%;"">"
+sW.wr "             <td style=""width:auto"" colspan=""1"">&nbsp;</td>"
+sW.wr "             <td id=""itHome"" width=""160px"" class=""white_background"" onclick=""Show('Home')""><img src=""Home.jpg"" width=""160"" height=auto></td>"
+sW.wr "             <td id=""itWorks"" width=""160px"" class=""white_background""><img src=""Works.jpg"" width=""160"" height=auto></td>"
+sW.wr "             <td id=""itExhibitions"" width=""160px"" class=""white_background"" onclick=""Show('Exhibitions')""><img src=""Exhibitions.jpg"" width=""180"" height=auto></td>"
+sW.wr "             <td id=""itAbout"" width=""160px"" class=""white_background"" onclick=""Show('Artist_Statement')""><img src=""About.jpg"" width=""140"" height=auto></td>"
+sW.wr "             <td style=""width:auto"" colspan=""2"">&nbsp;</td>"
+sW.wr "         </tr>"
+sW.wr "      </table>"
+   
+End Sub
+
+Public Sub Works_Dropdown()
+Dim DBS As Database
+Dim rs As Recordset
+Dim strSQL As String
+Set DBS = CurrentDb
+Dim i As Integer
+Dim last_series_name As String
+Dim this_series_name As String
+Dim color_of_background As String
+Dim color_of_text As String
+color_of_background = lookup_setting("Heading_Background_Color")
+color_of_text = lookup_setting("Heading_Text_Color")
+
+last_series_name = "XXXXXXXXXXXXXXX"
+
+i = 0
+
+strSQL = "SELECT tbl_Series.ID, tbl_Series.Series_Name, tbl_SubSeries.SubSeries_ID, tbl_SubSeries.SubSeries_Name, tbl_Piece.Piece_ID, tbl_Piece.Piece_Name, tbl_Piece.Image_File_Name, tbl_Piece.Multiple_ID, tbl_Piece.Multiple_Sequence, tbl_Piece.Year_Created, tbl_Piece.Month_Created, tbl_Piece.Art_Media, tbl_Piece.Height_of_Piece, tbl_Piece.Width_of_Piece, tbl_Piece.Depth_of_Piece FROM (tbl_SubSeries INNER JOIN tbl_Series ON tbl_SubSeries.Series = tbl_Series.ID) INNER JOIN tbl_Piece ON tbl_SubSeries.SubSeries_ID = tbl_Piece.SubSeries ORDER BY tbl_Series.Sequence, tbl_SubSeries.Sequence, tbl_SubSeries.SubSeries_ID, tbl_Piece.Year_Created, tbl_Piece.Month_Created;"
+Dim series_name As Variant
+Set rs = DBS.OpenRecordset(strSQL)
+If Not (rs.EOF And rs.BOF) Then
+    rs.MoveFirst
+    sW.wr "<div id=""works_dropdown_div"" class=""dropdown-content""  class=""drop_down_margins"" style=""display:none"" > "
+    sW.wr "    <table id=""dropdown_table"" style=""font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:" + color_of_background + "; border-collapse: collapse;"">"
+    Do While Not rs.EOF
+        this_series_name = rs![series_name].Value
+        If last_series_name <> this_series_name Then
+            i = i + 1
+            g_series_name(i) = this_series_name
+            sW.wr "        <tr>"
+            series_name = g_series_name(i)
+            series_name = return_graphic_file_name(series_name + " dropdown")
+            ' Debug.Print "Drop down header"
+            sW.wr "           <td width=""230 px"" height = ""30px"" class=""bg"" style=""color:" + color_of_text + ";font-family: 'Papyrus', 'Brush Script MT', cursive;"" onclick=""Show('" + g_series_id(i) + "')"">" + "<img src='" + series_name + "'></td>"
+            sW.wr "        </tr>"
+            last_series_name = this_series_name
+        End If
+        rs.MoveNext
+    Loop
+    sW.wr "    </table>"
+    sW.wr "</div>"
+End If
+End Sub
+
+Public Sub Home()
+Dim homepage_filename As String
+homepage_filename = lookup_setting("Homepage_Filename")
+
+sW.wr "<div id=""Home"">"
+sW.wr "    <img id=""home_jpg"" src=""" + homepage_filename + """  class=""center_horizontal"">"
+sW.wr "</div>"
+End Sub
+
+Public Sub Works_Listing()
+'TODO:  Works_Listing !!!
+
+Dim d_image_file_name As String
+Dim file_name As String
+Dim truncated_file_name As String
+Dim height As Integer
+Dim width As Integer
+Dim string_builder As String
+
+Dim DBS As Database
+Dim rs As Recordset
+Dim strSQL As String
+Set DBS = CurrentDb
+
+sW.wr "<div id=""Works"" style=""display:none"">"
+strSQL = "SELECT tbl_Series.ID, tbl_Series.Series_Name, tbl_SubSeries.SubSeries_ID, tbl_SubSeries.SubSeries_Name, tbl_Piece.Piece_ID, tbl_Piece.Piece_Name, tbl_Piece.Image_File_Name, tbl_Piece.Multiple_ID, tbl_Piece.Multiple_Sequence, tbl_Piece.Year_Created, tbl_Piece.Month_Created, tbl_Piece.Art_Media, tbl_Piece.Height_of_Piece, tbl_Piece.Width_of_Piece, tbl_Piece.Depth_of_Piece FROM (tbl_SubSeries INNER JOIN tbl_Series ON tbl_SubSeries.Series = tbl_Series.ID) INNER JOIN tbl_Piece ON tbl_SubSeries.SubSeries_ID = tbl_Piece.SubSeries ORDER BY tbl_Series.Sequence, tbl_SubSeries.Sequence, tbl_SubSeries.SubSeries_ID, tbl_Piece.Year_Created, tbl_Piece.Month_Created;"
+Set rs = DBS.OpenRecordset(strSQL)
+If Not (rs.EOF And rs.BOF) Then
+    rs.MoveFirst
+    
+    Do While Not rs.EOF
+        d_image_file_name = rs![Image_File_Name].Value
+        truncated_file_name = fs.GetBaseName(d_image_file_name)
+        height = Round(CDbl(rs![Height_of_Piece].Value) * CDbl(8))
+        width = Round(CDbl(rs![Width_of_Piece].Value) * CDbl(8))
+        
+        string_builder = ""
+        string_builder = string_builder + "    <img id="
+        string_builder = string_builder + Chr$(34) + truncated_file_name + Chr$(34)
+        string_builder = string_builder + " onclick=" + Chr$(34) + "Show(" + Chr$(39)
+        string_builder = string_builder + "Blowup," + d_image_file_name + Chr$(39) + ")" + Chr$(34)
+        string_builder = string_builder + " src=" + Chr$(34) + d_image_file_name + Chr$(34)
+        string_builder = string_builder + " alt=" + Chr$(34) + truncated_file_name + Chr$(34)
+        string_builder = string_builder + " width=" + Chr$(34) + CStr(width) + "px" + Chr$(34)
+        string_builder = string_builder + " height=" + Chr$(34) + CStr(height) + "px" + Chr$(34) + ">"
+        
+        sW.wr string_builder
+        rs.MoveNext
+    Loop
+sW.wr "</div>"
+End If
+End Sub
+
+
+Public Sub Artist_Statement_Full()
+sW.wr "<div id=""Artist_Statement"" style=""color:black;"">"
+sW.wr "   <img id=""artist_statement"" src=""Artist_Statement.jpg"" class=""center_horizontal"">"
+sW.wr "</div>"
+End Sub
+
+Public Sub Exhibitions_Full()
+sW.wr "<div id=""Exhibitions"" style=""color:black"">"
+sW.wr "    <img id=""Exhibition_History"" src=""Exhibition_History03.jpg"" class=""center_horizontal"">"
+sW.wr "</div>"
+End Sub
+
+Public Sub Blowup_Div()
+sW.wr "<div id=""Blowup"">"
+sW.wr "<br/><br/>"
+sW.wr "    <img id=""bp"" src=""tantricstudy1.jpg"" alt=""tantricstudy1"" style=""width:100%;"" class=""center3"">"
+sW.wr "    <!-- <div class=""top-right"">[ X ]</div>  -->"
+sW.wr "    <span id=""close"" onClick=""Return_to_Series()""> X </span>"
+sW.wr "    <p id=""cptn"" class=""text_centered"">-  -  -</p>"
+sW.wr "</div>"
+End Sub
+
+
+Public Sub Series()
+'TODO: We currently use CAT1, CAT2,... for the series names, Automate the use of S01, S02, ... as the series names here
+'Public g_series_id(99) As String
+'Public g_series_name(99) As String
+'Public g_series_name_id(99) As String
+'Public g_number_of_series As Integer
+Set fs = CreateObject("Scripting.FileSystemObject")
+Dim truncated_file_name As String
+Dim file_name As String
+Dim n_series_id As Integer
+Dim np_series_id As Integer
+Dim l_series_name As String
+Dim n_subseries_id As Integer
+Dim np_subseries_id As Integer
+Dim l_SubSeries_Name As String
+Dim continue_loop As Boolean
+Dim DBS As Database
+Dim rs As Recordset
+Dim strSQL As String
+Set DBS = CurrentDb
+Dim k As Integer
+Dim Series_Id_S As String
+Dim m As Integer
+
+continue_loop = True
+
+strSQL = "SELECT tbl_Series.ID, tbl_Series.Series_Name, tbl_SubSeries.SubSeries_ID, tbl_SubSeries.SubSeries_Name, tbl_Piece.Piece_ID, tbl_Piece.Piece_Name, tbl_Piece.Image_File_Name, tbl_Piece.Multiple_ID, tbl_Piece.Multiple_Sequence, tbl_Piece.Year_Created, tbl_Piece.Month_Created, tbl_Piece.Art_Media, tbl_Piece.Height_of_Piece, tbl_Piece.Width_of_Piece, tbl_Piece.Depth_of_Piece FROM (tbl_SubSeries INNER JOIN tbl_Series ON tbl_SubSeries.Series = tbl_Series.ID) INNER JOIN tbl_Piece ON tbl_SubSeries.SubSeries_ID = tbl_Piece.SubSeries ORDER BY tbl_Series.Sequence, tbl_SubSeries.Sequence, tbl_SubSeries.SubSeries_ID, tbl_Piece.Year_Created, tbl_Piece.Month_Created;"
+Set rs = DBS.OpenRecordset(strSQL)
+If Not (rs.EOF And rs.BOF) Then
+    rs.MoveFirst
+    np_series_id = 0
+    np_subseries_id = 0
+    m = 0
+    n_series_id = rs![ID].Value
+    Do While Not rs.EOF And continue_loop
+        n_series_id = rs![ID].Value
+        l_series_name = rs![series_name].Value
+        l_SubSeries_Name = rs![SubSeries_Name].Value
+        ''Debug.print "np_subseries_id = " + CStr(np_subseries_id) + "   n_subseries_id = " + CStr(n_subseries_id) + "   subSeries_Name = " + l_SubSeries_Name
+        If np_series_id <> n_series_id Then
+' TODO:  This is untested
+ '           dim g_series_id(i) = "S" & Format(i, "00")
+            Series_Id_S = "S" & Format(1 + m, "00")
+            'Series_Header l_series_name
+            'sW.wr "<div id='" + Series_Id_S + "' class=""align_center_heading"">"
+            sW.wr "<div id='" + Series_Id_S + "' class=""align_center_heading"" style=""font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; display:none;"" >"
+            'sW.wr "          <p id=""series_header_id"" class=""align_center_heading"">" + l_series_name + "</p>"
+            
+            sW.wr "          <p id=""series_header_id"" class=""align_center_heading"">" + l_series_name + "</p>"
+            Debug.Print "Series header name printed here"
+            sW.wr "    <table class=""dimension"" style=""font-family: 'Papyrus', 'Brush Script MT', cursive;color:black"">"
+            sW.wr "        <tr style=""height:20px""></tr>"
+            sW.wr "        <tr style=""height:200px"">"
+        End If
+        n_subseries_id = rs![SubSeries_ID].Value
+        If np_subseries_id <> n_subseries_id Then
+            ''Debug.print "np_subseries_id = " + CStr(np_subseries_id) + "   n_subseries_id = " + CStr(n_subseries_id) + "   subSeries_Name = " + l_SubSeries_Name
+            l_SubSeries_Name = rs![SubSeries_Name].Value
+            
+            'sW.wr "           <td>" + l_SubSeries_Name + "</td>"
+            sW.wr "            <td><img src='" + l_SubSeries_Name + "'></td> <!-- ascend   -->"
+            
+            sW.wr "            <td width = 5%></td>"
+            sW.wr "            <td width=""auto"">"
+        End If
+        file_name = rs![Image_File_Name].Value
+        truncated_file_name = fs.GetBaseName(file_name)
+        '  style=""margin-bottom: 10px;""
+        ' class=""clipper""
+        sW.wr "                <img id= '" + truncated_file_name + "' style=""margin-bottom: 10px;"" onclick=""Show('Blowup," + file_name + "')"" src='" + file_name + "' width=""160 px"" height=""320 px"">"
+        rs.MoveNext
+        If (rs.EOF) Then
+            sW.wr "           </td>"
+            sW.wr "        </tr>"
+            sW.wr "    </table>"
+            sW.wr "</div>"
+            sW.wr "</body>"
+            sW.wr "</html>"
+            continue_loop = False
+        Else
+            np_subseries_id = n_subseries_id
+            np_series_id = n_series_id
+            n_subseries_id = rs![SubSeries_ID].Value
+            n_series_id = rs![ID].Value
+            l_SubSeries_Name = rs![SubSeries_Name].Value
+            ''Debug.print "np_subseries_id = " + CStr(np_subseries_id) + "   n_subseries_id = " + CStr(n_subseries_id) + "   subSeries_Name = " + l_SubSeries_Name
+            If np_subseries_id <> n_subseries_id Then
+                sW.wr "           </td>"
+                sW.wr "      </tr>"
+            End If
+            ''Debug.print "np_series_id = " + CStr(np_series_id) + "   n_series_id = " + CStr(n_series_id)
+            If np_series_id <> n_series_id Then
+                sW.wr "        </table>"
+                sW.wr "</div>"
+                l_SubSeries_Name = rs![SubSeries_Name].Value
+                m = m + 1
+                Series_Id_S = "S" & Format(1 + m, "00")
+                l_series_name = rs![series_name].Value
+                'Series_Header l_series_name
+                sW.wr "<div id='" + Series_Id_S + "' class=""align_center_heading"" style=""display:none;"">"
+                sW.wr "          <p id=""series_header_id""  class=""align_center_heading"">" + l_series_name + "</p>"
+                sW.wr "    <table class=""dimension"" style=""font-family: 'Papyrus', 'Brush Script MT', cursive;color:black"" > "
+            End If
+            If np_subseries_id <> n_subseries_id Then
+                sW.wr "        <tr style=""height:20px""></tr>"
+                sW.wr "        <tr style=""height:200px"">"
+                sW.wr "            <td>" + l_SubSeries_Name + "</td>"
+                sW.wr "            <td width = 5%></td>"
+                sW.wr "            <td width=""auto"">"
+            End If
+
+        End If
+        np_subseries_id = n_subseries_id
+        np_series_id = n_series_id
+    Loop
+End If
+End Sub
+
+
+Public Sub Series_Icon()
+Set fs = CreateObject("Scripting.FileSystemObject")
+Dim truncated_file_name As String
+Dim file_name As String
+Dim n_series_id As Integer
+Dim np_series_id As Integer
+Dim l_series_name As String
+Dim n_subseries_id As Integer
+Dim np_subseries_id As Integer
+Dim l_SubSeries_Name As String
+Dim continue_loop As Boolean
+Dim DBS As Database
+Dim rs As Recordset
+Dim strSQL As String
+Set DBS = CurrentDb
+Dim k As Integer
+Dim Series_Id_S As String
+Dim m As Integer
+Dim height_piece As Double
+Dim width_piece As Double
+Dim height_to_width As Double
+Dim hgt As Double
+Dim wth As Double
+Dim size_icon As String
+Dim size_icon_number As Double
+Dim clip_top_by_percent As Double
+Dim clip_right_by_percent As Double
+Dim background_image As String
+Dim series_name As Variant
+
+continue_loop = True
+
+strSQL = "SELECT tbl_Series.ID, tbl_Series.Series_Name, tbl_SubSeries.SubSeries_ID, tbl_SubSeries.SubSeries_Name, tbl_Piece.Piece_ID, tbl_Piece.Piece_Name, tbl_Piece.Image_File_Name, tbl_Piece.Multiple_ID, tbl_Piece.Multiple_Sequence, tbl_Piece.Year_Created, tbl_Piece.Month_Created, tbl_Piece.Art_Media, tbl_Piece.Height_of_Piece, tbl_Piece.Width_of_Piece, tbl_Piece.Depth_of_Piece FROM (tbl_SubSeries INNER JOIN tbl_Series ON tbl_SubSeries.Series = tbl_Series.ID) INNER JOIN tbl_Piece ON tbl_SubSeries.SubSeries_ID = tbl_Piece.SubSeries ORDER BY tbl_Series.Sequence, tbl_SubSeries.Sequence, tbl_SubSeries.SubSeries_ID, tbl_Piece.Year_Created, tbl_Piece.Month_Created;"
+Set rs = DBS.OpenRecordset(strSQL)
+If Not (rs.EOF And rs.BOF) Then
+    background_image = lookup_setting("Works_Background_Image")
+    rs.MoveFirst
+    np_series_id = 0
+    np_subseries_id = 0
+    m = 0
+    n_series_id = rs![ID].Value
+    Do While Not rs.EOF And continue_loop
+        n_series_id = rs![ID].Value
+        l_series_name = rs![series_name].Value
+        'Debug.Print "SERIES_NAME:" + l_series_name
+        
+        l_SubSeries_Name = rs![SubSeries_Name].Value
+        If np_series_id <> n_series_id Then
+            Series_Id_S = "S" & Format(1 + m, "00")
+            sW.wr "<div id='" + Series_Id_S + "' class=""align_center_heading"" style=""display:none;"">"
+            series_name = return_graphic_file_name(l_series_name + " header")
+            ' + "<img src=""" + series_name + """</td>"
+            ' Public Function return_graphic_file_name(text_key As Variant) As Variant
+            
+            sW.wr "          <p id=""series_header_id"" class=""align_center_heading""><img src='" + series_name + "'</p>"
+           
+            ' sW.wr "          <p id=""series_header_id"" class=""align_center_heading"">     " + "<img src='" + series_name + " header'</p>"
+             'sW.wr "          <p id=""series_header_id"" class=""align_center_heading"">     " + "<img src='Image_Missing.jpg'" + "</p>"
+            
+            sW.wr "    <table class=""dimension"" style=""font-family: 'Papyrus', 'Brush Script MT', cursive;color:black"">"
+            sW.wr "        <tr style=""height:10px""></tr>"
+            sW.wr "        <tr style=""height:10px"">"
+        End If
+        n_subseries_id = rs![SubSeries_ID].Value
+        If np_subseries_id <> n_subseries_id Then
+            l_SubSeries_Name = rs![SubSeries_Name].Value
+            
+            
+            
+            sW.wr "            <td>" + l_SubSeries_Name + "</td>"
+            Debug.Print "first header series name"
+            
+            
+            sW.wr "            <td width = 5%></td>"
+            sW.wr "            <td width=""auto"">"
+        End If
+        file_name = rs![Image_File_Name].Value
+        truncated_file_name = fs.GetBaseName(file_name)
+        
+
+'        height_piece = rs![Height_of_Piece].Value
+'        width_piece = rs![Width_of_Piece].Value
+'        height_to_width = height_piece / width_piece
+'        Debug.Print "height_to_width = " + CStr(height_to_width)
+        size_icon = lookup_setting("Size_of_Icon")
+        hgt = size_icon  ' simplified approach
+        wth = size_icon  ' simplified approach
+        clip_right_by_percent = 0  ' simplified approach
+        clip_top_by_percent = 0  ' simplified approach
+'        Debug.Print "size_icon = " + CStr(size_icon)
+'        size_icon_number = CDbl(size_icon)
+'
+'        If Abs(height_piece - width_piece) < 5 Then
+'            wth = size_icon_number
+'            hgt = size_icon_number
+'        ElseIf height_piece > width_piece Then
+'            wth = size_icon_number
+'            hgt = size_icon_number * height_to_width
+'            'clip_top_by_percent = (height_piece - width_piece)/height_piece
+'            clip_top_by_percent = (height_piece - width_piece) / height_piece
+'            clip_top_by_percent = clip_top_by_percent * 100
+'            clip_right_by_percent = 0
+'            Debug.Print "clip_top_by_percent = " + CStr(clip_top_by_percent) + "%"
+'        Else
+'            clip_top_by_percent = 0
+'            'clip_right_by_percent = (width_piece - height_piece)/width_piece
+'            clip_right_by_percent = (width_piece - height_piece) / width_piece
+'            clip_right_by_percent = clip_right_by_percent * 100
+'            hgt = size_icon_number
+'            wth = hgt / height_to_width
+'            Debug.Print "clip_right_by_percent = " + CStr(clip_right_by_percent) + "%"
+'        End If
+'        ' TODO: Set the hgt to the correct setting from the table
+'        hgt = size_icon_number
+'        Debug.Print "hgt = " & CStr(hgt)
+'        wth = hgt / height_to_width
+'        Debug.Print "wth = " & CStr(wth)
+        
+        
+        ''''  clip-path: inset(50% 0% 0% 0%);"
+        sW.wr "                <img id= '" + truncated_file_name + "' style=""margin-bottom: 10px;"" onclick=""Show('Blowup," + file_name + "')"" src='" + file_name + "' width =""" + CStr(wth) + "px"" height=""" + CStr(hgt) + "px"">"
+        rs.MoveNext
+        If (rs.EOF) Then
+            sW.wr "           </td>"
+            sW.wr "        </tr>"
+            sW.wr "    </table>"
+            sW.wr "</div>"
+            sW.wr "</body>"
+            sW.wr "</html>"
+            continue_loop = False
+        Else
+            np_subseries_id = n_subseries_id
+            np_series_id = n_series_id
+            n_subseries_id = rs![SubSeries_ID].Value
+            n_series_id = rs![ID].Value
+            l_SubSeries_Name = rs![SubSeries_Name].Value
+            If np_subseries_id <> n_subseries_id Then
+                sW.wr "           </td>"
+                sW.wr "      </tr>"
+            End If
+            If np_series_id <> n_series_id Then
+                sW.wr "        </table>"
+                sW.wr "</div>"
+                l_SubSeries_Name = rs![SubSeries_Name].Value
+                m = m + 1
+                Series_Id_S = "S" & Format(1 + m, "00")
+                l_series_name = rs![series_name].Value
+                'Debug.Print "Series: " + l_series_name
+                sW.wr "<div id='" + Series_Id_S + "' class=""align_center_heading"" style=""display:none;"">"
+                'sW.wr "          <p id=""series_header_id""  class=""align_center_heading"">YYYYYY" + l_series_name + "</p>"
+                series_name = return_graphic_file_name(l_series_name + " header")
+                
+                Dim next_series_name As Variant
+                next_series_name = l_series_name
+                next_series_name = return_graphic_file_name(next_series_name)
+                'here here here
+                'Public Function return_graphic_file_name(text_key As Variant) As Variant
+                
+                'sW.wr "          <p id=""series_header_id""  class=""align_center_heading"">YYYYYY" + next_series_name + "</p>"
+                
+                sW.wr "          <p id=""series_header_id""  class=""align_center_heading""><img src='" + next_series_name + "'></p>"
+                Debug.Print "second header here."
+                
+                sW.wr "    <table class=""dimension"" style=""font-family: 'Papyrus', 'Brush Script MT', cursive;color:black"" > "
+            End If
+            If np_subseries_id <> n_subseries_id Then
+                sW.wr "        <tr style=""height:10px""></tr>"
+                sW.wr "        <tr style=""height:10px"">"
+                sW.wr "            <td>" + l_SubSeries_Name + "</td>"
+                sW.wr "            <td width = 5%></td>"
+                sW.wr "            <td width=""auto"">"
+            End If
+        End If
+        np_subseries_id = n_subseries_id
+        np_series_id = n_series_id
+    Loop
+End If
+End Sub
+
+'A messagebox is posted indicating that the HTML page is saved and where
+Public Sub Page_Saved()
+
+MsgBox "The " + g_saved_html_location + " file is saved", vbOKOnly, "File Saved"
+
+End Sub
+

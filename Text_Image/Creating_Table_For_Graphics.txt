@@ -1,0 +1,8 @@
+
+tbl_Series
+-----------
+ID
+Series_Name
+tbl_Series.Series_Name_Graphic,
+
+Series_Name_Graphic

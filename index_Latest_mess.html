@@ -15,15 +15,6 @@
             border: none;
             border-collapse: collapse;
         }
-        /*
-      .lazy-load {
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-      .lazy-load.loaded {
-        opacity: 1;
-      }
-        */
         .center_horizontal {
             display:block;
             margin-right: auto;
@@ -310,7 +301,6 @@
             div_temp.style.display = "block";
             // // console.log("div_text_id = " + div_text_id);
         }
-   
         function return_file_description_for(file_name){
             var file_desc = "";
             var i = 0;
@@ -330,8 +320,6 @@
             // // // console.log("file_desc = " + item_number_found + "  " + file_description);
             return file_description;
         }
-
-
         function hideDiv(divID) {
             // console.log("hide divID = " + divID);
             document.getElementById(divID).style.display = "none";
@@ -476,14 +464,10 @@
                 src_element.style.width = px_width.toString() + "px";
                 src_element.style.height = px_height.toString() + "px";
                 // console.log("src_file = " + src_file);
-
                 var description_of_piece = return_file_description_for(src_file);
-                // var img_description_of_piece = return_file_description_for(src_file);
-                // console.log("src_file = " + src_file);
+                // console.log("src_file = " + description_of_piece);
                 const cap = document.getElementById("cptn");
-                description_of_piece = "<img src='" + "img_" + src_file + "' class='center3'>"
-                
-                cap.innerHTML = description_of_piece;
+                cap.innerHTML = "<img src='img_" + src_file + "'>";
                 showDiv("Blowup");
                 // console.log("Just blew up");
                 // console.log("Now position the close X");
@@ -608,7 +592,6 @@
             reset_text_color();
             red_the_text("Works");
         }
-        // TODO: FOLLOWING IS NEW:
         function Position_Close_Box(image_name_id){
             // console.log("get image object");
             var oImage = document.getElementById(image_name_id);
@@ -645,10 +628,10 @@
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" > 
     <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S01')">internal resonance</td>  <!--internal resonance dropdown -->
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S01')></td>
         </tr>
         <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S02')">external resonance</td>  <!--external resonance dropdown-->
+            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S02')></td>
         </tr>
     </table>
 </div>
@@ -688,17 +671,15 @@
 <div id="Blowup">
 <br/><br/>
     <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
-    <!-- <div class="top-right">[ X ]</div>  -->
     <span id="close" onClick="Return_to_Series()"> X </span>
     <p id="cptn" class="text_centered">-  -  -</p>
-    <!-- <img src="img_inresascend3.jpg" class="center3"> 
 </div>
-<div id='S01' class="align_center_heading" style="display:none;">   <!-- internal resonance -->
-          <p id="series_header_id" class="align_center_heading"><img src="internal_resonance.jpg"></p>
+<div id='S01' class="align_center_heading" style="display:none;">
+          <p id="series_header_id" class="align_center_heading"><img src='internal resonance'></p>
     <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td><img src="ascend.jpg"></td> <!-- ascend   -->
+            <td>ascend</td>
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresascend2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend2.jpg')" src='inresascend2.jpg' width ="60px" height="60px">
@@ -710,7 +691,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td><img src="whisper.jpg"></td>  <!-- whisper -->
+            <td><img src='whisper'</td>
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inreswhisper3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreswhisper3.jpg')" src='inreswhisper3.jpg' width ="60px" height="60px">
@@ -720,7 +701,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td><img src="emerge.jpg"></td>  <!-- emerge -->
+            <td><img src='emerge'</td>
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresemerge1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge1.jpg')" src='inresemerge1.jpg' width ="60px" height="60px">
@@ -729,7 +710,7 @@
       </tr>
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td><img src="upwelling.jpg"></td>   <!-- upwelling -->
+            <td><img src='upwelling'</td>
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'inresupwell5' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwell5.jpg')" src='inresupwell5.jpg' width ="60px" height="60px">
@@ -742,11 +723,11 @@
         </table>
 </div>
 <div id='S02' class="align_center_heading" style="display:none;">
-          <p id="series_header_id"  class="align_center_heading">external resonance</p>     <!-- external resonance -->
+          <p id="series_header_id"  class="align_center_heading"><img src='external resonance'></p>
     <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" > 
         <tr style="height:10px"></tr>
         <tr style="height:10px">
-            <td><img src="hidden.jpg"></td>  <!-- hidden -->
+            <td><img src='hidden'</td>
             <td width = 5%></td>
             <td width="auto">
                 <img id= 'exreshidden3' style="margin-bottom: 10px;" onclick="Show('Blowup,exreshidden3.jpg')" src='exreshidden3.jpg' width ="60px" height="60px">
