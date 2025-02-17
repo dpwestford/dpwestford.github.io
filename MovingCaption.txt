@@ -1,0 +1,53 @@
+
+
+
+ cap.innerHTML="<img src='" + img_text_file_name + "' alt='" + description_of_piece + "' />";
+                showDiv("Blowup");
+                Position_Close_Box('bp');
+                Position_Caption('bp'); <--- Added
+                
+                
+       function resized(){
+            if ("Home" == current_div){
+                center_home();
+            }
+            else if("Blowup" == current_div){
+                Position_Close_Box("bp");
+                Position_Caption("bp"); <--- Added
+            }
+        }            
+                
+
+        function Position_Close_Box(image_name_id){
+            // console.log("get image object");
+            var oImage = document.getElementById(image_name_id);
+            // console.log("get rectangle");
+            var rectngl = oImage.getBoundingClientRect();
+            // console.log("get rectangle");
+            var rght = rectngl.right+ 5;
+            // console.log("rght = ",rght.toString()," px");
+            var oClose = document.getElementById("close");
+            oClose.style.left= rght.toString() + "px";
+            oClose.style.top= "140px";
+        }
+        
+       
+        
+        
+                function Position_Caption(image_name_id){
+		            var oImage = document.getElementById(image_name_id);
+		            console.log("get rectangle");
+		            var rectngl = oImage.getBoundingClientRect();
+		            var rght = rectngl.right+ 5;
+		            var oClose = document.getElementById("cptn");
+		            oClose.style.left= rght.toString() + "px";
+		            oClose.style.top= "140px";
+        		}
+        		
+        		   <!-- <div id="Blowup_caption" class="center3">  -->
+				    <div id="Blowup_caption">
+				         <p id="cptn">-  -  -</p>
+				         <!-- <div id="Blowup_caption" class="center3"></div> -->
+    				</div>
+        		
+        		

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Piece Series</title>
+        <link rel="icon" href="favicon.png" type="image/x-icon">
+        <style type="text/css">
+            #pageElement{display:flex; flex-wrap: nowrap; align-items: center}
+
+                     body {
+                         background-color:#CBD6D8;
+                     }
+                                              
+                    .align_center_heading{
+                        display: flex;
+                        justify-content: center;
+                        font-family: 'Papyrus', serif;
+                        font-size: 36px;
+                        border: none;
+                        border-collapse: collapse;
+                    }
+                    /*
+                    .center_horizontal {
+                        display:block;
+                        margin-right: auto;
+                        margin-left: auto;
+                    }
+                    .Center_Div{
+                        border: 1px solid white;
+                        text-align: center;
+                        margin-left: auto;
+                        margin-right: auto;
+                        border: none;
+                        border-collapse: collapse;
+                    }
+                    .Center_Table{
+                        border: 1px solid white;
+                        display: inline-table;
+                        border: none;
+                        border-collapse: collapse;
+                    }
+                     
+                    .drop_down_margins{
+                        margin-top: 0;
+                        margin-bottom: 0;
+                        margin-right: 10;
+                        margin-left:10;
+                    }
+                    .color_of_heading_background{
+                        border-collapse: collapse;
+                        background-color:rgb(0,0,0) ;
+                        color:rgb(255,255,255);
+                        border: none;
+                        border-collapse: collapse;
+                    }
+                    .dropdown-content{
+                        display: none;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        background-color:rgb(0,0,0);
+                        color:rgb(255,255,255);
+                        min-width: 160px;
+                        overflow: auto;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                        z-index: 1;
+
+                    }
+                    .dropdown-content a {
+                        color: rgb(255,255,255);
+                        padding: 12px 16px;
+                        text-decoration: none;
+                        display: block;
+                    }
+                                 
+                    .dropdown a:hover {background-color: #ddd;}
+                    .top-right {
+                        position: absolute;
+                        top:30px;
+                        right: 26px;
+                        color:rgb(255,255,255);
+                        font-family: 'Papyrus', 'Brush Script MT', cursive;
+
+                        font-weight: bold
+                    }
+                    .title_line{
+                        color:rgb(255,255,255);
+                        text-align: center;
+                        font-family: 'Papyrus', 'Brush Script MT', cursive;
+                    }
+                  .solid_table{
+                        border: none;
+                        border-collapse: collapse;
+                    }   
+                                             
+                div#Blowup{
+                  background-color: rgb(255,255,255);
+                    display: none;
+                }
+                    div#Works{
+                  background-color: rgb(255,255,255);
+                        display: none;
+                    }
+                     div#Artist_Statement {
+                          display: none;
+                          margin-left: auto;
+                          margin-right: auto;
+                    }
+                    div#Exhibitions{
+                        display: none;
+                        font-family: 'Papyrus', 'Brush Script MT', cursive;
+                        border-collapse: collapse;
+                        width: -10px;
+                        display:none;
+                        margin-left:30%;
+                    }
+
+                      .center {
+                            margin-left: auto;
+                            margin-right: auto;
+                            font-family: 'Papyrus', 'Brush Script MT', cursive;
+                        }
+                        .dimension{
+                            line-height:20px;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                        .bg {
+                            background-color:rgb(0,0,0);
+                            color:rgb(255,255,255);
+                        }
+                        .bg_dark{
+                            background-color:rgb(0,0,0);
+                            color:"rgb(255,255,255)";
+                        }
+                      
+                        .menu{
+                            display: none;
+                        }
+                          table{
+                            font-family: 'Papyrus', 'Brush Script MT', cursive;
+                          }
+                          .text_centered{
+                            font-family: 'Papyrus', 'Brush Script MT', cursive;
+                            font-size: 20px;
+                            text-align:center;
+                            color:"rgb(0,0,0)";
+                          }
+                          .exhibits{
+                            margin-left: auto;
+                            margin-right: auto;
+                            font-family: 'Papyrus', 'Brush Script MT', cursive;
+                            font-size: 70%;
+                            margin-left:30%;
+                          }
+                                              
+                            #toppings {
+                              font-family: 'Papyrus', 'Brush Script MT', cursive;
+                              border-collapse: collapse;
+                              width: -10px;
+                              display:inline-block;
+                            }
+                            .testtableimage{
+                               display:inline-block;
+                               vertical-align:top;
+                               max-width: 30%;
+                               max-height: 30%
+                            }
+                          .center2 {
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                            font-family: 'Papyrus', 'Brush Script MT', cursive;
+
+                          }
+                            .center3 {
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                            font-family: 'Papyrus', 'Brush Script MT', cursive;
+                            font-weight:100;
+                          }
+
+                          .containerdiv {
+                            position:relative;
+                            width:100%;
+                            display:inline-block;
+                            font-family: 'Papyrus', 'Brush Script MT', cursive;
+                        }
+                        #image1 { position: absolute; top: 20px; left: 10px; }
+                        #close {
+                            position:absolute;
+                            top: 0px;
+                            left: 630px;
+                            font-size: 32px;
+                            cursor: pointer;
+                            font-family: 'Arial', sans-serif;
+                            color: gray;
+                        }
+                       */
+                </style>
+            
+    </head>
+<body>
+    <div id='S01' class="align_center_heading">
+        <!--
+              <p class="align_center_heading"><img src='series_internal_resonance.jpg'></p>  Changed to following
+    -->
+        <p class="align_center_heading"><img></p>
+        <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_ascend.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'inresascend-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-1.jpg')" src='inresascend-1.jpg' width ="60px" height="60px">
+                    <img id= 'inresascend-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-2.jpg')" src='inresascend-2.jpg' width ="60px" height="60px">
+                    <img id= 'inresascend-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-3.jpg')" src='inresascend-3.jpg' width ="60px" height="60px">
+                    <img id= 'inresascend-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-4.jpg')" src='inresascend-4.jpg' width ="60px" height="60px">
+               </td>
+          </tr>
+
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_emerge.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'inresemerge-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-1.jpg')" src='inresemerge-1.jpg' width ="60px" height="60px">
+                    <img id= 'inresemerge-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-2.jpg')" src='inresemerge-2.jpg' width ="60px" height="60px">
+               </td>
+          </tr>
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_upwelling.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'inresupwelling-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-1.jpg')" src='inresupwelling-1.jpg' width ="60px" height="60px">
+                    <img id= 'inresupwelling-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-2.jpg')" src='inresupwelling-2.jpg' width ="60px" height="60px">
+                    <img id= 'inresupwelling-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-3.jpg')" src='inresupwelling-3.jpg' width ="60px" height="60px">
+                    <img id= 'inresupwelling-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-4.jpg')" src='inresupwelling-4.jpg' width ="60px" height="60px">
+               </td>
+          </tr>
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_touch.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'inrestouch-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-1.jpg')" src='inrestouch-1.jpg' width ="60px" height="60px">
+                    <img id= 'inrestouch-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-2.jpg')" src='inrestouch-2.jpg' width ="60px" height="60px">
+               </td>
+          </tr>
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_hidden.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'inreshidden-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-3.jpg')" src='inreshidden-3.jpg' width ="60px" height="60px">
+                    <img id= 'inreshidden-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-2.jpg')" src='inreshidden-2.jpg' width ="60px" height="60px">
+                    <img id= 'inreshidden-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-1.jpg')" src='inreshidden-1.jpg' width ="60px" height="60px">
+               </td>
+          </tr>
+            </table>
+    </div>
+
+
+    <div id='S02' class="align_center_heading">
+        <!--
+              <p class="align_center_heading"><img src='series_small_studies.jpg'></p>
+        -->
+        <p class="align_center_heading"></p>
+        <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" > 
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_small_study.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'smstudy-3' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-3.jpg')" src='smstudy-3.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-30' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-30.jpg')" src='smstudy-30.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-29' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-29.jpg')" src='smstudy-29.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-28' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-28.jpg')" src='smstudy-28.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-26' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-26.jpg')" src='smstudy-26.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-24' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-24.jpg')" src='smstudy-24.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-2' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-2.jpg')" src='smstudy-2.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-6' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-6.jpg')" src='smstudy-6.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-10' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-10.jpg')" src='smstudy-10.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-19' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-19.jpg')" src='smstudy-19.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-1' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-1.jpg')" src='smstudy-1.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-20' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-20.jpg')" src='smstudy-20.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-11' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-11.jpg')" src='smstudy-11.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-17' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-17.jpg')" src='smstudy-17.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-16' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-16.jpg')" src='smstudy-16.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-15' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-15.jpg')" src='smstudy-15.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-14' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-14.jpg')" src='smstudy-14.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-12' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-12.jpg')" src='smstudy-12.jpg' width ="60px" height="60px">
+                    <img id= 'smstudy-23' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-23.jpg')" src='smstudy-23.jpg' width ="60px" height="60px">
+               </td>
+          </tr>
+            </table>
+    </div>
+    <div id='S03' class="align_center_heading">
+              <!-- <p class="align_center_heading"><img src='series_tantric_studies.jpg'></p> -->
+              <p class="align_center_heading"></p>
+        <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" > 
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_tantric_study_in_blue.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'tanstblue-3' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-3.jpg')" src='tanstblue-3.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-1' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-1.jpg')" src='tanstblue-1.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-5' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-5.jpg')" src='tanstblue-5.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-6' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-6.jpg')" src='tanstblue-6.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-7' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-7.jpg')" src='tanstblue-7.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-9' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-9.jpg')" src='tanstblue-9.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-10' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-10.jpg')" src='tanstblue-10.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-11' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-11.jpg')" src='tanstblue-11.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-4' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-4.jpg')" src='tanstblue-4.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-12' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-12.jpg')" src='tanstblue-12.jpg' width ="60px" height="60px">
+                    <img id= 'tanstblue-2' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-2.jpg')" src='tanstblue-2.jpg' width ="60px" height="60px">
+               </td>
+          </tr>
+            </table>
+    </div>
+    <div id='S04' class="align_center_heading" >
+              <p class="align_center_heading"></p>
+        <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" > 
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_study_for_confluence.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'confluence-3p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3p1of2.jpg')" src='confluence-3p1of2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-3p2of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3p2of2.jpg')" src='confluence-3p2of2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-1p2of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1p2of2.jpg')" src='confluence-1p2of2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-4p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4p1of2.jpg')" src='confluence-4p1of2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-4p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4p1of2.jpg')" src='confluence-4p1of2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-6p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-6p1of2.jpg')" src='confluence-6p1of2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-6p2of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-6p2of2.jpg')" src='confluence-6p2of2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-1p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1p1of2.jpg')" src='confluence-1p1of2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-11p5of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p5of5.jpg')" src='confluence-11p5of5.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-11p4of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p4of5.jpg')" src='confluence-11p4of5.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-9' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-9.jpg')" src='stconfluence-9.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-11p3of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p3of5.jpg')" src='confluence-11p3of5.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-8' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-8.jpg')" src='stconfluence-8.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-10' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-10.jpg')" src='stconfluence-10.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-11' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-11.jpg')" src='stconfluence-11.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-12' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-12.jpg')" src='stconfluence-12.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-13' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-13.jpg')" src='stconfluence-13.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-3' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-3.jpg')" src='stconfluence-3.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-4' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-4.jpg')" src='stconfluence-4.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-6' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-6.jpg')" src='stconfluence-6.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-1' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-1.jpg')" src='stconfluence-1.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-15' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-15.jpg')" src='stconfluence-15.jpg' width ="60px" height="60px">
+                    <img id= 'stconfluence-7' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-7.jpg')" src='stconfluence-7.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-11p2of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p2of5.jpg')" src='confluence-11p2of5.jpg' width ="60px" height="60px">
+               </td>
+          </tr>
+            <tr style="height:10px"></tr>
+            <tr style="height:10px">
+                <td><img src='subseries_confluence.jpg'></td>
+                <td width = 5%></td>
+                <td width="auto">
+                    <img id= 'confluence-4-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4-M2.jpg')" src='confluence-4-M2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-1-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1-M2.jpg')" src='confluence-1-M2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-3-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3-M2.jpg')" src='confluence-3-M2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-11-M5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11-M5.jpg')" src='confluence-11-M5.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-6-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-6-M2.jpg')" src='confluence-6-M2.jpg' width ="60px" height="60px">
+                    <img id= 'confluence-11p2of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p2of5.jpg')" src='confluence-11p2of5.jpg' width ="60px" height="60px">
+               </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

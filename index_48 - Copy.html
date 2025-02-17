@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Sandra Westford Art">
+    <meta name="keywords" content="Art Show, Pendleton Oregon, Seattle Art Museum, Gallery, Minimalist, Artwork">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandra Westford</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <style type="text/css">
+#pageElement{display:flex; flex-wrap: nowrap; align-items: center}
+         Body {
+             background-color:#CBD6D8;
+         }
+         .absolute-div {
+             position: absolute;
+             top: 62px; /* Distance from the top of the page */
+             right: 200px; /* Distance from the right edge */
+             width: 40px;
+             height: 18px;
+         }
+         .absolute-div_contact_message{
+             position: absolute;
+             top: 262px; /* Distance from the top of the page */
+             left: 100px; /* Distance from the left edge */
+             width: 100px;
+             height: "auto:";
+         }
+         .absolute-div_contact_name{
+             position: absolute;
+             top: 262px; /* Distance from the top of the page */
+             left: 400px; /* Distance from the left edge */
+             width: 100px;
+             height: "auto:";
+         }
+         .img_message {
+         /* Set the full width of its parent container */
+          width: 50%;
+         /* Maintains aspect ratio */
+          height: auto;
+         }
+         .vertical-images{
+         display: block;
+         gap: 30px; /* Adjust the value as needed */
+         display:block;
+         margin-right: auto;
+         margin-left: auto;
+         }
+         .middle_fixed_table {
+             table-layout: fixed;
+             width: 100%;
+             border-collapse: collapse;
+             border: none;
+         }
+        .align_center_heading{
+            display: flex;
+            justify-content: center;
+            font-family: 'Papyrus', serif;
+            font-size: 36px;
+            border: none;
+            border-collapse: collapse;
+        }
+        .center_horizontal {
+            display:block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .Center_Div{
+            border: 1px solid white;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border: none;
+            border-collapse: collapse;
+        }
+        .Center_Table{
+            border: 1px solid white;
+            display: inline-table;
+            border: none;
+            border-collapse: collapse;
+        }
+        .drop_down_margins{
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-right: 10;
+            margin-left:10;
+        }
+        .color_of_heading_background{
+            border-collapse: collapse;
+            background-color:rgb(0,0,0) ;
+            color:rgb(255,255,255);
+            border: none;
+            border-collapse: collapse;
+        }
+         .img_message {
+         /* Set the full width of its parent container */
+          width: 50%;
+         /* Maintains aspect ratio */
+          height: auto;
+         }
+         .contact-form {
+                   background:#CBD6D8;
+                   padding: 20px;
+                   border-radius: 8px;
+                   width: 300px;
+               }
+       
+               .contact-form h2 {
+                   margin-bottom: 15px;
+                   color: #555555;
+               }
+               .contact-form label {
+                   display: block;
+                   margin-bottom: 5px;
+                   color: #555;
+               }
+               .contact-form input,
+               .contact-form textarea {
+                   width: 100%;
+                   padding: 10px;
+                   margin-bottom: 10px;
+                   border: 1px solid #dddddd;
+                   border-radius: 4px;
+               }
+               .contact-form button {
+                   width: 100%;
+                   padding: 10px;
+                   background: #555555;
+                   border: none;
+                   border-radius: 4px;
+                   color: #CCC;
+                   font-size: 16px;
+                   cursor: pointer;
+               }
+               .contact-form button:hover {
+                   background: #333333;
+               }
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color:rgb(0,0,0);
+            color:rgb(255,255,255);
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            /*font-size:x-large;*/
+        }
+        .dropdown-content a {
+            color: rgb(255,255,255);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown a:hover {background-color: #ddd;}
+        .top-right {
+            position: absolute;
+            top:30px;
+            right: 26px;
+            color:rgb(255,255,255);
+            font-family: 'Papyrus', 'Brush Script MT', cursive;
+            /* font-size:x-large; */ 
+            font-weight: bold
+        }
+        .title_line{
+            color:rgb(255,255,255);
+            text-align: center;
+            font-family: 'Papyrus', 'Brush Script MT', cursive;
+           /* font-weight:bold; font-size: 30px; */ 
+        }
+  /*      .solid_table{
+            border: none;
+            border-collapse: collapse;
+        }   */ 
+    div#Blowup{
+      background-color: rgb(255,255,255);
+        display: none;
+    }
+        div#Works{
+      background-color: rgb(255,255,255);
+            display: none;
+        }
+         div#Artist_Statement {
+              display: none;
+              margin-left: auto;
+              margin-right: auto;
+        }
+        div#Exhibitions{
+            display: none;
+            font-family: 'Papyrus', 'Brush Script MT', cursive;
+            border-collapse: collapse;
+            width: -10px;
+            display:none;
+            margin-left:30%;
+        }
+          .center {
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                /* font-weight:100  */  
+            }
+            .dimension{
+                line-height:20px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .bg {
+                background-color:rgb(0,0,0);
+                color:rgb(255,255,255);
+            }
+            .bg_dark{
+                background-color:rgb(0,0,0);
+                color:"rgb(255,255,255)";
+            }
+            .menu{
+                display: none;
+            }
+              table{
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+              }
+              .text_centered{
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                font-size: 20px;
+                text-align:center;
+                color:"rgb(0,0,0)";
+              }
+              .exhibits{
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                font-size: 70%;
+                margin-left:30%;
+              }
+                #toppings {
+                  font-family: 'Papyrus', 'Brush Script MT', cursive;
+                  border-collapse: collapse;
+                  width: -10px;
+                  display:inline-block;
+                }
+                .testtableimage{
+                   display:inline-block;
+                   vertical-align:top;
+                   max-width: 30%;
+                   max-height: 30%
+                }
+              .center2 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                /*  font-weight:100;  */  
+              }
+              .center3 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                font-weight:100;
+              }
+             
+              .containerdiv {
+                position:relative;
+                width:100%;
+                display:inline-block;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+            }
+            #image1 { position: absolute; top: 20px; left: 10px; }
+            #close {
+                position:absolute;
+                top: 0px;
+                left: 630px;
+                font-size: 32px;
+                cursor: pointer;
+                font-family: 'Arial', sans-serif;
+                color: gray;
+            }
+    
+    </style>
+    <script>
+ 
+        window.addEventListener("resize", resized);
+        var current_div = "Home";
+        const file_names=[
+        "inresascend-1.jpg",
+        "inresascend-2.jpg",
+        "inresascend-3.jpg",
+        "inresascend-4.jpg",
+        "inresemerge-1.jpg",
+        "inresemerge-2.jpg",
+        "inresupwelling-1.jpg",
+        "inresupwelling-2.jpg",
+        "inresupwelling-3.jpg",
+        "inresupwelling-4.jpg",
+        "inrestouch-1.jpg",
+        "inrestouch-2.jpg",
+        "inreshidden-1.jpg",
+        "inreshidden-3.jpg",
+        "inreshidden-2.jpg",
+        "smstudy-6.jpg",
+        "smstudy-30.jpg",
+        "smstudy-29.jpg",
+        "smstudy-1.jpg",
+        "smstudy-28.jpg",
+        "smstudy-3.jpg",
+        "smstudy-10.jpg",
+        "smstudy-11.jpg",
+        "smstudy-12.jpg",
+        "smstudy-23.jpg",
+        "smstudy-26.jpg",
+        "smstudy-2.jpg",
+        "smstudy-24.jpg",
+        "smstudy-14.jpg",
+        "smstudy-20.jpg",
+        "smstudy-19.jpg",
+        "smstudy-17.jpg",
+        "smstudy-16.jpg",
+        "smstudy-15.jpg",
+        "tanstblue-5.jpg",
+        "tanstblue-1.jpg",
+        "tanstblue-7.jpg",
+        "tanstblue-9.jpg",
+        "tanstblue-10.jpg",
+        "tanstblue-11.jpg",
+        "tanstblue-12.jpg",
+        "tanstblue-4.jpg",
+        "tanstblue-3.jpg",
+        "tanstblue-6.jpg",
+        "tanstblue-2.jpg",
+        "confluence-3p2of2.jpg",
+        "confluence-3p1of2.jpg",
+        "confluence-4p1of2.jpg",
+        "confluence-1p2of2.jpg",
+        "confluence-4p1of2.jpg",
+        "confluence-6p1of2.jpg",
+        "confluence-6p2of2.jpg",
+        "confluence-1p1of2.jpg",
+        "confluence-11p5of5.jpg",
+        "stconfluence-9.jpg",
+        "confluence-11p3of5.jpg",
+        "confluence-11p4of5.jpg",
+        "stconfluence-6.jpg",
+        "stconfluence-15.jpg",
+        "confluence-11p2of5.jpg",
+        "stconfluence-7.jpg",
+        "stconfluence-8.jpg",
+        "stconfluence-1.jpg",
+        "stconfluence-4.jpg",
+        "stconfluence-3.jpg",
+        "stconfluence-13.jpg",
+        "stconfluence-12.jpg",
+        "stconfluence-11.jpg",
+        "stconfluence-10.jpg",
+        "confluence-1-M2.png",
+        "confluence-4-M2.png",
+        "confluence-6-M2.png",
+        "confluence-11-M5.png",
+        "confluence-3-M2.png",
+        ];
+        const file_descriptions=[
+        "internal resonance (ascend #1), 12 x 12, 2024",
+        "internal resonance (ascend #2), 12 x 12, 2024",
+        "internal resonance (ascend #3), 12 x 12, 2024",
+        "internal resonance (ascend #4), 12 x 12, 2024",
+        "internal resonance (emerge #1), 20 x 10, 2024",
+        "internal resonance (emerge #2), 20 x 10, 2024",
+        "internal resonance (upwelling #1), 12 x 12, 2024",
+        "internal resonance (upwelling #2), 12 x 12, 2024",
+        "internal resonance (upwelling #3), 12 x 12, 2024",
+        "internal resonance (upwelling #4), 12 x 12, 2024",
+        "internal resonance (touch #1), 20 x 10, 2024",
+        "internal resonance (touch #2), 20 x 10, 2024",
+        "internal resonance (hidden #1), 20 x 10, 2024",
+        "internal resonance (hidden #3), 20 x 10, 2024",
+        "internal resonance (hidden #2), 12 x 26, 2024",
+        "small study #6, 5 x 5, 2024",
+        "small study #30, 5 x 5, 2024",
+        "small study #29, 5 x 5, 2024",
+        "small study #1, 5 x 5, 2024",
+        "small study #28, 5 x 5, 2024",
+        "small study #3, 5 x 5, 2024",
+        "small study #10, 5 x 5, 2024",
+        "small study #11, 5 x 5, 2024",
+        "small study #12, 5 x 5, 2024",
+        "small study #23, 5 x 5, 2024",
+        "small study #26, 5 x 5, 2024",
+        "small study #2, 5 x 5, 2024",
+        "small study #24, 5 x 5, 2024",
+        "small study #14, 5 x 5, 2024",
+        "small study #20, 5 x 5, 2024",
+        "small study #19, 5 x 5, 2024",
+        "small study #17, 5 x 5, 2024",
+        "small study #16, 5 x 5, 2024",
+        "small study #15, 5 x 5, 2024",
+        "tantric study in blue #5, 12 x 6, 2024",
+        "tantric study in blue #1, 12 x 6, 2024",
+        "tantric study in blue #7, 12 x 6, 2024",
+        "tantric study in blue #9, 12 x 6, 2024",
+        "tantric study in blue #10, 12 x 6, 2024",
+        "tantric study in blue #11, 12 x 6, 2024",
+        "tantric study in blue #12, 12 x 6, 2024",
+        "tantric study in blue #4, 12 x 6, 2024",
+        "tantric study in blue #3, 12 x 6, 2024",
+        "tantric study in blue #6, 12 x 6, 2024",
+        "tantric study in blue #2, 12 x 6, 2024",
+        "confluence #3 (2 of 2), 12 x 12, 2024",
+        "confluence #3 (1 of 2), 12 x 12, 2024",
+        "confluence #4 (1 of 2), 12 x 12, 2024",
+        "confluence #1 (2 of 2), 12 x 12, 2024",
+        "confluence #4 (2 of 2), 12 x 12, 2024",
+        "confluence #6 (1 of 2), 12 x 12, 2024",
+        "confluence #6 (2 of 2), 12 x 12, 2024",
+        "confluence #1 (1 of 2), 12 x 12, 2024",
+        "confluence #11 (5 of 5), 12 x 12, 2024",
+        "study for confluence, #9, 12 x 12, 2024",
+        "confluence #11 (3 of 5), 12 x 12, 2024",
+        "confluence #11 (4 of 5), 12 x 12, 2024",
+        "study for confluence, #6, 12 x 12, 2024",
+        "study for confluence #15, 12 x 12, 2024",
+        "confluence #11 (2 of 5), 12 x 12, 2024",
+        "study for confluence, #7, 12 x 12, 2024",
+        "study for confluence, #8, 12 x 12, 2024",
+        "study for confluence, #1, 12 x 12, 2024",
+        "study for confluence, #4, 12 x 12, 2024",
+        "study for confluence, #3, 12 x 12, 2024",
+        "study for confluence, #13, 12 x 12, 2024",
+        "study for confluence, #12, 12 x 12, 2024",
+        "study for confluence, #11, 12 x 12, 2024",
+        "study for confluence, #10, 12 x 12, 2024",
+        "confluence #1, 12 x 26, 2024",
+        "confluence #4, 12 x 26, 2024",
+        "confluence #6, 12 x 26, 2024",
+        "confluence #11, 12 x 26, 2024",
+        "confluence #3, 12 x 26, 2024",
+        ];
+        function center_home(){
+            var wth = window.innerWidth - 30;
+            var ht = window.innerHeight - 200;
+            var image = document.getElementById("home_jpg");
+            var height = image.naturalHeight;
+            var width = image.naturalWidth;
+            var ratio_natural = height/width;
+            var ratio_window = ht/wth;
+            if (ratio_natural > ratio_window){
+                image.height = ht;
+                image.width = ht*width/height;
+            }
+            else{
+                image.width = wth;
+                image.height = wth*height/width;
+            }
+        }
+        function resized(){
+            if ("Home" == current_div){
+                center_home();
+            }
+            else if("Blowup" == current_div){
+                Position_Close_Box("bp");
+            }
+        }
+        function reset_text_color()
+        {
+            document.getElementById("itHome").style.color ="rgb(255,255,255)";
+            document.getElementById("itWorks").style.color ="rgb(255,255,255)";
+            document.getElementById("itExhibitions").style.color ="rgb(255,255,255)";
+            document.getElementById("itAbout").style.color ="rgb(255,255,255)";
+        }
+        function red_the_text(divID){
+            reset_text_color();
+            var cellName = "it"+divID;
+            // // console.log ("cellname = " + cellName);
+            var oCellName= document.getElementById(cellName).style.color = '#F11110';
+        }
+        function hide_most_divisions(){
+            var div = document.getElementById('S01');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S02');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S03');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S04');
+            if (div !== null){
+                div.style.display = "none";
+             }
+        var div = document.getElementById('Works');
+        if (div !== null){
+                div.style.display = "none";
+        }
+        var div = document.getElementById('Contact_Page');
+        if (div !== null){
+                div.style.display = "none";
+        }
+      }
+        function show_division(div_text_id){
+            var div_temp = document.getElementById(div_text_id);
+            div_temp.style.display = "block";
+            // // console.log("div_text_id = " + div_text_id);
+        }
+        function return_file_description_for(file_name){
+            var file_desc = "";
+            var i = 0;
+            var item_number = 0;
+            var item_number_found = -1;
+            var continue_loop = true;
+            // // // console.log("About to do the while loop");
+            while (item_number < file_names.length && continue_loop)  {
+                if (file_name.trim() == file_names[item_number].trim()){
+                    item_number_found = item_number;
+                    continue_loop = false;
+                    // // console.log("Found number = " + item_number_found );
+                }
+                ++item_number;
+            }
+            file_description = file_descriptions[item_number_found];
+            // // // console.log("file_desc = " + item_number_found + "  " + file_description);
+            return file_description;
+        }
+        function hideDiv(divID) {
+            // console.log("hide divID = " + divID);
+            document.getElementById(divID).style.display = "none";
+        }
+        function showDiv(divID){
+            document.getElementById(divID).style.display = "block";
+        }
+        function Show(divID){
+            // console.log("divID = '"+ divID + "'");
+            if("Home" == divID){
+                current_div = "Home";
+                reset_text_color();
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Exhibitions");
+                hideDiv("Works");
+                hideDiv("Contact_Page");
+                showDiv("Home");
+                red_the_text("Home");
+            }
+            else if("Contact_Page" == divID){
+                current_div = "Home";
+                reset_text_color();
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Exhibitions");
+                hideDiv("Works");
+                hideDiv("Home");
+                showDiv("Contact_Page");
+                red_the_text("Contact_Page");
+            }
+            else if("Artist_Statement" == divID){
+                current_div = "Artist_Statement";
+                reset_text_color();
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hideDiv("Contact_Page");
+                showDiv("Artist_Statement");
+                red_the_text("About");
+            }
+            else if("Exhibitions" == divID){
+                current_div = "Exhibitions";
+                reset_text_color();
+                hide_most_divisions();
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Contact_Page");
+                showDiv("Exhibitions");
+                red_the_text("Exhibitions");
+            }
+            else if("Blowup" == divID.slice(0,6)){
+                current_div = "Blowup";
+                hide_most_divisions();
+                // console.log(divID);
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hideDiv("Contact_Page");
+                // // console.log("All hidden");
+                var str = divID.split(',')
+                // // console.log("It is split");
+                var blowup_Div_text_id = "Blowup";
+                // // console.log(blowup_Div_text_id);
+                var blowupDiv = document.getElementById(blowup_Div_text_id);
+                var src_file="tantricstudy1.jpg";
+                var ratio = 1.0;
+                // console.log(src_file);
+                if (str.length > 1){
+                    src_file = str[1].trim();
+                    console.log(src_file);
+                }
+                else{
+                    // console.log("error: str array less than two.");
+                }
+                // console.log(src_file);
+                var HorMargin = 35.0;
+                // console.log(HorMargin);
+                // var BotMargin = 175.0;
+                var BotMargin = 225.0;
+                // console.log(BotMargin);
+                var fctr = 1.0;
+                // console.log(fctr);
+                var winWidth = window.innerWidth - 2*HorMargin;
+                // console.log(winWidth);
+                const menu = document.getElementById('menu_bar');
+                const src_element = document.getElementById('bp');
+                var rect = menu.getBoundingClientRect();
+                // console.log("window.innerHeight = " + window.innerHeight);
+                // console.log("rect.top = " + rect.top);
+                // console.log("BotMargin = " + BotMargin);
+                // console.log("Found rect for division");
+                var winHeight = window.innerHeight - rect.top - BotMargin;
+                // console.log(winHeight);
+                // console.log("window.innerWidth = " + window.innerWidth);
+                // console.log("BotMargin*2 = " + 2* BotMargin);
+                // console.log("Found rect for division");
+                var winWidth =  window.innerWidth - HorMargin * 2;
+                // console.log(winWidth);
+                var fctr = parseFloat(winHeight)/parseFloat(winWidth);
+                // console.log("fctr = " + fctr);
+                // console.log("Found src_element bp");
+                // console.log("src_file = '" + src_file + "'")
+                src_element.src = src_file;
+                var mysrc = src_element.src;
+                // console.log(mysrc);
+                // console.log("Set src");
+                var wdth= src_element.naturalWidth;
+                // console.log("Natural width = " + wdth.toString());
+                var hght= src_element.naturalHeight;
+                // console.log("Natural height = " + hght.toString());
+                ratio = hght/wdth;
+                // console.log("ratio = " + ratio.toString());
+                // blowupDiv.style.height = winHeight.toString() + "px";
+                // console.log(winHeight);
+                // console.log("Set winHeight");
+                // blowupDiv.style.width = winWidth.toString() + "px";
+                // console.log(winWidth);
+                // console.log("Set winWidth");
+                var units_horizontal = wdth/winWidth;
+                // console.log("units_horizontal = " + units_horizontal);
+                var units_vertical = hght/winHeight;
+                // console.log("units_vertical  " + units_vertical);
+                if ( units_horizontal < units_vertical){
+                    // The size is constrained by height
+                    // multiply the units_vertical times the natural height
+                    px_height = winHeight;
+                    px_width = px_height/ratio;
+                    // console.log("if px_height = " + px_height.toString());
+                    px_string_height = px_height.toString() + " px";
+                }
+                else{
+                    // The size is constrained by width
+                    // multiply the units_horizontal times the natural width
+                    px_width = winWidth;
+                    px_height = px_width*ratio;
+                    // console.log("else px_width = " + px_width.toString());
+                    px_string_height = px_height.toString() + " px";
+                }
+                // console.log("About to set height");
+                // blowupDiv.style.height = px_width + " px";
+                // console.log("src_element.style.height = px_string_height;  " + px_string_height.toString());
+                // blowupDiv.style.width = px_height + " px";
+                src_element.style.width = px_width.toString() + "px";
+                src_element.style.height = px_height.toString() + "px";
+                // console.log("src_file = " + src_file);
+                var description_of_piece = return_file_description_for(src_file);
+                console.log("src_file = " + description_of_piece);
+                const cap = document.getElementById("cptn");
+                cap.innerText  = description_of_piece;
+                showDiv("Blowup");
+                // console.log("Just blew up");
+                // console.log("Now position the close X");
+                Position_Close_Box('bp');
+            }
+            if('S01' == divID){
+                current_series = divID;
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S02' == divID){
+                current_series = divID;
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S03' == divID){
+                current_series = divID;
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else if('S04' == divID){
+                current_series = divID;
+                hideDiv("Blowup");
+                hideDiv("Works");
+                hideDiv("Artist_Statement");
+                hideDiv("Home");
+                hideDiv("Exhibitions");
+                hide_most_divisions();
+                show_division(divID);
+            }
+            else{
+            }
+        }
+        function OnLoadCode(){
+            hideDiv("Works");
+            current_div="Home";
+            center_home();
+            hide_most_divisions();
+            const oMy_dropdown = document.getElementById("works_dropdown_div");
+            oMy_dropdown.style.display="none";
+            document.addEventListener("click", function(e) {
+            const clickedElement = e.target;
+            const myCell = document.getElementById("itWorks");
+            if (clickedElement !== myCell && !myCell.contains(clickedElement)) {
+                const oMy_dropdown = document.getElementById("works_dropdown_div");
+                // console.log("Element was not clicked.");
+                if (oMy_dropdown.style.display !== "none"){
+                    oMy_dropdown.style.display = "none";
+                }
+                const oCloseBox = document.getElementById("close");
+                if(clickedElement !== oCloseBox && !oCloseBox.contains(clickedElement)){
+                    // console.log("The close box was not clicked");
+                }
+                else{
+                    // console.log("The close box was clicked!");
+                    Show(current_series);
+                    // console.log("current_series:" + current_series);
+                }
+            }
+            else{
+                // console.log("Element was clicked!");
+                const oMy_dropdown = document.getElementById("works_dropdown_div");
+                if (oMy_dropdown.style.display==='none'){
+                    oMy_dropdown.style.display = "block";
+                    // console.log("Now move dropdown");
+                    var position = oMy_dropdown.getBoundingClientRect();
+                    // console.log("left: " + position.left, "top: " + position.top);
+                    MoveDropDown();
+                    // console.log("Moved dropdown");
+                }
+                else{
+                    oMy_dropdown.style.display = "none";
+                    // console.log("Hid dropdown")
+                }
+            }
+            console.log("chop_top:");
+            element_head = document.getElementById("chop_top");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itHome:");
+            var element_head = document.getElementById("itHome");
+            var rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itWorks:");
+            element_head = document.getElementById("itWorks");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itExhibitions:");
+            element_head = document.getElementById("itExhibitions");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itAbout:");
+            element_head = document.getElementById("itAbout");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itContact:");
+            element_head = document.getElementById("itContact");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+        }
+        );
+        }
+        function ReportBoundingBox(rect){
+         }
+        function MoveDropDown(){
+            // console.log("MoveDropDown");
+            var cellElement = document.getElementById('itWorks');
+            var rect = cellElement.getBoundingClientRect();
+            // console.log('Top:', rect.top, 'Right:', rect.right, 'Bottom:', rect.bottom, 'Left:', rect.left);
+            const drops = document.getElementById("works_dropdown_div");
+            // console.log("got drop_down element");
+            if (drops !== null){
+                // console.log("Drops is good");
+            }
+            else{
+                // console.log("Drops is bad");
+            }
+            var size = Math.round(rect.left) + "px";
+            drops.style.marginLeft = size;
+            size = Math.round(rect.top + 40) + "px";
+            drops.style.marginTop = size;
+            reset_text_color();
+            red_the_text("Works");
+        }
+        function Position_Close_Box(image_name_id){
+            // console.log("get image object");
+            var oImage = document.getElementById(image_name_id);
+            // console.log("get rectangle");
+            var rectngl = oImage.getBoundingClientRect();
+            // console.log("get rectangle");
+            var rght = rectngl.right+ 5;
+            // console.log("rght = ",rght.toString()," px");
+            var oClose = document.getElementById("close");
+            oClose.style.left= rght.toString() + "px";
+            oClose.style.top= "140px";
+        }
+        function Return_to_Series(fileName) {
+            // console.log("Close box is clicked reported in Return_to_Series()...");
+        }
+    </script>
+</head>
+   <body onload="OnLoadCode()">
+      <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom; font-size:28px">
+         <tr class="color_of_heading_background" class="center-text" height="50px">
+             <td id="chop_top"><img id="chop" style="height:44px;width:275px;vertical-align: -36%;" src="Sandra_Text_Image.jpg" width="130px" height="34px"></td>
+         </tr>
+      </table>
+      <table id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
+         <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
+             <td style="width:auto">&nbsp;</td>
+             <td style="width: 5px;"></td>
+             <td id="itHome" width="100px" class="white_background" onclick="Show('Home')" style="text-align:right;"><img src="Head_Home.jpg" width="auto" height="28px"></td>
+             <td style="width: 40px;"></td>
+             <td id="itWorks" width="100px" class="white_background" style="text-align:left;"><img src="Head_Works.jpg" width="auto" height="28px"></td>
+             <td style="width: 5px;"></td>
+             <td id="itExhibitions" width="100px" class="white_background" onclick="Show('Exhibitions')"><img src="Head_Exhibitions.jpg" width="auto" height="28px"></td>
+             <td style="width: 5px;"></td>
+             <td id="itAbout" width="60px" class="white_background" onclick="Show('Artist_Statement')"><img src="Head_About.jpg" width="auto" height="28px"></td>
+             <td style="width: 20px;"></td>
+             <td id="itContact" width="60px" class="white_background" onclick="Show('Contact_Page')"><img src="Head_Contact.jpg" width="auto" height="28px"></td>
+             <td style="width: 1px;"></td>
+             <td style="width:auto">&nbsp;</td>
+         </tr>
+      </table>
+<div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" > 
+    <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
+        <tr>
+           <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S01')"><img src='series_dropdown_internal_resonance.jpg' height="24"></td>
+        </tr>
+        <tr>
+           <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S02')"><img src='series_dropdown_small_studies.jpg' height="24"></td>
+        </tr>
+        <tr>
+           <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S03')"><img src='series_dropdown_tantric_studies.jpg' height="24"></td>
+        </tr>
+        <tr>
+           <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S04')"><img src='series_dropdown_confluence.jpg' height="24"></td>
+        </tr>
+    </table>
+</div>
+<div id="Home" style="background-color:#FFFFFF; display:block; height: 100vh">
+    <img id="home_jpg" src="open18.jpg"  class="center_horizontal" style="padding:0px 10px 10px 10px">
+</div>
+<div id="Contact_Page" class="table-container" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px; height: 100vh">
+ <p>&nbsp;</p> 
+ <table>
+   <tr>
+   <td width="auto">
+   &nbsp;
+   <td/> 
+   <td width="800px">
+   &nbsp;
+   <td/> 
+   <td >
+       <div class="contact-form">
+            <form action="contact.php" method="post">
+                <img height=24pt src="Contact_name.jpg" align="left">
+                <input type="text" id="name" name="name" required>
+                <img height=24pt src="Contact_Email.jpg" align="left">
+                            <input type="email" id="email" name="email" required>
+                <img height=28pt src="Contact_Message.jpg" align="left">
+                <textarea id="message" name="message" style="height:200px" required></textarea>
+                <button type="submit">Submit</button>
+             </form>
+       <div/>
+       </td>
+         <td width="800px">
+         &nbsp;
+         <td/> 
+         <td width="auto">
+         &nbsp;
+         </td> 
+   </tr> 
+</table>
+<div id="absolute-div_contact_message" class="absolute-div_contact_message">
+<img src="Add_Message_To_Contact_Page.jpg" height="150"  width="auto"> 
+</div>
+</div>
+<div id="Works" style="display:none">
+    <img id="inresascend-1" onclick="Show('Blowup,inresascend-1.jpg')" src="inresascend-1.jpg" alt="inresascend-1" width="96px" height="96px">
+    <img id="inresascend-2" onclick="Show('Blowup,inresascend-2.jpg')" src="inresascend-2.jpg" alt="inresascend-2" width="96px" height="96px">
+    <img id="inresascend-3" onclick="Show('Blowup,inresascend-3.jpg')" src="inresascend-3.jpg" alt="inresascend-3" width="96px" height="96px">
+    <img id="inresascend-4" onclick="Show('Blowup,inresascend-4.jpg')" src="inresascend-4.jpg" alt="inresascend-4" width="96px" height="96px">
+    <img id="inresemerge-1" onclick="Show('Blowup,inresemerge-1.jpg')" src="inresemerge-1.jpg" alt="inresemerge-1" width="80px" height="160px">
+    <img id="inresemerge-2" onclick="Show('Blowup,inresemerge-2.jpg')" src="inresemerge-2.jpg" alt="inresemerge-2" width="80px" height="160px">
+    <img id="inresupwelling-1" onclick="Show('Blowup,inresupwelling-1.jpg')" src="inresupwelling-1.jpg" alt="inresupwelling-1" width="96px" height="96px">
+    <img id="inresupwelling-2" onclick="Show('Blowup,inresupwelling-2.jpg')" src="inresupwelling-2.jpg" alt="inresupwelling-2" width="96px" height="96px">
+    <img id="inresupwelling-3" onclick="Show('Blowup,inresupwelling-3.jpg')" src="inresupwelling-3.jpg" alt="inresupwelling-3" width="96px" height="96px">
+    <img id="inresupwelling-4" onclick="Show('Blowup,inresupwelling-4.jpg')" src="inresupwelling-4.jpg" alt="inresupwelling-4" width="96px" height="96px">
+    <img id="inrestouch-1" onclick="Show('Blowup,inrestouch-1.jpg')" src="inrestouch-1.jpg" alt="inrestouch-1" width="80px" height="160px">
+    <img id="inrestouch-2" onclick="Show('Blowup,inrestouch-2.jpg')" src="inrestouch-2.jpg" alt="inrestouch-2" width="80px" height="160px">
+    <img id="inreshidden-1" onclick="Show('Blowup,inreshidden-1.jpg')" src="inreshidden-1.jpg" alt="inreshidden-1" width="80px" height="160px">
+    <img id="inreshidden-3" onclick="Show('Blowup,inreshidden-3.jpg')" src="inreshidden-3.jpg" alt="inreshidden-3" width="80px" height="160px">
+    <img id="inreshidden-2" onclick="Show('Blowup,inreshidden-2.jpg')" src="inreshidden-2.jpg" alt="inreshidden-2" width="208px" height="96px">
+    <img id="smstudy-6" onclick="Show('Blowup,smstudy-6.jpg')" src="smstudy-6.jpg" alt="smstudy-6" width="40px" height="40px">
+    <img id="smstudy-30" onclick="Show('Blowup,smstudy-30.jpg')" src="smstudy-30.jpg" alt="smstudy-30" width="40px" height="40px">
+    <img id="smstudy-29" onclick="Show('Blowup,smstudy-29.jpg')" src="smstudy-29.jpg" alt="smstudy-29" width="40px" height="40px">
+    <img id="smstudy-1" onclick="Show('Blowup,smstudy-1.jpg')" src="smstudy-1.jpg" alt="smstudy-1" width="40px" height="40px">
+    <img id="smstudy-28" onclick="Show('Blowup,smstudy-28.jpg')" src="smstudy-28.jpg" alt="smstudy-28" width="40px" height="40px">
+    <img id="smstudy-3" onclick="Show('Blowup,smstudy-3.jpg')" src="smstudy-3.jpg" alt="smstudy-3" width="40px" height="40px">
+    <img id="smstudy-10" onclick="Show('Blowup,smstudy-10.jpg')" src="smstudy-10.jpg" alt="smstudy-10" width="40px" height="40px">
+    <img id="smstudy-11" onclick="Show('Blowup,smstudy-11.jpg')" src="smstudy-11.jpg" alt="smstudy-11" width="40px" height="40px">
+    <img id="smstudy-12" onclick="Show('Blowup,smstudy-12.jpg')" src="smstudy-12.jpg" alt="smstudy-12" width="40px" height="40px">
+    <img id="smstudy-23" onclick="Show('Blowup,smstudy-23.jpg')" src="smstudy-23.jpg" alt="smstudy-23" width="40px" height="40px">
+    <img id="smstudy-26" onclick="Show('Blowup,smstudy-26.jpg')" src="smstudy-26.jpg" alt="smstudy-26" width="40px" height="40px">
+    <img id="smstudy-2" onclick="Show('Blowup,smstudy-2.jpg')" src="smstudy-2.jpg" alt="smstudy-2" width="40px" height="40px">
+    <img id="smstudy-24" onclick="Show('Blowup,smstudy-24.jpg')" src="smstudy-24.jpg" alt="smstudy-24" width="40px" height="40px">
+    <img id="smstudy-14" onclick="Show('Blowup,smstudy-14.jpg')" src="smstudy-14.jpg" alt="smstudy-14" width="40px" height="40px">
+    <img id="smstudy-20" onclick="Show('Blowup,smstudy-20.jpg')" src="smstudy-20.jpg" alt="smstudy-20" width="40px" height="40px">
+    <img id="smstudy-19" onclick="Show('Blowup,smstudy-19.jpg')" src="smstudy-19.jpg" alt="smstudy-19" width="40px" height="40px">
+    <img id="smstudy-17" onclick="Show('Blowup,smstudy-17.jpg')" src="smstudy-17.jpg" alt="smstudy-17" width="40px" height="40px">
+    <img id="smstudy-16" onclick="Show('Blowup,smstudy-16.jpg')" src="smstudy-16.jpg" alt="smstudy-16" width="40px" height="40px">
+    <img id="smstudy-15" onclick="Show('Blowup,smstudy-15.jpg')" src="smstudy-15.jpg" alt="smstudy-15" width="40px" height="40px">
+    <img id="tanstblue-5" onclick="Show('Blowup,tanstblue-5.jpg')" src="tanstblue-5.jpg" alt="tanstblue-5" width="48px" height="96px">
+    <img id="tanstblue-1" onclick="Show('Blowup,tanstblue-1.jpg')" src="tanstblue-1.jpg" alt="tanstblue-1" width="48px" height="96px">
+    <img id="tanstblue-7" onclick="Show('Blowup,tanstblue-7.jpg')" src="tanstblue-7.jpg" alt="tanstblue-7" width="48px" height="96px">
+    <img id="tanstblue-9" onclick="Show('Blowup,tanstblue-9.jpg')" src="tanstblue-9.jpg" alt="tanstblue-9" width="48px" height="96px">
+    <img id="tanstblue-10" onclick="Show('Blowup,tanstblue-10.jpg')" src="tanstblue-10.jpg" alt="tanstblue-10" width="48px" height="96px">
+    <img id="tanstblue-11" onclick="Show('Blowup,tanstblue-11.jpg')" src="tanstblue-11.jpg" alt="tanstblue-11" width="48px" height="96px">
+    <img id="tanstblue-12" onclick="Show('Blowup,tanstblue-12.jpg')" src="tanstblue-12.jpg" alt="tanstblue-12" width="48px" height="96px">
+    <img id="tanstblue-4" onclick="Show('Blowup,tanstblue-4.jpg')" src="tanstblue-4.jpg" alt="tanstblue-4" width="48px" height="96px">
+    <img id="tanstblue-3" onclick="Show('Blowup,tanstblue-3.jpg')" src="tanstblue-3.jpg" alt="tanstblue-3" width="48px" height="96px">
+    <img id="tanstblue-6" onclick="Show('Blowup,tanstblue-6.jpg')" src="tanstblue-6.jpg" alt="tanstblue-6" width="48px" height="96px">
+    <img id="tanstblue-2" onclick="Show('Blowup,tanstblue-2.jpg')" src="tanstblue-2.jpg" alt="tanstblue-2" width="48px" height="96px">
+    <img id="confluence-3p2of2" onclick="Show('Blowup,confluence-3p2of2.jpg')" src="confluence-3p2of2.jpg" alt="confluence-3p2of2" width="96px" height="96px">
+    <img id="confluence-3p1of2" onclick="Show('Blowup,confluence-3p1of2.jpg')" src="confluence-3p1of2.jpg" alt="confluence-3p1of2" width="96px" height="96px">
+    <img id="confluence-4p1of2" onclick="Show('Blowup,confluence-4p1of2.jpg')" src="confluence-4p1of2.jpg" alt="confluence-4p1of2" width="96px" height="96px">
+    <img id="confluence-1p2of2" onclick="Show('Blowup,confluence-1p2of2.jpg')" src="confluence-1p2of2.jpg" alt="confluence-1p2of2" width="96px" height="96px">
+    <img id="confluence-4p1of2" onclick="Show('Blowup,confluence-4p1of2.jpg')" src="confluence-4p1of2.jpg" alt="confluence-4p1of2" width="96px" height="96px">
+    <img id="confluence-6p1of2" onclick="Show('Blowup,confluence-6p1of2.jpg')" src="confluence-6p1of2.jpg" alt="confluence-6p1of2" width="96px" height="96px">
+    <img id="confluence-6p2of2" onclick="Show('Blowup,confluence-6p2of2.jpg')" src="confluence-6p2of2.jpg" alt="confluence-6p2of2" width="96px" height="96px">
+    <img id="confluence-1p1of2" onclick="Show('Blowup,confluence-1p1of2.jpg')" src="confluence-1p1of2.jpg" alt="confluence-1p1of2" width="96px" height="96px">
+    <img id="confluence-11p5of5" onclick="Show('Blowup,confluence-11p5of5.jpg')" src="confluence-11p5of5.jpg" alt="confluence-11p5of5" width="96px" height="96px">
+    <img id="stconfluence-9" onclick="Show('Blowup,stconfluence-9.jpg')" src="stconfluence-9.jpg" alt="stconfluence-9" width="96px" height="96px">
+    <img id="confluence-11p3of5" onclick="Show('Blowup,confluence-11p3of5.jpg')" src="confluence-11p3of5.jpg" alt="confluence-11p3of5" width="96px" height="96px">
+    <img id="confluence-11p4of5" onclick="Show('Blowup,confluence-11p4of5.jpg')" src="confluence-11p4of5.jpg" alt="confluence-11p4of5" width="96px" height="96px">
+    <img id="stconfluence-6" onclick="Show('Blowup,stconfluence-6.jpg')" src="stconfluence-6.jpg" alt="stconfluence-6" width="96px" height="96px">
+    <img id="stconfluence-15" onclick="Show('Blowup,stconfluence-15.jpg')" src="stconfluence-15.jpg" alt="stconfluence-15" width="96px" height="96px">
+    <img id="confluence-11p2of5" onclick="Show('Blowup,confluence-11p2of5.jpg')" src="confluence-11p2of5.jpg" alt="confluence-11p2of5" width="96px" height="96px">
+    <img id="stconfluence-7" onclick="Show('Blowup,stconfluence-7.jpg')" src="stconfluence-7.jpg" alt="stconfluence-7" width="96px" height="96px">
+    <img id="stconfluence-8" onclick="Show('Blowup,stconfluence-8.jpg')" src="stconfluence-8.jpg" alt="stconfluence-8" width="96px" height="96px">
+    <img id="stconfluence-1" onclick="Show('Blowup,stconfluence-1.jpg')" src="stconfluence-1.jpg" alt="stconfluence-1" width="96px" height="96px">
+    <img id="stconfluence-4" onclick="Show('Blowup,stconfluence-4.jpg')" src="stconfluence-4.jpg" alt="stconfluence-4" width="96px" height="96px">
+    <img id="stconfluence-3" onclick="Show('Blowup,stconfluence-3.jpg')" src="stconfluence-3.jpg" alt="stconfluence-3" width="96px" height="96px">
+    <img id="stconfluence-13" onclick="Show('Blowup,stconfluence-13.jpg')" src="stconfluence-13.jpg" alt="stconfluence-13" width="96px" height="96px">
+    <img id="stconfluence-12" onclick="Show('Blowup,stconfluence-12.jpg')" src="stconfluence-12.jpg" alt="stconfluence-12" width="96px" height="96px">
+    <img id="stconfluence-11" onclick="Show('Blowup,stconfluence-11.jpg')" src="stconfluence-11.jpg" alt="stconfluence-11" width="96px" height="96px">
+    <img id="stconfluence-10" onclick="Show('Blowup,stconfluence-10.jpg')" src="stconfluence-10.jpg" alt="stconfluence-10" width="96px" height="96px">
+    <img id="confluence-1-M2" onclick="Show('Blowup,confluence-1-M2.png')" src="confluence-1-M2.png" alt="confluence-1-M2" width="208px" height="96px">
+    <img id="confluence-4-M2" onclick="Show('Blowup,confluence-4-M2.png')" src="confluence-4-M2.png" alt="confluence-4-M2" width="208px" height="96px">
+    <img id="confluence-6-M2" onclick="Show('Blowup,confluence-6-M2.png')" src="confluence-6-M2.png" alt="confluence-6-M2" width="208px" height="96px">
+    <img id="confluence-11-M5" onclick="Show('Blowup,confluence-11-M5.png')" src="confluence-11-M5.png" alt="confluence-11-M5" width="208px" height="96px">
+    <img id="confluence-3-M2" onclick="Show('Blowup,confluence-3-M2.png')" src="confluence-3-M2.png" alt="confluence-3-M2" width="208px" height="96px">
+</div>
+<div id="Artist_Statement" style="color:black;">
+   <img id="artist_statement"  width="35%" src="Artist_Statement.jpg" class="center_horizontal">
+</div>
+<div id="Exhibitions" style="color:black">
+    <img id="Exhibition_History" width="50%" src="Exhibition_History.jpg">
+</div>
+<div id="Blowup" style="background-color:#CBD6D8">
+<br/><br/>
+    <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
+    <!-- <div class="top-right">[ X ]</div>  -->
+    <span id="close" onClick="Return_to_Series()"> X </span>
+    <p id="cptn" class="text_centered">-  -  -</p>
+</div>
+<div id='S01' class="align_center_heading" style="display:none;">
+    <p>
+    <img class="vertical-images" src='series_internal_resonance.jpg' height="36px"/>
+    </p>
+    <table width="100%" class="middle_fixed_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
+            <td style="text-align:right;padding: 20px;vertical-align:top"><img src='subseries_ascend.jpg' height="32px"></td>
+            <td style="text-align:left;padding: 0px;" width="390px">
+              <img id= 'inresascend-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-1.jpg')" src='inresascend-1.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresascend-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-2.jpg')" src='inresascend-2.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresascend-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-3.jpg')" src='inresascend-3.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresascend-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-4.jpg')" src='inresascend-4.jpg' width ="90px" height="auto" border="0"> 
+ </td>
+ <tr>
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+            <td style="text-align:right;padding: 20px;vertical-align:top"><img src='subseries_emerge.jpg' height="32px"></td>
+            <td style="text-align:left;padding: 0px;" width="390px">
+              <img id= 'inresemerge-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-1.jpg')" src='inresemerge-1.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresemerge-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-2.jpg')" src='inresemerge-2.jpg' width ="90px" height="auto" border="0"> 
+ </td>
+ <tr>
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+            <td style="text-align:right;padding: 20px;vertical-align:top"><img src='subseries_upwelling.jpg' height="32px"></td>
+            <td style="text-align:left;padding: 0px;" width="390px">
+              <img id= 'inresupwelling-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-1.jpg')" src='inresupwelling-1.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresupwelling-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-2.jpg')" src='inresupwelling-2.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresupwelling-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-3.jpg')" src='inresupwelling-3.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresupwelling-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-4.jpg')" src='inresupwelling-4.jpg' width ="90px" height="auto" border="0"> 
+ </td>
+ <tr>
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+            <td style="text-align:right;padding: 20px;vertical-align:top"><img src='subseries_touch.jpg' height="32px"></td>
+            <td style="text-align:left;padding: 0px;" width="390px">
+              <img id= 'inrestouch-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-1.jpg')" src='inrestouch-1.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inrestouch-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-2.jpg')" src='inrestouch-2.jpg' width ="90px" height="auto" border="0"> 
+ </td>
+ <tr>
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+            <td style="text-align:right;padding: 20px;vertical-align:top"><img src='subseries_hidden.jpg' height="32px"></td>
+            <td style="text-align:left;padding: 0px;" width="390px">
+              <img id= 'inreshidden-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-1.jpg')" src='inreshidden-1.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inreshidden-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-3.jpg')" src='inreshidden-3.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inreshidden-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-2.jpg')" src='inreshidden-2.jpg' width ="90px" height="auto" border="0"> 
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+</table>
+<div id="absolute-div" class="absolute-div">
+<img src="series_message_click_in_header.jpg" height="30"  width="auto">
+</div>
+</div>
+<div id='S02' class="align_center_heading" style="display:none;">
+    <p>
+    <img class="vertical-images" src='series_small_studies.jpg' height="36px"/>
+    </p>
+    <table width="100%" class="middle_fixed_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
+           <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
+            <td style="text-align:left;padding: 0px;" width="485px">
+              <img id= 'smstudy-29' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-29.jpg')" src='smstudy-29.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-28' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-28.jpg')" src='smstudy-28.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-30' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-30.jpg')" src='smstudy-30.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-1' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-1.jpg')" src='smstudy-1.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-2' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-2.jpg')" src='smstudy-2.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-3' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-3.jpg')" src='smstudy-3.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-6' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-6.jpg')" src='smstudy-6.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-10' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-10.jpg')" src='smstudy-10.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-11' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-11.jpg')" src='smstudy-11.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-14' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-14.jpg')" src='smstudy-14.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-15' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-15.jpg')" src='smstudy-15.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-16' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-16.jpg')" src='smstudy-16.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-17' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-17.jpg')" src='smstudy-17.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-19' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-19.jpg')" src='smstudy-19.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-20' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-20.jpg')" src='smstudy-20.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-26' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-26.jpg')" src='smstudy-26.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-23' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-23.jpg')" src='smstudy-23.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-24' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-24.jpg')" src='smstudy-24.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-12' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-12.jpg')" src='smstudy-12.jpg' width ="90px" height="auto" border="0"> 
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+</table>
+<div id="absolute-div" class="absolute-div">
+<img src="series_message_click_in_header.jpg" height="30"  width="auto">
+</div>
+</div>
+<div id='S03' class="align_center_heading" style="display:none;">
+    <p>
+    <img class="vertical-images" src='series_tantric_studies.jpg' height="36px"/>
+    </p>
+    <table width="100%" class="middle_fixed_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
+           <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
+            <td style="text-align:left;padding: 0px;" width="485px">
+              <img id= 'tanstblue-11' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-11.jpg')" src='tanstblue-11.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-4' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-4.jpg')" src='tanstblue-4.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-5' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-5.jpg')" src='tanstblue-5.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-6' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-6.jpg')" src='tanstblue-6.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-7' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-7.jpg')" src='tanstblue-7.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-9' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-9.jpg')" src='tanstblue-9.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-12' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-12.jpg')" src='tanstblue-12.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-3' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-3.jpg')" src='tanstblue-3.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-2' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-2.jpg')" src='tanstblue-2.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-1' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-1.jpg')" src='tanstblue-1.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-10' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-10.jpg')" src='tanstblue-10.jpg' width ="90px" height="auto" border="0"> 
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+</table>
+<div id="absolute-div" class="absolute-div">
+<img src="series_message_click_in_header.jpg" height="30"  width="auto">
+</div>
+</div>
+<div id='S04' class="align_center_heading" style="display:none;">
+    <p>
+    <img class="vertical-images" src='series_confluence.jpg' height="36px"/>
+    </p>
+    <table width="100%" class="middle_fixed_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
+            <td style="text-align:right;padding: 20px;vertical-align:top"><img src='subseries_study_for_confluence.jpg' height="32px"></td>
+            <td style="text-align:left;padding: 0px;" width="500px">
+              <img id= 'stconfluence-12' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-12.jpg')" src='stconfluence-12.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-9' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-9.jpg')" src='stconfluence-9.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-1' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-1.jpg')" src='stconfluence-1.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-10' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-10.jpg')" src='stconfluence-10.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-11' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-11.jpg')" src='stconfluence-11.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-15' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-15.jpg')" src='stconfluence-15.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-3' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-3.jpg')" src='stconfluence-3.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-4' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-4.jpg')" src='stconfluence-4.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-6' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-6.jpg')" src='stconfluence-6.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-8' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-8.jpg')" src='stconfluence-8.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-13' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-13.jpg')" src='stconfluence-13.jpg' width ="108px" height="auto" border="0"> 
+              <img id= 'stconfluence-7' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-7.jpg')" src='stconfluence-7.jpg' width ="108px" height="auto" border="0"> 
+ </td>
+ <tr>
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+            <td style="text-align:right;padding: 20px;vertical-align:top"><img src='subseries_confluence.jpg' height="32px"></td>
+            <td style="text-align:left;padding: 0px;" width="500px">
+              <img id= 'confluence-6-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-6-M2.png')" src='confluence-6-M2.png' width ="216px" height="auto" border="0"> 
+              <img id= 'confluence-4-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4-M2.png')" src='confluence-4-M2.png' width ="216px" height="auto" border="0"> 
+              <img id= 'confluence-1-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1-M2.png')" src='confluence-1-M2.png' width ="216px" height="auto" border="0"> 
+              <img id= 'confluence-3-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3-M2.png')" src='confluence-3-M2.png' width ="216px" height="auto" border="0"> 
+              <img id= 'confluence-11-M5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11-M5.png')" src='confluence-11-M5.png' width ="540px" height="auto" border="0"> 
+</td>
+<td width="auto" style="text-align:left;padding: 0px;" ></td>
+</tr>
+</table>
+<div id="absolute-div" class="absolute-div">
+<img src="series_message_click_in_header.jpg" height="30"  width="auto">
+</div>
+</div>
+</body>
+</html>

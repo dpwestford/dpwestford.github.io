@@ -1,0 +1,10 @@
+Would you like to receive updates from me? 
+I'll let you know of upcoming events and exhibition.
+Please contact me with your email address. Thank you.
+
+
+Please contact me if you would like to know more about my work or recieve updates on exhibitions.
+
+CB = 203
+D6 = 214
+D8 = 216

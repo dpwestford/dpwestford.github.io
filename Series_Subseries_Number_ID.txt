@@ -1,0 +1,58 @@
+Series
+
+Series_Name
+1 internal resonance
+2 small studies
+3 external resonance
+4 tantric studies
+7 confluence
+
+SubSeries_Name
+
+10 study for confluence	->  confluence
+7 open window				->  external resonance
+9 the way through			->  
+8 revelation				->  internal resonance
+6 hidden					->  internal resonance
+5 touch					->  internal resonance
+4 upwelling				->  internal resonance
+3 emerge					->  internal resonance
+2 whisper					->  internal resonance
+1 ascend					->  internal resonance
+12 tantric study in red	->  tantric studies
+11 tantric study in blue	->  tantric studies
+
+
+Piece_ID	Piece_Name	Image_File_Name	Series
+45	confluence #11 (2 of 5)	confluence-11p2of5.jpg	7
+46	confluence #11 (3 of 5)	confluence-11p3of5.jpg	7
+47	confluence #11 (4 of 5)	confluence-11p4of5.jpg	7
+48	confluence #11 (5 of 5)	confluence-11p5of5.jpg	7
+49	confluence #1 (1 of 2)	confluence-1p1of2.jpg	7
+50	confluence #1 (2 of 2)	confluence-1p2of2.jpg	7
+51	confluence #3 (1 of 2)	confluence-3p1of2.jpg	7
+52	confluence #3 (2 of 2)	confluence-3p2of2.jpg	7
+53	confluence #4 (1 of 2)	confluence-4p1of2.jpg	7
+54	confluence #4 (2 of 2)	confluence-4p1of2.jpg	7
+55	confluence #6 (1 of 2)	confluence-6p1of2.jpg	7
+56	confluence #6 (2 of 2)	confluence-6p2of2.jpg	7
+57	internal resonance (ascend #1)	inresascend-1.jpg	7
+58	internal resonance (ascend #2)	inresascend-2.jpg	7
+59	internal resonance (ascend #3)	inresascend-3.jpg	7
+60	internal resonance (ascend #4)	inresascend-4.jpg	7
+61	internal resonance (upwelling #1)	inresupwelling-1.jpg	7
+62	internal resonance (upwelling #2)	inresupwelling-2.jpg	7
+63	internal resonance (upwelling #3)	inresupwelling-3.jpg	7
+64	internal resonance (upwelling #4)	inresupwelling-4.jpg	7
+65	study for confluence, #1	stconfluence-1.jpg	7
+66	study for confluence, #10	stconfluence-10.jpg	7
+67	study for confluence, #11	stconfluence-11.jpg	7
+68	study for confluence, #12	stconfluence-12.jpg	7
+69	study for confluence, #13	stconfluence-13.jpg	7
+70	study for confluence, #3	stconfluence-3.jpg	7
+71	study for confluence, #4	stconfluence-4.jpg	7
+72	study for confluence, #6	stconfluence-6.jpg	7
+73	study for confluence, #7	stconfluence-7.jpg	7
+74	study for confluence, #8	stconfluence-8.jpg	7
+75	study for confluence, #9	stconfluence-9.jpg	7
+79	confluence #11 (1 of 5)	confluence-11p2of5.jpg	7

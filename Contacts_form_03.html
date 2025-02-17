@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Sandra Westford Art">
+    <meta name="keywords" content="Art Show, Pendleton Oregon, Seattle Art Museum, Gallery, Minimalist, Artwork">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandra Westford</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <style type="text/css">
+#pageElement{display:flex; flex-wrap: nowrap; align-items: center}
+         Body {
+             background-color:#CBD6D8;
+         }
+         table.centerx {
+            margin-left: auto;
+            margin-right: auto;
+        }
+         .contact-form {
+                   background:#CBD6D8;
+                   padding: 20px;
+                   border-radius: 8px;
+                   width: 300px;
+               }
+               .contact-form h2 {
+                   margin-bottom: 15px;
+                   color: #555555;
+               }
+               .contact-form label {
+                   display: block;
+                   margin-bottom: 5px;
+                   color: #555;
+               }
+               .contact-form input,
+               .contact-form textarea {
+                   width: 100%;
+                   Font-family: 'Papyrus', serif;
+                   padding: 10px;
+                   margin-bottom: 10px;
+                   border: 1px solid #dddddd;
+                   border-radius: 4px;
+               }
+               .contact-form button {
+                   height: 70%;
+                   width: 321px;
+                   padding: 5px;
+                   Font-family: 'Papyrus', serif;
+                   background: #000000;
+                   border: none;
+                   border-radius: 4px;
+                   color: #FFFFFF;
+                   font-size: 20px;
+                   cursor: pointer;
+               }
+               .contact-form button:hover {
+                   background: #333333;
+               }
+
+            </style>
+    <script>
+        function validateForm() {
+            var name = document.forms["contactForm"]["name"].value;
+            var email = document.forms["contactForm"]["email"].value;
+            var message = document.forms["contactForm"]["message"].value;
+            if (name == "" || email == "" || message == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            return true;
+        }
+    </script>
+<body>
+    <div>
+    <table class="center" style="width:100%">
+        <tr>
+            <td width="auto">&nbsp;</td>
+            <td width="100px"></td>
+            <td width="300px" >&nbsp;</td>
+            <td width="300px" >&nbsp;</td>
+            <td width="100px"></td>
+            <td width="auto">&nbsp;</td>
+
+        <tr>
+            <td width="auto">&nbsp;</td>
+            <td width="100px"></td>
+            <td width="300px">
+                <img src="Add_Message_To_Contact_Page.jpg" height="150"  width="auto" style="float: right;"> 
+            </td>
+            <td width="300px">           
+                <div class="contact-form">
+                <form action="contact.php" method="post">     
+                <img height=24pt src="Contact_name.jpg" text-align="left">
+                <input type="text" id="name" name="name" required>
+                <img height=24pt src="Contact_Email.jpg" text-align="left">
+                <input type="email" id="email" name="email" required>
+                <img height=28pt src="Contact_Message.jpg" text-align="left">
+                <textarea id="message" name="message" style="height:200px" required></textarea>
+                <button type="submit">Submit</button>
+                </form>
+                </div>
+            </td>
+            <td width="100px"></td>
+            <td width="auto"></td>
+        <tr>
+            <td width="auto">&nbsp;</td>
+            <td width="100px"></td>
+            <td width="300px">
+            <td width="300px">
+            <td width="100px"></td>
+            <td width="auto">&nbsp;</td>
+        </tr>          
+    </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+confluence  confluence_dropdown.jpg
+Works       Works.jpg   
+Wisper		Whisper.jpg
+Westford	Westford_09-5side.jpg
+upwelling
+P101.jpg
+internal resonance internal_resonance_dropdown.jpg
+internal resonance header.jpg
+internal resonance internal_resonance.jpg
+upwelling  img_upwelling.jpg  (white)
+external resonance img_externl_resonance.jpg
+emerge img_emerge.jpg
+Works.jpg
+Image_Missing.jpg
+hidden.jpg
+external_resonance_dropdown.jpg
+external resonance.jpg (white)
+exhibitions.jpg dark
+emerge.jpg
+ascend (white)
+Artist_Statement.jpg
+Exhibition_History_02.jpg
+
+
+Add Piece form  frm_Add_Piece
+
+On Click  calls btn_Submit_Click()
+	Validates Data
+	Adds to data table tbl_Piece
+	
+	series_name = return_graphic_file_name(series_name)
+	
+	
+	confluence#11p1of5.TIF
+	confluence#11p2of5.TIF
+	confluence#11p3of5.TIF
+	confluence#11p4of5.TIF
+	confluence#11p5of5.TIF
+	confluence#1p1of2.TIF
+	confluence#1p2of2.TIF
+	confluence#3p1of2.TIF
+	confluence#3p2of2.TIF
+	confluence#4p1of2.TIF
+	confluence#4p2of2.TIF
+	confluence#6p1of2.TIF
+	confluence#6p2of2.TIF
+	inresascend#1.TIF
+	inresascend#2.TIF
+	inresascend#3.TIF
+	inresascend#4.TIF
+	inresupwelling#1.TIF
+	inresupwelling#2.TIF
+	inresupwelling#3.TIF
+	inresupwelling#4.TIF
+	stconfluence#1.TIF
+	stconfluence#10.TIF
+	stconfluence#11.TIF
+	stconfluence#12.TIF
+	stconfluence#13.TIF
+	stconfluence#15.TIF
+	stconfluence#3.TIF
+	stconfluence#4.TIF
+	stconfluence#6.TIF
+	stconfluence#7.TIF
+	stconfluence#8.TIF
+	stconfluence#9.TIF

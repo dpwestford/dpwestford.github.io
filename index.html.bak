@@ -3,463 +3,517 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandra Broom Westford</title>
-	<style type="text/css">
-        .zero_margin{
+    <title>Sandra Westford</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <style type="text/css">
+#pageElement{display:flex; flex-wrap: nowrap; align-items: center}
+        .align_center_heading{
+            display: flex;
+            justify-content: center;
+            font-family: 'Papyrus', serif;
+            font-size: 36px;
+            border: none;
+            border-collapse: collapse;
+        }
+        .center_horizontal {
+            display:block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .Center_Div{
+            border: 1px solid white;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border: none;
+            border-collapse: collapse;
+        }
+        .Center_Table{
+            border: 1px solid white;
+            display: inline-table;
+            border: none;
+            border-collapse: collapse;
+        }
+        .drop_down_margins{
             margin-top: 0;
             margin-bottom: 0;
-            margin-right: 0;
-            margin-left: 50;
+            margin-right: 10;
+            margin-left:10;
         }
-
-        .white_background{
-            background-color:white;
-            color:black;
-        }
-        .float_right{
-            float:right;
+        .color_of_heading_background{
+            border-collapse: collapse;
+            background-color:rgb(0,0,0) ;
+            color:rgb(255,255,255);
+            border: none;
+            border-collapse: collapse;
         }
         .dropdown-content{
             display: none;
             position: absolute;
             top: 0px;
             left: 0px;
-            background-color: #f1f1f1;
+            background-color:rgb(0,0,0);
+            color:rgb(255,255,255);
             min-width: 160px;
             overflow: auto;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
-            font-size:x-large;
+            /*font-size:x-large;*/
         }
-
         .dropdown-content a {
-            color: black;
+            color: rgb(255,255,255);
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
-
         .dropdown a:hover {background-color: #ddd;}
-
         .top-right {
             position: absolute;
             top:30px;
             right: 26px;
-            color:black;
-            font-family:  'Ink Free', sans-serif;
-            font-size:x-large;
-            font-weight:bold
+            color:rgb(255,255,255);
+            font-family: 'Papyrus', 'Brush Script MT', cursive;
+            /* font-size:x-large; */ 
+            font-weight: bold
         }
-
         .title_line{
-        color:black;
-        text-align: center;
-        font-family: 'Ink Free', sans-serif;
-        font-weight:bold; font-size: 30px;
-    }
-    .solid_table{
-        border: none;
-        border-collapse: collapse;
-    }
+            color:rgb(255,255,255);
+            text-align: center;
+            font-family: 'Papyrus', 'Brush Script MT', cursive;
+           /* font-weight:bold; font-size: 30px; */ 
+        }
+  /*      .solid_table{
+            border: none;
+            border-collapse: collapse;
+        }   */ 
     div#Blowup{
+      background-color: rgb(255,255,255);
         display: none;
     }
-
-    div#Works{
-        display: none;
-    }
-
-    div#Artist_Statement {
-        display: none;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    div#Exhibitions{
-        display: none;
-        font-family: 'Ink Free', sans-serif;
-	    border-collapse: collapse;
-	    width: -10px;
-	    display:none;
-        margin-left:30%;
-    }
-
-     .image1 {
-        position: relative;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-      }
-
-      .center {
-            margin-left: auto;
-            margin-right: auto;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight:100
-        }
-        .dimension{  
-            line-height:20px; 
-            font-size:x-large;
-        }
-        .bg {
-            background-color:white;
-            color:black;
-        }
-        .bg_dark{
-            background-color:rgb(0, 0, 0);
-            color:white;
-        }
-        .menu{
+        div#Works{
+      background-color: rgb(255,255,255);
             display: none;
         }
-
-      table{
-        font-family:Arial, Helvetica, sans-serif;
-        font-size: 70%;
-      }
-      .text_centered{
-        font-family:Arial, Helvetica, sans-serif;
-        font-size: 70%;
-        text-align:center;
-        color:black;
-      }
-      .exhibits{
-        margin-left: auto;
-        margin-right: auto;  
-        font-family:Arial, Helvetica, sans-serif;
-        font-size: 70%;
-        margin-left:30%;
-      }
-
-      #toppings {
-	  font-family: Arial, Helvetica, sans-serif;
-	  border-collapse: collapse;
-	  width: -10px;
-	  display:inline-block;
-	}
-
-	.testtableimage{
-		display:inline-block;
-		vertical-align:top;
-		max-width: 30%;
-		max-height: 30%
-	}
-
-      .center2 {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight:100;
-      }
-      .center3 {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight:100;
-      }
-
-    </style>      
-    <script>	
-    //todo:
-   //      window.addEventListener("resize", resized);
-
+         div#Artist_Statement {
+              display: none;
+              margin-left: auto;
+              margin-right: auto;
+        }
+        div#Exhibitions{
+            display: none;
+            font-family: 'Papyrus', 'Brush Script MT', cursive;
+            border-collapse: collapse;
+            width: -10px;
+            display:none;
+            margin-left:30%;
+        }
+          .center {
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                /* font-weight:100  */  
+            }
+            .dimension{
+                line-height:20px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .bg {
+                background-color:rgb(0,0,0);
+                color:rgb(255,255,255);
+            }
+            .bg_dark{
+                background-color:rgb(0,0,0);
+                color:"rgb(255,255,255)";
+            }
+            .menu{
+                display: none;
+            }
+              table{
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+              }
+              .text_centered{
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                font-size: 20px;
+                text-align:center;
+                color:"rgb(0,0,0)";
+              }
+              .exhibits{
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                font-size: 70%;
+                margin-left:30%;
+              }
+                #toppings {
+                  font-family: 'Papyrus', 'Brush Script MT', cursive;
+                  border-collapse: collapse;
+                  width: -10px;
+                  display:inline-block;
+                }
+                .testtableimage{
+                   display:inline-block;
+                   vertical-align:top;
+                   max-width: 30%;
+                   max-height: 30%
+                }
+              .center2 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                /*  font-weight:100;  */  
+              }
+              .center3 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+                font-weight:100;
+              }
+              /* -- TODO: Add CSS to web page */
+              .containerdiv {
+                position:relative;
+                width:100%;
+                display:inline-block;
+                font-family: 'Papyrus', 'Brush Script MT', cursive;
+            }
+            #image1 { position: absolute; top: 20px; left: 10px; }
+            #close {
+                position:absolute;
+                top: 0px;
+                left: 630px;
+                font-size: 32px;
+                cursor: pointer;
+                font-family: 'Arial', sans-serif;
+                color: gray;
+            }
+            /* TODO: Previous is to be added */
+    </style>
+    <script>
+ 
+        window.addEventListener("resize", resized);
+ 
         var current_div = "Home";
         const file_names=[
-        "inresascend2_mas_or.jpg",
-        "inresascend3_mas_or.jpg",
-        "inresupwell1_mas_or.jpg",
-        "inresupwell2_mas_or.jpg",
-        "inresupwell4_mas_or.jpg",
-        "inreswhisp2_mas_or.jpg",
-        "tantricstudy2_mas_or.jpg",
-        "tantricstudy3_mas_or.jpg",
-        "tantricstudy4_mas_or.jpg",
-        "studyberecon1_mas_or.jpg",
-        "studyberecon2_mas_or.jpg",
-        "studyberecon3_mas_or.jpg",
-        "Westford_09-5side.jpg",
-        "P101.jpg"
+        "inresascend-1.jpg",
+        "inresascend-2.jpg",
+        "inresascend-3.jpg",
+        "inresascend-4.jpg",
+        "inresemerge-1.jpg",
+        "inresemerge-2.jpg",
+        "inresupwelling-2.jpg",
+        "inresupwelling-1.jpg",
+        "inresupwelling-4.jpg",
+        "inresupwelling-3.jpg",
+        "inrestouch-2.jpg",
+        "inrestouch-1.jpg",
+        "inreshidden-2.jpg",
+        "inreshidden-1.jpg",
+        "inreshidden-3.jpg",
+        "tanstblue-4.jpg",
+        "tanstblue-12.jpg",
+        "tanstblue-11.jpg",
+        "tanstblue-10.jpg",
+        "tanstblue-9.jpg",
+        "tanstblue-7.jpg",
+        "tanstblue-5.jpg",
+        "tanstblue-1.jpg",
+        "tanstblue-3.jpg",
+        "tanstblue-2.jpg",
+        "tanstblue-6.jpg",
+        "confluence-6p1of2.jpg",
+        "confluence-6p2of2.jpg",
+        "confluence-4p1of2.jpg",
+        "confluence-4p1of2.jpg",
+        "confluence-3p2of2.jpg",
+        "confluence-3p1of2.jpg",
+        "confluence-1p2of2.jpg",
+        "confluence-1p1of2.jpg",
+        "confluence-11p4of5.jpg",
+        "stconfluence-7.jpg",
+        "confluence-11p3of5.jpg",
+        "confluence-11p5of5.jpg",
+        "stconfluence-6.jpg",
+        "stconfluence-15.jpg",
+        "confluence-4-M2.jpg",
+        "confluence-1-M2.jpg",
+        "confluence-3-M2.jpg",
+        "confluence-11-M5.jpg",
+        "confluence-11p2of5.jpg",
+        "stconfluence-4.jpg",
+        "stconfluence-8.jpg",
+        "stconfluence-1.jpg",
+        "confluence-11p2of5.jpg",
+        "stconfluence-3.jpg",
+        "stconfluence-13.jpg",
+        "stconfluence-12.jpg",
+        "stconfluence-11.jpg",
+        "stconfluence-10.jpg",
+        "stconfluence-9.jpg",
         ];
         const file_descriptions=[
-        "description of inresascend2_mas_or.jpg goes here",
-        "description of inresascend3_mas_or.jpg goes here",
-        "description of inresupwell1_mas_or.jpg goes here",
-        "description of inresupwell2_mas_or.jpg goes here",
-        "description of inresupwell4_mas_or.jpg goes here",
-        "description of inreswhisp2_mas_or.jpg goes here",
-        "description of tantricstudy2_mas_or.jpg goes here",
-        "description of tantricstudy3_mas_or.jpg goes here",
-        "description of tantricstudy4_mas_or.jpg goes here",
-        "description of studyberecon1_mas_or.jpg goes here",
-        "description of studyberecon2_mas_or.jpg goes here",
-        "description of studyberecon3_mas_or.jpg goes here",
-        "description of Westford_09-5side.jpg goes here",
-        "description of P101.jpg"
+        "internal resonance (ascend #1), Mixed Media, 12 x 12, 2024",
+        "internal resonance (ascend #2), Mixed Media, 12 x 12, 2024",
+        "internal resonance (ascend #3), Mixed Media, 12 x 12, 2024",
+        "internal resonance (ascend #4), Mixed Media, 12 x 12, 2024",
+        "internal resonance (emerge #1), Mixed Media, 20 x 10, 2024",
+        "internal resonance (emerge #2), Mixed Media, 20 x 10, 2024",
+        "internal resonance (upwelling #2), Mixed Media, 12 x 12, 2024",
+        "internal resonance (upwelling #1), Mixed Media, 12 x 12, 2024",
+        "internal resonance (upwelling #4), Mixed Media, 12 x 12, 2024",
+        "internal resonance (upwelling #3), Mixed Media, 12 x 12, 2024",
+        "internal resonance (touch #2), Mixed Media, 20 x 10, 2024",
+        "internal resonance (touch #1), Mixed Media, 20 x 10, 2024",
+        "internal resonance (hidden #2), Mixed Media, 12 x 26, 2024",
+        "internal resonance (hidden #1), Mixed Media, 20 x 10, 2024",
+        "internal resonance (hidden #3), Mixed Media, 20 x 10, 2024",
+        "tantric study in blue #4, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #12, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #11, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #10, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #9, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #7, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #5, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #1, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #3, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #2, Mixed Media, 12 x 6, 2024",
+        "tantric study in blue #6, Mixed Media, 12 x 6, 2024",
+        "confluence #6 (1 of 2), Mixed Media, 12 x 12, 2024",
+        "confluence #6 (2 of 2), Mixed Media, 12 x 12, 2024",
+        "confluence #4 (2 of 2), Mixed Media, 12 x 12, 2024",
+        "confluence #4 (1 of 2), Mixed Media, 12 x 12, 2024",
+        "confluence #3 (2 of 2), Mixed Media, 12 x 12, 2024",
+        "confluence #3 (1 of 2), Mixed Media, 12 x 12, 2024",
+        "confluence #1 (2 of 2), Mixed Media, 12 x 12, 2024",
+        "confluence #1 (1 of 2), Mixed Media, 12 x 12, 2024",
+        "confluence #11 (4 of 5), Mixed Media, 12 x 12, 2024",
+        "study for confluence, #7, Mixed Media, 12 x 12, 2024",
+        "confluence #11 (3 of 5), Mixed Media, 12 x 12, 2024",
+        "confluence #11 (5 of 5), Mixed Media, 12 x 12, 2024",
+        "study for confluence, #6, Mixed Media, 12 x 12, 2024",
+        "study for confluence #15, Mixed Media, 12 x 12, 2024",
+        "confluence #4, Mixed Media, 12 x 26, 2024",
+        "confluence #1, Mixed Media, 12 x 26, 2024",
+        "confluence #3, Mixed Media, 12 x 26, 2024",
+        "Confluence #11, Mixed Media, 12 x 68, 2024",
+        "confluence #11 (1 of 5), Mixed Media, 12 x 12, 2024",
+        "study for confluence, #4, Mixed Media, 12 x 12, 2024",
+        "study for confluence, #8, Mixed Media, 12 x 12, 2024",
+        "study for confluence, #1, Mixed Media, 12 x 12, 2024",
+        "confluence #11 (2 of 5), Mixed Media, 12 x 12, 2024",
+        "study for confluence, #3, Mixed Media, 12 x 12, 2024",
+        "study for confluence, #13, Mixed Media, 12 x 12, 2024",
+        "study for confluence, #12, Mixed Media, 12 x 12, 2024",
+        "study for confluence, #11, Mixed Media, 12 x 12, 2024",
+        "study for confluence, #10, Mixed Media, 12 x 12, 2024",
+        "study for confluence, #9, Mixed Media, 12 x 12, 2024",
         ];
-
+        function center_home(){
+            var wth = window.innerWidth - 30;
+            'var ht = window.innerHeight - 150;
+            var ht = window.innerHeight - 100;
+            var image = document.getElementById("home_jpg");
+            var height = image.naturalHeight;
+            var width = image.naturalWidth;
+            var ratio_natural = height/width;
+            var ratio_window = ht/wth;
+            if (ratio_natural > ratio_window){
+                image.height = ht;
+                image.width = ht*width/height;
+            }
+            else{
+                image.width = wth;
+                image.height = wth*height/width;
+            }
+        }
         function resized(){
-            console.log("resized");
-            const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-            
-            console.log("width: "+ width + " height: " + height);
-
-            // Go to the position_menu_bar
-            position_menu_bar();
-            // we want to position the home page image within the window space for id="second_animation_04"
-
-            const home_image = document.getElementById("second_animation_04");
-            var imageRatio = home_image.clientHeight/home_image.clientWidth;
-            var clientRatio = height/width;
-            var scale_factor = 1.0;
-            if (imageRatio > clientRatio){
-                scale_factor = height/home_image.clientHeight;
+            if ("Home" == current_div){
+                center_home();
             }
-            else{
-                scale_factor = width/home_image.clientWidth;
+            else if("Blowup" == current_div){
+                Position_Close_Box("bp");
             }
-            home_image.style['height'] = Math.round(home_image.clientHeight*scale_factor) + 'px';
-            home_image.style['width'] = Math.round(home_image.clientWidth*scale_factor) + 'px';
-
-            // home_image.style['margin'] = 0;
-            // document.body.style['margin'] = 0;
-
-            if (width > 1902){
-                var mrgn =  "600px" ;
-            }
-            else if (width >1202){
-               // document.body.style['margin'] = 0;
-                var mrgn =  "300px" ;
-            }
-            else{
-                var mrgn =  "0px" ;
-            }
-
-            var size = mrgn;
-            var series = document.getElementById("CAT1");
-            series.style.marginLeft = size;
-            series = document.getElementById("CAT2");
-            series.style.marginLeft = size;
-            series = document.getElementById("CAT3");
-            series.style.marginLeft = size;
-            series = document.getElementById("CAT4");
-            series.style.marginLeft = size;
-            series = document.getElementById("CAT5");
-            series.style.marginLeft = size;
-
-            // TODO: change the font size in the header depending on the width of screen
         }
-
+        function reset_text_color()
+        {
+            document.getElementById("itHome").style.color ="rgb(255,255,255)";
+            document.getElementById("itWorks").style.color ="rgb(255,255,255)";
+            document.getElementById("itExhibitions").style.color ="rgb(255,255,255)";
+            document.getElementById("itAbout").style.color ="rgb(255,255,255)";
+        }
+        function red_the_text(divID){
+            reset_text_color();
+            var cellName = "it"+divID;
+            // // console.log ("cellname = " + cellName);
+            var oCellName= document.getElementById(cellName).style.color = '#F11110';
+        }
         function hide_most_divisions(){
-
-            var div = document.getElementById('CAT1');
-         
-            if (div !== null){      
-                console.log("div is valid");      
-                div.style.display = "none";
-                var div = document.getElementById('CAT2');
-                div.style.display = "none";
-                div = document.getElementById('CAT3');
-                div.style.display = "none";
-                div = document.getElementById('CAT4');
-                div.style.display = "none";
-                div = document.getElementById('CAT5');
+            var div = document.getElementById('S01');
+            if (div !== null){
                 div.style.display = "none";
              }
-             else{
-                console.log("div is null");
+            var div = document.getElementById('S02');
+            if (div !== null){
+                div.style.display = "none";
              }
+            var div = document.getElementById('S03');
+            if (div !== null){
+                div.style.display = "none";
+             }
+            var div = document.getElementById('S04');
+            if (div !== null){
+                div.style.display = "none";
+             }
+        var div = document.getElementById('Works');
+        if (div !== null){
+                div.style.display = "none";
         }
-
+      }
         function show_division(div_text_id){
             var div_temp = document.getElementById(div_text_id);
             div_temp.style.display = "block";
-            console.log("div_text_id = " + div_text_id);
+            // // console.log("div_text_id = " + div_text_id);
         }
-
         function return_file_description_for(file_name){
             var file_desc = "";
             var i = 0;
             var item_number = 0;
             var item_number_found = -1;
             var continue_loop = true;
-            // console.log("About to do the while loop");
-            while (item_number < file_names.length && continue_loop)  { 
+            // // // console.log("About to do the while loop");
+            while (item_number < file_names.length && continue_loop)  {
                 if (file_name.trim() == file_names[item_number].trim()){
                     item_number_found = item_number;
                     continue_loop = false;
-                    console.log("Found number = " + item_number_found );
+                    // // console.log("Found number = " + item_number_found );
                 }
-
                 ++item_number;
             }
-         
-
             file_description = file_descriptions[item_number_found];
-            // console.log("file_desc = " + item_number_found + "  " + file_description);
-
+            // // // console.log("file_desc = " + item_number_found + "  " + file_description);
             return file_description;
         }
-//todo incorporate
-        function position_menu_bar_cxccc(){
-
-            let winwidth = window.innerWidth;
-            // console.log("winwidth = " + winwidth);
-            let left_menu_cell_width = 2.0;
-            let name_menu_cell_width = 260;
-            let home_width = 40.0;
-            let works_width = 40.0;
-            let exhibition_width = 60.0;
-            let artist_statement = 90.0;
-            let right_menu_cell_width = 2.0;
-
-            let sum_of_inner_cells = left_menu_cell_width + name_menu_cell_width + home_width + works_width + exhibition_width + artist_statement + right_menu_cell_width;
-            // alert("sum of widths is " + sum_of_inner_cells);
-            let added_margin = (winwidth-sum_of_inner_cells)/2.0
-            const o_header_table = document.getElementById("menu_bar");
-            var left_margin = o_header_table.rows[0].cells[0];
-            var right_margin = o_header_table.rows[0].cells[6];
-            left_margin_width = left_menu_cell_width + added_margin;
-            left_margin.width = left_margin_width + "px";
-            right_margin_width = right_menu_cell_width + added_margin;
-            right_margin.width = right_margin_width + "px";
-
-        }
-
         function hideDiv(divID) {
-            console.log("hide divID = " + divID);
+            // console.log("hide divID = " + divID);
             document.getElementById(divID).style.display = "none";
         }
         function showDiv(divID){
-            //alert("show divID = " + divID);            
             document.getElementById(divID).style.display = "block";
-            //alert("show divID = " + divID);
         }
         function Show(divID){
-            console.log("divID = '"+ divID + "'");
-
+            // console.log("divID = '"+ divID + "'");
             if("Home" == divID){
+                current_div = "Home";
+                reset_text_color();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
                 hideDiv("Exhibitions");
+                hideDiv("Works");
                 showDiv("Home");
-
-            }
-            else if("Works" == divID){
-                hide_most_divisions();
-                hideDiv("Blowup");
-                hideDiv("Home");
-                hideDiv("Artist_Statement");
-                hideDiv("Exhibitions");
-                hideDiv("Works");
-                //TODO: Check the following:
-                // showDiv("Works");
-
+                red_the_text("Home");
             }
             else if("Artist_Statement" == divID){
+                current_div = "Artist_Statement";
+                reset_text_color();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Home");
                 hideDiv("Exhibitions");
                 showDiv("Artist_Statement");
+                red_the_text("About");
             }
             else if("Exhibitions" == divID){
+                current_div = "Exhibitions";
+                reset_text_color();
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
                 hideDiv("Home");
                 showDiv("Exhibitions");
+                red_the_text("Exhibitions");
             }
             else if("Blowup" == divID.slice(0,6)){
+                current_div = "Blowup";
                 hide_most_divisions();
-                console.log(divID);
+                // console.log(divID);
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
                 hideDiv("Home");
                 hideDiv("Exhibitions");
-                // console.log("All hidden");
+                // // console.log("All hidden");
                 var str = divID.split(',')
-                // console.log("It is split");
+                // // console.log("It is split");
                 var blowup_Div_text_id = "Blowup";
-                // console.log(blowup_Div_text_id);
+                // // console.log(blowup_Div_text_id);
                 var blowupDiv = document.getElementById(blowup_Div_text_id);
                 var src_file="tantricstudy1.jpg";
                 var ratio = 1.0;
-                
-                console.log(src_file);
+                // console.log(src_file);
                 if (str.length > 1){
                     src_file = str[1].trim();
                 }
                 else{
-                    console.log("error: str array less than two.");
+                    // console.log("error: str array less than two.");
                 }
-                console.log(src_file);
+                // console.log(src_file);
                 var HorMargin = 35.0;
-                console.log(HorMargin);
-                var BotMargin = 175.0;
-                console.log(BotMargin);
+                // console.log(HorMargin);
+                // var BotMargin = 175.0;
+                var BotMargin = 225.0;
+                // console.log(BotMargin);
                 var fctr = 1.0;
-                console.log(fctr);
+                // console.log(fctr);
                 var winWidth = window.innerWidth - 2*HorMargin;
-                console.log(winWidth);
+                // console.log(winWidth);
                 const menu = document.getElementById('menu_bar');
                 const src_element = document.getElementById('bp');
                 var rect = menu.getBoundingClientRect();
-                console.log("window.innerHeight = " + window.innerHeight);
-
-                console.log("rect.top = " + rect.top);
-                console.log("BotMargin = " + BotMargin);
-                console.log("Found rect for division");
+                // console.log("window.innerHeight = " + window.innerHeight);
+                // console.log("rect.top = " + rect.top);
+                // console.log("BotMargin = " + BotMargin);
+                // console.log("Found rect for division");
                 var winHeight = window.innerHeight - rect.top - BotMargin;
-                console.log(winHeight);
-                console.log("window.innerWidth = " + window.innerWidth);
-
-                console.log("BotMargin*2 = " + 2* BotMargin);
-                console.log("Found rect for division");
+                // console.log(winHeight);
+                // console.log("window.innerWidth = " + window.innerWidth);
+                // console.log("BotMargin*2 = " + 2* BotMargin);
+                // console.log("Found rect for division");
                 var winWidth =  window.innerWidth - HorMargin * 2;
-                console.log(winWidth);
-
+                // console.log(winWidth);
                 var fctr = parseFloat(winHeight)/parseFloat(winWidth);
-                console.log("fctr = " + fctr);
-  
-                console.log("Found src_element bp");
-                console.log("src_file = '" + src_file + "'")
+                // console.log("fctr = " + fctr);
+                // console.log("Found src_element bp");
+                // console.log("src_file = '" + src_file + "'")
                 src_element.src = src_file;
                 var mysrc = src_element.src;
-                console.log(mysrc);
-                console.log("Set src");
+                // console.log(mysrc);
+                // console.log("Set src");
                 var wdth= src_element.naturalWidth;
-                console.log("Natural width = " + wdth.toString());
+                // console.log("Natural width = " + wdth.toString());
                 var hght= src_element.naturalHeight;
-                console.log("Natural height = " + hght.toString());
+                // console.log("Natural height = " + hght.toString());
                 ratio = hght/wdth;
-                console.log("ratio = " + ratio.toString());
+                // console.log("ratio = " + ratio.toString());
                 // blowupDiv.style.height = winHeight.toString() + "px";
-                console.log(winHeight);
-                console.log("Set winHeight");
+                // console.log(winHeight);
+                // console.log("Set winHeight");
                 // blowupDiv.style.width = winWidth.toString() + "px";
-                console.log(winWidth);
-                console.log("Set winWidth");
+                // console.log(winWidth);
+                // console.log("Set winWidth");
                 var units_horizontal = wdth/winWidth;
-                console.log("units_horizontal = " + units_horizontal);
+                // console.log("units_horizontal = " + units_horizontal);
                 var units_vertical = hght/winHeight;
-                console.log("units_vertical  " + units_vertical);
+                // console.log("units_vertical  " + units_vertical);
                 if ( units_horizontal < units_vertical){
-                    // The size is constrained by height 
+                    // The size is constrained by height
                     // multiply the units_vertical times the natural height
                     px_height = winHeight;
                     px_width = px_height/ratio;
-                    console.log("if px_height = " + px_height.toString());
+                    // console.log("if px_height = " + px_height.toString());
                     px_string_height = px_height.toString() + " px";
                 }
                 else{
@@ -467,34 +521,27 @@
                     // multiply the units_horizontal times the natural width
                     px_width = winWidth;
                     px_height = px_width*ratio;
-                    console.log("else px_width = " + px_width.toString());
+                    // console.log("else px_width = " + px_width.toString());
                     px_string_height = px_height.toString() + " px";
                 }
-                console.log("About to set height");
-           
+                // console.log("About to set height");
                 // blowupDiv.style.height = px_width + " px";
-                console.log("src_element.style.height = px_string_height;  " + px_string_height.toString());
+                // console.log("src_element.style.height = px_string_height;  " + px_string_height.toString());
                 // blowupDiv.style.width = px_height + " px";
-              
                 src_element.style.width = px_width.toString() + "px";
                 src_element.style.height = px_height.toString() + "px";
-
-                console.log("src_file = " + src_file);
-
+                // console.log("src_file = " + src_file);
                 var description_of_piece = return_file_description_for(src_file);
                 console.log("src_file = " + description_of_piece);
-
                 const cap = document.getElementById("cptn");
                 cap.innerText  = description_of_piece;
-
                 showDiv("Blowup");
-                console.log("Just blew up");
-
-
-            }      
-
-            if("CAT1" == divID){
-                console.log("Found DIV1");
+                // console.log("Just blew up");
+                // console.log("Now position the close X");
+                Position_Close_Box('bp');
+            }
+            if('S01' == divID){
+                current_series = divID;
                 hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
@@ -504,8 +551,9 @@
                 hide_most_divisions();
                 show_division(divID);
             }
-            if("CAT2" == divID){
-                console.log("Found DIV2");
+            else if('S02' == divID){
+                current_series = divID;
+                hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
@@ -514,23 +562,9 @@
                 hide_most_divisions();
                 show_division(divID);
             }
-
-            if("CAT3" == divID){
-                console.log("Found DIV3");
-                hideDiv("Blowup");
-                hideDiv("Works");
-                hideDiv("Artist_Statement");
-                hideDiv("Home");
-                hideDiv("Exhibitions");
-              
+            else if('S03' == divID){
+                current_series = divID;
                 hide_most_divisions();
-                console.log("Just hid most divisions");
-                show_division(divID);
-                console.log("Showed division " + divID);
-
-            }
-            if("CAT4" == divID){
-                console.log("Found DIV4");
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
@@ -539,965 +573,351 @@
                 hide_most_divisions();
                 show_division(divID);
             }
-            if("CAT5" == divID){
-                console.log("Found DIV5");
+            else if('S04' == divID){
+                current_series = divID;
+                hide_most_divisions();
                 hideDiv("Blowup");
                 hideDiv("Works");
                 hideDiv("Artist_Statement");
                 hideDiv("Home");
                 hideDiv("Exhibitions");
                 hide_most_divisions();
-                show_division("CAT5");
                 show_division(divID);
             }
             else{
-
             }
         }
         function OnLoadCode(){
-            console.log("Here I am!");
-           // todo: correct this
-           // position_menu_bar();
-            console.log("again 00");
+            hideDiv("Works");
+            current_div="Home";
+            center_home();
             hide_most_divisions();
             const oMy_dropdown = document.getElementById("works_dropdown_div");
             oMy_dropdown.style.display="none";
-            console.log("again 01");
-            //  Get_Window_Size();
-            console.log("again 02");
             document.addEventListener("click", function(e) {
             const clickedElement = e.target;
             const myCell = document.getElementById("itWorks");
-            resized();
             if (clickedElement !== myCell && !myCell.contains(clickedElement)) {
                 const oMy_dropdown = document.getElementById("works_dropdown_div");
-                console.log("Element was not clicked.");
+                // console.log("Element was not clicked.");
                 if (oMy_dropdown.style.display !== "none"){
                     oMy_dropdown.style.display = "none";
                 }
-
+                const oCloseBox = document.getElementById("close");
+                if(clickedElement !== oCloseBox && !oCloseBox.contains(clickedElement)){
+                    // console.log("The close box was not clicked");
+                }
+                else{
+                    // console.log("The close box was clicked!");
+                    Show(current_series);
+                    // console.log("current_series:" + current_series);
+                }
             }
             else{
-                console.log("Element was clicked!");
+                // console.log("Element was clicked!");
                 const oMy_dropdown = document.getElementById("works_dropdown_div");
                 if (oMy_dropdown.style.display==='none'){
                     oMy_dropdown.style.display = "block";
-                    console.log("Now move dropdown");
+                    // console.log("Now move dropdown");
                     var position = oMy_dropdown.getBoundingClientRect();
-                    console.log("left: " + position.left, "top: " + position.top);
+                    // console.log("left: " + position.left, "top: " + position.top);
                     MoveDropDown();
-                    console.log("Moved dropdown");
+                    // console.log("Moved dropdown");
                 }
                 else{
                     oMy_dropdown.style.display = "none";
-                    console.log("Hid dropdown")
+                    // console.log("Hid dropdown")
                 }
             }
+            console.log("chop_top:");
+            element_head = document.getElementById("chop_top");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itHome:");
+            var element_head = document.getElementById("itHome");
+            var rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itWorks:");
+            element_head = document.getElementById("itWorks");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itExhibitions:");
+            element_head = document.getElementById("itExhibitions");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
+            console.log("itAbout:");
+            element_head = document.getElementById("itAbout");
+            rect = element_head.getBoundingClientRect();
+            ReportBoundingBox(rect);
         }
         );
-
         }
-
+        function ReportBoundingBox(rect){
+             console.log("Bounding Box:");
+             console.log("  left:", rect.left);
+             console.log("  top:", rect.top);
+             console.log("  right:", rect.right);
+             console.log("  bottom:", rect.bottom);
+             console.log("  width:", rect.width);
+             console.log("  height:", rect.height);
+         }
         function MoveDropDown(){
-            console.log("MoveDropDown");
+            // console.log("MoveDropDown");
             var cellElement = document.getElementById('itWorks');
             var rect = cellElement.getBoundingClientRect();
-            console.log('Top:', rect.top, 'Right:', rect.right, 'Bottom:', rect.bottom, 'Left:', rect.left);
-
+            // console.log('Top:', rect.top, 'Right:', rect.right, 'Bottom:', rect.bottom, 'Left:', rect.left);
             const drops = document.getElementById("works_dropdown_div");
-            console.log("got drop_down element");
-
+            // console.log("got drop_down element");
             if (drops !== null){
-                console.log("Drops is good");
+                // console.log("Drops is good");
             }
             else{
-                console.log("Drops is bad");
+                // console.log("Drops is bad");
             }
-
-            var size = Math.round(rect.left-100) + "px";
+            var size = Math.round(rect.left-70) + "px";
             drops.style.marginLeft = size;
-
             size = Math.round(rect.top + 40) + "px";
             drops.style.marginTop = size;
-
+            reset_text_color();
+            red_the_text("Works");
         }
-
+        function Position_Close_Box(image_name_id){
+            // console.log("get image object");
+            var oImage = document.getElementById(image_name_id);
+            // console.log("get rectangle");
+            var rectngl = oImage.getBoundingClientRect();
+            // console.log("get rectangle");
+            var rght = rectngl.right+ 5;
+            // console.log("rght = ",rght.toString()," px");
+            var oClose = document.getElementById("close");
+            oClose.style.left= rght.toString() + "px";
+            oClose.style.top= "140px";
+        }
+        function Return_to_Series(fileName) {
+            // console.log("Close box is clicked reported in Return_to_Series()...");
+        }
     </script>
 </head>
-<body onload="OnLoadCode()">
-
-    <div class="zero_margin">
-  <!--  <table id="menu_bar" class="solid_table" class="dropdown" style="font-family: 'Ink Free', sans-serif;"> -->
-    <table id="menu_bar" class="solid_table" style="font-family: 'Ink Free', sans-serif;">
-        <tr height="90">
-            <td width="140px" class="white_background"></td>
-            <td width="100px" class="bg_dark"  ></td>
-            <td width="280px" class="bg_dark"  >
-                    <img id="chop" style="float:right;" src="chop.04.png"alt="" width="60 px" height="60 px">           
-            </td>
-            <td width="40px" class="bg_dark"></td>
-            <td width="500px" style="font-size:36px" class="bg_dark">Sandra Broom Westford</td>
-            <td width="160px" style="font-size:22px;" class="bg_dark" onclick="Show('Home')">Home</td>
-            <td id="itWorks" width="160px" style="font-size:22px;" class="bg_dark"">Works</td> 
-            <td width="160px" style="font-size:22px;" class="bg_dark" onclick="Show('Exhibitions')">Exhibitions</td>
-            <td width="260px" style="font-size:22px;" class="bg_dark" onclick="Show('Artist_Statement')">Artist Statement</td>
-            <td width="450px"class="bg_dark" ></td>
-            <td width="2px" class="white" style="font-size:24px;" width="auto" ></td>
+   <body onload="OnLoadCode()">
+      <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom; font-size:28px">
+         <tr class="color_of_heading_background" class="center-text" height="50px">
+             <td id="chop_top"><img id="chop" style="height:36px;width:300px;vertical-align: -36%;" src="Sandra_Text_Image.jpg" width="130px" height="34px"></td>
+         </tr>
+      </table>
+      <table id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
+         <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
+             <td style="width:auto" colspan="1">&nbsp;</td>
+             <td id="itHome" width="160px" class="white_background" onclick="Show('Home')"><img src="Home.jpg" width="160" height=auto></td>
+             <td id="itWorks" width="160px" class="white_background"><img src="Works.jpg" width="160" height=auto></td>
+             <td id="itExhibitions" width="160px" class="white_background" onclick="Show('Exhibitions')"><img src="Exhibitions.jpg" width="180" height=auto></td>
+             <td id="itAbout" width="160px" class="white_background" onclick="Show('Artist_Statement')"><img src="About.jpg" width="140" height=auto></td>
+             <td style="width:auto" colspan="2">&nbsp;</td>
+         </tr>
+      </table>
+<div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" > 
+    <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
+        <tr>
+           <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S01')"><img src='series_dropdown_internal_resonance.jpg'></td>
         </tr>
-        <tr height="20px"></tr>
+        <tr>
+           <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S02')"><img src='series_dropdown_tantric_studies.jpg'></td>
+        </tr>
+        <tr>
+           <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S03')"><img src='series_dropdown_confluence.jpg'></td>
+        </tr>
     </table>
 </div>
-
-<div id="works_dropdown_div" class="dropdown-content">
-
-    <table id="dropdown_table" style="font-family: 'Ink Free', sans-serif;">
-
-        <tr>
-            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('CAT1')">cat_1</td>
-        </tr>
-
-        <tr>
-
-            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('CAT2')">cat_2</td>
-        </tr>
-
-        <tr>
-
-            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('CAT3')">cat_3 long description</td>
-        </tr>
-
-        <tr>
-
-            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('CAT4')">cat_4</td>
-        </tr>
-
-        <tr>
-
-            <td width="230 px" height = "30px" class="bg" style="color:black;" onclick="Show('CAT5')">cat_5</td>
-        </tr>
-        </td>
-    </td>
-    </table>
-</div>
-
-
 <div id="Home">
-    <img id="second_animation_04" src="open01_mas_or.gif" class="center2">
+    <img id="home_jpg" src="open18.jpg"  class="center_horizontal">
 </div>
-
-<div id="Works">
-    <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-    <img id="exresopenwin1r" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">
-    <img id="inresascend1" onclick="Show('Blowup,inresascend1_mas_or.jpg')" src="inresascend1_mas_or.jpg" alt="Image inresascend1" width="160 px" height="320 px">
-    <img id="inresascend2" onclick="Show('Blowup,inresascend2_mas_or.jpg')" src="inresascend2_mas_or.jpg" alt="Image inresascend2" width="160 px" height="320 px">
-    <img id="inresascend3" onclick="Show('Blowup,inresascend3_mas_or.jpg')" src="inresascend3_mas_or.jpg" alt="Image inresascend3" width="160 px" height="320 px">
-    <img id="inresascend4" onclick="Show('Blowup,inresascend4_mas_or.jpg')" src="inresascend4_mas_or.jpg" alt="Image inresascend4" width="160 px" height="320 px">
-    <img id="inresascend5" onclick="Show('Blowup,inresascend5_mas_or.jpg')" src="inresascend5_mas_or.jpg" alt="Image inresascend5" width="160 px" height="320 px">
-    <img id="inresemerge1" onclick="Show('Blowup,inresemerge1_mas_or.jpg')" src="inresemerge1_mas_or.jpg" alt="Image inresemerge1" width="160 px" height="320 px">
-    <img id="inresemerge2" onclick="Show('Blowup,inresemerge2_mas_or.jpg')" src="inresemerge2_mas_or.jpg" alt="Image inresemerge2" width="160 px" height="320 px">
-    <img id="inrestouch1" onclick="Show('Blowup,inrestouch1_mas_or.jpg')" src="inrestouch1_mas_or.jpg" alt="Image inrestouch1" width="160 px" height="320 px">
-    <img id="inresupwell1" onclick="Show('Blowup,inresupwell1_mas_or.jpg')" src="inresupwell1_mas_or.jpg" alt="Image inresupwell1" width="160 px" height="320 px">
-    <img id="inresupwell2" onclick="Show('Blowup,inresupwell2_mas_or.jpg')" src="inresupwell2_mas_or.jpg" alt="Image inresupwell2" width="160 px" height="320 px">
-    <img id="inresupwell3" onclick="Show('Blowup,inresupwell3_mas_or.jpg')" src="inresupwell3_mas_or.jpg" alt="Image inresupwell3" width="160 px" height="320 px">
-    <img id="inresupwell4" onclick="Show('Blowup,inresupwell4_mas_or.jpg')" src="inresupwell4_mas_or.jpg" alt="Image inresupwell4" width="160 px" height="320 px">
-    <img id="inresupwell5" onclick="Show('Blowup,inresupwell5_mas_or.jpg')" src="inresupwell5_mas_or.jpg" alt="Image inresupwell5" width="160 px" height="320 px">
-    <img id="inreswhisp2" onclick="Show('Blowup,inreswhisp2_mas_or.jpg')" src="inreswhisp2_mas_or.jpg" alt="Image inreswhisp2" width="160 px" height="320 px">
-    <img id="inreswhisper1" onclick="Show('Blowup,inreswhisper1_mas_or.jpg')" src="inreswhisper1_mas_or.jpg" alt="Image inreswhisper1" width="160 px" height="320 px">
-    <img id="inreswhisper3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image inreswhisper3" width="160 px" height="320 px">
-    <img id="P1010356.jpg" onclick="Show('Blowup,P1010356.jpg')" src="P1010356.jpg" alt="Image P1010356" width="480 px" height="320 px">
-    <img id="smstudy10-1" onclick="Show('Blowup,smstudy10-1_mas_or.jpg')" src="smstudy10-1_mas_or.jpg" alt="Image smstudy10-1" width="160 px" Height="160 px">
-    <img id="smstudy10-2" onclick="Show('Blowup,smstudy10-2_mas_or.jpg')" src="smstudy10-2_mas_or.jpg" alt="Image smstudy10-2" width="160 px" Height="160 px">
-    <img id="smstudy1" onclick="Show('Blowup,smstudy1_mas_or.jpg')" src="smstudy1_mas_or.jpg" alt="Image smstudy1" width="160 px" Height="160 px">
-    <img id="smstudy2" onclick="Show('Blowup,smstudy2_mas_or.jpg')" src="smstudy2_mas_or.jpg" alt="Image smstudy2" width="160 px" Height="160 px">
-    <img id="smstudy3" onclick="Show('Blowup,smstudy3_mas_or.jpg')" src="smstudy3_mas_or.jpg" alt="Image smstudy3" width="160 px" Height="160 px">
-    <img id="smstudy4-1" onclick="Show('Blowup,smstudy4-1_mas_or.jpg')" src="smstudy4-1_mas_or.jpg" alt="Image smstudy4-1" width="160 px" Height="160 px">
-    <img id="smstudy4-2" onclick="Show('Blowup,smstudy4-2_mas_or.jpg')" src="smstudy4-2_mas_or.jpg" alt="Image smstudy4-2" width="160 px" Height="160 px">
-    <img id="smstudy5-1" onclick="Show('Blowup,smstudy5-1_mas_or.jpg')" src="smstudy5-1_mas_or.jpg" alt="Image smstudy5-1" width="160 px" Height="160 px">
-    <img id="smstudy5-2" onclick="Show('Blowup,smstudy5-2_mas_or.jpg')" src="smstudy5-2_mas_or.jpg" alt="Image smstudy5-2" width="160 px" Height="160 px">
-    <img id="smstudy6" onclick="Show('Blowup,smstudy6_mas_or.jpg')" src="smstudy6_mas_or.jpg" alt="Image smstudy6" width="160 px" Height="160 px">
-    <img id="smstudy7_mas-or.jpg" onclick="Show('Blowup,smstudy7_mas-or.jpg')" src="smstudy7_mas-or.jpg" alt="Image smstudy7" width="160 px" Height="160 px">
-    <img id="smstudy8" onclick="Show('Blowup,smstudy8_mas_or.jpg')" src="smstudy8_mas_or.jpg" alt="Image smstudy8" width="160 px" Height="160 px">
-    <img id="smstudy9" onclick="Show('Blowup,smstudy9_mas_or.jpg')" src="smstudy9_mas_or.jpg" alt="Image smstudy9" width="160 px" Height="160 px">
-    <img id="studybeingreconfigured1.jpg" onclick="Show('Blowup,studybeingreconfigured1.jpg')" src="studybeingreconfigured1.jpg" alt="Image studybeingreconfigured1" width="160 px" Height="160 px">
-    <img id="studybeingreconfigured2.jpg" onclick="Show('Blowup,studybeingreconfigured2.jpg')" src="studybeingreconfigured2.jpg" alt="Image studybeingreconfigured2" width="160 px" Height="160 px">
-    <img id="studybeingreconfigured3.jpg" onclick="Show('Blowup,studybeingreconfigured3.jpg')" src="studybeingreconfigured3.jpg" alt="Image studybeingreconfigured3" width="160 px" Height="160 px">
-    <img id="studyberecon1" onclick="Show('Blowup,studyberecon1_mas_or.jpg')" src="studyberecon1_mas_or.jpg" alt="Image studyberecon1" width="160 px" Height="160 px">
-    <img id="studyberecon2" onclick="Show('Blowup,studyberecon2_mas_or.jpg')" src="studyberecon2_mas_or.jpg" alt="Image studyberecon2" width="160 px" Height="160 px">
-    <img id="studyberecon3" onclick="Show('Blowup,studyberecon3_mas_or.jpg')" src="studyberecon3_mas_or.jpg" alt="Image studyberecon3" width="160 px" Height="160 px">
-    <img id="tantricstudy1" onclick="Show('Blowup,tantricstudy1_mas_or.jpg')" src="tantricstudy1_mas_or.jpg" alt="Image tantricstudy1" width="160 px" Height="160 px">
-    <img id="tantricstudy2" onclick="Show('Blowup,tantricstudy2_mas_or.jpg')" src="tantricstudy2_mas_or.jpg" alt="Image tantricstudy2" width="160 px" height="320 px">
-    <img id="tantricstudy3" onclick="Show('Blowup,tantricstudy3_mas_or.jpg')" src="tantricstudy3_mas_or.jpg" alt="Image tantricstudy3" width="160 px" height="320 px">
-    <img id="tantricstudy4" onclick="Show('Blowup,tantricstudy4_mas_or.jpg')" src="tantricstudy4_mas_or.jpg" alt="Image tantricstudy4" width="160 px" height="320 px">
-    
-
+<div id="Works" style="display:none">
+    <img id="inresascend-1" onclick="Show('Blowup,inresascend-1.jpg')" src="inresascend-1.jpg" alt="inresascend-1" width="96px" height="96px">
+    <img id="inresascend-2" onclick="Show('Blowup,inresascend-2.jpg')" src="inresascend-2.jpg" alt="inresascend-2" width="96px" height="96px">
+    <img id="inresascend-3" onclick="Show('Blowup,inresascend-3.jpg')" src="inresascend-3.jpg" alt="inresascend-3" width="96px" height="96px">
+    <img id="inresascend-4" onclick="Show('Blowup,inresascend-4.jpg')" src="inresascend-4.jpg" alt="inresascend-4" width="96px" height="96px">
+    <img id="inresemerge-1" onclick="Show('Blowup,inresemerge-1.jpg')" src="inresemerge-1.jpg" alt="inresemerge-1" width="80px" height="160px">
+    <img id="inresemerge-2" onclick="Show('Blowup,inresemerge-2.jpg')" src="inresemerge-2.jpg" alt="inresemerge-2" width="80px" height="160px">
+    <img id="inresupwelling-2" onclick="Show('Blowup,inresupwelling-2.jpg')" src="inresupwelling-2.jpg" alt="inresupwelling-2" width="96px" height="96px">
+    <img id="inresupwelling-1" onclick="Show('Blowup,inresupwelling-1.jpg')" src="inresupwelling-1.jpg" alt="inresupwelling-1" width="96px" height="96px">
+    <img id="inresupwelling-4" onclick="Show('Blowup,inresupwelling-4.jpg')" src="inresupwelling-4.jpg" alt="inresupwelling-4" width="96px" height="96px">
+    <img id="inresupwelling-3" onclick="Show('Blowup,inresupwelling-3.jpg')" src="inresupwelling-3.jpg" alt="inresupwelling-3" width="96px" height="96px">
+    <img id="inrestouch-2" onclick="Show('Blowup,inrestouch-2.jpg')" src="inrestouch-2.jpg" alt="inrestouch-2" width="80px" height="160px">
+    <img id="inrestouch-1" onclick="Show('Blowup,inrestouch-1.jpg')" src="inrestouch-1.jpg" alt="inrestouch-1" width="80px" height="160px">
+    <img id="inreshidden-2" onclick="Show('Blowup,inreshidden-2.jpg')" src="inreshidden-2.jpg" alt="inreshidden-2" width="208px" height="96px">
+    <img id="inreshidden-1" onclick="Show('Blowup,inreshidden-1.jpg')" src="inreshidden-1.jpg" alt="inreshidden-1" width="80px" height="160px">
+    <img id="inreshidden-3" onclick="Show('Blowup,inreshidden-3.jpg')" src="inreshidden-3.jpg" alt="inreshidden-3" width="80px" height="160px">
+    <img id="tanstblue-4" onclick="Show('Blowup,tanstblue-4.jpg')" src="tanstblue-4.jpg" alt="tanstblue-4" width="48px" height="96px">
+    <img id="tanstblue-12" onclick="Show('Blowup,tanstblue-12.jpg')" src="tanstblue-12.jpg" alt="tanstblue-12" width="48px" height="96px">
+    <img id="tanstblue-11" onclick="Show('Blowup,tanstblue-11.jpg')" src="tanstblue-11.jpg" alt="tanstblue-11" width="48px" height="96px">
+    <img id="tanstblue-10" onclick="Show('Blowup,tanstblue-10.jpg')" src="tanstblue-10.jpg" alt="tanstblue-10" width="48px" height="96px">
+    <img id="tanstblue-9" onclick="Show('Blowup,tanstblue-9.jpg')" src="tanstblue-9.jpg" alt="tanstblue-9" width="48px" height="96px">
+    <img id="tanstblue-7" onclick="Show('Blowup,tanstblue-7.jpg')" src="tanstblue-7.jpg" alt="tanstblue-7" width="48px" height="96px">
+    <img id="tanstblue-5" onclick="Show('Blowup,tanstblue-5.jpg')" src="tanstblue-5.jpg" alt="tanstblue-5" width="48px" height="96px">
+    <img id="tanstblue-1" onclick="Show('Blowup,tanstblue-1.jpg')" src="tanstblue-1.jpg" alt="tanstblue-1" width="48px" height="96px">
+    <img id="tanstblue-3" onclick="Show('Blowup,tanstblue-3.jpg')" src="tanstblue-3.jpg" alt="tanstblue-3" width="48px" height="96px">
+    <img id="tanstblue-2" onclick="Show('Blowup,tanstblue-2.jpg')" src="tanstblue-2.jpg" alt="tanstblue-2" width="48px" height="96px">
+    <img id="tanstblue-6" onclick="Show('Blowup,tanstblue-6.jpg')" src="tanstblue-6.jpg" alt="tanstblue-6" width="48px" height="96px">
+    <img id="confluence-6p1of2" onclick="Show('Blowup,confluence-6p1of2.jpg')" src="confluence-6p1of2.jpg" alt="confluence-6p1of2" width="96px" height="96px">
+    <img id="confluence-6p2of2" onclick="Show('Blowup,confluence-6p2of2.jpg')" src="confluence-6p2of2.jpg" alt="confluence-6p2of2" width="96px" height="96px">
+    <img id="confluence-4p1of2" onclick="Show('Blowup,confluence-4p1of2.jpg')" src="confluence-4p1of2.jpg" alt="confluence-4p1of2" width="96px" height="96px">
+    <img id="confluence-4p1of2" onclick="Show('Blowup,confluence-4p1of2.jpg')" src="confluence-4p1of2.jpg" alt="confluence-4p1of2" width="96px" height="96px">
+    <img id="confluence-3p2of2" onclick="Show('Blowup,confluence-3p2of2.jpg')" src="confluence-3p2of2.jpg" alt="confluence-3p2of2" width="96px" height="96px">
+    <img id="confluence-3p1of2" onclick="Show('Blowup,confluence-3p1of2.jpg')" src="confluence-3p1of2.jpg" alt="confluence-3p1of2" width="96px" height="96px">
+    <img id="confluence-1p2of2" onclick="Show('Blowup,confluence-1p2of2.jpg')" src="confluence-1p2of2.jpg" alt="confluence-1p2of2" width="96px" height="96px">
+    <img id="confluence-1p1of2" onclick="Show('Blowup,confluence-1p1of2.jpg')" src="confluence-1p1of2.jpg" alt="confluence-1p1of2" width="96px" height="96px">
+    <img id="confluence-11p4of5" onclick="Show('Blowup,confluence-11p4of5.jpg')" src="confluence-11p4of5.jpg" alt="confluence-11p4of5" width="96px" height="96px">
+    <img id="stconfluence-7" onclick="Show('Blowup,stconfluence-7.jpg')" src="stconfluence-7.jpg" alt="stconfluence-7" width="96px" height="96px">
+    <img id="confluence-11p3of5" onclick="Show('Blowup,confluence-11p3of5.jpg')" src="confluence-11p3of5.jpg" alt="confluence-11p3of5" width="96px" height="96px">
+    <img id="confluence-11p5of5" onclick="Show('Blowup,confluence-11p5of5.jpg')" src="confluence-11p5of5.jpg" alt="confluence-11p5of5" width="96px" height="96px">
+    <img id="stconfluence-6" onclick="Show('Blowup,stconfluence-6.jpg')" src="stconfluence-6.jpg" alt="stconfluence-6" width="96px" height="96px">
+    <img id="stconfluence-15" onclick="Show('Blowup,stconfluence-15.jpg')" src="stconfluence-15.jpg" alt="stconfluence-15" width="96px" height="96px">
+    <img id="confluence-4-M2" onclick="Show('Blowup,confluence-4-M2.jpg')" src="confluence-4-M2.jpg" alt="confluence-4-M2" width="208px" height="96px">
+    <img id="confluence-1-M2" onclick="Show('Blowup,confluence-1-M2.jpg')" src="confluence-1-M2.jpg" alt="confluence-1-M2" width="208px" height="96px">
+    <img id="confluence-3-M2" onclick="Show('Blowup,confluence-3-M2.jpg')" src="confluence-3-M2.jpg" alt="confluence-3-M2" width="208px" height="96px">
+    <img id="confluence-11-M5" onclick="Show('Blowup,confluence-11-M5.jpg')" src="confluence-11-M5.jpg" alt="confluence-11-M5" width="544px" height="96px">
+    <img id="confluence-11p2of5" onclick="Show('Blowup,confluence-11p2of5.jpg')" src="confluence-11p2of5.jpg" alt="confluence-11p2of5" width="96px" height="96px">
+    <img id="stconfluence-4" onclick="Show('Blowup,stconfluence-4.jpg')" src="stconfluence-4.jpg" alt="stconfluence-4" width="96px" height="96px">
+    <img id="stconfluence-8" onclick="Show('Blowup,stconfluence-8.jpg')" src="stconfluence-8.jpg" alt="stconfluence-8" width="96px" height="96px">
+    <img id="stconfluence-1" onclick="Show('Blowup,stconfluence-1.jpg')" src="stconfluence-1.jpg" alt="stconfluence-1" width="96px" height="96px">
+    <img id="confluence-11p2of5" onclick="Show('Blowup,confluence-11p2of5.jpg')" src="confluence-11p2of5.jpg" alt="confluence-11p2of5" width="96px" height="96px">
+    <img id="stconfluence-3" onclick="Show('Blowup,stconfluence-3.jpg')" src="stconfluence-3.jpg" alt="stconfluence-3" width="96px" height="96px">
+    <img id="stconfluence-13" onclick="Show('Blowup,stconfluence-13.jpg')" src="stconfluence-13.jpg" alt="stconfluence-13" width="96px" height="96px">
+    <img id="stconfluence-12" onclick="Show('Blowup,stconfluence-12.jpg')" src="stconfluence-12.jpg" alt="stconfluence-12" width="96px" height="96px">
+    <img id="stconfluence-11" onclick="Show('Blowup,stconfluence-11.jpg')" src="stconfluence-11.jpg" alt="stconfluence-11" width="96px" height="96px">
+    <img id="stconfluence-10" onclick="Show('Blowup,stconfluence-10.jpg')" src="stconfluence-10.jpg" alt="stconfluence-10" width="96px" height="96px">
+    <img id="stconfluence-9" onclick="Show('Blowup,stconfluence-9.jpg')" src="stconfluence-9.jpg" alt="stconfluence-9" width="96px" height="96px">
 </div>
 <div id="Artist_Statement" style="color:black;">
-
-        <table style="line-height: 150%; margin-bottom: 0in; margin-left:auto; margin-right:auto;" >  
-        <tr><td><b>Artist Statement</b></td></tr>
-        <tr><td></td></tr>
-        <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
-        <tr><td>adipiscing elit.  Inconsequat sed efficitur</td></tr>
-        <tr><td>vitae donec arcu et.  Ametaliquam</td></tr>
-        <tr><td>commodo eu sagittis facilisi fames in.</td></tr>
-        <tr><td>Donecac tincidunt vel nec libero proin.</td></tr>
-        <tr><td>Magnanibh consequat orci ut lobortis sit</td></tr>
-        <tr><td>posuere orci.  Egetnisi tincidunt arcu dolor</td></tr>
-        <tr><td>tincidunt vel.  Volutpatinterdum malesuada</td></tr>
-        <tr><td>pretium ut.</td></tr>
-        <tr><td></td></tr>
-        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
-        <tr><td>metus.  Lacusmattis porta nibh donec</td></tr>
-        <tr><td>elementum eleifend purus. </td></tr>
-        <tr><td>Fringilladignissim odio faucibus ultricies.</td></tr>
-        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
-        <tr><td>metus.  Idamet sed nisi a orci vel gravida</td></tr>
-        <tr><td>non arcu.  Ametaliquam commodo eu</td></tr>
-        <tr><td>sagittis facilisi fames in.  Tortoramet viverra</td></tr>
-        <tr><td>per blandit tempor ac.</td></tr>
-        <tr><td></td></tr>
-        <tr><td>Lorem ipsum dolor sit amet, consectetur</td></tr>
-        <tr><td>adipiscing elit.  Inconsequat sed efficitur</td></tr>
-        <tr><td>vitae donec arcu et.  Ametaliquam</td></tr>
-        <tr><td>commodo eu sagittis facilisi fames in. </td></tr>
-        <tr><td>Donecac tincidunt vel nec libero proin.  </td></tr>
-        <tr><td>Magnanibh consequat orci ut lobortis sit</td></tr>
-        <tr><td>posuere orci.  Egetnisi tincidunt arcu dolor</td></tr>
-        <tr><td>tincidunt vel.  Volutpatinterdum malesuada</td></tr>
-        <tr><td>pretium ut.</td></tr>
-        <tr><td></td></tr>
-        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
-        <tr><td>metus.  Lacusmattis porta nibh donec</td></tr>
-        <tr><td>elementum eleifend purus. </td></tr>
-        <tr><td>Fringilladignissim odio faucibus ultricies.</td></tr>
-        <tr><td>Eumaecenas diam id efficitur placerat</td></tr>
-        <tr><td>metus.  Idamet sed nisi a orci vel gravida</td></tr>
-        <tr><td>non arcu.  Ametaliquam commodo eu</td></tr>
-        <tr><td>sagittis facilisi fames in.  Tortoramet viverra</td></tr>
-        <tr><td>per blandit tempor ac.</td></tr>
-        
-    </table>
-
+   <img id="artist_statement" src="Artist_Statement.jpg" class="center_horizontal">
 </div>
 <div id="Exhibitions" style="color:black">
-
-    <table id="toppings" style="line-height: 150%; margin-bottom: 0in " >  
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="font-size: 100%"><b>Exhibition History</b></td>
-    </tr>
-    <tr>
-        <td>2023</td>
-        <td>&ensp;</td>
-        <td>Foundry Gallery, Regional Juried Show, Walla Walla WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2016</td>
-        <td>&ensp;</td>
-        <td>Oak Hollow Gallery, ‘Home: an exploration’, Yakima WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2015</td>
-        <td>&ensp;</td>
-        <td>Anchor Gallery, Invitational Show, ‘Field Work’, Anacortes WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Sarah Spergean Gallery, ‘Crossroads’, Ellensburg WA</td>
-    </tr>  
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Chase Gallery, juried show, Spokane WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery, ‘Central Wa Juried Show’, Award Winner, Yakima WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Boxx Gallery, ‘Inaugural Group Show’, Tieton WA</td>
-    </tr>   
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2014</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery, ‘Central Wa Juried Show’, Award Winner, Yakima WA</td>
-    </tr>   
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2013</td>
-        <td>&ensp;</td>
-        <td>Gallery One, ‘Celebration of Tieton Artists’, Ellensburg WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>10 X 10 X 10 by Tieton juried show, Tieton WA</td>
-    </tr>   
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2012</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
-    </tr>   
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>  
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2011</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery Studio Tour in association with Leo Adams, Yakima WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>   
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2010</td>
-        <td>&ensp;</td>
-        <td>10 X 10 X 10 by Tieton, juried show, Tieton WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>   
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2009</td>
-        <td>&ensp;</td>
-        <td>Bainbridge Arts and Crafts, ‘Shells’, Bainbridge WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Simon Gallery, ‘Christmas Show’, Yakima WA</td>
-    </tr>  
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td> Larson Gallery, ‘Central Washington Juried Show’, Award Winner, Yakima WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Larson Gallery Studio tour in association with Leo Adams, Yakima WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>   
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>2008</td>
-        <td>&ensp;</td>
-        <td>Bainbridge Arts and Crafts, ‘The Box’, Bainbridge WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Kobo Gallery, ‘New Works’, Seattle WA</td>
-    </tr>   
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>  
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2007</td>
-        <td>&ensp;</td>
-        <td>Bainbridge Arts and Crafts, ‘New Works’, Bainbridge WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Scott Milo Gallery, ‘New Works’, Anacortes WA</td>
-    </tr>  
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Kobo Gallery, ‘Small Poems’, Seattle WA</td>
-    </tr>     
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>    
-        <td>2006</td>
-        <td>&ensp;</td>
-        <td>Bainbridge Arts and Crafts, ‘New Works’, Bainbridge WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Scott Milo Gallery, ‘New Works’, Anacortes WA</td>
-    </tr>  
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Kobo Gallery, ‘New Works’, Seattle WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>Northwind Arts Center, ‘New Works’, Port Townsend WA</td>
-    </tr>   
-    <tr>
-        <td>&ensp;</td>
-        <td>&ensp;</td>
-        <td>SAM Gallery, continued representation, Seattle WA</td>
-    </tr>   
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>   
-    <tr>
-        <td>2005</td>
-        <td>&ensp;</td>
-        <td>SAM Gallery ‘Introductions’, Seattle WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Kobo Gallery, ‘Zen Realism’, Seattle WA</td>
-    </tr>   
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Scott Milo Gallery, ‘New Works’, Anacortes WA </td>
-    </tr>  
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2004</td>
-        <td>&ensp;</td>
-        <td>Northwind Arts Center, ‘Dwellings’, Port Townsend WA</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Anacortes Arts Festival, juried show, Corporate Award, Anacortes WA</td>
-    </tr>   
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Scott Milo Gallery, ‘Small Poems’, Anacortes WA</td>
-    </tr>  
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2003</td>
-        <td>&ensp;</td>
-        <td>Northwind Arts Center, ‘Four Award Winning Pastel Artists’, Anacortes WA</td>
-    </tr>   
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Anacortes Arts Festival, juried show, Purchase Award, Anacortes WA</td>
-    </tr>  
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2002</td>
-        <td>&ensp;</td>
-        <td>Art Port Townsend, juried exhibition, Best of Show, Port Townsend WA</td>
-    </tr>   
-    <tr>
-        <td></td>
-        <td>&ensp;</td>
-        <td>Anacortes Arts Festival, juried show, Purchase Award, Anacortes WA</td>
-    </tr>  
-    <tr font-size="10px">
-        <td ></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2000</td>
-        <td>&ensp;</td>
-        <td>Poncho Auction preview, juried show, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1999</td>
-        <td>&ensp;</td>
-        <td>Poncho Auction preview, juried show, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1998</td>
-        <td>&ensp;</td>
-        <td>Children’s Day at the Japanese Garden, commissioned piece, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1993</td>
-        <td>&ensp;</td>
-        <td>Gilmarten Gallery, ‘New Works’, Seattle WA</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1992</td>
-        <td>&ensp;</td>
-        <td>Arts for the Parks, juried show, Jackson Hole Wyoming</td>
-    </tr>
-    <tr font-size="10px">
-        <td ></td>
-        <td"></td>
-    </tr>
-    <tr>
-        <td>1986</td>
-        <td>&ensp;</td>
-        <td>Anacortes Arts Festival, juried show, Purchase Award</td>
-    </tr>
-    <tr font-size="10px">
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="font-size: 100%"><b>Education</b></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td>I have studied art for many years at a number of schools including:</td>
-    </tr>
-    <ul>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="margin-left: 1em;"><li>Pratt Institute</li></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="margin-left: 1em;"><li>The Gage Academy</li></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="margin-left: 1em;"><li>The Factory of Visual Arts</li></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td style="margin-left: 1em;"><li>The School of Visual Concepts</li></td>
-    </tr>
-    </ul>
-    <tr>
-        <td></td>
-        <td></td>
-        <td>I hold degrees in Biology and Psychology.</td>
-    </tr>
-</table>
-<img class="testtableimage"  src="P1010356.jpg"/>
+    <img id="Exhibition_History" src="Exhibition_History03.jpg">
 </div>
 <div id="Blowup">
-
+<br/><br/>
     <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:100%;" class="center3">
     <!-- <div class="top-right">[ X ]</div>  -->
+    <span id="close" onClick="Return_to_Series()"> X </span>
     <p id="cptn" class="text_centered">-  -  -</p>
-
 </div>
-
-<div id="CAT1">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;color:black">
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_1_sub_1</td>
+<div id='S01' class="align_center_heading" style="display:none;">
+          <p class="align_center_heading"><img src='series_internal_resonance.jpg'</p>
+    <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black">
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td><img src='subseries_ascend.jpg'></td>
             <td width = 5%></td>
             <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_1_sub_2</td>
+                <img id= 'inresascend-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-1.jpg')" src='inresascend-1.jpg' width ="60px" height="60px">
+                <img id= 'inresascend-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-2.jpg')" src='inresascend-2.jpg' width ="60px" height="60px">
+                <img id= 'inresascend-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-3.jpg')" src='inresascend-3.jpg' width ="60px" height="60px">
+                <img id= 'inresascend-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-4.jpg')" src='inresascend-4.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td><img src='subseries_emerge.jpg'</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_1_sub_3 long description</td>
+                <img id= 'inresemerge-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-1.jpg')" src='inresemerge-1.jpg' width ="60px" height="60px">
+                <img id= 'inresemerge-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-2.jpg')" src='inresemerge-2.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td><img src='subseries_upwelling.jpg'</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_1_sub_4</td>
+                <img id= 'inresupwelling-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-2.jpg')" src='inresupwelling-2.jpg' width ="60px" height="60px">
+                <img id= 'inresupwelling-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-1.jpg')" src='inresupwelling-1.jpg' width ="60px" height="60px">
+                <img id= 'inresupwelling-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-4.jpg')" src='inresupwelling-4.jpg' width ="60px" height="60px">
+                <img id= 'inresupwelling-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-3.jpg')" src='inresupwelling-3.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td><img src='subseries_touch.jpg'</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_1_sub_5</td>
+                <img id= 'inrestouch-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-2.jpg')" src='inrestouch-2.jpg' width ="60px" height="60px">
+                <img id= 'inrestouch-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-1.jpg')" src='inrestouch-1.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td><img src='subseries_hidden.jpg'</td>
             <td width = 5%></td>
             <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
+                <img id= 'inreshidden-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-2.jpg')" src='inreshidden-2.jpg' width ="60px" height="60px">
+                <img id= 'inreshidden-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-1.jpg')" src='inreshidden-1.jpg' width ="60px" height="60px">
+                <img id= 'inreshidden-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-3.jpg')" src='inreshidden-3.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        </table>
+</div>
+<div id='S02' class="align_center_heading" style="display:none;">
+          <p class="align_center_heading"><img src='series_tantric_studies.jpg'></p>
+    <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" > 
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td><img src='subseries_tantric_study_in_blue.jpg'</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'tanstblue-4' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-4.jpg')" src='tanstblue-4.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-12' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-12.jpg')" src='tanstblue-12.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-11' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-11.jpg')" src='tanstblue-11.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-10' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-10.jpg')" src='tanstblue-10.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-9' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-9.jpg')" src='tanstblue-9.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-7' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-7.jpg')" src='tanstblue-7.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-5' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-5.jpg')" src='tanstblue-5.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-1' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-1.jpg')" src='tanstblue-1.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-3' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-3.jpg')" src='tanstblue-3.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-2' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-2.jpg')" src='tanstblue-2.jpg' width ="60px" height="60px">
+                <img id= 'tanstblue-6' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-6.jpg')" src='tanstblue-6.jpg' width ="60px" height="60px">
+           </td>
+      </tr>
+        </table>
+</div>
+<div id='S03' class="align_center_heading" style="display:none;">
+          <p class="align_center_heading"><img src='series_confluence.jpg'></p>
+    <table class="dimension" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black" > 
+        <tr style="height:10px"></tr>
+        <tr style="height:10px">
+            <td><img src='subseries_study_for_confluence.jpg'</td>
+            <td width = 5%></td>
+            <td width="auto">
+                <img id= 'confluence-6p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-6p1of2.jpg')" src='confluence-6p1of2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-6p2of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-6p2of2.jpg')" src='confluence-6p2of2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-4p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4p1of2.jpg')" src='confluence-4p1of2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-4p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4p1of2.jpg')" src='confluence-4p1of2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-3p2of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3p2of2.jpg')" src='confluence-3p2of2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-3p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3p1of2.jpg')" src='confluence-3p1of2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-1p2of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1p2of2.jpg')" src='confluence-1p2of2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-1p1of2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1p1of2.jpg')" src='confluence-1p1of2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-11p4of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p4of5.jpg')" src='confluence-11p4of5.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-7' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-7.jpg')" src='stconfluence-7.jpg' width ="60px" height="60px">
+                <img id= 'confluence-11p3of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p3of5.jpg')" src='confluence-11p3of5.jpg' width ="60px" height="60px">
+                <img id= 'confluence-11p5of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p5of5.jpg')" src='confluence-11p5of5.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-6' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-6.jpg')" src='stconfluence-6.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-15' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-15.jpg')" src='stconfluence-15.jpg' width ="60px" height="60px">
+                <img id= 'confluence-4-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4-M2.jpg')" src='confluence-4-M2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-1-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1-M2.jpg')" src='confluence-1-M2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-3-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3-M2.jpg')" src='confluence-3-M2.jpg' width ="60px" height="60px">
+                <img id= 'confluence-11-M5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11-M5.jpg')" src='confluence-11-M5.jpg' width ="60px" height="60px">
+                <img id= 'confluence-11p2of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p2of5.jpg')" src='confluence-11p2of5.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-4' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-4.jpg')" src='stconfluence-4.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-8' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-8.jpg')" src='stconfluence-8.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-1' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-1.jpg')" src='stconfluence-1.jpg' width ="60px" height="60px">
+                <img id= 'confluence-11p2of5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11p2of5.jpg')" src='confluence-11p2of5.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-3' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-3.jpg')" src='stconfluence-3.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-13' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-13.jpg')" src='stconfluence-13.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-12' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-12.jpg')" src='stconfluence-12.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-11' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-11.jpg')" src='stconfluence-11.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-10' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-10.jpg')" src='stconfluence-10.jpg' width ="60px" height="60px">
+                <img id= 'stconfluence-9' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-9.jpg')" src='stconfluence-9.jpg' width ="60px" height="60px">
+           </td>
         </tr>
     </table>
 </div>
-<div id="CAT2">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
-        <tr>
-            <tr style="height:20px"></tr>
-            <tr style="height:200px">
-            <td>cat_2_sub_1</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_2_sub_2</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_2_sub_3 long description</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_2_sub_4</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-            <tr style="height:20px"></tr>
-            <tr style="height:200px">
-                <td>cat_2_sub_5</td>
-                <td width = 5%></td>
-                <td width="auto">
-                    <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                    <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                    <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                    <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                    <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-                </td>
-            </tr>
-        </tr>
-    </table>
-</div>
-<div id="CAT3">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_3_sub_1</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_3_sub_2</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_3_sub_3 long description</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_3_sub_4</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_3_sub_5</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-    </table>
-</div>
-<div id="CAT4">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_4_sub_1</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_4_sub_2</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_4_sub_3 long description</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_4_sub_4</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_4_sub_5</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-    </table>
-</div>
-<div id="CAT5">
-    <table class="dimension" style="font-family: 'Ink Free', sans-serif;">
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_5_sub_1</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_5_sub_2</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_5_sub_3 long description</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_5_sub_4</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-        <tr style="height:20px"></tr>
-        <tr style="height:200px">
-            <td>cat_5_sub_5</td>
-            <td width = 5%></td>
-            <td width="auto">
-                <img id="exreshidden3" onclick="Show('Blowup,inreswhisper3_mas_or.jpg')" src="inreswhisper3_mas_or.jpg" alt="Image exreshidden3" width="160 px" height="320 px">
-                <img id="exresopenwin1" onclick="Show('Blowup,exresopenwin1_mas_or.jpg')" src="exresopenwin1_mas_or.jpg" alt="Image exresopenwin1" width="160 px" height="320 px">
-                <img id="exresopenwin2" onclick="Show('Blowup,exresopenwin2_mas_or.jpg')" src="exresopenwin2_mas_or.jpg" alt="Image exresopenwin2" width="160 px" height="320 px">
-                <img id="exresopenwin3" onclick="Show('Blowup,exresopenwin3_mas_or.jpg')" src="exresopenwin3_mas_or.jpg" alt="Image exresopenwin3" width="160 px" height="320 px">
-                <img id="exresopenwin4" onclick="Show('Blowup,exresopenwin4_mas_or.jpg')" src="exresopenwin4_mas_or.jpg" alt="Image exresopenwin4" width="160 px" height="320 px">      
-            </td>
-        </tr>
-    </table>
-</div>
-
 </body>
 </html>
