@@ -302,75 +302,110 @@
  
         window.addEventListener("resize", resized);
         var current_div = "Home";
-        function Test_Function(){
+        function Size_Function(){
+        Size_Function_Implementation("Contact_Page", "Size_Contact", 0, 0);
+        Size_Function_Implementation("chop", "Home_Chop", 40, 230);
+        Size_Function_Implementation("imageHome", "Home", 28, 0);
+        Size_Function_Implementation("imageWorks", "Home", 28, 0);
+        Size_Function_Implementation("imageExhibitions", "Home", 28, 0);
+        Size_Function_Implementation("imageAbout", "Home", 28, 0);
+        Size_Function_Implementation("imageContact", "Home", 28, 0);
+        Size_Function_Implementation("home_jpg", "Home_Open", 1500, 1000);
+        Size_Function_Implementation("Contact_Table", "Size_Contact", 0, 0);
         }
-        function Test_Function_Implementation(id_item, screen_type, height_of_item, width_of_item){
+        function Size_Function_Implementation(id_item, screen_type, height_of_item, width_of_item){
              var yourImg = document.getElementById(id_item);
-             console.log("Test_Function of chop");
+             var factor = 1;
              let screenWidth = screen.width;
-             console.log("Screen Width: " + screenWidth);
              let screenHeight = screen.height;
-             console.log("Screen Height: " + screenHeight);
+ 
              const optimal_height = 937;
              const optimal_width =  1883;
-             console.log("height_of_item:" + height_of_item);
-             console.log("width_of_item:" + width_of_item);
-             var width_factor = screenWidth/optimal_width;
-             var height_factor = innerHeight/optimal_height;
-             var new_height = height_of_item*height_factor;
-             var new_width = width_of_item*width_factor;
-             if(yourImg && yourImg.style) {
-                 if(width_of_item > 0){
-                     yourImg.style.width = new_width + "px";
-                     console.log("new_width = " + width_of_item);
-                 }
-                 if(height_of_item > 0){
-                     yourImg.style.height = new_height + "px";
-                     console.log("new_height = " + height_of_item);
+             if ("Artist_statement"==screen_type){
+                 if(screenWidth < 917){
+                     var width = screenWidth * .8;
+                     yourImg.style.width = width + "px";
                  }
              }
+             else if ("Size_Contact" == screen_type){
+                 if(screenWidth < 917){
+                     yourImg.style.height = '600px';
+                     const msg = document.getElementById('Contact_Message_ID');
+                     msg.style.width = '150px'; // Change width
+                     msg.style.height= '100px'; // Change height
+                 }
+             }
+             else if (screen_type == "Home_Chop"){
+                 if (screenWidth < 917){
+                     factor = .27;
+                 }
+                 else if(screenWidth < 1500){
+                     factor = .33;
+                 }
+                 else if(screenWidth < 1800){
+                     factor = .4;
+                 }
+                 else{
+                     factor = .5;
+                 }
+                 var natWidth= yourImg.naturalWidth;
+                 var natHeight= yourImg.naturalHeight;
+                 var new_width = factor*natWidth;
+                 yourImg.style.width = new_width + "px";
+                 new_height = factor*natHeight;
+                 yourImg.style.height = new_height + "px";
+             }
+             else if (screen_type == "Home"){
+              /*   if (screenWidth < 917){
+                     factor = .3;
+                 }
+                 else if (screenWidth < 1500){
+                     factor = .4;
+                 }
+                 else if (screenWidth < 1800){
+                     factor = .5;
+                 }
+                 else {
+                     factor = .54;
+                 }
+                 if(yourImg && yourImg.style) {
+                     let natWidth = yourImg.naturalWidth;
+                     let natHeight = yourImg.naturalWidth;
+                     if(width_of_item > 0){
+                        new_width = factor*natWidth;
+                         yourImg.style.width = new_width + "px";
+                     }
+                     if(height_of_item > 0){
+                         new_height = factor*natHeight;
+                         yourImg.style.height = new_height + "px";
+                     }
+                 }
+            */ }
+             else if(screen_type == "Home_Open"){
+                 let nat_height = yourImg.naturalHeight;
+                 let nat_width = yourImg.naturalWidth;
+                 if(screenWidth < 917){
+                     var factor = .2;
+                 }
+                 else{
+                     factor = .7;
+                 }
+                 new_width = factor*nat_width;
+                 yourImg.style.width = new_width + "px";
+                 new_height = factor*nat_height;
+                 yourImg.style.height = new_height + "px";
+                 
+             }
+             else if ("Size_Contact"){
+                 yourImg.style.width = screenWidth;
+             }
          }
-        /*
-         function Width_Size_Factor(screen_type, screen_inner_width){
-             var screen_factor_out = .80;
-             if ("Menu"==screen_type){
-                 if (screen_inner_width < 790){
-                     screen_factor_out = .80;
-                 }
-                 else if(screen_inner_width >= 790 & screen_inner_width < 955){
-                     screen_factor_out= .82;
-                 }
-                 else if(screen_inner_width < 1110){
-                     screen_factor_out= .84;
-                 }
-                 else if(screen_inner_width < 1265){
-                      screen_factor_out= .86;
-                 }
-                 else if(screen_inner_width < 1419){
-                     screen_factor_out= .88;
-                 }
-                 else if(screen_inner_width < 1574){
-                     screen_factor_out= .90;
-                 }
-                 else if(screen_inner_width < 1574){
-                     screen_factor_out= .92;
-                 }
-                 else if(screen_inner_width < 1728){
-                     screen_factor_out= .97;
-                 }
-                 else if(screen_inner_width > 1728){
-                     screen_factor_out= 1.0;
-                 }
- 
-                 console.log("screen_factor_out = " + screen_factor_out);
-              }                    
-              return screen_factor_out;
-          }
          function Height_Size_Factor(screen_type, screen_inner_height){
              var screen_factor_out = .5;
              if ("Menu"==screen_type){
                  if (screen_inner_width < 449){
                     screen_factor_out = .76;
+                 }
              }
              else if(screen_inner_width > screen_inner_width < 519){
                  screen_factor_out= .79;
@@ -399,7 +434,7 @@
              return screen_factor_out;
              
        } 
-     */
+    
         const file_names=[
         "inresascend-2.jpg",
         "inresascend-3.jpg",
@@ -554,6 +589,7 @@
             else if("Blowup" == current_div){
                 Position_Caption("bp");
             }
+            Size_Function();
         }
         function reset_text_color()
         {
@@ -692,15 +728,15 @@
                 console.log(src_file);
                 let HorMargin = 35.0;
                 console.log(HorMargin);
-                // var BotMargin = 175.0;
-                let BotMargin = 225.0;
+                // var BotMargin = 45.0;
+                let BotMargin = 45.0;
                 if (smallish){
-                     HorMargin = 300.0;
-                     BotMargin = 480.0;
+                     HorMargin = 100.0;
+                     BotMargin = 50.0;
                 }
                 if (a_little_smallish){
-                     HorMargin = 220.0;
-                     BotMargin = 350.0;
+                     HorMargin = 100.0;
+                     BotMargin = 50.0;
                 }
                 var fctr = 1.0;
                 var winWidth = window.innerWidth - 2*HorMargin;
@@ -729,19 +765,16 @@
                     px_height = px_width*ratio;
                     px_string_height = px_height.toString() + " px";
                 }
+                fctr = .8;
+                px_height = fctr*px_height;
+                px_width = fctr*px_width;
                 src_element.style.width = px_width + "px";
                 src_element.style.height = px_height + "px";
                 var description_of_piece = return_file_description_for(src_file);
                 console.log(description_of_piece);
                 const cap = document.getElementById("cptn");
                 var img_text_file_name = "piece_" + src_file;
-                console.log(img_text_file_name);
-                var oImage = document.getElementById('bp');
-                var oImageOutline = oImage.getBoundingClientRect();
-                var left_edge = oImageOutline.left;
-                var bttm_edge = oImageOutline.bttm;
-                console.log(left_edge);
-                console.log(bttm_edge);
+                var window_height = window.innerHeight
                 cap.innerHTML="<img src='" + img_text_file_name + "' alt='" + description_of_piece + "' />";
                 showDiv("Blowup");
                 Position_Caption('bp');
@@ -790,6 +823,7 @@
             }
         }
         function OnLoadCode(){
+            Size_Function();
             hideDiv("Works");
             current_div="Home";
             center_home();
@@ -879,29 +913,29 @@
         }
     </script>
 </head>
-   <body onload="OnLoadCode()">
-      <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom;">
-          <tr class="color_of_heading_background" class="center-text">
-              <td id="chop_top"><img id="chop" style="height:40px;width:230px;vertical-align: -36%;" src="Sandra_Text_Image.jpg"></td>
-          </tr>
-      </table>
-      <table id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: middle; font-size:28px">
-         <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
+    <body onload="OnLoadCode()">
+   <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom; margin-bottom: -5px;">
+     <tr class="color_of_heading_background" class="center-text">
+         <td id="chop_top"><img id="chop" style="height:40px;width:230px;" src="Sandra_Text_Image.jpg"></td>
+      </tr>
+   </table>
+   <table id="menu_bar_2" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: top; margin-top: -5px; font-size:28px">
+      <tr class="color_of_heading_background" style="font-size:24px; width:100%;">
          <td style="width:auto">&nbsp;</td>
-         <td style="width: 15px;"></td>
-         <td id="itHome" width="100px" class="white_background" onclick="Show('Home')" style="text-align:right;"><img src="Head_Home.jpg" width="auto" height="28px"></td>
-         <td style="width: 28px;"></td>
-         <td id="itWorks" width="100px" class="white_background" style="text-align:left;"><img src="Head_Works.jpg" width="auto" height="28px"></td>
-         <td style="width: 0px;"></td>
-         <td id="itExhibitions" width="100px" class="white_background" onclick="Show('Exhibitions')"><img src="Head_Exhibitions.jpg" width="auto" height="28px"></td>
-         <td style="width: 5px;"></td>
-         <td id="itAbout" width="60px" class="white_background" onclick="Show('Artist_Statement')"><img src="Head_About.jpg" width="auto" height="28px"></td>
-         <td style="width: 0px;"></td>
-         <td id="itContact" width="60px" class="white_background" onclick="Show('Contact_Page')"><img src="Head_Contact.jpg" width="auto" height="28px"></td>
-         <td style="width: 30px;"></td>
-         <td style="width:auto">&nbsp;</td>
-         </tr>
-      </table>
+         <td id="gap_start" style="width: 33%;"></td>
+         <td id="itHome" class="white_background" onclick="Show('Home')" style="text-align:right;"><img id="imageHome" src="Head_Home.jpg"  height="28px" ></td>
+      <td id="gap_itHome" style="width: 3%;"></td>
+      <td id="itWorks"  class="white_background" style="text-align:center;"><img id="imageWorks" src="Head_Works.jpg"  height="28px" ></td>
+      <td id="gap_itWorks" style="width: 3%;"></td>
+      <td id="itExhibitions" class="white_background" onclick="Show('Exhibitions')"><img id="imageExhibitions" src="Head_Exhibitions.jpg" height="28px" ></td>
+      <td id="gap_itExhibitions" style="width: 0pt;"></td>
+      <td id="itAbout" class="white_background" onclick="Show('Artist_Statement')"><img id="imageAbout" src="Head_About.jpg"  height="28px" ></td>
+      <td id="gap_itAbout" style="width: 0pt;"></td>
+      <td id="itContact"  class="white_background" onclick="Show('Contact_Page')"><img id="imageContact" src="Head_Contact.jpg" width="auto" height="28px"></td>
+      <td id="gap_itContact" style="width: 33%;"></td>
+      <td style="width:auto">&nbsp;</td>
+      </tr>
+   </table>
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" > 
     <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
         <tr>
@@ -919,56 +953,56 @@
     </table>
 </div>
 <div id="Home" style="background-color:#FFFFFF; display:block; height: 100vh">
-    <img id="home_jpg" src="open18.jpg"  class="center_horizontal" style="padding:0px 10px 10px 10px">
+    <img id="home_jpg" src="open18.jpg"  class="center_horizontal" style="padding:0px 0px 0px 0px">
 </div>
-<div id="Contact_Page" class="table-container" style="background-color: #CBD6D8; font-family: 'Papyrus', serif; width:100%; text-align: center;  font-size:28px; height: 100vh">
-       <table style="width:100%">
+<div id="Contact_Page" class="table-container" style="background-color: #CBD6D8; font-family: 'Papyrus', serif; width:100%; text-align: center;  font-size:28px; height: 100vh; display:none;">
+       <table style="width:auto">
            <tr>
-               <td width="auto">&nbsp;</td>
-               <td width="100px"></td>
-               <td width="300px" >&nbsp;</td>
-               <td width="300px" >&nbsp;</td>
-               <td width="300px" >&nbsp;</td>
-               <td width="100px"></td>
-               <td width="auto">&nbsp;</td>
+               <td width="0">&nbsp;</td>
+               <td id="cp_01" width="5%">&nbsp;</td>
+               <td id="cp_02" width="30%" >&nbsp;</td>
+               <td id="cp_03" width="30%" >&nbsp;</td>
+               <td id="cp_04" width="30%" >&nbsp;</td>
+               <td id="cp_05" width="5%">&nbsp;</td>
+               <td width="0">&nbsp;</td>
            <tr>
-               <td width="auto">&nbsp;</td>
-               <td width="100px"></td>
-               <td width="300px" text>
-                   <img class="top-align" src="Add_Message_To_Contact_Page.jpg" height="150"  width="auto" style="float: right;">
+               <td width="0">&nbsp;</td>
+               <td width="5%">&nbsp;</td>
+               <td width="30%">
+                   <img id="Contact_Message_ID" class="top-align" src="Add_Message_To_Contact_Page.jpg" height="150"  width="auto" style="float: right;">
                <p>&nbsp;</p>
                <p>&nbsp;</p>
                <p>&nbsp;</p>
                <p style="height: 73px">&nbsp;</p>
                </td>
-               <td width="300px">
+               <td width="30%">
                    <div class="contact-form">
-                   <form action="contact.php" method="post">
-                   <img height=24pt src="Contact_name.jpg" style="float: left;">
-                   <input type="text" id="name" name="name" required>
-                   <img  height=24pt src="Contact_Email.jpg" style="float: left;">
-                   <input type="email" id="email" name="email" required>
-                   <img height=28pt src="Contact_Message.jpg" style="float: left;">
-                   <textarea id="message" name="message" style="height:200px" required></textarea>
-                   <button type="submit">Submit</button>
-                   </form>
+                    <form action="contact.php" method="post">
+                      <img height=24pt src="Contact_name.jpg" style="float: left;">
+                      <input type="text" id="name" name="name" required>
+                      <img  height=24pt src="Contact_Email.jpg" style="float: left;">
+                      <input type="email" id="email" name="email" required>
+                      <img height=28pt src="Contact_Message.jpg" style="float: left;">
+                      <textarea id="message" name="message" style="height:200px" required></textarea>
+                      <button type="submit">Submit</button>
+                     </form>
                    </div>
                </td>
-               <td width="300px" >&nbsp;</td>
-               <td width="100px"></td>
-               <td width="auto"></td>
+               <td width="30%" >&nbsp;</td>
+               <td width="5%">&nbsp;</td>
+               <td width="0">&nbsp;</td>
            <tr>
-               <td width="auto">&nbsp;</td>
-               <td width="100px"></td>
-               <td width="300px">
-               <td width="300px">
-               <td width="300px" >&nbsp;</td>
-               <td width="100px"></td>
-               <td width="auto">&nbsp;</td>
+               <td width="0">&nbsp;</td>
+               <td width="5%">&nbsp;</td>
+               <td width="30%">&nbsp;</td>
+               <td width="30%">&nbsp;</td>
+               <td width="30%">&nbsp;</td>
+               <td width="5%">&nbsp;</td>
+               <td width="0">&nbsp;</td>
            </tr>
        </table>
        </div>
-<div id="Works" style="display:none">
+<div id="Works" style="display:none;">
     <img id="inresascend-2" onclick="Show('Blowup,inresascend-2.jpg')" src="inresascend-2.jpg" alt="inresascend-2" width="96px" height="96px">
     <img id="inresascend-3" onclick="Show('Blowup,inresascend-3.jpg')" src="inresascend-3.jpg" alt="inresascend-3" width="96px" height="96px">
     <img id="inresascend-4" onclick="Show('Blowup,inresascend-4.jpg')" src="inresascend-4.jpg" alt="inresascend-4" width="96px" height="96px">
@@ -1033,27 +1067,30 @@
     <img id="confluence-6-M2" onclick="Show('Blowup,confluence-6-M2.jpg')" src="confluence-6-M2.jpg" alt="confluence-6-M2" width="208px" height="96px">
     <img id="confluence-3-M2" onclick="Show('Blowup,confluence-3-M2.jpg')" src="confluence-3-M2.jpg" alt="confluence-3-M2" width="208px" height="96px">
 </div>
-   <div id="Artist_Statement" style="color:black;">
-      <table width="100%" class="align_center_heading">
+   <div id="Artist_Statement" style="color:black; display:none;">
+      <table width="auto" class="align_center_heading">
         <tr>
              <td width="auto">&nbsp;</td>
-             <td><img width="600px" src="Artist_Statement.jpg"/></td>
+             <td width="20px">&nbsp;</td>
+             <td><img id="about_artist" width="580px" src="Artist_Statement.jpg"/></td>
+             <td width="20px">&nbsp;</td>
              <td width="auto">&nbsp;</td>
        </tr>
    </table>
    </div>
-<div id="Exhibitions" style="color:black">
-      <table width="100%" class="align_center_heading">
+<div id="Exhibitions" style="color:black; display:none;">
+      <table width="auto" class="align_center_heading">
         <tr>
              <td width="auto">&nbsp;</td>
-             <td><img width="600px" src="Exhibition_History.jpg"/></td>
+             <td width="20px">&nbsp;</td>
+             <td><img width="580px" src="Exhibition_History.jpg"/></td>
+             <td width="20px">&nbsp;</td>
              <td width="auto">&nbsp;</td>
        </tr>
    </table>
 </div>
-<div id="Blowup" style="background-color:#FFFFFF; left:0; right:0; height: 100vh" >
-<br/><br/>
-<p>&nbsp;</p>
+<div id="Blowup" style="background-color:#FFFFFF; left:0; right:0; height: 100vh; display:none;">
+<br/>
     <img id="bp" src="tantricstudy1.jpg" alt="tantricstudy1" style="width:20%;" class="center3">
    <span id="close" class="absolute-position-close_box" style="font-family: 'Papyrus', 'Brush Script MT', cursive; color:black;" ="Return_to_Series()">X</span>
     <div>
@@ -1067,10 +1104,10 @@
     <table width="100%" class="middle_fixed_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black;">
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="390px">
-              <img id= 'inresascend-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-1.jpg')" src='inresascend-1.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inresascend-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-2.jpg')" src='inresascend-2.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inresascend-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-3.jpg')" src='inresascend-3.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inresascend-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-4.jpg')" src='inresascend-4.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresascend-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-1.jpg')" src='inresascend-1.jpg' width ="90px" height="auto">
+              <img id= 'inresascend-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-2.jpg')" src='inresascend-2.jpg' width ="90px" height="auto">
+              <img id= 'inresascend-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-3.jpg')" src='inresascend-3.jpg' width ="90px" height="auto">
+              <img id= 'inresascend-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresascend-4.jpg')" src='inresascend-4.jpg' width ="90px" height="auto">
  </td>
  <tr>
 </td>
@@ -1078,8 +1115,8 @@
 </tr>
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="390px">
-              <img id= 'inresemerge-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-1.jpg')" src='inresemerge-1.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inresemerge-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-2.jpg')" src='inresemerge-2.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresemerge-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-1.jpg')" src='inresemerge-1.jpg' width ="90px" height="auto">
+              <img id= 'inresemerge-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresemerge-2.jpg')" src='inresemerge-2.jpg' width ="90px" height="auto">
  </td>
  <tr>
 </td>
@@ -1087,10 +1124,10 @@
 </tr>
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="390px">
-              <img id= 'inresupwelling-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-1.jpg')" src='inresupwelling-1.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inresupwelling-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-2.jpg')" src='inresupwelling-2.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inresupwelling-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-3.jpg')" src='inresupwelling-3.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inresupwelling-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-4.jpg')" src='inresupwelling-4.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inresupwelling-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-1.jpg')" src='inresupwelling-1.jpg' width ="90px" height="auto">
+              <img id= 'inresupwelling-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-2.jpg')" src='inresupwelling-2.jpg' width ="90px" height="auto">
+              <img id= 'inresupwelling-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-3.jpg')" src='inresupwelling-3.jpg' width ="90px" height="auto">
+              <img id= 'inresupwelling-4' style="margin-bottom: 10px;" onclick="Show('Blowup,inresupwelling-4.jpg')" src='inresupwelling-4.jpg' width ="90px" height="auto">
  </td>
  <tr>
 </td>
@@ -1098,8 +1135,8 @@
 </tr>
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="390px">
-              <img id= 'inrestouch-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-1.jpg')" src='inrestouch-1.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inrestouch-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-2.jpg')" src='inrestouch-2.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inrestouch-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-1.jpg')" src='inrestouch-1.jpg' width ="90px" height="auto">
+              <img id= 'inrestouch-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inrestouch-2.jpg')" src='inrestouch-2.jpg' width ="90px" height="auto">
  </td>
  <tr>
 </td>
@@ -1107,16 +1144,13 @@
 </tr>
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="390px">
-              <img id= 'inreshidden-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-1.jpg')" src='inreshidden-1.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inreshidden-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-2.jpg')" src='inreshidden-2.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'inreshidden-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-3.jpg')" src='inreshidden-3.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'inreshidden-1' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-1.jpg')" src='inreshidden-1.jpg' width ="90px" height="auto">
+              <img id= 'inreshidden-2' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-2.jpg')" src='inreshidden-2.jpg' width ="90px" height="auto">
+              <img id= 'inreshidden-3' style="margin-bottom: 10px;" onclick="Show('Blowup,inreshidden-3.jpg')" src='inreshidden-3.jpg' width ="90px" height="auto">
 </td>
 <td width="auto" style="text-align:left;padding: 0px;" ></td>
 </tr>
 </table>
-<div id="absolute-div" class="absolute-div-class">
-<img src="series_message_click_in_header.jpg" height="30"  width="auto">
-</div>
 </div>
 <div id='S02' class="align_center_heading" style="display:none;">
     <p>
@@ -1125,32 +1159,29 @@
     <table width="100%" class="middle_fixed_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black;">
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="485px">
-              <img id= 'smstudy-1' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-1.jpg')" src='smstudy-1.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-2' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-2.jpg')" src='smstudy-2.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-3' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-3.jpg')" src='smstudy-3.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-6' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-6.jpg')" src='smstudy-6.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-10' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-10.jpg')" src='smstudy-10.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-11' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-11.jpg')" src='smstudy-11.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-12' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-12.jpg')" src='smstudy-12.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-14' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-14.jpg')" src='smstudy-14.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-15' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-15.jpg')" src='smstudy-15.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-16' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-16.jpg')" src='smstudy-16.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-17' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-17.jpg')" src='smstudy-17.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-19' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-19.jpg')" src='smstudy-19.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-20' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-20.jpg')" src='smstudy-20.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-23' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-23.jpg')" src='smstudy-23.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-24' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-24.jpg')" src='smstudy-24.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-26' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-26.jpg')" src='smstudy-26.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-28' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-28.jpg')" src='smstudy-28.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-29' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-29.jpg')" src='smstudy-29.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'smstudy-30' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-30.jpg')" src='smstudy-30.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'smstudy-1' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-1.jpg')" src='smstudy-1.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-2' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-2.jpg')" src='smstudy-2.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-3' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-3.jpg')" src='smstudy-3.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-6' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-6.jpg')" src='smstudy-6.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-10' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-10.jpg')" src='smstudy-10.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-11' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-11.jpg')" src='smstudy-11.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-12' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-12.jpg')" src='smstudy-12.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-14' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-14.jpg')" src='smstudy-14.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-15' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-15.jpg')" src='smstudy-15.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-16' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-16.jpg')" src='smstudy-16.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-17' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-17.jpg')" src='smstudy-17.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-19' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-19.jpg')" src='smstudy-19.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-20' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-20.jpg')" src='smstudy-20.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-23' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-23.jpg')" src='smstudy-23.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-24' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-24.jpg')" src='smstudy-24.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-26' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-26.jpg')" src='smstudy-26.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-28' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-28.jpg')" src='smstudy-28.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-29' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-29.jpg')" src='smstudy-29.jpg' width ="90px" height="auto">
+              <img id= 'smstudy-30' style="margin-bottom: 10px;" onclick="Show('Blowup,smstudy-30.jpg')" src='smstudy-30.jpg' width ="90px" height="auto">
 </td>
 <td width="auto" style="text-align:left;padding: 0px;" ></td>
 </tr>
 </table>
-<div id="absolute-div" class="absolute-div-class">
-<img src="series_message_click_in_header.jpg" height="30"  width="auto">
-</div>
 </div>
 <div id='S03' class="align_center_heading" style="display:none;">
     <p>
@@ -1159,25 +1190,22 @@
     <table width="100%" class="middle_fixed_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black;">
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="485px">
-              <img id= 'tanstblue-1' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-1.jpg')" src='tanstblue-1.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-2' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-2.jpg')" src='tanstblue-2.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-3' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-3.jpg')" src='tanstblue-3.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-4' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-4.jpg')" src='tanstblue-4.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-5' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-5.jpg')" src='tanstblue-5.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-6' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-6.jpg')" src='tanstblue-6.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-7' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-7.jpg')" src='tanstblue-7.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-8' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-8.jpg')" src='tanstblue-8.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-9' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-9.jpg')" src='tanstblue-9.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-10' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-10.jpg')" src='tanstblue-10.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-11' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-11.jpg')" src='tanstblue-11.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'tanstblue-12' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-12.jpg')" src='tanstblue-12.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'tanstblue-1' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-1.jpg')" src='tanstblue-1.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-2' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-2.jpg')" src='tanstblue-2.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-3' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-3.jpg')" src='tanstblue-3.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-4' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-4.jpg')" src='tanstblue-4.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-5' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-5.jpg')" src='tanstblue-5.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-6' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-6.jpg')" src='tanstblue-6.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-7' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-7.jpg')" src='tanstblue-7.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-8' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-8.jpg')" src='tanstblue-8.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-9' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-9.jpg')" src='tanstblue-9.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-10' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-10.jpg')" src='tanstblue-10.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-11' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-11.jpg')" src='tanstblue-11.jpg' width ="90px" height="auto">
+              <img id= 'tanstblue-12' style="margin-bottom: 10px;" onclick="Show('Blowup,tanstblue-12.jpg')" src='tanstblue-12.jpg' width ="90px" height="auto">
 </td>
 <td width="auto" style="text-align:left;padding: 0px;" ></td>
 </tr>
 </table>
-<div id="absolute-div" class="absolute-div-class">
-<img src="series_message_click_in_header.jpg" height="30"  width="auto">
-</div>
 </div>
 <div id='S04' class="align_center_heading" style="display:none;">
     <p>
@@ -1186,18 +1214,18 @@
     <table width="100%" class="middle_fixed_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive;color:black;">
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="500px">
-              <img id= 'stconfluence-1' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-1.jpg')" src='stconfluence-1.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-3' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-3.jpg')" src='stconfluence-3.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-4' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-4.jpg')" src='stconfluence-4.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-6' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-6.jpg')" src='stconfluence-6.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-7' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-7.jpg')" src='stconfluence-7.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-8' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-8.jpg')" src='stconfluence-8.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-9' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-9.jpg')" src='stconfluence-9.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-10' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-10.jpg')" src='stconfluence-10.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-11' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-11.jpg')" src='stconfluence-11.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-12' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-12.jpg')" src='stconfluence-12.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-13' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-13.jpg')" src='stconfluence-13.jpg' width ="90px" height="auto" border="0"> 
-              <img id= 'stconfluence-15' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-15.jpg')" src='stconfluence-15.jpg' width ="90px" height="auto" border="0"> 
+              <img id= 'stconfluence-1' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-1.jpg')" src='stconfluence-1.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-3' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-3.jpg')" src='stconfluence-3.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-4' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-4.jpg')" src='stconfluence-4.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-6' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-6.jpg')" src='stconfluence-6.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-7' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-7.jpg')" src='stconfluence-7.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-8' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-8.jpg')" src='stconfluence-8.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-9' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-9.jpg')" src='stconfluence-9.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-10' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-10.jpg')" src='stconfluence-10.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-11' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-11.jpg')" src='stconfluence-11.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-12' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-12.jpg')" src='stconfluence-12.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-13' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-13.jpg')" src='stconfluence-13.jpg' width ="90px" height="auto">
+              <img id= 'stconfluence-15' style="margin-bottom: 10px;" onclick="Show('Blowup,stconfluence-15.jpg')" src='stconfluence-15.jpg' width ="90px" height="auto">
  </td>
  <tr>
 </td>
@@ -1205,18 +1233,15 @@
 </tr>
            <td width="auto" style="text-align:right;padding: 20px;vertical-align:top"> </td>
             <td style="text-align:left;padding: 0px;" width="500px">
-              <img id= 'confluence-1-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1-M2.jpg')" src='confluence-1-M2.jpg' width ="180px" height="auto" border="0"> 
-              <img id= 'confluence-3-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3-M2.jpg')" src='confluence-3-M2.jpg' width ="180px" height="auto" border="0"> 
-              <img id= 'confluence-4-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4-M2.jpg')" src='confluence-4-M2.jpg' width ="180px" height="auto" border="0"> 
-              <img id= 'confluence-6-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-6-M2.jpg')" src='confluence-6-M2.jpg' width ="180px" height="auto" border="0"> 
-              <img id= 'confluence-11-M5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11-M5.jpg')" src='confluence-11-M5.jpg' width ="450px" height="auto" border="0"> 
+              <img id= 'confluence-1-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-1-M2.jpg')" src='confluence-1-M2.jpg' width ="180px" height="auto">
+              <img id= 'confluence-3-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-3-M2.jpg')" src='confluence-3-M2.jpg' width ="180px" height="auto">
+              <img id= 'confluence-4-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-4-M2.jpg')" src='confluence-4-M2.jpg' width ="180px" height="auto">
+              <img id= 'confluence-6-M2' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-6-M2.jpg')" src='confluence-6-M2.jpg' width ="180px" height="auto">
+              <img id= 'confluence-11-M5' style="margin-bottom: 10px;" onclick="Show('Blowup,confluence-11-M5.jpg')" src='confluence-11-M5.jpg' width ="450px" height="auto">
 </td>
 <td width="auto" style="text-align:left;padding: 0px;" ></td>
 </tr>
 </table>
-<div id="absolute-div" class="absolute-div-class">
-<img src="series_message_click_in_header.jpg" height="30"  width="auto">
-</div>
 </div>
 </body>
 </html>
