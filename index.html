@@ -12,6 +12,13 @@
          Body {
              background-color:#FFFFFF;
          }
+         .col-fixed {
+             border-collapse: collapse;
+             border: 1px solid #ddd;
+             padding: 0px;
+             text-align: left;
+             width: 30%; /* Adjust the width as needed */
+         }
          .absolute-position-close_box {
          position: absolute;
          font-weight:bold;
@@ -42,18 +49,25 @@
          .absolute_caption {
          position: absolute;
          }
+         .fixed_table {
+             width: 100%;
+             border-collapse: collapse;
+         }
+         .column {
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             width: 100%;
+         }
          .img_message {
-         /* Set the full width of its parent container */
           width: 50%;
-         /* Maintains aspect ratio */
           height: auto;
          }
          .vertical-images{
-         display: block;
-         gap: 30px; /* Adjust the value as needed */
-         display:block;
-         margin-right: auto;
-         margin-left: auto;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
          }
          .middle_fixed_table {
              table-layout: fixed;
@@ -79,7 +93,6 @@
             text-align: center;
             margin-left: auto;
             margin-right: auto;
-            border: none;
             border-collapse: collapse;
         }
         .Center_Table{
@@ -302,139 +315,79 @@
  
         window.addEventListener("resize", resized);
         var current_div = "Home";
+        Size_Function();
         function Size_Function(){
-        Size_Function_Implementation("Contact_Page", "Size_Contact", 0, 0);
-        Size_Function_Implementation("chop", "Home_Chop", 40, 230);
-        Size_Function_Implementation("imageHome", "Home", 28, 0);
-        Size_Function_Implementation("imageWorks", "Home", 28, 0);
-        Size_Function_Implementation("imageExhibitions", "Home", 28, 0);
-        Size_Function_Implementation("imageAbout", "Home", 28, 0);
-        Size_Function_Implementation("imageContact", "Home", 28, 0);
-        Size_Function_Implementation("home_jpg", "Home_Open", 1500, 1000);
-        Size_Function_Implementation("Contact_Table", "Size_Contact", 0, 0);
+           Size_Chop();
+           Size_Heading_Two();
         }
-        function Size_Function_Implementation(id_item, screen_type, height_of_item, width_of_item){
-             var yourImg = document.getElementById(id_item);
-             var factor = 1;
-             let screenWidth = screen.width;
-             let screenHeight = screen.height;
- 
-             const optimal_height = 937;
-             const optimal_width =  1883;
-             if ("Artist_statement"==screen_type){
-                 if(screenWidth < 917){
-                     var width = screenWidth * .8;
-                     yourImg.style.width = width + "px";
-                 }
+        function Size_Chop(){
+             let factor = 1.0;
+             let target_height = 36;
+             let img_height = 81;
+             let img_width = 465;
+             let target_width = img_width/img_height*target_height;  // to be updated
+             const availableWidth = window.screen.availWidth;
+             const availableHeight = window.screen.availHeight;
+             if (availableWidth < 850){
+                 factor = .7;
+                 console.log(factor);
              }
-             else if ("Size_Contact" == screen_type){
-                 if(screenWidth < 917){
-                     yourImg.style.height = '600px';
-                     const msg = document.getElementById('Contact_Message_ID');
-                     msg.style.width = '150px'; // Change width
-                     msg.style.height= '100px'; // Change height
-                 }
+             else{
+                 factor = 1;
              }
-             else if (screen_type == "Home_Chop"){
-                 if (screenWidth < 917){
-                     factor = .27;
-                 }
-                 else if(screenWidth < 1500){
-                     factor = .33;
-                 }
-                 else if(screenWidth < 1800){
-                     factor = .4;
-                 }
-                 else{
-                     factor = .5;
-                 }
-                 var natWidth= yourImg.naturalWidth;
-                 var natHeight= yourImg.naturalHeight;
-                 var new_width = factor*natWidth;
-                 yourImg.style.width = new_width + "px";
-                 new_height = factor*natHeight;
-                 yourImg.style.height = new_height + "px";
+             target_height = target_height * factor  + "px";
+             target_width = target_width * factor + "px";
+             let img = document.getElementById("chop");
+             if (img && img.style){
+                 img.style.height = target_height;
+                 img.style.width = target_width;
              }
-             else if (screen_type == "Home"){
-              /*   if (screenWidth < 917){
-                     factor = .3;
-                 }
-                 else if (screenWidth < 1500){
-                     factor = .4;
-                 }
-                 else if (screenWidth < 1800){
-                     factor = .5;
-                 }
-                 else {
-                     factor = .54;
-                 }
-                 if(yourImg && yourImg.style) {
-                     let natWidth = yourImg.naturalWidth;
-                     let natHeight = yourImg.naturalWidth;
-                     if(width_of_item > 0){
-                        new_width = factor*natWidth;
-                         yourImg.style.width = new_width + "px";
-                     }
-                     if(height_of_item > 0){
-                         new_height = factor*natHeight;
-                         yourImg.style.height = new_height + "px";
-                     }
-                 }
-            */ }
-             else if(screen_type == "Home_Open"){
-                 let nat_height = yourImg.naturalHeight;
-                 let nat_width = yourImg.naturalWidth;
-                 if(screenWidth < 917){
-                     var factor = .2;
-                 }
-                 else{
-                     factor = .7;
-                 }
-                 new_width = factor*nat_width;
-                 yourImg.style.width = new_width + "px";
-                 new_height = factor*nat_height;
-                 yourImg.style.height = new_height + "px";
-                 
+        }
+        function Size_Heading_Two(){
+        // 'imageHome, imageWorks, imageExhibitions, imageAbout, imageContact
+             let factor = 1.0;
+             let growth_factor = 1.0;
+             let target_height = 28;
+             let new_target_height = 28;
+             const availableWidth = window.screen.availWidth;
+             const availableHeight = window.screen.availHeight;
+             if( availableWidth < 600 ){
+                 factor = .6;
+                 growth_factor = 4.0;
              }
-             else if ("Size_Contact"){
-                 yourImg.style.width = screenWidth;
-             }
-         }
-         function Height_Size_Factor(screen_type, screen_inner_height){
-             var screen_factor_out = .5;
-             if ("Menu"==screen_type){
-                 if (screen_inner_width < 449){
-                    screen_factor_out = .76;
-                 }
-             }
-             else if(screen_inner_width > screen_inner_width < 519){
-                 screen_factor_out= .79;
-             }
-             else if(screen_inner_width < 588){
-                 screen_factor_out= .82;
-             }
-             else if(screen_inner_width < 658){
-                 screen_factor_out= .85;
-             }
-             else if(screen_inner_width < 728){
-                 screen_factor_out= .88;
-             }
-             else if(screen_inner_width < 798){
-                 screen_factor_out= 1.9;
-             }
-             else if(screen_inner_width < 1574){
-                 screen_factor_out= 1.9;
-             }
-             else if(screen_inner_width < 867){
-                 screen_factor_out= .97;
-             }
-             else if(screen_inner_width >= 867){
-                 screen_factor_out= 1.0;
-             }
-             return screen_factor_out;
-             
-       } 
-    
+             else if(availableWidth < 1800 ){
+                 factor = .7;
+                 growth_factor = 2.0;
+            }else{
+                 factor = 1.0;
+                 growth_factor = 1.0;
+            }
+            let img1 = document.getElementById("imageHome");
+            if (img1 && img1.style){
+                 new_target_height = factor*target_height + "px";
+                 img1.style.height = new_target_height;
+            }
+            let img2 = document.getElementById("imageWorks");
+            if (img2 && img2.style){
+                 new_target_height= factor*28 + "px";
+                 img2.style.height = new_target_height;
+            }
+            let img3 = document.getElementById("imageExhibitions");
+            if (img3 && img3.style){
+                 new_target_height = factor*28 + "px";
+                 img3.style.height = new_target_height;
+            }
+            let img4 = document.getElementById("imageAbout");
+            if (img4 && img4.style){
+                 new_target_height = factor*28 + "px";
+                 img4.style.height = new_target_height;
+            }
+            let img5 = document.getElementById("imageContact");
+            if (img5 && img5.style){
+                 new_target_height = factor*28 + "px";
+                 img5.style.height = new_target_height;
+            }
+        }
         const file_names=[
         "inresascend-2.jpg",
         "inresascend-3.jpg",
@@ -565,26 +518,8 @@
         "confluence #6, 12 x 26, 2024",
         "confluence #3, 12 x 26, 2024",
         ];
-        function center_home(){
-            var wth = window.innerWidth - 30;
-            var ht = window.innerHeight - 200;
-            var image = document.getElementById("home_jpg");
-            var height = image.naturalHeight;
-            var width = image.naturalWidth;
-            var ratio_natural = height/width;
-            var ratio_window = ht/wth;
-            if (ratio_natural > ratio_window){
-                image.height = ht;
-                image.width = ht*width/height;
-            }
-            else{
-                image.width = wth;
-                image.height = wth*height/width;
-            }
-        }
         function resized(){
             if ("Home" == current_div){
-                center_home();
             }
             else if("Blowup" == current_div){
                 Position_Caption("bp");
@@ -826,7 +761,6 @@
             Size_Function();
             hideDiv("Works");
             current_div="Home";
-            center_home();
             hide_most_divisions();
             const oMy_dropdown = document.getElementById("works_dropdown_div");
             oMy_dropdown.style.display="none";
@@ -913,7 +847,7 @@
         }
     </script>
 </head>
-    <body onload="OnLoadCode()">
+   <body onload="OnLoadCode()">
    <table id="menu_bar" class="Center_Table" style="font-family: 'Papyrus', serif; width:100%; text-align: center; vertical-align: bottom; margin-bottom: -5px;">
      <tr class="color_of_heading_background" class="center-text">
          <td id="chop_top"><img id="chop" style="height:40px;width:230px;" src="Sandra_Text_Image.jpg"></td>
@@ -937,7 +871,7 @@
       </tr>
    </table>
 <div id="works_dropdown_div" class="dropdown-content"  class="drop_down_margins" style="display:none" > 
-    <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; border:0; background-color:rgb(0,0,0); border-collapse: collapse;">
+    <table id="dropdown_table" style="font-family: 'Papyrus', 'Brush Script MT', cursive; background-color:rgb(0,0,0); border-collapse: collapse;">
         <tr>
            <td width="230 px" height = "30px" class="bg" style="color:rgb(255,255,255);font-family: 'Papyrus', 'Brush Script MT', cursive;" onclick="Show('S01')"><img src='series_dropdown_internal_resonance.jpg' height="24"></td>
         </tr>
@@ -952,53 +886,37 @@
         </tr>
     </table>
 </div>
-<div id="Home" style="background-color:#FFFFFF; display:block; height: 100vh">
-    <img id="home_jpg" src="open18.jpg"  class="center_horizontal" style="padding:0px 0px 0px 0px">
+<div id="Home" style="background-color:#FFFFFF; class="vertical-images"  width="100%"> 
+    <img id="home_jpg" src="open18.jpg" width="60%" class="center_horizontal" style="padding:0px 0px 0px 0px">
 </div>
-<div id="Contact_Page" class="table-container" style="background-color: #CBD6D8; font-family: 'Papyrus', serif; width:100%; text-align: center;  font-size:28px; height: 100vh; display:none;">
-       <table style="width:auto">
-           <tr>
-               <td width="0">&nbsp;</td>
-               <td id="cp_01" width="5%">&nbsp;</td>
-               <td id="cp_02" width="30%" >&nbsp;</td>
-               <td id="cp_03" width="30%" >&nbsp;</td>
-               <td id="cp_04" width="30%" >&nbsp;</td>
-               <td id="cp_05" width="5%">&nbsp;</td>
-               <td width="0">&nbsp;</td>
-           <tr>
-               <td width="0">&nbsp;</td>
-               <td width="5%">&nbsp;</td>
-               <td width="30%">
-                   <img id="Contact_Message_ID" class="top-align" src="Add_Message_To_Contact_Page.jpg" height="150"  width="auto" style="float: right;">
+<div id="Contact_Page" class="table-container" style="background-color: #CBD6D8; font-family: 'Papyrus', serif; width:auto; text-align: center;  font-size:28px; height: 150vh; display:none;">
+       <table class="fixed_table">
+               <td class="fixed_td" width="5%">&nbsp;</td>
+               <td class="fixed_td" width="40%">
+                   <img id="Contact_Message_ID" class="top-align" src="Add_Message_To_Contact_Page.jpg" height="120px" style="float: right;">
                <p>&nbsp;</p>
                <p>&nbsp;</p>
                <p>&nbsp;</p>
-               <p style="height: 73px">&nbsp;</p>
+               <p style="height: 30px">&nbsp;</p>
                </td>
-               <td width="30%">
-                   <div class="contact-form">
+               <td class="fixed_td">
+                   <div class="contact-form" height="50%">
                     <form action="contact.php" method="post">
-                      <img height=24pt src="Contact_name.jpg" style="float: left;">
+                      <img src="Contact_Name.jpg" style="float: left;">
                       <input type="text" id="name" name="name" required>
-                      <img  height=24pt src="Contact_Email.jpg" style="float: left;">
+                      <img src="Contact_Email.jpg" style="float: left;">
                       <input type="email" id="email" name="email" required>
-                      <img height=28pt src="Contact_Message.jpg" style="float: left;">
-                      <textarea id="message" name="message" style="height:200px" required></textarea>
+                      <img src="Contact_Message.jpg" style="float: left;">
+                      <textarea id="rows" rows="5" cols="25" name="message" required></textarea>
                       <button type="submit">Submit</button>
                      </form>
                    </div>
                </td>
-               <td width="30%" >&nbsp;</td>
+               <td class="fixed_td" width="20%">
+               </td>
                <td width="5%">&nbsp;</td>
-               <td width="0">&nbsp;</td>
+           </tr>
            <tr>
-               <td width="0">&nbsp;</td>
-               <td width="5%">&nbsp;</td>
-               <td width="30%">&nbsp;</td>
-               <td width="30%">&nbsp;</td>
-               <td width="30%">&nbsp;</td>
-               <td width="5%">&nbsp;</td>
-               <td width="0">&nbsp;</td>
            </tr>
        </table>
        </div>
